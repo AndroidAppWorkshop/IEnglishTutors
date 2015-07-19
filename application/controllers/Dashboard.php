@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class System extends CI_Controller {
+class Dashboard extends CI_Controller {
 
 	public function Index()
 	{
 		// 返回讀取那個頁面的整個 HTML
 		// $string = $this->load->view('System/index', '', TRUE);
 		// echo $string;
-		$this->load->render('System/index');
+		$this->load->Render('Dashboard/Index');
 	}
 }
