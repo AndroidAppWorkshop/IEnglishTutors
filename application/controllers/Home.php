@@ -5,6 +5,10 @@ class Home extends CI_Controller {
 
 	public function Index()
 	{
-		$this->load->Render('Home/Index');
+		$this->Lobby();
+	}
+
+	public function Lobby(){
+		$this->load->Render('Home/Lobby');
 	}
 }

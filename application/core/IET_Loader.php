@@ -1,8 +1,8 @@
 <?php
 class IET_Loader extends CI_Loader {
 
-	protected $uriController;
-	protected $uriFunction;
+	protected $currentController;
+	protected $currentFunction;
 
 	public function __construct()
     {
@@ -10,17 +10,17 @@ class IET_Loader extends CI_Loader {
     }
 
     public function Render($view, $vars = array(), $return = FALSE){
-        $this->GetURIPath();
-    	$headerModel['Title'] = $this->uriController.' - '.$this->uriFunction;
+        $this->GetCurrentPath();
+    	$headerModel['Title'] = $this->currentController.' - '.$this->currentFunction;
     	
     	$this->view('Shared/Header', $headerModel);
     	$this->view($view, $vars, $return);
     	$this->view('Shared/Footer');
     }
 
-    protected function GetURIPath(){
+    protected function GetCurrentPath(){
         $CI =& get_instance();
-        $this->uriController = $CI->uri->segment(1, $CI->router->default_controller);
-        $this->uriFunction = $CI->uri->segment(2, 'Index');
+        $this->currentController = $CI->uri->segment(1, $CI->router->default_controller);
+        $this->currentFunction = $this->currentController === $CI->router->default_controller ? 'Lobby' : $CI->uri->segment(2, 'Index');
     }
 }
