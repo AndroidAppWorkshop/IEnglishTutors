@@ -8,6 +8,6 @@ class Account extends CI_Controller {
 		// 返回讀取那個頁面的整個 HTML
 		// $string = $this->load->view('System/index', '', TRUE);
 		// echo $string;
-		$this->load->Render('Account/Index');
+		$this->load->Render();
 	}
 }

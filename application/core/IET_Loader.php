@@ -9,12 +9,12 @@ class IET_Loader extends CI_Loader {
         parent::__construct();
     }
 
-    public function Render($view, $vars = array(), $return = FALSE){
+    public function Render($view = '', $vars = array(), $return = FALSE){
         $this->GetCurrentPath();
-    	$headerModel['Title'] = $this->currentController.' - '.$this->currentFunction;
-    	
-    	$this->view('Shared/Header', $headerModel);
-    	$this->view($view, $vars, $return);
+        $viewPath = $this->GetViewPath($view);
+
+    	$this->view('Shared/Header');
+    	$this->view($viewPath, $vars, $return);
     	$this->view('Shared/Footer');
     }
 
@@ -22,5 +22,13 @@ class IET_Loader extends CI_Loader {
         $CI =& get_instance();
         $this->currentController = $CI->uri->segment(1, $CI->router->default_controller);
         $this->currentFunction = $this->currentController === $CI->router->default_controller ? 'Lobby' : $CI->uri->segment(2, 'Index');
+    }
+
+    protected function GetViewPath($view){
+        if(strcmp($view, '') == 0){
+            return $this->currentController.'/'.$this->currentFunction;
+        }
+
+        return $view;
     }
 }
