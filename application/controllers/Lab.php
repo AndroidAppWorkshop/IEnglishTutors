@@ -3,8 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Lab extends CI_Controller {
 
-	public function Index()
-	{
+	public function Index() {
 		$data_post_name = $this->input->post('YourName', TRUE);
 		$data_post_mail = $this->input->post('YourMail', TRUE);
 		$data_post_subject = $this->input->post('YourSubject', TRUE);		
@@ -12,7 +11,7 @@ class Lab extends CI_Controller {
 		$this->load->Render();
 	}
 
-	public function clickSend(){
+	public function clickSend() {
 
 		$config = Array(
 			'protocol' => 'smtp',
@@ -38,7 +37,7 @@ class Lab extends CI_Controller {
 		}
 	}
 
-	public function LoadView(){
+	public function LoadView() {
 		// 第三個 可選的 參數，它返回讀取那個頁面的整個 HTML
 		$string = $this->load->view('Home/Lobby', '', TRUE);
 		echo $string;

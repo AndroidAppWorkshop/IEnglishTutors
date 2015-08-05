@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class System extends CI_Controller {
 	
-	public function JsonOutput(){
+	public function JsonOutput() {
 		$response = array('status' => 'OK');
 
 		$this->output
@@ -14,7 +14,7 @@ class System extends CI_Controller {
 		exit;
 	}
 
-	public function Language(){
+	public function Language() {
 		$this->load->database();
 		$query = $this->db->get('language');
 
@@ -22,7 +22,7 @@ class System extends CI_Controller {
 		{
 		        echo $row->Id;
 		}
-		
+
 		exit;
 	}
 }

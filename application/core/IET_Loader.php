@@ -4,12 +4,11 @@ class IET_Loader extends CI_Loader {
 	protected $currentController;
 	protected $currentFunction;
 
-	public function __construct()
-    {
+	public function __construct() {
         parent::__construct();
     }
 
-    public function Render($view = '', $vars = array(), $return = FALSE){
+    public function Render($view = '', $vars = array(), $return = FALSE) {
         $this->SetCurrentPath();
         $viewPath = $this->GetViewPath($view);
 
@@ -18,13 +17,13 @@ class IET_Loader extends CI_Loader {
     	$this->view('Shared/Footer');
     }
 
-    protected function SetCurrentPath(){
+    protected function SetCurrentPath() {
         $CI =& get_instance();
         $this->currentController = $CI->uri->segment(1, $CI->router->default_controller);
         $this->currentFunction = $this->currentController === $CI->router->default_controller ? 'Lobby' : $CI->uri->segment(2, 'Index');
     }
 
-    protected function GetViewPath($view){
+    protected function GetViewPath($view) {
         if(strcmp($view, '') == 0){
             return $this->currentController.'/'.$this->currentFunction;
         }
