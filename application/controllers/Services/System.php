@@ -13,4 +13,16 @@ class System extends CI_Controller {
 		        ->_display();
 		exit;
 	}
+
+	public function Language(){
+		$this->load->database();
+		$query = $this->db->get('language');
+
+		foreach ($query->result() as $row)
+		{
+		        echo $row->Id;
+		}
+		
+		exit;
+	}
 }

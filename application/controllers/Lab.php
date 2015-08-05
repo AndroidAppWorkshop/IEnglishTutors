@@ -37,4 +37,10 @@ class Lab extends CI_Controller {
 			show_error($this->email->print_debugger());
 		}
 	}
+
+	public function LoadView(){
+		// 第三個 可選的 參數，它返回讀取那個頁面的整個 HTML
+		$string = $this->load->view('Home/Lobby', '', TRUE);
+		echo $string;
+	}
 }
