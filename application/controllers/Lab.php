@@ -12,22 +12,17 @@ class Lab extends CI_Controller {
 		$this->load->Render();
 	}
 
-	public function clickSend()
+	public function ClickSend()
 	{
-
-		$config = Array(
-			'protocol' => 'smtp',
-			'smtp_host' => 'ssl://smtp.gmail.com',
-			'smtp_port' => '465',
-			'smtp_user' => 'l7960261@gmail.com',//當作客服的信箱
-			'smtp_pass' => ''
-		);
+		$this->load->helper('file');
+		$jsonString = read_file('./assets/json/email_account.json');
+		$config = json_decode($jsonString,true);//true 是轉為陣列格式
 
 		$this->load->library('email' , $config );
 		$this->email->set_newline("\r\n");	
 
 		$this->email->from('lovero32000@gmail.com', 'Hua Lu');//寄件者姓名
-		$this->email->to('l7960261@gmail.com');			  //要寄給誰
+		$this->email->to('lovero32000@gmail.com');			  //要寄給誰
 		$this->email->subject('this is an email subject');    //信件標題
 		$this->email->message('this is the mail content');    //信件內容
 
