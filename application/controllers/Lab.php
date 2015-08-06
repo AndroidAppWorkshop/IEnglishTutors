@@ -36,9 +36,9 @@ class Lab extends CI_Controller {
 		}
 
 
-	 }
-
 	}
+
+	
 
 	public function LoadView() {
 		// 第三個 可選的 參數，它返回讀取那個頁面的整個 HTML
