@@ -30,7 +30,7 @@
 	
 	<div class="mainBody test1">
 		<div class="container ">
-			<form action="LabController/clickSend" method="post">
+			<form action="Lab/ClickSend" method="post">
 				<div class="row">
 					<div class="col-md-4"><input type="text" name="YourName" class="form-control" placeholder="Your Name"></div>
 					<div class="col-md-4"><input type="text" name="YourEmail" class="form-control" placeholder="Your Email"></div>
