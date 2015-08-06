@@ -8,7 +8,8 @@ class Home extends CI_Controller {
 		$this->Lobby();
 	}
 
-	public function Lobby(){
+	public function Lobby()
+	{
 		$this->load->Render();
 	}
 }
