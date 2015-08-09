@@ -15,12 +15,15 @@ class Lab extends CI_Controller {
 	public function ClickSend()
 	{
 		$this->load->helper('file');
-		$jsonString = read_file('./assets/json/email_account.json');
-		$config = json_decode($jsonString,true);//true 是轉為陣列格式
+		$this->load->library('encrypt');
+
+		$jsonString = read_file('./assets/app_data/email_account.json');//讀取檔案
+
+		$decrypted = $this->encrypt->decode($jsonString);//解碼編譯過的JSON檔
+
+		$config = json_decode($decrypted,true);//true 是轉為陣列格式
 
 		$this->load->library('email' , $config );
-		$this->email->set_newline("\r\n");	
-
 		$this->email->from('lovero32000@gmail.com', 'Hua Lu');//寄件者姓名
 		$this->email->to('lovero32000@gmail.com');			  //要寄給誰
 		$this->email->subject('this is an email subject');    //信件標題
@@ -34,6 +37,18 @@ class Lab extends CI_Controller {
 		{
 			show_error($this->email->print_debugger());
 		}
+	}
+
+	public function testSession()
+	{
+		$this->load->library('session');
+		print_r($this->session->all_userdata());
+
+		echo "<br>";
+
+		$this->load->library('user_agent');
+		print_r($this->agent->languages());
+
 	}
 
 	public function LoadView()
