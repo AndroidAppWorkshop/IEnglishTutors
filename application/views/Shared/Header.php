@@ -9,5 +9,6 @@
 	<script type="text/javascript">
 		<?=$ViewJson?>
 	</script>
+	<link href="/assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>

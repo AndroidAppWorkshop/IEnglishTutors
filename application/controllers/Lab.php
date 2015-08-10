@@ -44,7 +44,7 @@ class Lab extends CI_Controller {
 	{
 		$this->load->helper('file');
 		$this->load->library('encrypt');
-		$this->load->view('Lab/view_setGmail');
+		$this->load->Render();
 
 		$account = $this->input->post('GmailAccount');
 		$password = $this->input->post('GmailPassword');
