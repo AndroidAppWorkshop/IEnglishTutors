@@ -44,28 +44,26 @@ class Lab extends CI_Controller {
 		$this->load->view('Lab/view_setGmail');
 	}
 
-// 	public function testSession()
-// 	{
-// 		$this->load->library('session');
-// 		$this->load->helper('cookie');
+	// public function TestSession()
+	// {
+	// 	$this->load->library('session');
+	// 	$this->load->helper('cookie');
 
-// 		print_r($this->session->all_userdata());
-// 		echo "<br>";
+	// 	print_r($this->session->all_userdata());
+	// 	echo "<br>";
 
-// $cookie = array(
-//     'name'   => 'The Cookie Name',
-//     'value'  => 'The Value',
-//     'expire' => '86500',
-//     'domain' => '.some-domain.com',
-//     'path'   => '/',
-//     'prefix' => 'myprefix_',
-//     'secure' => TRUE
-// );
-// echo $this->input->cookie('name');
-// $this->input->set_cookie($cookie);
-		
-
-// 	}
+	// 	$cookie = array(
+	// 	    'name'   => 'case1',
+	// 	    'value'  => 'The Value',
+	// 	    'expire' => '86500',
+	// 	    'domain' => 'localhost',
+	// 	    'path'   => '/',
+	// 	    'prefix' => 'myprefix_',
+	// 	    'secure' => TRUE
+	// 	);
+	// 	echo $this->input->cookie('case1');
+	// 	$this->input->set_cookie($cookie);
+	// }
 
 	public function LoadView()
 	{
