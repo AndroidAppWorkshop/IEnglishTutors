@@ -17,18 +17,18 @@ class Lab extends CI_Controller {
 		$this->load->helper('file');
 		$this->load->library('encrypt');
 
-		$jsonString = read_file('./assets/app_data/email_account.json');//讀取檔案
+		$jsonString = read_file('./assets/app_data/gmail.smtp.json');	//讀取檔案
 
-		$decrypted = $this->encrypt->decode($jsonString);//解碼編譯過的JSON檔
+		$decrypted = $this->encrypt->decode($jsonString);	//解碼編譯過的JSON檔
 
-		$config = json_decode($decrypted,true);//true 是轉為陣列格式
+		$config = json_decode($decrypted, TRUE);	// TRUE 是轉為陣列格式
 
-		print_r($config);		
-		$this->load->library('email' , $config );
-		$this->email->from('lovero32000@gmail.com', 'Hua Lu');//寄件者姓名
-		$this->email->to('lovero32000@gmail.com');			  //要寄給誰
-		$this->email->subject('this is an email subject');    //信件標題
-		$this->email->message('this is the mail content');    //信件內容
+		$this->load->library('email', $config);
+		$this->email->set_newline("\r\n");	// 目前要寄送成功必須在設定完 Email 偏好後下這段 Code 才能正確寄出
+		$this->email->from('lovero32000@gmail.com', 'Hua Lu');
+		$this->email->to('lovero32000@gmail.com');
+		$this->email->subject('this is an email subject');
+		$this->email->message('this is the mail content');
 
 		if ($this->email->send())
 		{
@@ -44,9 +44,7 @@ class Lab extends CI_Controller {
 	{
 		$this->load->helper('file');
 		$this->load->library('encrypt');
-
 		$this->load->view('Lab/view_setGmail');
-
 
 		$account = $this->input->post('GmailAccount');
 		$password = $this->input->post('GmailPassword');
@@ -62,10 +60,7 @@ class Lab extends CI_Controller {
 		$jsonString = json_encode($config);
 		$encrypted = $this->encrypt->encode($jsonString);
 
-		write_file('./assets/app_data/email_account.json',$encrypted);
-
-
-
+		write_file('./assets/app_data/gmail.smtp.json', $encrypted);
 	}
 
 	// public function TestSession()
