@@ -39,6 +39,11 @@ class Lab extends CI_Controller {
 		}
 	}
 
+	public function setGmail()
+	{
+		$this->load->view('Lab/view_setGmail');
+	}
+
 // 	public function testSession()
 // 	{
 // 		$this->load->library('session');
