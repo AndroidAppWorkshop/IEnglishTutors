@@ -7,23 +7,28 @@
     <title>set Gmail</title>
 
     <!-- Bootstrap and CSS-->
-    <link href="/asset/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   </head>
 
   <body>
-	<header>
-		<h2>set the Gmail</h2>
-	</header>
-	
-	<div class="container">
-		<form>
-			
+  	<div class="container">
+		<header>
+			<h2>GMAIL SETTING</h2>
+		</header>
+	</div>
+	<div class="container ">
+		<form action="Lab/SetGmail" method="post">
+			<div class="row">
+				<div class="col-md-4"><input type="text" name="Your Gmail account" class="form-control" placeholder="Your Name"></div>
+				<div class="col-md-4"><input type="text" name="Your Gmail password" class="form-control" placeholder="Your Email"></div>
+				<div class="col-md-4"><button type="submit" name="ok" class="btn btn-danger">SEND MESSAGE</button></div>
+			</div>
 		</form>
 	</div>
 
     <!-- jQuery (Bootstrap 所有外掛均需要使用) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- 依需要參考已編譯外掛版本（如下），或各自獨立的外掛版本 -->
-    <script src="/asset/js/bootstrap.min.js"></script>
+    <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>

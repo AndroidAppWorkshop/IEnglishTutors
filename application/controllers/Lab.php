@@ -39,7 +39,7 @@ class Lab extends CI_Controller {
 		}
 	}
 
-	public function setGmail()
+	public function SetGmail()
 	{
 		$this->load->view('Lab/view_setGmail');
 	}
