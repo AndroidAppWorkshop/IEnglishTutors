@@ -76,7 +76,8 @@ class Lab extends CI_Controller {
 
 	public function LoadModel()
 	{
-		$this->load->model('Shared/Layout');
-		echo $this->Layout->ViewJson();
+		// 已設定 autoload.php 全域自動加載 'Shared/Layout'
+		// $this->load->model('Shared/Layout');
+		echo $this->Layout->ViewJson('Home:Lobby');
 	}
 }

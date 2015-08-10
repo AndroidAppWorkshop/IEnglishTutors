@@ -1,7 +1,7 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 require_once '/application/models/dbo/Language.php';
 require_once '/application/models/dbo/Language_Usage.php';
-defined('BASEPATH') OR exit('No direct script access allowed');
 
 class System extends CI_Controller {
 	

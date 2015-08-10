@@ -14,7 +14,7 @@ class IET_Loader extends CI_Loader {
         $this->SetCurrentPath();
         $viewPath = $this->GetViewPath($view);
 
-    	$this->view('Shared/Header');
+    	$this->view('Shared/Header', $this->GetHeaderData());
     	$this->view($viewPath, $vars, $return);
     	$this->view('Shared/Footer');
     }
@@ -34,5 +34,19 @@ class IET_Loader extends CI_Loader {
         }
 
         return $view;
+    }
+
+    protected function GetHeaderData()
+    {
+        $data['ViewJson'] = $this->GetViewJson();
+        return $data;
+    }
+
+    protected function GetViewJson()
+    {
+        $path = $this->currentController.':'.$this->currentFunction;
+        
+        $CI =& get_instance();
+        return $CI->Layout->ViewJson($path);
     }
 }

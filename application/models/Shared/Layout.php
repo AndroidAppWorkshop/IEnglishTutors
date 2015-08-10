@@ -6,16 +6,19 @@
                 parent::__construct();
         }
 
-        public function ViewJson()
+        public function ViewJson($currentPath = '')
         {
-        	$this->db->where('L_Id', 2);
-			$this->db->where('Name', 'Home:Lobby');
-			$query = $this->db->get('language_usage');
+        	$this->db->select('VarName, Content');
+			$this->db->from('language_usage');
+			$this->db->join('language', 'language.Id = language_usage.L_Id');
+        	$this->db->where('language.Name', 'zh-TW');
+			$this->db->where('language_usage.Name', $currentPath);
+			$query = $this->db->get();
 
 			if ($query->num_rows() > 0)
 			{
 		        $row = $query->row();
-		        return $row->VarName. '='. $row->Content;
+		        return $row->VarName.'='.$row->Content;
 			}
 
 			return null;
