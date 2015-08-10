@@ -23,6 +23,7 @@ class Lab extends CI_Controller {
 
 		$config = json_decode($decrypted,true);//true 是轉為陣列格式
 
+		print_r($config);		
 		$this->load->library('email' , $config );
 		$this->email->from('lovero32000@gmail.com', 'Hua Lu');//寄件者姓名
 		$this->email->to('lovero32000@gmail.com');			  //要寄給誰
@@ -41,7 +42,30 @@ class Lab extends CI_Controller {
 
 	public function SetGmail()
 	{
+		$this->load->helper('file');
+		$this->load->library('encrypt');
+
 		$this->load->view('Lab/view_setGmail');
+
+
+		$account = $this->input->post('GmailAccount');
+		$password = $this->input->post('GmailPassword');
+
+		$config = array(
+			'protocol' => 'smtp' ,
+			'smtp_host'=> 'ssl://smtp.googlemail.com',
+			'smtp_port'=> '465',
+			'smtp_user'=> $account,
+			'smtp_pass'=> $password
+		);
+
+		$jsonString = json_encode($config);
+		$encrypted = $this->encrypt->encode($jsonString);
+
+		write_file('./assets/app_data/email_account.json',$encrypted);
+
+
+
 	}
 
 // 	public function testSession()
