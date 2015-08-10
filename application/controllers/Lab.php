@@ -39,17 +39,28 @@ class Lab extends CI_Controller {
 		}
 	}
 
-	public function testSession()
-	{
-		$this->load->library('session');
-		print_r($this->session->all_userdata());
+// 	public function testSession()
+// 	{
+// 		$this->load->library('session');
+// 		$this->load->helper('cookie');
 
-		echo "<br>";
+// 		print_r($this->session->all_userdata());
+// 		echo "<br>";
 
-		$this->load->library('user_agent');
-		print_r($this->agent->languages());
+// $cookie = array(
+//     'name'   => 'The Cookie Name',
+//     'value'  => 'The Value',
+//     'expire' => '86500',
+//     'domain' => '.some-domain.com',
+//     'path'   => '/',
+//     'prefix' => 'myprefix_',
+//     'secure' => TRUE
+// );
+// echo $this->input->cookie('name');
+// $this->input->set_cookie($cookie);
+		
 
-	}
+// 	}
 
 	public function LoadView()
 	{
