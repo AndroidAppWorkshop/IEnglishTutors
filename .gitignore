@@ -1,2 +1,4 @@
 /web.config
 /assets/app_data/gmail.smtp.json
+/application/config/development/config.php
+/application/config/development/database.php
