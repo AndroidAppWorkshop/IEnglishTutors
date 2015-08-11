@@ -63,27 +63,6 @@ class Lab extends CI_Controller {
 		write_file('./assets/app_data/gmail.smtp.json', $encrypted);
 	}
 
-	// public function TestSession()
-	// {
-	// 	$this->load->library('session');
-	// 	$this->load->helper('cookie');
-
-	// 	print_r($this->session->all_userdata());
-	// 	echo "<br>";
-
-	// 	$cookie = array(
-	// 	    'name'   => 'case1',
-	// 	    'value'  => 'The Value',
-	// 	    'expire' => '86500',
-	// 	    'domain' => 'localhost',
-	// 	    'path'   => '/',
-	// 	    'prefix' => 'myprefix_',
-	// 	    'secure' => TRUE
-	// 	);
-	// 	echo $this->input->cookie('case1');
-	// 	$this->input->set_cookie($cookie);
-	// }
-
 	public function LoadView()
 	{
 		// 第三個 可選的 參數，它返回讀取那個頁面的整個 HTML
@@ -96,5 +75,47 @@ class Lab extends CI_Controller {
 		// 已設定 autoload.php 全域自動加載 'Shared/Layout'
 		// $this->load->model('Shared/Layout');
 		echo $this->Layout->ViewJson('Home:Lobby');
+	}
+
+	public function SetSessionData()
+	{
+		$this->load->library('session');
+
+		$newdata = array(
+		        'username'  => 'johndoe',
+		        'email'     => 'johndoe@some-site.com',
+		        'logged_in' => TRUE
+		);
+
+		$this->session->set_userdata($newdata);
+	}
+
+	public function GetSessionData()
+	{
+		$this->load->library('session');
+		echo $this->session->userdata('username');
+		echo $this->session->userdata('email');
+		echo $this->session->userdata('logged_in');
+	}
+
+	public function UnsetSessionData()
+	{
+		$this->load->library('session');
+		$this->session->unset_userdata('username');
+
+		$array_items = array('email', 'logged_in');
+		$this->session->unset_userdata($array_items);
+	}
+
+	public function DestroySession()
+	{
+		$this->load->library('session');
+		$this->session->sess_destroy();
+	}
+
+	public function Languages()
+	{
+		$this->load->library('user_agent');
+		print_r($this->agent->languages());
 	}
 }
