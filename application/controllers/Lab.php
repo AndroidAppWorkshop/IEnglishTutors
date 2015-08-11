@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Lab extends CI_Controller {
 
-	public function SendEmailSetting()
+	public function SendEmail()
 	{
 		$this->load->Render();
 	}
@@ -31,14 +31,14 @@ class Lab extends CI_Controller {
 
 		if ($this->email->send())
 		{
-			redirect('./Lab/SendEmailSuccess');
+			redirect('Lab/SendEmailSuccess');
 		}
 		else
 		{
 			show_error($this->email->print_debugger());
 		}
 	}
-	
+
 	public function SendEmailSuccess()
 	{
 		$this->load->Render();
@@ -69,7 +69,7 @@ class Lab extends CI_Controller {
 		$encrypted = $this->encrypt->encode($jsonString);
 
 		write_file('./assets/app_data/gmail.smtp.json', $encrypted);
-		redirect('./Lab/SetGmailSuccess');
+		redirect('Lab/SetGmailSuccess');
 	}
 
 	public function SetGmailSuccess()

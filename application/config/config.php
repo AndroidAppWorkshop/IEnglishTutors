@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = 'http://lab.ienglishtutors.com/';
+$config['base_url'] = 'http://localhost:9101/index.php/';
 
 /*
 |--------------------------------------------------------------------------
