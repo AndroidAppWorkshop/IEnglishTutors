@@ -24,9 +24,9 @@ class Lab extends CI_Controller {
 		$config = json_decode($decrypted, TRUE);	// TRUE 是轉為陣列格式
 
 		$this->load->library('email', $config);
-		$this->email->set_newline("\r\n");	// 目前要寄送成功必須在設定完 Email 偏好後下這段 Code 才能正確寄出
 		$this->email->from('lovero32000@gmail.com', 'Hua Lu');
 		$this->email->to('lovero32000@gmail.com');
+		$this->email->cc('l7960261@gmail.com');
 		$this->email->subject('this is an email subject');
 		$this->email->message('this is the mail content');
 
