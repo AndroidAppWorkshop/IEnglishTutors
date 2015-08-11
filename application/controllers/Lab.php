@@ -3,14 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Lab extends CI_Controller {
 
-	public function SendEmail()
+	public function SendEmailSetting()
 	{
 		$this->load->Render();
 	}
 
 	public function ClickSend()
 	{
-		$this->load->helper('file');
+		$this->load->helper( array('file', 'url'));
 		$this->load->library('encrypt');
 
 		$jsonString = read_file('./assets/app_data/gmail.smtp.json');	//讀取檔案
@@ -21,7 +21,6 @@ class Lab extends CI_Controller {
 		$data_post_mail = $this->input->post('YourEmail', TRUE);
 		$data_post_subject = $this->input->post('YourSubject', TRUE);		
 		$data_post_message = $this->input->post('YourMessage', TRUE);
-		$test = $this->input->post('test', true);
 
 		$this->load->library('email', $config);
 		$this->email->from($data_post_mail, $data_post_name);
@@ -30,31 +29,29 @@ class Lab extends CI_Controller {
 		$this->email->subject($data_post_subject);
 		$this->email->message($data_post_message);
 
-		if (empty($data_post_name) or empty($data_post_mail) or empty($data_post_subject) or empty($data_post_message)) 
+		if ($this->email->send())
 		{
-			$this->load->view('/Lab/SetGmailFail.php');
+			redirect('./Lab/SendEmailSuccess');
 		}
 		else
 		{
-			if ($this->email->send())
-			{
-				$this->load->view('/Lab/SetGmailSuccess.php');
-			}
-			else
-			{
-				show_error($this->email->print_debugger());
-			}
+			show_error($this->email->print_debugger());
 		}
 	}
-
-	public function SetGmail()
+	
+	public function SendEmailSuccess()
 	{
 		$this->load->Render();
 	}
 
-	public function SetGmailIF()
+	public function SMTPSetting()
 	{
-		$this->load->helper('file');
+		$this->load->Render();
+	}
+
+	public function SetGmailSMTP()
+	{
+		$this->load->helper( array('file', 'url'));
 		$this->load->library('encrypt');
 
 		$account = $this->input->post('GmailAccount');
@@ -71,16 +68,13 @@ class Lab extends CI_Controller {
 		$jsonString = json_encode($config);
 		$encrypted = $this->encrypt->encode($jsonString);
 
-		if (empty($account) or empty($password)) 
-		{
-			$this->load->view('/Lab/SetGmailFail.php');
-		}
-		else
-		{	
-			write_file('./assets/app_data/gmail.smtp.json', $encrypted);
-			$this->load->view('/Lab/SetGmailSuccess.php');
-		}
+		write_file('./assets/app_data/gmail.smtp.json', $encrypted);
+		redirect('./Lab/SetGmailSuccess');
+	}
 
+	public function SetGmailSuccess()
+	{
+		$this->load->Render();
 	}
 
 	public function LoadView()
