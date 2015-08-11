@@ -4,7 +4,7 @@
 	</header>
 </div>
 <div class="container ">
-	<form action="/index.php/Lab/SetGmail" method="post">
+	<form action="/index.php/Lab/SetGmailIF" method="post">
 		<div class="row">
 			<div class="col-md-4"><input type="text" name="GmailAccount" class="form-control" placeholder="Your GMAIL Account"></div>
 			<div class="col-md-4"><input type="password" name="GmailPassword" class="form-control" placeholder="Your GMAIL Password"></div>

@@ -5,10 +5,12 @@ class Lab extends CI_Controller {
 
 	public function Index()
 	{
-		$data_post_name = $this->input->post('YourName', TRUE);
-		$data_post_mail = $this->input->post('YourMail', TRUE);
-		$data_post_subject = $this->input->post('YourSubject', TRUE);		
-		$data_post_message = $this->input->post('YourMessage', TRUE);
+
+		$this->load->Render();
+	}
+
+	public function SendEmail()
+	{
 		$this->load->Render();
 	}
 
@@ -18,33 +20,48 @@ class Lab extends CI_Controller {
 		$this->load->library('encrypt');
 
 		$jsonString = read_file('./assets/app_data/gmail.smtp.json');	//讀取檔案
-
 		$decrypted = $this->encrypt->decode($jsonString);	//解碼編譯過的JSON檔
-
 		$config = json_decode($decrypted, TRUE);	// TRUE 是轉為陣列格式
 
+		$data_post_name = $this->input->post('YourName', TRUE);
+		$data_post_mail = $this->input->post('YourEmail', TRUE);
+		$data_post_subject = $this->input->post('YourSubject', TRUE);		
+		$data_post_message = $this->input->post('YourMessage', TRUE);
+		$test = $this->input->post('test', true);
+
 		$this->load->library('email', $config);
-		$this->email->from('lovero32000@gmail.com', 'Hua Lu');
+		$this->email->from($data_post_mail, $data_post_name);
 		$this->email->to('lovero32000@gmail.com');
 		$this->email->cc('l7960261@gmail.com');
-		$this->email->subject('this is an email subject');
-		$this->email->message('this is the mail content');
+		$this->email->subject($data_post_subject);
+		$this->email->message($data_post_message);
 
-		if ($this->email->send())
+		if (empty($data_post_name) or empty($data_post_mail) or empty($data_post_subject) or empty($data_post_message)) 
 		{
-			echo 'your email was sent';
+			$this->load->view('/Lab/SetGmailFail.php');
 		}
 		else
 		{
-			show_error($this->email->print_debugger());
+			if ($this->email->send())
+			{
+				$this->load->view('/Lab/SetGmailSuccess.php');
+			}
+			else
+			{
+				show_error($this->email->print_debugger());
+			}
 		}
 	}
 
 	public function SetGmail()
 	{
+		$this->load->Render();
+	}
+
+	public function SetGmailIF()
+	{
 		$this->load->helper('file');
 		$this->load->library('encrypt');
-		$this->load->Render();
 
 		$account = $this->input->post('GmailAccount');
 		$password = $this->input->post('GmailPassword');
@@ -60,7 +77,16 @@ class Lab extends CI_Controller {
 		$jsonString = json_encode($config);
 		$encrypted = $this->encrypt->encode($jsonString);
 
-		write_file('./assets/app_data/gmail.smtp.json', $encrypted);
+		if (empty($account) or empty($password)) 
+		{
+			$this->load->view('/Lab/SetGmailFail.php');
+		}
+		else
+		{	
+			write_file('./assets/app_data/gmail.smtp.json', $encrypted);
+			$this->load->view('/Lab/SetGmailSuccess.php');
+		}
+
 	}
 
 	public function LoadView()
