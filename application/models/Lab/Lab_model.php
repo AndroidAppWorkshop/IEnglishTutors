@@ -10,4 +10,5 @@ class Lab_model extends CI_Model {
 
 }
 
-?>
+/* End of file Lab_model.php */
+/* Location: ./application/models/Lab/Lab_model.php */
