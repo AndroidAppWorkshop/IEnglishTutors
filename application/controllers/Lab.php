@@ -165,7 +165,7 @@ class Lab extends CI_Controller {
 	public function Upload_Form()
 	{	
 		$this->load->helper(array('form','url'));
-		$this->load->Render('',array('error' => ' ' ),FALSE);
+		$this->load->Render('',array('error' => ' ' ));
 	}
 
 	public function DoUpload()
@@ -174,9 +174,9 @@ class Lab extends CI_Controller {
 
 		$config['upload_path'] = './uploads/';
 		$config['allowed_types'] = 'gif|jpg|png';
-		$config['max_size']	= '100';
-		$config['max_width']  = '1024';
-		$config['max_height']  = '768';
+		$config['max_size']	= '2000';//php最大到2MB
+		$config['max_width']  = '0';// 0 = 不限制寬度
+		$config['max_height']  = '0';
 
 		$this->load->library('upload',$config);
 
