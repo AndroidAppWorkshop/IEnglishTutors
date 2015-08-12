@@ -24,4 +24,6 @@
 			return null;
         }
 	}
-?>
+
+/* End of file Layout.php */
+/* Location: ./application/models/Shared/Layout.php */

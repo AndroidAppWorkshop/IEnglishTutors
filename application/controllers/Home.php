@@ -13,3 +13,6 @@ class Home extends CI_Controller {
 		$this->load->Render();
 	}
 }
+
+/* End of file Home.php */
+/* Location: ./application/controllers/Home.php */

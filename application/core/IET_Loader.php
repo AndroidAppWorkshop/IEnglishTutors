@@ -30,7 +30,7 @@ class IET_Loader extends CI_Loader {
 
     protected function GetViewPath($view)
     {
-        if(strcmp($view, '') == 0)
+        if(strcmp($view, '') === 0)
         {
             return $this->currentController.'/'.$this->currentFunction;
         }
@@ -51,3 +51,6 @@ class IET_Loader extends CI_Loader {
         return $this->CI->Layout->ViewJson($path);
     }
 }
+
+/* End of file IET_Loader.php */
+/* Location: ./application/core/IET_Loader.php */

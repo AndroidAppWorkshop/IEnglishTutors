@@ -8,3 +8,6 @@ class Account extends CI_Controller {
 		$this->load->Render();
 	}
 }
+
+/* End of file Account.php */
+/* Location: ./application/controllers/Account.php */
