@@ -162,3 +162,6 @@ class Lab extends CI_Controller {
 		echo 'cookie is delete!';
 	}
 }
+
+/* End of file Lab.php */
+/* Location: ./application/controllers/Lab.php */

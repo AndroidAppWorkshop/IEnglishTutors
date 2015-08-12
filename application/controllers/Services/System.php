@@ -68,3 +68,6 @@ class System extends CI_Controller {
 		exit;
 	}
 }
+
+/* End of file System.php */
+/* Location: ./application/controllers/Services/System.php */

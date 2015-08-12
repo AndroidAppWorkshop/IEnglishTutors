@@ -8,4 +8,6 @@ class IET_Email extends CI_Email{
 		$this->set_newline("\r\n");
 	}
 }
-?>
+
+/* End of file IET_Email.php */
+/* Location: ./application/libraries/IET_Email.php */

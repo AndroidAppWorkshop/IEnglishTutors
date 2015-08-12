@@ -8,4 +8,6 @@
 		public $Content;
 		public $Date;
 	}
-?>
+
+/* End of file Language_Usage.php */
+/* Location: ./application/models/dbo/Language_Usage.php */
