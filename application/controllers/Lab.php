@@ -161,4 +161,38 @@ class Lab extends CI_Controller {
 		delete_cookie('performance');
 		echo 'cookie is delete!';
 	}
+
+	public function Upload_Form()
+	{	
+		$this->load->helper(array('form','url'));
+		$this->load->Render('',array('error' => ' ' ),FALSE);
+	}
+
+	public function DoUpload()
+	{
+		$this->load->helper(array('form','url'));
+
+		$config['upload_path'] = './uploads/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size']	= '100';
+		$config['max_width']  = '1024';
+		$config['max_height']  = '768';
+
+		$this->load->library('upload',$config);
+
+		if ( ! $this->upload->do_upload())
+		{
+			$error = array('error' => $this->upload->display_errors());
+
+			// $this->load->view('upload_form',$error);
+			echo '上傳失敗';
+		}
+		else
+		{
+			$data = array('upload_data' => $this->upload->data());
+
+			// $this->load->view('upload_success',$data);
+			echo '上傳成功';
+		}
+	}
 }
