@@ -132,4 +132,33 @@ class Lab extends CI_Controller {
 		$this->load->library('user_agent');
 		print_r($this->agent->languages());
 	}
+
+	public function SetCookie()
+	{
+		$this->load->helper('cookie');
+
+		$config = json_encode(array(
+			'Languages' => 'zh-TW'));
+
+		set_cookie('performance', $config, 60*60*24*5);
+	}
+
+	public function GetCookie()
+	{
+		$this->load->helper('cookie');
+		echo get_cookie('performance');
+
+		$config = json_decode(get_cookie('performance'));
+		echo $config->Languages;
+
+		$config1 = json_decode(get_cookie('performance'), TRUE);
+		echo $config1['Languages'];
+	}
+
+	public function DeleteCookie()
+	{
+		$this->load->helper('cookie');
+		delete_cookie('performance');
+		echo 'cookie is delete!';
+	}
 }

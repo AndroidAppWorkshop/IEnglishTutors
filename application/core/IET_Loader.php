@@ -1,12 +1,15 @@
 <?php
 class IET_Loader extends CI_Loader {
 
+    protected $CI;
 	protected $currentController;
 	protected $currentFunction;
 
 	public function __construct()
     {
         parent::__construct();
+        
+        $this->CI = get_instance();
     }
 
     public function Render($view = '', $vars = array(), $return = FALSE)
@@ -21,9 +24,8 @@ class IET_Loader extends CI_Loader {
 
     protected function SetCurrentPath()
     {
-        $CI =& get_instance();
-        $this->currentController = $CI->uri->segment(1, $CI->router->default_controller);
-        $this->currentFunction = $this->currentController === $CI->router->default_controller ? 'Lobby' : $CI->uri->segment(2, 'Index');
+        $this->currentController = $this->CI->uri->segment(1, $this->CI->router->default_controller);
+        $this->currentFunction = $this->currentController === $this->CI->router->default_controller ? 'Lobby' : $this->CI->uri->segment(2, 'Index');
     }
 
     protected function GetViewPath($view)
@@ -46,7 +48,6 @@ class IET_Loader extends CI_Loader {
     {
         $path = $this->currentController.':'.$this->currentFunction;
         
-        $CI =& get_instance();
-        return $CI->Layout->ViewJson($path);
+        return $this->CI->Layout->ViewJson($path);
     }
 }
