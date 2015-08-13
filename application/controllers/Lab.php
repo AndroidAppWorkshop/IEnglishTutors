@@ -195,4 +195,9 @@ class Lab extends CI_Controller {
 			echo '上傳成功';
 		}
 	}
+
+	public function BootstrapModal()
+	{
+		$this->load->Render();
+	}
 }
