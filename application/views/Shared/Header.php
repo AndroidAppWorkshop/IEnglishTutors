@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
 	<meta name="description" content="網頁簡短描述">
 	<meta name="keywords" content="網頁關鍵字">
-	<script type="text/javascript">
+	<script>
 		<?=$ViewJson?>
 	</script>
 	<link href="/assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
