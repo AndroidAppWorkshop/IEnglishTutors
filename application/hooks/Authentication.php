@@ -15,7 +15,6 @@ class Authentication {
     {
     	if(strcasecmp($this->CI->Router->GetCurrentController(), 'WebPortal') === 0
     		&& strcasecmp($this->CI->Router->GetCurrentFunction(), 'Login') !== 0
-    		&& strcasecmp($this->CI->Router->GetCurrentFunction(), 'Register') !== 0
     		&& !$this->CI->session->has_userdata('Username'))
     	{
     		redirect('WebPortal/Login');

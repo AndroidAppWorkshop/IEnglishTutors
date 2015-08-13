@@ -8,14 +8,9 @@ class WebPortal extends CI_Controller {
 		echo 'Index';
 	}
 
-	public function Register()
-	{
-		echo 'Register';
-	}
-
 	public function Login()
 	{
-		echo 'Login';
+		$this->load->Render();
 	}
 
 }
