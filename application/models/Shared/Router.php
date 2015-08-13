@@ -13,9 +13,19 @@ class Router extends CI_Model {
             $this->SetCurrentPath();
     }
 
+    public function GetCurrentController()
+    {
+        return $this->currentController;
+    }
+
+    public function GetCurrentFunction()
+    {
+        return $this->currentFunction;
+    }
+
     public function GetCurrentPath($view = '')
     {
-        if(strcmp($view, '') === 0)
+        if(strcasecmp($view, '') === 0)
         {
             return $this->currentController.'/'.$this->currentFunction;
         }
