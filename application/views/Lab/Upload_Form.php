@@ -24,16 +24,25 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="uploadByURL">
-      <form>
+      <form action="DoDownload" method="post" enctype="multipart/form-data">
         <div class="row">
           <div class="col-lg-12">
             <div class="input-group">
-              <input type="text" class="form-control">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button">以圖搜尋</button>
-                </span>
+              <input 
+                type="text" 
+                name="TargetURL" 
+                class="form-control" 
+                placeholder=""
+                required/>
+              <span class="input-group-btn">
+                <input 
+                  class="btn btn-default" 
+                  type="submit"
+                  value="下載"
+                />
+              </span>
             </div><!-- /input-group -->
-          </div><!-- /.col-lg-6 -->
+          </div><!-- /.col-lg-12 -->
         </div><!-- /.row -->
       </form>
     </div>
@@ -50,14 +59,13 @@
                     class="btn btn-default" 
                     type="submit"
                     value="上傳"
-                  >
+                  />
                 </span>
             </div><!-- /input-group -->
           </div><!-- /.col-lg-12 -->
         </div><!-- /.row -->
       </form>
     </div>
-
   </div>
 
 </div>
