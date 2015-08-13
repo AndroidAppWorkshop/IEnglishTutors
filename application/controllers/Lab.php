@@ -96,9 +96,9 @@ class Lab extends CI_Controller {
 		$this->load->library('session');
 
 		$newdata = array(
-		        'username'  => 'johndoe',
-		        'email'     => 'johndoe@some-site.com',
-		        'logged_in' => TRUE
+		        'Username'  => 'johndoe',
+		        'Email'     => 'johndoe@some-site.com',
+		        'Logged_in' => TRUE
 		);
 
 		$this->session->set_userdata($newdata);
@@ -107,17 +107,17 @@ class Lab extends CI_Controller {
 	public function GetSessionData()
 	{
 		$this->load->library('session');
-		echo $this->session->userdata('username');
-		echo $this->session->userdata('email');
-		echo $this->session->userdata('logged_in');
+		echo $this->session->userdata('Username');
+		echo $this->session->userdata('Email');
+		echo $this->session->userdata('Logged_in');
 	}
 
 	public function UnsetSessionData()
 	{
 		$this->load->library('session');
-		$this->session->unset_userdata('username');
+		$this->session->unset_userdata('Username');
 
-		$array_items = array('email', 'logged_in');
+		$array_items = array('Email', 'Logged_in');
 		$this->session->unset_userdata($array_items);
 	}
 
