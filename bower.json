@@ -1,0 +1,8 @@
+{
+  "name": "IEnglishTutors",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "3.3.5",
+    "jquery": "1.11.3"
+  }
+}
