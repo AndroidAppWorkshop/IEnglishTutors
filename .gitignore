@@ -1,4 +1,8 @@
 /web.config
+/assets/css/*
+/assets/fonts/*
+/assets/js/*
+/assets/lib/*
 /assets/app_data/gmail.smtp.json
 /application/config/development/config.php
 /application/config/development/database.php
