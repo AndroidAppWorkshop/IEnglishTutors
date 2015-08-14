@@ -10,7 +10,7 @@ class Lab extends CI_Controller {
 
 	public function ClickSend()
 	{
-		$this->load->helper( array('file', 'url'));
+		$this->load->helper(array('file', 'url'));
 		$this->load->library('encrypt');
 
 		$jsonString = read_file('./assets/app_data/gmail.smtp.json');	//讀取檔案
@@ -19,7 +19,7 @@ class Lab extends CI_Controller {
 
 		$data_post_name = $this->input->post('YourName', TRUE);
 		$data_post_mail = $this->input->post('YourEmail', TRUE);
-		$data_post_subject = $this->input->post('YourSubject', TRUE);		
+		$data_post_subject = $this->input->post('YourSubject', TRUE);
 		$data_post_message = $this->input->post('YourMessage', TRUE);
 
 		$this->load->library('email', $config);
@@ -51,7 +51,7 @@ class Lab extends CI_Controller {
 
 	public function SetGmailSMTP()
 	{
-		$this->load->helper( array('file', 'url'));
+		$this->load->helper(array('file', 'url'));
 		$this->load->library('encrypt');
 
 		$account = $this->input->post('GmailAccount');
@@ -165,7 +165,7 @@ class Lab extends CI_Controller {
 	public function Upload_Form()
 	{	
 		$this->load->helper(array('form','url'));
-		$this->load->Render('',array('error' => ' ' ));
+		$this->load->Render('', array('error' => ' ' ));
 	}
 
 	public function DoUpload()
@@ -178,7 +178,7 @@ class Lab extends CI_Controller {
 		$config['max_width']  = '0';// 0 = 不限制寬度
 		$config['max_height']  = '0';
 
-		$this->load->library('upload',$config);
+		$this->load->library('upload', $config);
 
 		if ( ! $this->upload->do_upload('PhotoFile'))
 		{
