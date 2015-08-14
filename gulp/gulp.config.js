@@ -10,10 +10,6 @@ module.exports = function (fs) {
       bower: {
          "bootstrap": paths.bower + "bootstrap/dist/**/*.{js,map,css,ttf,svg,woff,eot}",
          "jquery": paths.bower + "jquery/dist/jquery*.{js,map}"
-         // "angular": paths.bower + "angular/angular*.{js,map}",
-         // "slick": paths.bower + "slick-carousel/slick/*.{js,css}",
-         // "slider": paths.bower + "seiyria-bootstrap-slider/dist/**/*.{js,css}",
-         // "mousewheel": paths.bower + "jquery-mousewheel/*.js"
       },
       lib: paths.assets + 'lib/',
       js: paths.assets + 'js/',
