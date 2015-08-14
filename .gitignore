@@ -3,3 +3,4 @@
 /application/config/development/config.php
 /application/config/development/database.php
 /bower_components/*
+/node_modules/*
