@@ -195,29 +195,28 @@ class Lab extends CI_Controller {
 	public function DoDownload()
 	{	
 		$data_post_URL = $this->input->post('TargetURL', TRUE);
-		//$url = "http://moviesoon.com/news/wp-content/uploads/2013/01/ted_ver7_xlg.jpg";
 		$headers = get_headers($data_post_URL);//剖析網址
-		$pattern = $headers[0];
-
-		if (preg_match("/200/i",$pattern))//判斷圖片是否存在
+		$pattern = $headers[0]; 
+		
+		if (preg_match("/200/i", $pattern))//判斷圖片是否存在
 		{
-			$contentType = $headers[8];//判斷圖片的副檔名
+			$contentType = strrchr($data_post_URL, '.');//判斷圖片的副檔名
 				switch ($contentType){
-					case "Content-Type: image/jpeg":
-						$extension=".jpg";
+					case ".jpg":
+						$extension= ".jpg";
 					break;
-					case "Content-Type: image/png":
-						$extension =".png";
+					case ".png":
+						$extension = ".png";
 					break;
 					default:
-						echo "not match";exit;
+						echo "not match"; exit;
 					break;
 				}
 		}
 		 
 		$tmpFile="uploads/".md5($data_post_URL).$extension; 
 
-		if (file_put_contents($tmpFile,file_get_contents($data_post_URL)))
+		if (file_put_contents($tmpFile, file_get_contents($data_post_URL)))
 		{
 			echo '下載成功';
 		}
