@@ -226,6 +226,22 @@ class Lab extends CI_Controller {
 			echo '下載失敗';
 		}
 	}
+	
+	public function Asset()
+	{
+		$this->load->helper('file');
+
+		$bundle_setting_js = read_file('./gulp/bundle.setting.js');
+		$gulp_config_js = read_file('./gulp/gulp.config.js');
+		
+		$settingStart = strpos($bundle_setting_js, "return") + 7;
+		$settingExcess =  substr($bundle_setting_js, $settingStart);
+		$setting =  rtrim(strtr($settingExcess, ';', ' '), '} ');
+		// echo $setting;
+		
+		print_r(explode('var ', $bundle_setting_js));
+		print_r(explode('var ', $gulp_config_js));
+	}
 }
 
 /* End of file Lab.php */
