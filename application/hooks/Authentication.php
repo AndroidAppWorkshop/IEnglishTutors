@@ -5,7 +5,7 @@ class Authentication {
 
 	public function __construct()
     {
-    	$this->CI = get_instance();
+    	$this->CI =& get_instance();
     	$this->CI->load->library('session');
     	$this->CI->load->helper('url');
     	$this->CI->load->model('Shared/Router');

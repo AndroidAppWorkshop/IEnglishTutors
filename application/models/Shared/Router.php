@@ -9,7 +9,7 @@ class Router extends CI_Model {
 	{
             parent::__construct();
 
-            $this->CI = get_instance();
+            $this->CI =& get_instance();
             $this->SetCurrentPath();
     }
 

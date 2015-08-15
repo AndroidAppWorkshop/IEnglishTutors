@@ -16,18 +16,16 @@ class Lab extends CI_Controller {
 	public function ClickSend()
 	{
 		$this->load->helper(array('file', 'url'));
-		$this->load->library('encrypt');
+		$this->load->library('email');
 
-		$jsonString = read_file('./assets/app_data/gmail.smtp.json');	//讀取檔案
-		$decrypted = $this->encrypt->decode($jsonString);	//解碼編譯過的JSON檔
-		$config = json_decode($decrypted, TRUE);	// TRUE 是轉為陣列格式
-
+		$config = LoadJsonFileWithEncrypt('./assets/app_data/gmail.smtp.json', TRUE);
+		$this->email->initialize($config);
+		
 		$data_post_name = $this->input->post('YourName', TRUE);
 		$data_post_mail = $this->input->post('YourEmail', TRUE);
 		$data_post_subject = $this->input->post('YourSubject', TRUE);
 		$data_post_message = $this->input->post('YourMessage', TRUE);
 
-		$this->load->library('email', $config);
 		$this->email->from($data_post_mail, $data_post_name);
 		$this->email->to('lovero32000@gmail.com');
 		$this->email->cc('l7960261@gmail.com');
@@ -57,7 +55,6 @@ class Lab extends CI_Controller {
 	public function SetGmailSMTP()
 	{
 		$this->load->helper(array('file', 'url'));
-		$this->load->library('encrypt');
 
 		$account = $this->input->post('GmailAccount');
 		$password = $this->input->post('GmailPassword');
@@ -70,10 +67,7 @@ class Lab extends CI_Controller {
 			'smtp_pass'=> $password
 		);
 
-		$jsonString = json_encode($config);
-		$encrypted = $this->encrypt->encode($jsonString);
-
-		write_file('./assets/app_data/gmail.smtp.json', $encrypted);
+		WriteJsonFileWithEncrypt('./assets/app_data/gmail.smtp.json', $config);
 		redirect('Lab/SetGmailSuccess');
 	}
 
@@ -236,9 +230,9 @@ class Lab extends CI_Controller {
 		$this->load->helper('file');
 		
 		$gulp_config_js = fopen("./gulp/gulp.config.js", "r") or die("Unable to open file!");
-		$this->WriteJson('./assets/app_data/gulp.config.json', $this->GulpConfigResolve($gulp_config_js));
+		WriteJsonFile('./assets/app_data/gulp.config.json', $this->GulpConfigResolve($gulp_config_js));
 		
-		$config = $this->LoadJson('./assets/app_data/gulp.config.json');
+		$config = LoadJsonFile('./assets/app_data/gulp.config.json');
 		print_r($config);
 	}
 	
@@ -374,16 +368,6 @@ class Lab extends CI_Controller {
 		$start = trim(preg_split('/=|:/', $line)[0]);
 		
 		return substr($start, 0, 1) !== ']';
-	}
-	
-	private function WriteJson($path, $data)
-	{
-		write_file($path, json_encode($data));
-	}
-	
-	private function LoadJson($path, $assoc = FALSE)
-	{
-		return json_decode(read_file($path), $assoc);
 	}
 }
 

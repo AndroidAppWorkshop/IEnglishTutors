@@ -9,7 +9,7 @@ class IET_Loader extends CI_Loader {
     {
         parent::__construct();
         
-        $this->CI = get_instance();
+        $this->CI =& get_instance();
         $this->model('Shared/Router');
     }
 
