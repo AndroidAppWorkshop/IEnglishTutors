@@ -234,17 +234,156 @@ class Lab extends CI_Controller {
 	public function Asset()
 	{
 		$this->load->helper('file');
-
-		$bundle_setting_js = read_file('./gulp/bundle.setting.js');
-		$gulp_config_js = read_file('./gulp/gulp.config.js');
 		
-		$settingStart = strpos($bundle_setting_js, "return") + 7;
-		$settingExcess =  substr($bundle_setting_js, $settingStart);
-		$setting =  rtrim(strtr($settingExcess, ';', ' '), '} ');
-		// echo $setting;
+		$gulp_config_js = fopen("./gulp/gulp.config.js", "r") or die("Unable to open file!");
+		$this->WriteJson('./assets/app_data/gulp.config.json', $this->GulpConfigResolve($gulp_config_js));
 		
-		print_r(explode('var ', $bundle_setting_js));
-		print_r(explode('var ', $gulp_config_js));
+		$config = $this->LoadJson('./assets/app_data/gulp.config.json');
+		print_r($config);
+	}
+	
+	private function GulpConfigResolve(&$file)
+	{
+		$config = array();
+		
+		while(!feof($file))
+		{
+			$line = trim(fgets($file));
+			
+			if(substr($line, 0, 3) === 'var')
+			{
+				if($name = $this->GetObjectName($line))
+				{
+					$this->GetObject($file, $config, $name);
+				}
+			}
+		}
+		
+		fclose($file);
+		return $config;
+	}
+	
+	private function GetObjectName($line)
+	{
+		$tempArray = array_map('trim', preg_split('/=|:/', $line));
+		if(sizeof($tempArray) === 2)
+		{
+			$object = $tempArray[1];
+			if(substr($object, 0, 1) === '{')
+			{
+				return trim(ltrim($tempArray[0], 'var'));
+			}
+		}
+		
+		return FALSE;
+	}
+	
+	private function GetDictionaryKey($line)
+	{
+		$tempArray = array_map('trim', preg_split('/:/', $line));
+		if(sizeof($tempArray) === 2
+			&& $tempArray[1] !== '[')
+		{
+			$key = str_replace('"' , '' , $tempArray[0]);
+			return $key;
+		}
+		
+		return FALSE;
+	}
+	
+	private function GetArrayName($line)
+	{
+		$tempArray = array_map('trim', preg_split('/:/', $line));
+		if(sizeof($tempArray) === 2
+			&& $tempArray[1] === '[')
+		{
+			return $tempArray[0];
+		}
+		
+		return FALSE;
+	}
+	
+	private function GetObject(&$file, &$config, $name)
+	{
+		$config[$name] = array();
+		$line = fgets($file);
+		
+		while($this->NotCloseBrace($line))
+		{
+			if($innerName = $this->GetObjectName($line))
+			{
+				$this->GetObject($file, $config[$name], $innerName);
+			}
+			elseif($key = $this->GetDictionaryKey($line))
+			{
+				$config[$name][$key] = $this->GetDictionaryValue($line);
+			}
+			elseif($arrayName = $this->GetArrayName($line))
+			{
+				$this->GetArray($file, $config[$name], $arrayName);
+			}
+			
+			$line = fgets($file);
+		}
+	}
+	
+	private function GetDictionaryValue($line)
+	{
+		$value = preg_split('/:/', $line)[1];
+		$tempArray = array_map('trim', preg_split('/\+/', $value));
+		$tempArray = str_replace(',', '', $tempArray);
+		$tempArray = str_replace('__base', '/', $tempArray);
+		$tempArray = str_replace('\'', '', $tempArray);
+		$tempArray = str_replace('paths.bower', '/bower_components/', $tempArray);
+		$tempArray = str_replace('paths.assets', '/assets/', $tempArray);
+		
+		return implode('', $tempArray);
+	}
+	
+	private function GetArray(&$file, &$config, $arrayName)
+	{
+		$config[$arrayName] = array();
+		$line = fgets($file);
+		
+		while($this->NotCloseBracket($line))
+		{
+			array_push($config[$arrayName], $this->GetArrayValue($line));
+			
+			$line = fgets($file);
+		}
+	}
+	
+	private function GetArrayValue($line)
+	{
+		$tempArray = array_map('trim', preg_split('/\+/', $line));
+		$tempArray = str_replace('\'', '', $tempArray);
+		$tempArray = str_replace('paths.bower', '/bower_components/', $tempArray);
+		
+		return implode('', $tempArray);
+	}
+	
+	private function NotCloseBrace($line)
+	{
+		$start = trim(preg_split('/=|:/', $line)[0]);
+		
+		return substr($start, 0, 1) !== '}';
+	}
+	
+	private function NotCloseBracket($line)
+	{
+		$start = trim(preg_split('/=|:/', $line)[0]);
+		
+		return substr($start, 0, 1) !== ']';
+	}
+	
+	private function WriteJson($path, $data)
+	{
+		write_file($path, json_encode($data));
+	}
+	
+	private function LoadJson($path, $assoc = FALSE)
+	{
+		return json_decode(read_file($path), $assoc);
 	}
 }
 
