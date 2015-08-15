@@ -227,6 +227,7 @@ class Lab extends CI_Controller {
 	
 	public function Asset()
 	{
+		$this->load->library('caches');
 		$this->load->helper('file');
 		
 		$gulp_config_js = fopen("./gulp/gulp.config.js", "r") or die("Unable to open file!");
@@ -319,17 +320,28 @@ class Lab extends CI_Controller {
 			
 			$line = fgets($file);
 		}
+		
+		if($name === 'paths')
+		{
+			$this->caches->Set('paths', $config[$name]);
+		}
 	}
 	
 	private function GetDictionaryValue($line)
 	{
+		$paths = $this->caches->Get('paths');
 		$value = preg_split('/:/', $line)[1];
 		$tempArray = array_map('trim', preg_split('/\+/', $value));
 		$tempArray = str_replace(',', '', $tempArray);
 		$tempArray = str_replace('__base', '/', $tempArray);
 		$tempArray = str_replace('\'', '', $tempArray);
-		$tempArray = str_replace('paths.bower', '/bower_components/', $tempArray);
-		$tempArray = str_replace('paths.assets', '/assets/', $tempArray);
+		
+		$pathArray = preg_split('/\./', $tempArray[0]);
+		
+		if(sizeof($pathArray) > 1)
+		{
+			$tempArray[0] = $paths[$pathArray[1]];
+		}
 		
 		return implode('', $tempArray);
 	}

@@ -5,6 +5,7 @@
 /assets/lib/*
 /assets/app_data/gmail.smtp.json
 /assets/app_data/gulp.config.json
+/application/cache/*
 /application/config/development/config.php
 /application/config/development/database.php
 /bower_components/*
