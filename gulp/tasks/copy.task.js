@@ -1,23 +1,23 @@
 module.exports = function (gulp, config, $, es) {
-   gulp.task('copy', ['clean'], function () {
-      var bower = config.bower;
-      var lib = config.lib;
-      var fonts = config.fonts;
+	gulp.task('copy', ['clean'], function () {
+		var bower = config.bower;
+		var lib = config.lib;
+		var fonts = config.fonts;
 
-      var _streamArray = [];
+		var _streamArray = [];
 
-      for (var destinationDir in bower) {
-         _streamArray.push(
-             gulp.src(bower[destinationDir])
-                .pipe(gulp.dest(lib + destinationDir))
-         );
-      }
+		for (var destinationDir in bower) {
+			_streamArray.push(
+				gulp.src(bower[destinationDir])
+					.pipe(gulp.dest(lib + destinationDir))
+			);
+		}
 
-      _streamArray.push(
-          gulp.src(fonts.source)
-              .pipe(gulp.dest(fonts.path))
-      );
+		_streamArray.push(
+			gulp.src(fonts.source)
+				.pipe(gulp.dest(fonts.path))
+		);
 
-      return es.concat(_streamArray);
-   });
+		return es.concat(_streamArray);
+	});
 };
