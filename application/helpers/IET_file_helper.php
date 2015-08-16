@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 function WriteJsonFile($path, $data, $options = 0)
 {

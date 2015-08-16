@@ -1,4 +1,6 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
 class IET_Email extends CI_Email{
 	
 	public function __construct(array $config = array())

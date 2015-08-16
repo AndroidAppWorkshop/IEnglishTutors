@@ -10,10 +10,10 @@ class System extends CI_Controller {
 		$response = array('status' => 'OK');
 
 		$this->output
-	        ->set_status_header(200)
-	        ->set_content_type('application/json', 'utf-8')
-	        ->set_output(json_encode($response, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES))
-	        ->_display();
+			->set_status_header(200)
+			->set_content_type('application/json', 'utf-8')
+			->set_output(json_encode($response, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES))
+			->_display();
 		exit;
 	}
 
@@ -24,10 +24,10 @@ class System extends CI_Controller {
 
 		foreach ($query->result() as $row)
 		{
-		        echo $row->Id;
-		        echo '|';
-		        echo $row->Name;
-		        echo '<br>';
+			echo $row->Id;
+			echo '|';
+			echo $row->Name;
+			echo '<br>';
 		}
 
 		exit;
@@ -40,11 +40,11 @@ class System extends CI_Controller {
 
 		foreach ($query->result('Language') as $language)
 		{
-        	echo $language->Id;
-        	echo '|';
-        	echo $language->Name;
-        	echo '<br>';
-        	//echo $language->reverse_name(); // or methods defined on the 'User' class
+			echo $language->Id;
+			echo '|';
+			echo $language->Name;
+			echo '<br>';
+			//echo $language->reverse_name(); // or methods defined on the 'User' class
 		}
 
 		exit;
@@ -59,10 +59,10 @@ class System extends CI_Controller {
 
 		foreach ($query->result('Language_Usage') as $usage)
 		{
-        	echo $usage->IsScript;
-        	echo '|';
-        	echo $usage->Content;
-        	echo '<br>';
+			echo $usage->IsScript;
+			echo '|';
+			echo $usage->Content;
+			echo '<br>';
 		}
 
 		exit;
