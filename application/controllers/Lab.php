@@ -321,26 +321,23 @@ class Lab extends CI_Controller {
 			$line = fgets($file);
 		}
 		
-		if($name === 'paths')
-		{
-			$this->caches->Set('paths', $config[$name]);
-		}
+		$this->caches->Set($name, $config[$name]);
 	}
 	
 	private function GetDictionaryValue($line)
 	{
-		$paths = $this->caches->Get('paths');
 		$value = preg_split('/:/', $line)[1];
 		$tempArray = array_map('trim', preg_split('/\+/', $value));
 		$tempArray = str_replace(',', '', $tempArray);
 		$tempArray = str_replace('__base', '/', $tempArray);
 		$tempArray = str_replace('\'', '', $tempArray);
 		
-		$pathArray = preg_split('/\./', $tempArray[0]);
+		$variableArray = preg_split('/\./', $tempArray[0]);
 		
-		if(sizeof($pathArray) > 1)
+		if(sizeof($variableArray) > 1)
 		{
-			$tempArray[0] = $paths[$pathArray[1]];
+			$variable = $this->caches->Get($variableArray[0]);
+			$tempArray[0] = $variable[$variableArray[1]];
 		}
 		
 		return implode('', $tempArray);
