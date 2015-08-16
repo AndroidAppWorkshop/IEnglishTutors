@@ -15,17 +15,17 @@ class Lab extends CI_Controller {
 		$this->load->Render();
 	}
 
-	public function SendEmail()
+	public function ContactUs()
 	{
 		$this->load->Render();
 	}
 
-	public function ClickSend()
+	public function SendEmail()
 	{
 		$this->load->helper(array('file', 'url'));
 		$this->load->library('email');
 
-		$config = LoadJsonFileWithEncrypt('./assets/app_data/gmail.smtp.json', TRUE);
+		$config = LoadJsonFileWithEncrypt('./assets/app_data/mail.sever.json', TRUE);
 		$this->email->initialize($config);
 		
 		$data_post_name = $this->input->post('YourName', TRUE);
@@ -41,7 +41,7 @@ class Lab extends CI_Controller {
 
 		if ($this->email->send())
 		{
-			redirect('Lab/SendEmailSuccess');
+			redirect('Lab/Success');
 		}
 		else
 		{
@@ -49,22 +49,22 @@ class Lab extends CI_Controller {
 		}
 	}
 
-	public function SendEmailSuccess()
+	public function Success()
 	{
 		$this->load->Render();
 	}
 
-	public function SMTPSetting()
+	public function MailSeverSetting()
 	{
 		$this->load->Render();
 	}
 
-	public function SetGmailSMTP()
+	public function SetMailSever()
 	{
 		$this->load->helper(array('file', 'url'));
 
-		$account = $this->input->post('GmailAccount');
-		$password = $this->input->post('GmailPassword');
+		$account = $this->input->post('account');
+		$password = $this->input->post('password');
 		
 		if($this->Environment->IsDevelopment())
 		{
@@ -91,13 +91,8 @@ class Lab extends CI_Controller {
 			);
 		}
 
-		WriteJsonFileWithEncrypt('./assets/app_data/gmail.smtp.json', $config);
-		redirect('Lab/SetGmailSuccess');
-	}
-
-	public function SetGmailSuccess()
-	{
-		$this->load->Render();
+		WriteJsonFileWithEncrypt('./assets/app_data/mail.sever.json', $config);
+		redirect('Lab/Success');
 	}
 
 	public function LoadView()

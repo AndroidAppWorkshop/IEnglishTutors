@@ -16,7 +16,7 @@
 
 <div class="mainBody test1">
 	<div class="container ">
-		<form action="ClickSend" method="post">
+		<form action="SendEmail" method="post">
 			<div class="row">
 				<div class="col-md-4">
 					<input 

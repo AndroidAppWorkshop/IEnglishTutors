@@ -3,7 +3,7 @@
 /assets/fonts/*
 /assets/js/*
 /assets/lib/*
-/assets/app_data/gmail.smtp.json
+/assets/app_data/mail.sever.json
 /assets/app_data/gulp.config.json
 /application/cache/*
 /application/config/development/config.php

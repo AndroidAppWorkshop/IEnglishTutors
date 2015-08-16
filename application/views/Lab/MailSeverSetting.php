@@ -1,28 +1,28 @@
 <div class="container">
 	<header>
-		<h2>GMAIL SETTING</h2>
+		<h2>Mail Sever Setting</h2>
 	</header>
 </div>
 <div class="container ">
-	<form action="/index.php/Lab/SetGmailSMTP" method="post">
+	<form action="SetMailSever" method="post">
 		<div class="row">
 			<div class="col-md-4">
 				<input 
 				type="text" 
-				name="GmailAccount" 
+				name="account" 
 				class="form-control" 
-				placeholder="Your GMAIL Account"
+				placeholder="Your  Account"
 				required/>
 			</div>
 			<div class="col-md-4">
 				<input 
 				type="password" 
-				name="GmailPassword" 
+				name="password" 
 				class="form-control" 
-				placeholder="Your GMAIL Password"
+				placeholder="Your Password"
 				required/>
 			</div>
-			<div class="col-md-4"><button type="submit" name="ok" class="btn btn-danger">SUBMIT</button></div>
+			<div class="col-md-4"><button type="submit" class="btn btn-danger">SUBMIT</button></div>
 		</div>
 	</form>
 </div>
