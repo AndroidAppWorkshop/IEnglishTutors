@@ -8,7 +8,7 @@ module.exports = function (fs) {
 	var config = {
 		bundleSettingPath: __base + 'gulp/bundle.setting',
 		bower: {
-			"bootstrap": paths.bower + 'bootstrap/dist/**/*.{js,map,css,ttf,svg,woff,eot}',
+			"bootstrap": paths.bower + 'bootstrap/dist/**/*.{js,map,css,ttf,svg,woff,woff2,eot}',
 			"jquery": paths.bower + 'jquery/dist/jquery*.{js,map}',
 			"angular": paths.bower + 'angular/angular*.{js,map}'
 		},
@@ -20,7 +20,7 @@ module.exports = function (fs) {
 		fonts: {
 			path: paths.assets + 'fonts/',
 			source: [
-				paths.bower + 'bootstrap/dist/fonts/*.{ttf,svg,woff,eot}'
+				paths.bower + 'bootstrap/dist/fonts/*.{ttf,svg,woff,woff2,eot}'
 			]
 		}
 	};
