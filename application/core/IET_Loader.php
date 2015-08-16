@@ -4,8 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class IET_Loader extends CI_Loader {
 
 	protected $CI;
-	protected $currentController;
-	protected $currentFunction;
 
 	public function __construct()
 	{
