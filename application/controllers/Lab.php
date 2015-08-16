@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Lab extends CI_Controller {
 	
+	public function __construct()
+	{
+		parent::__construct();
+		
+		$this->load->model('Shared/Environment');
+	}
+	
 	public function Index()
 	{
 		$this->load->Render();
@@ -58,14 +65,31 @@ class Lab extends CI_Controller {
 
 		$account = $this->input->post('GmailAccount');
 		$password = $this->input->post('GmailPassword');
-
-		$config = array(
-			'protocol' => 'smtp' ,
-			'smtp_host'=> 'ssl://smtp.googlemail.com',
-			'smtp_port'=> '465',
-			'smtp_user'=> $account,
-			'smtp_pass'=> $password
-		);
+		
+		if($this->Environment->IsDevelopment())
+		{
+			$config = array(
+				'protocol' => 'smtp' ,
+				'smtp_host'=> 'ssl://smtp.googlemail.com',
+				'smtp_port'=> '465',
+				'smtp_user'=> $account,
+				'smtp_pass'=> $password,
+				'charset'  => 'utf-8',
+				'wordwrap' => TRUE
+			);
+		}
+		else
+		{
+			$config = array(
+				'protocol' => 'smtp' ,
+				'smtp_host'=> 'mail.ienglishtutors.com',
+				'smtp_port'=> '26',
+				'smtp_user'=> $account,
+				'smtp_pass'=> $password,
+				'charset'  => 'utf-8',
+				'wordwrap' => TRUE
+			);
+		}
 
 		WriteJsonFileWithEncrypt('./assets/app_data/gmail.smtp.json', $config);
 		redirect('Lab/SetGmailSuccess');
