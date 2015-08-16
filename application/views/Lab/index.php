@@ -14,9 +14,9 @@
 		<tbody>
 			<tr>
 				<th scope="row">
-					<a class="btn btn-primary" href="Lab/MailSeverSetting" role="button">Link</a>
+					<a class="btn btn-primary" href="Lab/MailServerSetting" role="button">Link</a>
 				</th>
-				<td>MailSeverSetting</td>
+				<td>MailServerSetting</td>
 				<td>設置 Mail Server</td>
 				<td>LuHua10</td>
 			</tr>

@@ -1,10 +1,10 @@
 <div class="container">
 	<header>
-		<h2>Mail Sever Setting</h2>
+		<h2>Mail Server Setting</h2>
 	</header>
 </div>
 <div class="container ">
-	<form action="SetMailSever" method="post">
+	<form action="SetMailServer" method="post">
 		<div class="row">
 			<div class="col-md-4">
 				<input 

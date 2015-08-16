@@ -25,7 +25,7 @@ class Lab extends CI_Controller {
 		$this->load->helper(array('file', 'url'));
 		$this->load->library('email');
 
-		$config = LoadJsonFileWithEncrypt('./assets/app_data/mail.sever.json', TRUE);
+		$config = LoadJsonFileWithEncrypt('./assets/app_data/mail.server.json', TRUE);
 		$this->email->initialize($config);
 		
 		$data_post_name = $this->input->post('YourName', TRUE);
@@ -54,12 +54,12 @@ class Lab extends CI_Controller {
 		$this->load->Render();
 	}
 
-	public function MailSeverSetting()
+	public function MailServerSetting()
 	{
 		$this->load->Render();
 	}
 
-	public function SetMailSever()
+	public function SetMailServer()
 	{
 		$this->load->helper(array('file', 'url'));
 
@@ -91,7 +91,7 @@ class Lab extends CI_Controller {
 			);
 		}
 
-		WriteJsonFileWithEncrypt('./assets/app_data/mail.sever.json', $config);
+		WriteJsonFileWithEncrypt('./assets/app_data/mail.server.json', $config);
 		redirect('Lab/Success');
 	}
 
