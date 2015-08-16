@@ -8,8 +8,9 @@ module.exports = function (fs) {
 	var config = {
 		bundleSettingPath: __base + 'gulp/bundle.setting',
 		bower: {
-		"bootstrap": paths.bower + 'bootstrap/dist/**/*.{js,map,css,ttf,svg,woff,eot}',
-		"jquery": paths.bower + 'jquery/dist/jquery*.{js,map}'
+			"bootstrap": paths.bower + 'bootstrap/dist/**/*.{js,map,css,ttf,svg,woff,eot}',
+			"jquery": paths.bower + 'jquery/dist/jquery*.{js,map}',
+			"angular": paths.bower + 'angular/angular*.{js,map}'
 		},
 		lib: paths.assets + 'lib/',
 		js: paths.assets + 'js/',
