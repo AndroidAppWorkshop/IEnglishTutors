@@ -39,6 +39,11 @@ class Router extends CI_Model {
 	{
 		return $this->currentController.':'.$this->currentFunction;
 	}
+	
+	public function GetCurrentPathWithDot()
+	{
+		return $this->currentController.'.'.$this->currentFunction;
+	}
 
 	protected function SetCurrentPath()
 	{

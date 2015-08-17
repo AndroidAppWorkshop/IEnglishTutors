@@ -156,7 +156,7 @@ class Asset extends CI_Controller {
 		$tempArray = array_map('trim', preg_split('/\+/', $value));
 		$tempArray = str_replace(',', '', $tempArray);
 		
-		// 中間有隔 + 符號
+		// Has sign: '+'
 		if(sizeof($tempArray) > 1)
 		{
 			$tempArray = str_replace('__base', '/', $tempArray);
@@ -177,7 +177,7 @@ class Asset extends CI_Controller {
 		else
 		{
 			$content = $tempArray[0];
-			// 為字串
+			// Is string
 			if(substr($content, 0, 1) === '\'')
 			{
 				return $content;
@@ -201,7 +201,7 @@ class Asset extends CI_Controller {
 		$tempArray = str_replace('\'', '', $tempArray);
 		$tempArray = str_replace(',', '', $tempArray);
 		
-		// 中間有隔 + 符號
+		// Has sign: '+'
 		if(sizeof($tempArray) > 1)
 		{
 			$variableArray = preg_split('/\./', $tempArray[0]);
@@ -214,8 +214,7 @@ class Asset extends CI_Controller {
 		else
 		{
 			$content = $tempArray[0];
-			
-			// 為字串
+			// Is string
 			if(substr($content, 0, 1) === '\'')
 			{
 				return $content;

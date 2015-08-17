@@ -10,24 +10,32 @@ class IET_Loader extends CI_Loader {
 		parent::__construct();
 
 		$this->CI =& get_instance();
-		$this->model('Shared/Router');
 	}
 
 	public function Render($view = '', $vars = array(), $return = FALSE)
 	{
 		$path = $this->CI->Router->GetCurrentPath($view);
-
+		
 		$this->view('Shared/Header', $this->GetHeaderData());
 		$this->view($path, $vars, $return);
-		$this->view('Shared/Footer');
+		$this->view('Shared/Footer', $this->GetFooterData());
 	}
 
 	protected function GetHeaderData()
 	{
+		$data['MasterCss'] = $this->CI->Layout->MasterCss();
+		$data['PlugCss'] = $this->CI->Layout->PlugCss(strtolower($this->CI->Router->GetCurrentPathWithDot()));
+		
+		return $data;
+	}
+	
+	protected function GetFooterData()
+	{
 		$path = $this->CI->Router->GetCurrentPathWithColon();
-		$viewJson = $this->CI->Layout->ViewJson($path);
-
-		$data['ViewJson'] = $viewJson;
+		$data['ViewJson'] = $this->CI->Layout->ViewJson($path);
+		$data['MasterJs'] = $this->CI->Layout->MasterJs();
+		$data['PlugJs'] = $this->CI->Layout->PlugJs(strtolower($this->CI->Router->GetCurrentPathWithDot()));
+		
 		return $data;
 	}
 }
