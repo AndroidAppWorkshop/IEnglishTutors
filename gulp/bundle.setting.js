@@ -16,6 +16,9 @@ module.exports = function (config) {
 		app: {
 			js1: script + 'app/js1.js'
 		},
+		webportal: {
+			login: script + 'WebPortal/login.js'
+		},
 		bower: {
 			jquery: lib + 'jquery/jquery.js',
 			bootstrap: lib + 'bootstrap/js/bootstrap.js',
@@ -40,6 +43,13 @@ module.exports = function (config) {
 			],
 			"script": [
 				js.app.js1
+			]
+		},
+		"webportal.login": {
+			"style": [
+			],
+			"script": [
+				js.webportal.login
 			]
 		}
 	};
