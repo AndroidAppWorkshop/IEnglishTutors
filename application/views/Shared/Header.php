@@ -8,5 +8,6 @@
 	<meta name="keywords" content="網頁關鍵字">
 	<?=$MasterCss?>
 	<?=$PlugCss?>
+	<?=$MasterJs?>
 </head>
 <body>

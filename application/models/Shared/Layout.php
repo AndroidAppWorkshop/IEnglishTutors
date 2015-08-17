@@ -38,12 +38,11 @@ class Layout extends CI_Model {
 	public function MasterCss()
 	{
 		return $this->HtmlString('global', 'style', '<link href="%s" rel="stylesheet">');
-		
 	}
 	
 	public function MasterJs()
 	{
-		return $this->HtmlString('global', 'script', '<script src="%s"></script>');
+		return $this->HtmlString('global', 'script', '<script src="%s" async></script>');
 	}
 	
 	public function PlugCss($key)
@@ -53,7 +52,7 @@ class Layout extends CI_Model {
 	
 	public function PlugJs($key)
 	{
-		return $this->HtmlString($key, 'script', '<script src="%s"></script>');
+		return $this->HtmlString($key, 'script', '<script src="%s" async></script>');
 	}
 	
 	private function Initialize()
