@@ -18,7 +18,8 @@ module.exports = function (config) {
 		},
 		bower: {
 			jquery: lib + 'jquery/jquery.js',
-			bootstrap: lib + 'bootstrap/js/bootstrap.js'
+			bootstrap: lib + 'bootstrap/js/bootstrap.js',
+			angular: lib + 'angular/angular.js'
 		}
 	};
 	
@@ -29,7 +30,8 @@ module.exports = function (config) {
 			],
 			"script": [
 					js.bower.jquery,
-					js.bower.bootstrap
+					js.bower.bootstrap,
+					js.bower.angular
 			]
 		},
 		"home.lobby": {

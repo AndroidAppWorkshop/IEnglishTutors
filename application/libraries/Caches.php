@@ -19,6 +19,11 @@ class Caches {
 	{
 		return $this->CI->cache->file->get($key);
 	}
+	
+	public function Clean()
+	{
+		return $this->CI->cache->file->clean();
+	}
 }
 
 /* End of file Cache.php */

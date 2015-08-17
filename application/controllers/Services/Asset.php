@@ -18,6 +18,7 @@ class Asset extends CI_Controller {
 		$bundle_setting_js = fopen('./gulp/bundle.setting.js', 'r') or die('Unable to open file!');
 		WriteJsonFile('./assets/app_data/bundle.setting.json', $this->BundleSettingResolve($bundle_setting_js));
 		
+		$this->caches->Clean();
 		$this->response->Json(array('status' => 'OK'));
 	}
 	
