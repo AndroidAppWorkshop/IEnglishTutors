@@ -5,21 +5,20 @@ require_once APPPATH.'models/dbo/Language_Usage.php';
 
 class System extends CI_Controller {
 	
+	public function __construct()
+	{
+		parent::__construct();
+		
+		$this->load->library('response');
+	}
+	
 	public function JsonOutput()
 	{
-		$response = array('status' => 'OK');
-
-		$this->output
-			->set_status_header(200)
-			->set_content_type('application/json', 'utf-8')
-			->set_output(json_encode($response, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES))
-			->_display();
-		exit;
+		$this->response->Json(array('status' => 'OK'));
 	}
 
 	public function LanguageWithResult()
 	{
-		//$this->load->database();
 		$query = $this->db->get('language');
 
 		foreach ($query->result() as $row)
@@ -35,7 +34,6 @@ class System extends CI_Controller {
 
 	public function LanguageWithMaterialization()
 	{
-		//$this->load->database();
 		$query = $this->db->get('language');
 
 		foreach ($query->result('Language') as $language)
@@ -52,7 +50,6 @@ class System extends CI_Controller {
 
 	public function LanguageWithUsage()
 	{
-		//$this->load->database();
 		$this->db->where('L_Id', 2);
 		$this->db->where('Name', 'Home:Lobby');
 		$query = $this->db->get('language_usage');

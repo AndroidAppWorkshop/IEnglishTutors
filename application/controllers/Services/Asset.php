@@ -7,7 +7,7 @@ class Asset extends CI_Controller {
 	{
 		parent::__construct();
 		
-		$this->load->library('caches');
+		$this->load->library(array('caches', 'response'));
 		$this->load->helper('file');
 	}
 	
@@ -18,14 +18,7 @@ class Asset extends CI_Controller {
 		$bundle_setting_js = fopen('./gulp/bundle.setting.js', 'r') or die('Unable to open file!');
 		WriteJsonFile('./assets/app_data/bundle.setting.json', $this->BundleSettingResolve($bundle_setting_js));
 		
-		$response = array('status' => 'OK');
-
-		$this->output
-			->set_status_header(200)
-			->set_content_type('application/json', 'utf-8')
-			->set_output(json_encode($response, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES))
-			->_display();
-		exit;
+		$this->response->Json(array('status' => 'OK'));
 	}
 	
 	private function BundleSettingResolve(&$file)
