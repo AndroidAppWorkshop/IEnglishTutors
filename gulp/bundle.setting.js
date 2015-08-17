@@ -22,7 +22,7 @@ module.exports = function (config) {
 		}
 	};
 	
-	return {
+	var setting = {
 		"global": {
 			"style": [
 					css.bower.bootstrap
@@ -32,7 +32,7 @@ module.exports = function (config) {
 					js.bower.bootstrap
 			]
 		},
-		"layout": {
+		"home.lobby": {
 			"style": [
 				css.app.css1
 			],
@@ -41,4 +41,6 @@ module.exports = function (config) {
 			]
 		}
 	};
+	
+	return setting;
 };

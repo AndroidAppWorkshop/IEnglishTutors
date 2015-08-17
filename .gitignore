@@ -3,8 +3,9 @@
 /assets/fonts/*
 /assets/js/*
 /assets/lib/*
-/assets/app_data/mail.server.json
+/assets/app_data/bundle.setting.json
 /assets/app_data/gulp.config.json
+/assets/app_data/mail.server.json
 /application/cache/*
 /application/config/development/config.php
 /application/config/development/database.php
