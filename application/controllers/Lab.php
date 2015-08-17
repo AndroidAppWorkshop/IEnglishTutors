@@ -191,22 +191,25 @@ class Lab extends CI_Controller {
 		$this->load->helper(array('form','url'));
 
 		$config['upload_path'] = './uploads/';
-		$config['allowed_types'] = 'gif|jpg|png';
-		$config['max_size']	= '2000';//php最大到2MB
+		$config['allowed_types'] = 'gif|jpg|png|ppt|pptx|doc|docx|txt|pdf|zip|7zip|rar';
+		$config['max_size']	= '10000';//php最大到2MB
 		$config['max_width']  = '0';// 0 = 不限制寬度
 		$config['max_height']  = '0';
 
 		$this->load->library('upload', $config);
-
-		if ( ! $this->upload->do_upload('PhotoFile'))
+		
+		foreach($_FILES as $key => $value)
 		{
-			$error = array('error' => $this->upload->display_errors());
-			echo '上傳失敗';
-		}
-		else
-		{
-			$data = array('upload_data' => $this->upload->data());
-			echo '上傳成功';
+			if ( ! $this->upload->do_upload($key))
+			{
+				$error = array('error' => $this->upload->display_errors());
+				echo '上傳失敗 '.$key;
+			}
+			else
+			{
+				$data = array('upload_data' => $this->upload->data());
+				echo '上傳成功 '.$key;
+			}
 		}
 	}
 

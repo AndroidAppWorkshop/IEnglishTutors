@@ -14,8 +14,8 @@
 	</div>
 </header>
 
-<div class="mainBody test1">
-	<div class="container ">
+<div class="mainBody">
+	<div class="container">
 		<form action="SendEmail" method="post">
 			<div class="row">
 				<div class="col-md-4">
@@ -44,12 +44,13 @@
 				</div>
 			</div>
 			<div class="row">
-				<textarea class="form-control" name="YourMessage" rows="8" placeholder="Your Message"></textarea>
+				<div class="col-md-12">
+					<textarea class="form-control" name="YourMessage" rows="8" placeholder="Your Message"></textarea>
+				</div>
 			</div>
-		
-			<div class="row text-center">
-				<div class="col-md-2 col-md-offset-10">
-					<button type="submit" name="ok" class="btn btn-danger">SEND MESSAGE</button>
+			<div class="row">
+				<div class="col-md-2">
+					<button type="submit" name="ok" class="btn btn-block btn-danger">SEND MESSAGE</button>
 				</div>
 			</div>
 		</form>
