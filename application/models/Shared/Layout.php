@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Layout extends CI_Model {
 	
-	protected $CI;
 	protected $Config;
 	protected $Setting;
 	
@@ -11,9 +10,8 @@ class Layout extends CI_Model {
 	{
 		parent::__construct();
 		
-		$this->CI =& get_instance();
-		$this->CI->load->helper('file');
-		$this->CI->load->model('Shared/Environment');
+		$this->load->helper('file');
+		$this->load->model('Shared/Environment');
 		$this->Initialize();
 	}
 
@@ -65,7 +63,7 @@ class Layout extends CI_Model {
 	{
 		$result = array();
 		
-		if($this->CI->Environment->IsDevelopment())
+		if($this->Environment->IsDevelopment())
 		{
 			if(array_key_exists($path, $this->Setting)
 				&& array_key_exists($type, $this->Setting->$path))

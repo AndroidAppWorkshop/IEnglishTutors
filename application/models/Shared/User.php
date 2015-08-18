@@ -3,31 +3,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends CI_Model {
 	
-	protected $CI;
 	protected $preference;
 	
 	public function __construct()
 	{
 		parent::__construct();
 		
-		$this->CI =& get_instance();
-		$this->CI->load->helper('cookie');
-		$this->CI->load->library('session');
+		$this->load->helper('cookie');
+		$this->load->library('session');
 	}
 	
 	public function IsLogin()
 	{
-		return $this->CI->session->tempdata('Logged');
+		$username = $this->session->tempdata('Username');
+		$query = $this->db->get_where('member', array('Username' => $username));
+		return $query->num_rows() > 0 && $this->session->tempdata('Logged');
 	}
 	
 	public function Set($array, $second = 3600)
 	{
-		$this->CI->session->set_tempdata($array, NULL, $second);
+		$this->session->set_tempdata($array, NULL, $second);
 	}
 	
 	public function Get($key)
 	{
-		return $this->CI->session->tempdata($key);
+		return $this->session->tempdata($key);
 	}
 	
 	public function GetLanguage()

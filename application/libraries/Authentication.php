@@ -15,7 +15,7 @@ class Authentication {
 	public function Authorize()
 	{
 		if(strcasecmp($this->CI->Router->GetCurrentFunction(), 'Login') !== 0
-			&& !$this->CI->session->has_userdata('Username'))
+			&& !$this->CI->User->IsLogin())
 		{
 			redirect('WebPortal/Login');
 		}
