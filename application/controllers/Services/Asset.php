@@ -19,7 +19,7 @@ class Asset extends CI_Controller {
 		WriteJsonFile('./assets/app_data/bundle.setting.json', $this->BundleSettingResolve($bundle_setting_js));
 		
 		$this->caches->Clean();
-		$this->response->Json(array('status' => 'OK'));
+		$this->response->Json(array('Success' => TRUE));
 	}
 	
 	private function BundleSettingResolve(&$file)

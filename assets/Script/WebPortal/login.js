@@ -1,11 +1,13 @@
-angular.module('apps', [])
-	.controller('login', ['$window', function($window){
+angular.module('apps', ['angular-loading-bar', 'apis'])
+	.controller('login', ['$window', 'systemApi', function($window, $api){
 		var self = this;
 		self.JsonModel = $window['LoginJson'];
 		
 		self.Login = function()
 		{
-			console.log(self.Member);
+			$api.JsonOutput().then(function(result){
+				console.log(result);
+			});
 		};
 		
 		self.Register = function()

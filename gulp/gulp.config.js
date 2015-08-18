@@ -10,7 +10,8 @@ module.exports = function (fs) {
 		bower: {
 			"bootstrap": paths.bower + 'bootstrap/dist/**/*.{js,map,css,ttf,svg,woff,woff2,eot}',
 			"jquery": paths.bower + 'jquery/dist/jquery*.{js,map}',
-			"angular": paths.bower + 'angular/angular*.{js,map}'
+			"angular": paths.bower + 'angular/angular*.{js,map}',
+			"loadingbar": paths.bower + 'angular-loading-bar/build/*.{js,css}'
 		},
 		lib: paths.assets + 'lib/',
 		js: paths.assets + 'js/',
