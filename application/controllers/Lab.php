@@ -159,6 +159,26 @@ class Lab extends CI_Controller {
 	{
 		$this->load->library('session');
 		echo $this->session->tempdata('Username').'<br />';
+		print_r($this->session->tempdata());
+	}
+	
+	public function SetUser()
+	{
+		$this->User->Set(array(
+			'Username'  => 'wilson',
+			'Email'     => 'wilson@hotmail.com',
+			'Logged' => TRUE
+		));
+	}
+	
+	public function GetUser()
+	{
+		echo $this->User->Get('Username');
+	}
+	
+	public function CheckLogin()
+	{
+		echo $this->User->IsLogin();
 	}
 
 	public function Languages()

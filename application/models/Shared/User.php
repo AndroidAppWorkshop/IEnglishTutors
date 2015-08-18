@@ -12,6 +12,22 @@ class User extends CI_Model {
 		
 		$this->CI =& get_instance();
 		$this->CI->load->helper('cookie');
+		$this->CI->load->library('session');
+	}
+	
+	public function IsLogin()
+	{
+		return $this->CI->session->tempdata('Logged');
+	}
+	
+	public function Set($array, $second = 3600)
+	{
+		$this->CI->session->set_tempdata($array, NULL, $second);
+	}
+	
+	public function Get($key)
+	{
+		return $this->CI->session->tempdata($key);
 	}
 	
 	public function GetLanguage()
