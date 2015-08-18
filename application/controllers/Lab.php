@@ -192,23 +192,40 @@ class Lab extends CI_Controller {
 
 		$config['upload_path'] = './uploads/';
 		$config['allowed_types'] = 'gif|jpg|png|ppt|pptx|doc|docx|txt|pdf|zip|7zip|rar';
-		$config['max_size']	= '10000';//php最大到2MB
+		$config['max_size']	= '10000';//php最大到10MB
 		$config['max_width']  = '0';// 0 = 不限制寬度
 		$config['max_height']  = '0';
-
 		$this->load->library('upload', $config);
+		
+		$input_title = ($_POST["TM_title"]);
+		$input_time = ($_POST["TM_time"]);
 		
 		foreach($_FILES as $key => $value)
 		{
 			if ( ! $this->upload->do_upload($key))
 			{
 				$error = array('error' => $this->upload->display_errors());
-				echo '上傳失敗 '.$key;
+				echo $key.'上傳失敗'."<br>";
 			}
 			else
 			{
-				$data = array('upload_data' => $this->upload->data());
-				echo '上傳成功 '.$key;
+				$file = $this->upload->data();//將檔案上傳
+				echo $file['orig_name'].'上傳成功'."<br>";
+				$now = ((int)substr($key, 4, 1)) - 1;
+				$course = array(
+									'Title' => $input_title[$now],
+									'Time' => $input_time[$now]
+				);
+				$this->db->insert('course', $course);
+
+				$C_Id = $this->db->insert_id();
+				$course_files =array(
+											'C_Id' => $C_Id,
+											'Path' =>$file['full_path'],
+											'Name' =>$file['orig_name'],
+											'Type' =>$file['file_type']
+				);
+				$this->db->insert('course_files', $course_files);
 			}
 		}
 	}
