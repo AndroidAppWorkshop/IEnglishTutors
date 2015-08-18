@@ -12,6 +12,20 @@ class Member extends CI_Model {
 		$this->load->library('encrypt');
 	}
 	
+	public function Create($username, $password, $role)
+	{
+		$query = $this->db->get_where('role', array('Role' => $role));
+		$Id = $query->first_row()->Id;
+		
+		$member = array(
+				'Username' => $username,
+				'Password' => $password,
+				'R_Id' => $Id
+		);
+		
+		$this->db->insert('member', $member);
+	}
+	
 	public function Login($username, $password, $remember = FALSE)
 	{
 		$this->db->select('Username, Password, Picture, Role');
@@ -48,4 +62,4 @@ class Member extends CI_Model {
 }
 
 /* End of file Member.php */
-/* Location: ./application/models/Shared/Member.php */
+/* Location: ./application/models/WebPortal/Member.php */
