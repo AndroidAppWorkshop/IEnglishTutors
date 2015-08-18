@@ -33,7 +33,8 @@ class IET_Loader extends CI_Loader {
 	protected function GetFooterData()
 	{
 		$path = $this->CI->Router->GetCurrentPathWithColon();
-		$data['ViewJson'] = $this->CI->Layout->ViewJson($path);
+		$language = $this->CI->User->GetLanguage();
+		$data['ViewJson'] = $this->CI->Layout->ViewJson($language, $path);
 		$data['PlugJs'] = $this->CI->Layout->PlugJs(strtolower($this->CI->Router->GetCurrentPathWithDot()));
 		
 		return $data;

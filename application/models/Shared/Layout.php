@@ -17,12 +17,12 @@ class Layout extends CI_Model {
 		$this->Initialize();
 	}
 
-	public function ViewJson($currentPath = '')
+	public function ViewJson($language, $currentPath = '')
 	{
 		$this->db->select('VarName, Content');
 		$this->db->from('language_usage');
 		$this->db->join('language', 'language.Id = language_usage.L_Id');
-		$this->db->where('language.Name', 'zh-TW');
+		$this->db->where('language.Name', $language);
 		$this->db->where('language_usage.Name', $currentPath);
 		$query = $this->db->get();
 

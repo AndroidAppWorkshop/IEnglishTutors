@@ -106,7 +106,7 @@ class Lab extends CI_Controller {
 	{
 		// 已設定 autoload.php 全域自動加載 'Shared/Layout'
 		// $this->load->model('Shared/Layout');
-		echo $this->Layout->ViewJson('Home:Lobby');
+		echo $this->Layout->ViewJson($this->User->GetLanguage(), 'Home:Lobby');
 	}
 
 	public function SetSessionData()
