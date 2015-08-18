@@ -78,6 +78,22 @@
 			</tr>
 			<tr>
 				<th scope="row">
+					<a class="btn btn-primary" href="Lab/SetTempData" role="button">Link</a>
+				</th>
+				<td>SetTempData</td>
+				<td>Set TempData (帶有效時間之 session)</td>
+				<td>Wilson</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<a class="btn btn-primary" href="Lab/GetTempData" role="button">Link</a>
+				</th>
+				<td>GetTempData</td>
+				<td>Get TempData (確保讀取 TempData)</td>
+				<td>Wilson</td>
+			</tr>
+			<tr>
+				<th scope="row">
 					<a class="btn btn-primary" href="Lab/Languages" role="button">Link</a>
 				</th>
 				<td>Languages</td>

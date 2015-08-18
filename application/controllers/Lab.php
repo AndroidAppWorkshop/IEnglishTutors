@@ -144,6 +144,22 @@ class Lab extends CI_Controller {
 		$this->load->library('session');
 		$this->session->sess_destroy();
 	}
+	
+	public function SetTempData()
+	{
+		$this->load->library('session');
+		$this->session->set_tempdata(array(
+			'Username'  => 'wilson',
+			'Email'     => 'wilson@hotmail.com',
+			'Logged' => TRUE
+		), NULL, 60*60*2);
+	}
+	
+	public function GetTempData()
+	{
+		$this->load->library('session');
+		echo $this->session->tempdata('Username').'<br />';
+	}
 
 	public function Languages()
 	{
@@ -179,7 +195,7 @@ class Lab extends CI_Controller {
 		delete_cookie('performance');
 		echo 'cookie is delete!';
 	}
-
+	
 	public function Upload_Form()
 	{	
 		$this->load->helper(array('form','url'));
