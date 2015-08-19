@@ -5,7 +5,7 @@ module.exports = function (config) {
 	
 	var css = {
 		app: {
-			css1: style + 'app/css1.css'
+			home_lobby: style + 'app/Home/lobby.css'
 		},
 		bower: {
 			bootstrap: lib + 'bootstrap/css/bootstrap.css',
@@ -20,7 +20,7 @@ module.exports = function (config) {
 			asset: script + 'apis/asset.js'
 		},
 		app: {
-			js1: script + 'app/js1.js'
+			home_lobby: script + 'app/Home/lobby.js'
 		},
 		webportal: {
 			index: script + 'WebPortal/index.js',
@@ -49,10 +49,10 @@ module.exports = function (config) {
 		},
 		"home.lobby": {
 			"style": [
-				css.app.css1
+				css.app.home_lobby
 			],
 			"script": [
-				js.app.js1
+				js.app.home_lobby
 			]
 		},
 		"webportal.login": {
