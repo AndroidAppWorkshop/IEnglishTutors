@@ -23,7 +23,16 @@ class Member extends CI_Model {
 				'R_Id' => $Id
 		);
 		
-		$this->db->insert('member', $member);
+		try
+		{
+			$this->db->insert('member', $member);
+		}
+		catch (Exception $e)
+		{
+			return FALSE;
+		}
+		
+		return TRUE;
 	}
 	
 	public function Login($username, $password, $remember = FALSE)

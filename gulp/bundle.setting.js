@@ -15,7 +15,8 @@ module.exports = function (config) {
 	
 	var js = {
 		apis: {
-			system: script + 'apis/system.js'
+			system: script + 'apis/system.js',
+			members: script + 'apis/members.js'
 		},
 		app: {
 			js1: script + 'app/js1.js'
@@ -56,7 +57,7 @@ module.exports = function (config) {
 			"style": [
 			],
 			"script": [
-				js.apis.system,
+				js.apis.members,
 				js.webportal.login
 			]
 		}

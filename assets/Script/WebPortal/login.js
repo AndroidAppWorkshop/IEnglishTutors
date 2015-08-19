@@ -1,17 +1,33 @@
 angular.module('apps', ['angular-loading-bar', 'apis'])
-	.controller('login', ['$window', 'systemApi', function($window, $api){
+	.controller('login', ['$window', 'membersApi', function($window, $api){
 		var self = this;
 		self.JsonModel = $window['LoginJson'];
 		
 		self.Login = function()
 		{
-			$api.JsonOutput().then(function(result){
-				console.log(result);
+			$api.Login({
+				data: self.Member,
+				success: function(data){
+					console.log('success');
+					console.log(data);
+				},
+				error: function(){
+					console.log('error');
+				}
 			});
 		};
 		
 		self.Register = function()
 		{
-			console.log(self.NewMember);
+			$api.Create({
+				data: self.NewMember,
+				success: function(data){
+					console.log('success');
+					console.log(data);
+				},
+				error: function(){
+					console.log('error');
+				}
+			});
 		}
 	}]);

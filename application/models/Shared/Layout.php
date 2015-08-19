@@ -10,11 +10,17 @@ class Layout extends CI_Model {
 	{
 		parent::__construct();
 		
-		$this->load->helper('file');
+		$this->load->helper(array('file', 'url'));
 		$this->load->model('Shared/Environment');
 		$this->Initialize();
 	}
-
+	
+	public function GlobalVariable()
+	{
+		$result = $this->GenerateScriptVariable('$base_url', base_url());
+		return $result;
+	}
+	
 	public function ViewJson($language, $currentPath = '')
 	{
 		$this->db->select('VarName, Content');
@@ -27,7 +33,7 @@ class Layout extends CI_Model {
 		if ($query->num_rows() > 0)
 		{
 			$row = $query->row();
-			return $row->VarName.'='.$row->Content;
+			return 'var '.$row->VarName.' = '.$row->Content;
 		}
 
 		return null;
@@ -86,6 +92,11 @@ class Layout extends CI_Model {
 		}
 		
 		return implode('', $result);
+	}
+	
+	private function GenerateScriptVariable($key, $value)
+	{
+		return 'var '.$key.' = "'.$value.'";';
 	}
 }
 
