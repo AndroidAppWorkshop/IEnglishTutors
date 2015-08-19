@@ -1,4 +1,5 @@
 	<script>
+		<?=$GlobalVariable?>
 		<?=$ViewJson?>
 	</script>
 	<?=$MasterJs?>

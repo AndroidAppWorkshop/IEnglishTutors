@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Router extends CI_Model {
 
-	protected $CI;
 	protected $currentController;
 	protected $currentFunction;
 
@@ -11,7 +10,6 @@ class Router extends CI_Model {
 	{
 		parent::__construct();
 
-		$this->CI =& get_instance();
 		$this->SetCurrentPath();
 	}
 
@@ -47,8 +45,8 @@ class Router extends CI_Model {
 
 	protected function SetCurrentPath()
 	{
-		$this->currentController = $this->CI->uri->segment(1, $this->CI->router->default_controller);
-		$this->currentFunction = $this->currentController === $this->CI->router->default_controller ? 'Lobby' : $this->CI->uri->segment(2, 'Index');
+		$this->currentController = $this->uri->segment(1, $this->router->default_controller);
+		$this->currentFunction = $this->currentController === $this->router->default_controller ? 'Lobby' : $this->uri->segment(2, 'Index');
 	}
 }
 

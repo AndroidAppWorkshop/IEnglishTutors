@@ -14,7 +14,7 @@ class System extends CI_Controller {
 	
 	public function JsonOutput()
 	{
-		$this->response->Json(array('status' => 'OK'));
+		$this->response->Json(array('Success' => TRUE));
 	}
 
 	public function LanguageWithResult()

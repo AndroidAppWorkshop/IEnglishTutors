@@ -14,6 +14,7 @@ class IET_Loader extends CI_Loader {
 
 	public function Render($view = '', $vars = array(), $return = FALSE)
 	{
+		$this->model('Shared/Layout');
 		$path = $this->CI->Router->GetCurrentPath($view);
 		
 		$this->view('Shared/Header', $this->GetHeaderData());
@@ -32,7 +33,9 @@ class IET_Loader extends CI_Loader {
 	protected function GetFooterData()
 	{
 		$path = $this->CI->Router->GetCurrentPathWithColon();
-		$data['ViewJson'] = $this->CI->Layout->ViewJson($path);
+		$language = $this->CI->User->GetLanguage();
+		$data['GlobalVariable'] = $this->CI->Layout->GlobalVariable();
+		$data['ViewJson'] = $this->CI->Layout->ViewJson($language, $path);
 		$data['MasterJs'] = $this->CI->Layout->MasterJs();
 		$data['PlugJs'] = $this->CI->Layout->PlugJs(strtolower($this->CI->Router->GetCurrentPathWithDot()));
 		

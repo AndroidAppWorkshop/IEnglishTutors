@@ -102,13 +102,6 @@ class Lab extends CI_Controller {
 		echo $string;
 	}
 
-	public function LoadModel()
-	{
-		// 已設定 autoload.php 全域自動加載 'Shared/Layout'
-		// $this->load->model('Shared/Layout');
-		echo $this->Layout->ViewJson('Home:Lobby');
-	}
-
 	public function SetSessionData()
 	{
 		$this->load->library('session');
@@ -144,11 +137,31 @@ class Lab extends CI_Controller {
 		$this->load->library('session');
 		$this->session->sess_destroy();
 	}
-
-	public function Languages()
+	
+	public function SetTempData()
 	{
-		$this->load->library('user_agent');
-		print_r($this->agent->languages());
+		$this->load->library('session');
+		$this->session->set_tempdata(array(
+			'Username'  => 'wilson',
+			'Email'     => 'wilson@hotmail.com',
+			'Logged' => TRUE
+		), NULL, 60*60*2);
+	}
+	
+	public function GetTempData()
+	{
+		$this->load->library('session');
+		print_r($this->session->tempdata());
+	}
+	
+	public function SetLanguages()
+	{
+		$this->User->SetPreference();
+	}
+	
+	public function CheckLogin()
+	{
+		echo $this->User->IsLogin() ? '已登入' : '尚未登入';
 	}
 
 	public function SetCookie()
@@ -179,7 +192,7 @@ class Lab extends CI_Controller {
 		delete_cookie('performance');
 		echo 'cookie is delete!';
 	}
-
+	
 	public function Upload_Form()
 	{	
 		$this->load->helper(array('form','url'));

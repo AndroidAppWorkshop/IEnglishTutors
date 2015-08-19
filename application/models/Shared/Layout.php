@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Layout extends CI_Model {
 	
-	protected $CI;
 	protected $Config;
 	protected $Setting;
 	
@@ -11,25 +10,30 @@ class Layout extends CI_Model {
 	{
 		parent::__construct();
 		
-		$this->CI =& get_instance();
-		$this->CI->load->helper('file');
-		$this->CI->load->model('Shared/Environment');
+		$this->load->helper(array('file', 'url'));
+		$this->load->model('Shared/Environment');
 		$this->Initialize();
 	}
-
-	public function ViewJson($currentPath = '')
+	
+	public function GlobalVariable()
+	{
+		$result = $this->GenerateScriptVariable('$base_url', base_url());
+		return $result;
+	}
+	
+	public function ViewJson($language, $currentPath = '')
 	{
 		$this->db->select('VarName, Content');
 		$this->db->from('language_usage');
 		$this->db->join('language', 'language.Id = language_usage.L_Id');
-		$this->db->where('language.Name', 'zh-TW');
+		$this->db->where('language.Name', $language);
 		$this->db->where('language_usage.Name', $currentPath);
 		$query = $this->db->get();
 
 		if ($query->num_rows() > 0)
 		{
 			$row = $query->row();
-			return $row->VarName.'='.$row->Content;
+			return 'var '.$row->VarName.' = '.$row->Content;
 		}
 
 		return null;
@@ -38,7 +42,6 @@ class Layout extends CI_Model {
 	public function MasterCss()
 	{
 		return $this->HtmlString('global', 'style', '<link href="%s" rel="stylesheet">');
-		
 	}
 	
 	public function MasterJs()
@@ -66,7 +69,7 @@ class Layout extends CI_Model {
 	{
 		$result = array();
 		
-		if($this->CI->Environment->IsDevelopment())
+		if($this->Environment->IsDevelopment())
 		{
 			if(array_key_exists($path, $this->Setting)
 				&& array_key_exists($type, $this->Setting->$path))
@@ -89,6 +92,11 @@ class Layout extends CI_Model {
 		}
 		
 		return implode('', $result);
+	}
+	
+	private function GenerateScriptVariable($key, $value)
+	{
+		return 'var '.$key.' = "'.$value.'";';
 	}
 }
 
