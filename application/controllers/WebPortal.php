@@ -13,7 +13,7 @@ class WebPortal extends CI_Controller {
 	
 	public function Index()
 	{
-		echo 'Index';
+		$this->load->Render();
 	}
 
 	public function Login()

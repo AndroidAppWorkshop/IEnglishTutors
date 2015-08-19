@@ -16,12 +16,14 @@ module.exports = function (config) {
 	var js = {
 		apis: {
 			system: script + 'apis/system.js',
-			members: script + 'apis/members.js'
+			members: script + 'apis/members.js',
+			asset: script + 'apis/asset.js'
 		},
 		app: {
 			js1: script + 'app/js1.js'
 		},
 		webportal: {
+			index: script + 'WebPortal/index.js',
 			login: script + 'WebPortal/login.js'
 		},
 		bower: {
@@ -59,6 +61,14 @@ module.exports = function (config) {
 			"script": [
 				js.apis.members,
 				js.webportal.login
+			]
+		},
+		"webportal.index": {
+			"style": [
+			],
+			"script": [
+				js.apis.asset,
+				js.webportal.index
 			]
 		}
 	};

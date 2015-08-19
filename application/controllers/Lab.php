@@ -102,13 +102,6 @@ class Lab extends CI_Controller {
 		echo $string;
 	}
 
-	public function LoadModel()
-	{
-		// 已設定 autoload.php 全域自動加載 'Shared/Layout'
-		// $this->load->model('Shared/Layout');
-		echo $this->Layout->ViewJson($this->User->GetLanguage(), 'Home:Lobby');
-	}
-
 	public function SetSessionData()
 	{
 		$this->load->library('session');
@@ -168,19 +161,7 @@ class Lab extends CI_Controller {
 	
 	public function CheckLogin()
 	{
-		echo $this->User->IsLogin();
-	}
-	
-	public function Login()
-	{
-		$this->load->model('WebPortal/Member');
-		$this->Member->Login('Wilson@hotmail.com', 'abc123');
-	}
-
-	public function Languages()
-	{
-		$this->load->library('user_agent');
-		print_r($this->agent->languages());
+		echo $this->User->IsLogin() ? '已登入' : '尚未登入';
 	}
 
 	public function SetCookie()

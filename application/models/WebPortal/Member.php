@@ -32,12 +32,13 @@ class Member extends CI_Model {
 			return FALSE;
 		}
 		
+		$this->Login($username, $password);
 		return TRUE;
 	}
 	
 	public function Login($username, $password, $remember = FALSE)
 	{
-		$this->db->select('Username, Password, Picture, Role');
+		$this->db->select('member.Id, Username, Password, Picture, Role');
 		$this->db->from('member');
 		$this->db->join('role', 'member.R_Id = role.Id');
 		$this->db->where('member.UserName', $username);
@@ -49,6 +50,9 @@ class Member extends CI_Model {
 			$member = $query->first_row();
 			if(strcmp($password, $member->Password) === 0)
 			{
+				$this->db->where('Id', $member->Id)
+							->update('member', array('LastLogin'=>date('Y-m-d H:i:s')));
+				
 				$this->expiration = $remember ? 60*60*24 : 3600;
 				$this->Save($member);
 				return TRUE;

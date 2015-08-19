@@ -38,14 +38,6 @@
 			</tr>
 			<tr>
 				<th scope="row">
-					<a class="btn btn-primary" href="Lab/LoadModel" role="button">Link</a>
-				</th>
-				<td>LoadModel</td>
-				<td>返回 Layout -> ViewJson</td>
-				<td>Wilson</td>
-			</tr>
-			<tr>
-				<th scope="row">
 					<a class="btn btn-primary" href="Lab/SetSessionData" role="button">Link</a>
 				</th>
 				<td>SetSessionData</td>
@@ -94,10 +86,18 @@
 			</tr>
 			<tr>
 				<th scope="row">
-					<a class="btn btn-primary" href="Lab/Languages" role="button">Link</a>
+					<a class="btn btn-primary" href="Lab/SetLanguages" role="button">Link</a>
 				</th>
-				<td>Languages</td>
-				<td>獲取當前瀏覽器資訊</td>
+				<td>SetLanguages</td>
+				<td>設置語系 - 預設中文</td>
+				<td>Wilson</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<a class="btn btn-primary" href="Lab/CheckLogin" role="button">Link</a>
+				</th>
+				<td>CheckLogin</td>
+				<td>確認是否登入</td>
 				<td>Wilson</td>
 			</tr>
 			<tr>

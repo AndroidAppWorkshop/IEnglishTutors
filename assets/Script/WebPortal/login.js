@@ -1,5 +1,6 @@
 angular.module('apps', ['angular-loading-bar', 'apis'])
 	.controller('login', ['$window', 'membersApi', function($window, $api){
+		var _Site = $window['$base_url'];
 		var self = this;
 		self.JsonModel = $window['LoginJson'];
 		
@@ -8,8 +9,9 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 			$api.Login({
 				data: self.Member,
 				success: function(data){
-					console.log('success');
-					console.log(data);
+					if(data.Success){
+						$window.location.href = _Site + 'WebPortal';
+					}
 				},
 				error: function(){
 					console.log('error');
@@ -22,8 +24,9 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 			$api.Create({
 				data: self.NewMember,
 				success: function(data){
-					console.log('success');
-					console.log(data);
+					if(data.Success){
+						$window.location.href = _Site + 'WebPortal';
+					}
 				},
 				error: function(){
 					console.log('error');
