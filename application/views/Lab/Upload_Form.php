@@ -11,7 +11,7 @@
 						<thead>
 							<tr>
 								<th>#</th>
-								<th>教材名稱</th>
+								<th>課堂名稱</th>
 								<th>日期</th>
 								<th>上傳路徑</th>
 							</tr>

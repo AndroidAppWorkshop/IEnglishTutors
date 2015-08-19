@@ -230,7 +230,25 @@ class Lab extends CI_Controller {
 		}
 	}
 
+	public function Download_Form()
+	{
+		$query = $this->db->query('SELECT * FROM `course`
+											LEFT JOIN `course_files` ON course.Id =course_files.C_Id 
+											ORDER BY `Time`,`Title`');//照時間排再照課程名稱排
+		$course_result = $query->result_array();
+		$data = array ( // 存入列陣
+							'data' => $course_result
+		);
+		
+		$this->load->Render('',$data);
+	}
+	
 	public function DoDownload()
+	{
+		
+	}
+
+	public function Download_urlPhoto()//下載網路圖片
 	{	
 		$data_post_URL = $this->input->post('TargetURL', TRUE);
 		$headers = get_headers($data_post_URL);//剖析網址
