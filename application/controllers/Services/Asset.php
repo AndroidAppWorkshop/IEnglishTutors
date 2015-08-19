@@ -14,9 +14,9 @@ class Asset extends CI_Controller {
 	public function Refresh()
 	{
 		$gulp_config_js = fopen('./gulp/gulp.config.js', 'r') or die('Unable to open file!');
-		WriteJsonFile('./assets/app_data/gulp.config.json', $this->GulpConfigResolve($gulp_config_js));
+		WriteJsonFile(APPPATH.'app_data/gulp.config.json', $this->GulpConfigResolve($gulp_config_js));
 		$bundle_setting_js = fopen('./gulp/bundle.setting.js', 'r') or die('Unable to open file!');
-		WriteJsonFile('./assets/app_data/bundle.setting.json', $this->BundleSettingResolve($bundle_setting_js));
+		WriteJsonFile(APPPATH.'app_data/bundle.setting.json', $this->BundleSettingResolve($bundle_setting_js));
 		
 		$this->caches->Clean();
 		$this->response->Json(array('Success' => TRUE));
