@@ -10,6 +10,7 @@ class Layout extends CI_Model {
 	{
 		parent::__construct();
 		
+		$this->load->library('caches');
 		$this->load->helper(array('file', 'url'));
 		$this->load->model('Shared/Environment');
 		$this->Initialize();
@@ -61,8 +62,21 @@ class Layout extends CI_Model {
 	
 	private function Initialize()
 	{
-		$this->Config = LoadJsonFile('./assets/app_data/gulp.config.json')->config;
-		$this->Setting = LoadJsonFile('./assets/app_data/bundle.setting.json')->setting;
+		if($this->caches->Get('gulp_config')
+			&& $this->caches->Get('bundle_setting'))
+		{
+			$this->Config = $this->caches->Get('gulp_config');
+			$this->Setting = $this->caches->Get('bundle_setting');
+		}
+		else
+		{
+			$config = LoadJsonFile(APPPATH.'app_data/gulp.config.json')->config;
+			$setting = LoadJsonFile(APPPATH.'app_data/bundle.setting.json')->setting;
+			$this->caches->Set('gulp_config', $config, 60*60*24*7);
+			$this->caches->Set('bundle_setting', $setting, 60*60*24*7);
+			$this->Config = $config;
+			$this->Setting = $setting;
+		}
 	}
 	
 	private function HtmlString($path, $type, $format)
