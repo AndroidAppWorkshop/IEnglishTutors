@@ -3,7 +3,7 @@
 /assets/fonts/*
 /assets/js/*
 /assets/lib/*
-/assets/app_data/mail.server.json
+/application/app_data/mail.server.json
 /application/cache/*
 /application/config/development/config.php
 /application/config/development/database.php

@@ -25,7 +25,7 @@ class Lab extends CI_Controller {
 		$this->load->helper(array('file', 'url'));
 		$this->load->library('email');
 
-		$config = LoadJsonFileWithEncrypt('./assets/app_data/mail.server.json', TRUE);
+		$config = LoadJsonFileWithEncrypt(APPPATH.'app_data/mail.server.json', TRUE);
 		$this->email->initialize($config);
 		
 		$data_post_name = $this->input->post('YourName', TRUE);
@@ -91,7 +91,7 @@ class Lab extends CI_Controller {
 			);
 		}
 
-		WriteJsonFileWithEncrypt('./assets/app_data/mail.server.json', $config);
+		WriteJsonFileWithEncrypt(APPPATH.'app_data/mail.server.json', $config);
 		redirect('Lab/Success');
 	}
 
