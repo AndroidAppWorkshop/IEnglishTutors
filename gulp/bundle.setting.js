@@ -8,8 +8,8 @@ module.exports = function (config) {
 			css1: style + 'app/css1.css'
 		},
 		bower: {
-			bootstrap: lib + 'bootstrap/css/bootstrap.min.css',
-			loadingbar: lib + 'loadingbar/loading-bar.min.css'
+			bootstrap: lib + 'bootstrap/css/bootstrap.css',
+			loadingbar: lib + 'loadingbar/loading-bar.css'
 		}
 	};
 	
@@ -24,10 +24,10 @@ module.exports = function (config) {
 			login: script + 'WebPortal/login.js'
 		},
 		bower: {
-			jquery: lib + 'jquery/jquery.min.js',
-			bootstrap: lib + 'bootstrap/js/bootstrap.min.js',
-			angular: lib + 'angular/angular.min.js',
-			loadingbar: lib + 'loadingbar/loading-bar.min.js'
+			jquery: lib + 'jquery/jquery.js',
+			bootstrap: lib + 'bootstrap/js/bootstrap.js',
+			angular: lib + 'angular/angular.js',
+			loadingbar: lib + 'loadingbar/loading-bar.js'
 		}
 	};
 	

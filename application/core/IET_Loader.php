@@ -25,7 +25,6 @@ class IET_Loader extends CI_Loader {
 	{
 		$data['MasterCss'] = $this->CI->Layout->MasterCss();
 		$data['PlugCss'] = $this->CI->Layout->PlugCss(strtolower($this->CI->Router->GetCurrentPathWithDot()));
-		$data['MasterJs'] = $this->CI->Layout->MasterJs();
 		
 		return $data;
 	}
@@ -35,6 +34,7 @@ class IET_Loader extends CI_Loader {
 		$path = $this->CI->Router->GetCurrentPathWithColon();
 		$language = $this->CI->User->GetLanguage();
 		$data['ViewJson'] = $this->CI->Layout->ViewJson($language, $path);
+		$data['MasterJs'] = $this->CI->Layout->MasterJs();
 		$data['PlugJs'] = $this->CI->Layout->PlugJs(strtolower($this->CI->Router->GetCurrentPathWithDot()));
 		
 		return $data;
