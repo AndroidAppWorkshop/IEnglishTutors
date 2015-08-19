@@ -137,4 +137,4 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 
-$autoload['model'] = array('Shared/Layout', 'Shared/Router', 'Shared/User');
+$autoload['model'] = array('Shared/Router', 'Shared/User');

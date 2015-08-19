@@ -14,6 +14,7 @@ class IET_Loader extends CI_Loader {
 
 	public function Render($view = '', $vars = array(), $return = FALSE)
 	{
+		$this->model('Shared/Layout');
 		$path = $this->CI->Router->GetCurrentPath($view);
 		
 		$this->view('Shared/Header', $this->GetHeaderData());
