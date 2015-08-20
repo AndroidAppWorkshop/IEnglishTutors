@@ -1,0 +1,18 @@
+#modal-success > .modal-dialog > .modal-content {
+	background-color: #252830;
+}
+#modal-error > .modal-dialog > .modal-content {
+	background-color: #252830;
+}
+#modal-success > .modal-dialog > .modal-content > .modal-header > h4 {
+	font-weight: bold;
+}
+#modal-error > .modal-dialog > .modal-content > .modal-header > h4 {
+	font-weight: bold;
+}
+#modal-success > .modal-dialog > .modal-content > .modal-body {
+	color: #ffffff;
+}
+#modal-error > .modal-dialog > .modal-content > .modal-body {
+	color: #ffffff;
+}

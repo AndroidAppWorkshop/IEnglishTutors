@@ -13,7 +13,7 @@ class Members extends CI_Controller {
 	
 	public function Create()
 	{
-		$postdata = json_decode(file_get_contents('php://input'));
+		$postdata = json_decode($this->input->raw_input_stream);
 		$email = $postdata->Email;
 		$password = $postdata->Password;
 		$role = $postdata->Role;
@@ -23,7 +23,7 @@ class Members extends CI_Controller {
 	
 	public function Login()
 	{
-		$postdata = json_decode(file_get_contents('php://input'));
+		$postdata = json_decode($this->input->raw_input_stream);
 		$email = $postdata->Email;
 		$password = $postdata->Password;
 		$remember = property_exists($postdata, 'Remember') ? $postdata->Remember : FALSE;

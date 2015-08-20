@@ -154,14 +154,28 @@ class Lab extends CI_Controller {
 		print_r($this->session->tempdata());
 	}
 	
-	public function SetLanguages()
+	public function SetLanguages($language = 'zh-TW')
 	{
-		$this->User->SetPreference();
+		$this->User->SetPreference($language);
 	}
 	
 	public function CheckLogin()
 	{
 		echo $this->User->IsLogin() ? '已登入' : '尚未登入';
+	}
+	
+	public function EncryptSize()
+	{
+		$this->load->library('encrypt');
+		$string1 = '111111';
+		$string2 = 'sad451qw23e4';
+		$string3 = 'qwoiekldfjowhef';
+		echo $string1.' 加密後 : '.$this->encrypt->encode($string1).'<br/>';
+		echo '長度為 : '.strlen($this->encrypt->encode($string1)).'<br/>';
+		echo $string2.' 加密後 : '.$this->encrypt->encode($string2).'<br/>';
+		echo '長度為 : '.strlen($this->encrypt->encode($string2)).'<br/>';
+		echo $string3.' 加密後 : '.$this->encrypt->encode($string3).'<br/>';
+		echo '長度為 : '.strlen($this->encrypt->encode($string3)).'<br/>';
 	}
 
 	public function SetCookie()

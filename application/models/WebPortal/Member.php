@@ -19,7 +19,7 @@ class Member extends CI_Model {
 		
 		$member = array(
 				'Username' => $username,
-				'Password' => $password,
+				'Password' => $this->encrypt->encode($password),
 				'R_Id' => $Id
 		);
 		
@@ -42,13 +42,12 @@ class Member extends CI_Model {
 		$this->db->from('member');
 		$this->db->join('role', 'member.R_Id = role.Id');
 		$this->db->where('member.UserName', $username);
-		$this->db->where('member.Password', $password);
 		$query = $this->db->get();
 
 		if ($query->num_rows() > 0)
 		{
 			$member = $query->first_row();
-			if(strcmp($password, $member->Password) === 0)
+			if(strcmp($password, $this->encrypt->decode($member->Password)) === 0)
 			{
 				$this->db->where('Id', $member->Id)
 							->update('member', array('LastLogin'=>date('Y-m-d H:i:s')));

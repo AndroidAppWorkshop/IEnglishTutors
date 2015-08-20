@@ -102,6 +102,14 @@
 			</tr>
 			<tr>
 				<th scope="row">
+					<a class="btn btn-primary" href="Lab/EncryptSize" role="button">Link</a>
+				</th>
+				<td>EncryptSize</td>
+				<td>確認加密後的長度</td>
+				<td>Wilson</td>
+			</tr>
+			<tr>
+				<th scope="row">
 					<a class="btn btn-primary" href="Lab/SetCookie" role="button">Link</a>
 				</th>
 				<td>SetCookie</td>

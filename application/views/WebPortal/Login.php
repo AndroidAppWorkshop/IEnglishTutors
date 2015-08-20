@@ -144,4 +144,38 @@
 		</div>
 		</div>
 	</div>
+	<div class="modal fade bs-example-modal-sm" id="modal-success" tabindex="-1">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title text-center text-info" ng-bind="self.JsonModel.Modal.SuccessTitle"></h4>
+				</div>
+				<div class="modal-body text-center" ng-bind="self.JsonModel.Modal.SuccessContent">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade bs-example-modal-sm" id="modal-error" tabindex="-1">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title text-center text-danger" ng-bind="self.JsonModel.Modal.ErrorTitle"></h4>
+				</div>
+				<div class="modal-body text-center" ng-bind="self.JsonModel.Modal.ErrorContent">
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

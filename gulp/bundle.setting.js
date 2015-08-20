@@ -7,6 +7,9 @@ module.exports = function (config) {
 		app: {
 			home_lobby: style + 'app/Home/lobby.css'
 		},
+		webportal: {
+			login: style + 'WebPortal/login.css'
+		},
 		bower: {
 			bootstrap: lib + 'bootstrap/css/bootstrap.css',
 			loadingbar: lib + 'loadingbar/loading-bar.css'
@@ -57,6 +60,7 @@ module.exports = function (config) {
 		},
 		"webportal.login": {
 			"style": [
+				css.webportal.login
 			],
 			"script": [
 				js.apis.members,
