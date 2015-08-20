@@ -1,0 +1,27 @@
+.wrapper {
+	background-color: #252830;
+	
+	> .navbar-inverse {
+		> .container-fluid {
+			> .navbar-header > .navbar-toggle {
+				&:hover,&:focus{
+					background-color: #eee;
+				}
+			}
+		}
+	}
+	
+	> .container-fluid {
+		> .row {
+			height: 800px;
+		}
+	}
+}
+
+@media (min-width: 768px){
+	.wrapper {
+		> .navbar-inverse {
+			border-radius: 0;
+		}
+	}
+}

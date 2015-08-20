@@ -5,6 +5,7 @@
 		"bootstrap": "3.3.5",
 		"jquery": "1.11.3",
 		"angular": "1.4.4",
-		"angular-loading-bar": "0.8.0"
+		"angular-loading-bar": "0.8.0",
+		"font-awesome-bower": "4.4.0"
 	}
 }

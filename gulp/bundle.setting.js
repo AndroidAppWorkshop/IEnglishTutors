@@ -8,11 +8,13 @@ module.exports = function (config) {
 			home_lobby: style + 'app/Home/lobby.css'
 		},
 		webportal: {
+			index: style + 'WebPortal/index.css',
 			login: style + 'WebPortal/login.css'
 		},
 		bower: {
 			bootstrap: lib + 'bootstrap/css/bootstrap.css',
-			loadingbar: lib + 'loadingbar/loading-bar.css'
+			loadingbar: lib + 'angular-loading-bar/loading-bar.css',
+			fontawesome: lib + 'font-awesome/css/font-awesome.css'
 		}
 	};
 	
@@ -33,7 +35,7 @@ module.exports = function (config) {
 			jquery: lib + 'jquery/jquery.js',
 			bootstrap: lib + 'bootstrap/js/bootstrap.js',
 			angular: lib + 'angular/angular.js',
-			loadingbar: lib + 'loadingbar/loading-bar.js'
+			loadingbar: lib + 'angular-loading-bar/loading-bar.js'
 		}
 	};
 	
@@ -41,7 +43,8 @@ module.exports = function (config) {
 		"global": {
 			"style": [
 					css.bower.bootstrap,
-					css.bower.loadingbar
+					css.bower.loadingbar,
+					css.bower.fontawesome
 			],
 			"script": [
 					js.bower.jquery,
@@ -69,6 +72,7 @@ module.exports = function (config) {
 		},
 		"webportal.index": {
 			"style": [
+				css.webportal.index
 			],
 			"script": [
 				js.apis.asset,

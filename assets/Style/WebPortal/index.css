@@ -1,0 +1,15 @@
+.wrapper {
+  background-color: #252830;
+}
+.wrapper > .navbar-inverse > .container-fluid > .navbar-header > .navbar-toggle:hover,
+.wrapper > .navbar-inverse > .container-fluid > .navbar-header > .navbar-toggle:focus {
+  background-color: #eee;
+}
+.wrapper > .container-fluid > .row {
+  height: 800px;
+}
+@media (min-width: 768px) {
+  .wrapper > .navbar-inverse {
+    border-radius: 0;
+  }
+}
