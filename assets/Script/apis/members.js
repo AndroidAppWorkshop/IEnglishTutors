@@ -1,7 +1,7 @@
 angular.module('apis', [])
 	.factory('membersApi', ['$http', '$window', function ($http, $window) {
 		var _Site = $window['$base_url'];
-		var _IsDev = _Site.indexOf('localhost') > -1;
+		var _IsDev = !!$window['$IsDev'];
 		var _Create = _Site + 'Services/Members/Create';
 		var _Login = _Site + 'Services/Members/Login';
 

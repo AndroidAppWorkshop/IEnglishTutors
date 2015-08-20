@@ -18,7 +18,8 @@ class Layout extends CI_Model {
 	
 	public function GlobalVariable()
 	{
-		$result = $this->GenerateScriptVariable('$base_url', base_url());
+		$result = $this->GenerateScriptVariable('$base_url', base_url(), TRUE);
+		$result = $result.$this->GenerateScriptVariable('$IsDev', $this->Environment->IsDevelopment());
 		return $result;
 	}
 	
@@ -108,9 +109,16 @@ class Layout extends CI_Model {
 		return implode('', $result);
 	}
 	
-	private function GenerateScriptVariable($key, $value)
+	private function GenerateScriptVariable($key, $value, $quote = FALSE)
 	{
-		return 'var '.$key.' = "'.$value.'";';
+		if($quote)
+		{
+			return 'var '.$key.' = "'.$value.'";';
+		}
+		else
+		{
+			return 'var '.$key.' = '.$value.';';
+		}
 	}
 }
 
