@@ -117,6 +117,15 @@ class Layout extends CI_Model {
 		}
 		else
 		{
+			if($value === TRUE)
+			{
+				$value = 1;
+			}
+			else if($value === FALSE)
+			{
+				$value = 0;	
+			}
+			
 			return 'var '.$key.' = '.$value.';';
 		}
 	}
