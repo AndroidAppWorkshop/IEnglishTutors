@@ -5,8 +5,8 @@
 .wrapper > .navbar-inverse > .container-fluid > .navbar-header > .navbar-toggle:focus {
   background-color: #eee;
 }
-.wrapper > .container-fluid > .row {
-  height: 800px;
+.wrapper > .container-fluid > .row > .side-bar-left > .uese-picture > img {
+  width: 100%;
 }
 .wrapper > #modal-success > .modal-dialog > .modal-content {
   background-color: #252830;

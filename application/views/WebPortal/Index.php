@@ -11,7 +11,6 @@
 					<i class="fa fa-user-secret" ng-bind="self.JsonModel.Text.Title"></i>
 				</a>
 			</div>
-	
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-9">
 				<ul class="nav navbar-nav">
@@ -39,6 +38,16 @@
 	</nav>
 	<div class="container-fluid">
 		<div class="row">
+			<div class="side-bar-left col-sm-2">
+				<div class="uese-picture hidden-xs">
+					<img src="https://unsplash.it/g/200?random" class="img-circle">
+				</div>
+			</div>
+			<div class="col-sm-10">
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" src="/index.php"></iframe>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="modal fade bs-example-modal-sm" id="modal-success" tabindex="-1">
