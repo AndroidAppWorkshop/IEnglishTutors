@@ -7,12 +7,22 @@ class System extends CI_Controller {
 	{
 		parent::__construct();
 		
-		$this->load->library('response');
+		$this->load->library(array('response', 'email'));
+		$this->load->helper('file');
 	}
 	
 	public function JsonOutput()
 	{
 		$this->response->Json(array('Success' => TRUE));
+	}
+	
+	public function SaveMailServer()
+	{
+		$postdata = json_decode($this->input->raw_input_stream);
+		$account = $postdata->Account;
+		$password = $postdata->Password;
+		$result = $this->email->SaveMailServer($account, $password);
+		$this->response->Json(array('Success' => $result));
 	}
 }
 

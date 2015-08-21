@@ -20,9 +20,8 @@
 							<i class="fa fa-refresh" ng-bind="self.JsonModel.Text.Asset"></i>
 						</a>
 					</li>
-					<li ng-class="{ 'active': self.ActiveEmail }" ng-click="self.SetMailServer()">
-						<a href="#" ng-show="self.ActiveEmail"><i class="fa fa-refresh fa-spin"></i></a>
-						<a href="javascript: void(0);" ng-hide="self.ActiveEmail">
+					<li ng-class="{ 'active': self.ActiveEmail && self.iframePath }" ng-click="self.SetMailServer()">
+						<a href="javascript: void(0);">
 							<i class="fa fa-envelope-o" ng-bind="self.JsonModel.Text.Email"></i>
 						</a>
 					</li>
@@ -40,12 +39,50 @@
 		<div class="row">
 			<div class="side-bar-left col-sm-2">
 				<div class="uese-picture hidden-xs">
-					<img src="https://unsplash.it/g/200?random" class="img-circle">
+					<img ng-src="/assets/images/WebPortal/user-photo.jpg" class="img-circle">
 				</div>
+				<!-- Fake Link Start -->
+				<hr />
+				<div class="bs-example" data-example-id="simple-justified-button-group">
+					<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+						<a href="#" class="btn btn-primary" role="button">Link</a>
+					</div>
+				</div>
+				<hr />
+				<div class="bs-example" data-example-id="simple-justified-button-group">
+					<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+						<a href="#" class="btn btn-primary" role="button">Link</a>
+					</div>
+				</div>
+				<hr />
+				<div class="bs-example" data-example-id="simple-justified-button-group">
+					<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+						<a href="#" class="btn btn-primary" role="button">Link</a>
+					</div>
+				</div>
+				<hr />
+				<div class="bs-example" data-example-id="simple-justified-button-group">
+					<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+						<a href="#" class="btn btn-primary" role="button">Link</a>
+					</div>
+				</div>
+				<hr />
+				<div class="bs-example" data-example-id="simple-justified-button-group">
+					<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+						<a href="#" class="btn btn-primary" role="button">Link</a>
+					</div>
+				</div>
+				<hr />
+				<div class="bs-example" data-example-id="simple-justified-button-group">
+					<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+						<a href="#" class="btn btn-primary" role="button">Link</a>
+					</div>
+				</div>
+				<!-- Fake Link End -->
 			</div>
 			<div class="col-sm-10">
-				<div class="embed-responsive embed-responsive-16by9">
-					<iframe class="embed-responsive-item" src="/index.php"></iframe>
+				<div class="embed-responsive embed-responsive-4by3" ng-show="self.iframePath">
+					<iframe class="embed-responsive-item" ng-src="{{self.iframePath}}"></iframe>
 				</div>
 			</div>
 		</div>

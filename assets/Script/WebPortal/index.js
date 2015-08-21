@@ -1,9 +1,11 @@
 angular.module('apps', ['angular-loading-bar', 'apis'])
 	.controller('index', ['$window', '$timeout', 'assetApi', 'membersApi', function ($window, $timeout, $assetApi, $membersApi) {
 		var _Site = $window['$base_url'];
+		var _Login = _Site + 'WebPortal/Login';
+		var _MailServerSetting = _Site + 'WebPortal/MailServerSetting';
 		var self = this;
 		var goLogin = function () {
-			$window.location.href = _Site + 'WebPortal/Login';
+			$window.location.href = _Login;
 		};
 
 		self.JsonModel = $window['IndexJson'];
@@ -26,6 +28,7 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 		self.SetMailServer = function () {
 			self.ClearNavState();
 			self.ActiveEmail = true;
+			self.iframePath = _MailServerSetting;
 		};
 
 		self.SignOut = function () {

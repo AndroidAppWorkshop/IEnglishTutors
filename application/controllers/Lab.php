@@ -64,37 +64,16 @@ class Lab extends CI_Controller {
 	public function SetMailServer()
 	{
 		$this->load->helper(array('file', 'url'));
-
+		$this->load->library('email');
 		$account = $this->input->post('account');
 		$password = $this->input->post('password');
 		
-		if($this->Environment->IsDevelopment())
+		$result = $this->email->SaveMailServer($account, $password);
+		
+		if($result)
 		{
-			$config = array(
-				'protocol' => 'smtp' ,
-				'smtp_host'=> 'ssl://smtp.googlemail.com',
-				'smtp_port'=> '465',
-				'smtp_user'=> $account,
-				'smtp_pass'=> $password,
-				'charset'  => 'utf-8',
-				'wordwrap' => TRUE
-			);
+			redirect('Lab/Success');
 		}
-		else
-		{
-			$config = array(
-				'protocol' => 'smtp' ,
-				'smtp_host'=> 'mail.ienglishtutors.com',
-				'smtp_port'=> '26',
-				'smtp_user'=> $account,
-				'smtp_pass'=> $password,
-				'charset'  => 'utf-8',
-				'wordwrap' => TRUE
-			);
-		}
-
-		WriteJsonFileWithEncrypt(APPPATH.'app_data/mail.server.json', $config);
-		redirect('Lab/Success');
 	}
 
 	public function LoadView()

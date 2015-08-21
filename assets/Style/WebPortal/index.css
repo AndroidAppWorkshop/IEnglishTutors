@@ -21,4 +21,7 @@
   .wrapper > .navbar-inverse {
     border-radius: 0;
   }
+  .wrapper > .container-fluid iframe {
+    max-height: 344px;
+  }
 }
