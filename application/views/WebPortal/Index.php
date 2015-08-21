@@ -15,21 +15,21 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-9">
 				<ul class="nav navbar-nav">
-					<li ng-class="{ 'active': self.Asset }" ng-click="self.Refresh()">
-						<a href="#" ng-show="self.Asset"><i class="fa fa-refresh fa-spin"></i></a>
-						<a href="javascript: void(0);" ng-hide="self.Asset">
+					<li ng-class="{ 'active': self.ActiveAsset }" ng-click="self.Refresh()">
+						<a href="#" ng-show="self.ActiveAsset"><i class="fa fa-refresh fa-spin"></i></a>
+						<a href="javascript: void(0);" ng-hide="self.ActiveAsset">
 							<i class="fa fa-refresh" ng-bind="self.JsonModel.Text.Asset"></i>
 						</a>
 					</li>
-					<li ng-class="{ 'active': self.Email }" ng-click="self.SetMailServer()">
-						<a href="#" ng-show="self.Email"><i class="fa fa-refresh fa-spin"></i></a>
-						<a href="javascript: void(0);" ng-hide="self.Email">
+					<li ng-class="{ 'active': self.ActiveEmail }" ng-click="self.SetMailServer()">
+						<a href="#" ng-show="self.ActiveEmail"><i class="fa fa-refresh fa-spin"></i></a>
+						<a href="javascript: void(0);" ng-hide="self.ActiveEmail">
 							<i class="fa fa-envelope-o" ng-bind="self.JsonModel.Text.Email"></i>
 						</a>
 					</li>
-					<li ng-class="{ 'active': self.Logout }" ng-click="self.SignOut()">
-						<a href="#" ng-show="self.Logout"><i class="fa fa-refresh fa-spin"></i></a>
-						<a href="javascript: void(0);" ng-hide="self.Logout">
+					<li ng-class="{ 'active': self.ActiveLogout }" ng-click="self.SignOut()">
+						<a href="#" ng-show="self.ActiveLogout"><i class="fa fa-refresh fa-spin"></i></a>
+						<a href="javascript: void(0);" ng-hide="self.ActiveLogout">
 							<i class="fa fa-sign-out" ng-bind="self.JsonModel.Text.Logout"></i>
 						</a>
 					</li>
@@ -39,6 +39,23 @@
 	</nav>
 	<div class="container-fluid">
 		<div class="row">
+		</div>
+	</div>
+	<div class="modal fade bs-example-modal-sm" id="modal-success" tabindex="-1">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button"
+						class="close"
+						data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title text-center text-info" ng-bind="self.JsonModel.Modal.SuccessTitle"></h4>
+				</div>
+				<div class="modal-body text-center" ng-bind="self.JsonModel.Modal.SuccessContent">
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

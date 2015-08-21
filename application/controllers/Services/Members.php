@@ -30,6 +30,12 @@ class Members extends CI_Controller {
 		$result = $this->Member->Login($email, $password, $remember);
 		$this->response->Json(array('Success' => $result));
 	}
+	
+	public function Logout()
+	{
+		$result = $this->Member->Logout();
+		$this->response->Json(array('Success' => $result));
+	}
 }
 
 /* End of file Member.php */

@@ -1,9 +1,10 @@
-angular.module('apis', [])
+angular.module('apis')
 	.factory('membersApi', ['$http', '$window', function ($http, $window) {
 		var _Site = $window['$base_url'];
 		var _IsDev = !!$window['$IsDev'];
 		var _Create = _Site + 'Services/Members/Create';
 		var _Login = _Site + 'Services/Members/Login';
+		var _Logout = _Site + 'Services/Members/Logout';
 
 		function AvoidCSRFProtection(data) {
 			if (_IsDev) {
@@ -35,6 +36,17 @@ angular.module('apis', [])
 				}).then(function (response) {
 					options.success(response.data);
 				}, function (response) {
+					options.error(response.data);
+				});
+			},
+			Logout: function (options) {
+				return $http({
+					method: 'GET',
+					url: _Logout,
+					params: options.params
+				}).then(function (response) {
+					options.success(response.data);
+				},function(response){
 					options.error(response.data);
 				});
 			}

@@ -53,6 +53,11 @@ class User extends CI_Model {
 	{
 		delete_cookie('performance');
 	}
+	
+	public function Destroy()
+	{
+		$this->session->sess_destroy();
+	}
 }
 
 /* End of file User.php */

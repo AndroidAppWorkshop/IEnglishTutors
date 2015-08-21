@@ -1,7 +1,10 @@
 angular.module('apps', ['angular-loading-bar', 'apis'])
-	.controller('index', ['$window', 'assetApi', function ($window, $api) {
+	.controller('index', ['$window', '$timeout', 'assetApi', 'membersApi', function ($window, $timeout, $assetApi, $membersApi) {
 		var _Site = $window['$base_url'];
 		var self = this;
+		var goLogin = function () {
+			$window.location.href = _Site + 'WebPortal/Login';
+		};
 
 		self.JsonModel = $window['IndexJson'];
 		self.Initialize = function () {
@@ -11,9 +14,9 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 
 		self.Refresh = function () {
 			self.ClearNavState();
-			self.Asset = true;
+			self.ActiveAsset = true;
 
-			$api.Refresh({
+			$assetApi.Refresh({
 				success: function (data) {
 					self.ClearNavState();
 				}
@@ -22,18 +25,26 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 
 		self.SetMailServer = function () {
 			self.ClearNavState();
-			self.Email = true;
+			self.ActiveEmail = true;
 		};
 
 		self.SignOut = function () {
 			self.ClearNavState();
-			self.Logout = true;
+			self.ActiveLogout = true;
+			
+			$membersApi.Logout({
+				success: function(data) {
+					self.ClearNavState();
+					$('#modal-success').modal('show');
+					$timeout(goLogin, 1500);
+				}
+			});
 		};
 
 		self.ClearNavState = function () {
-			self.Asset = false;
-			self.Email = false;
-			self.Logout = false;
+			self.ActiveAsset = false;
+			self.ActiveEmail = false;
+			self.ActiveLogout = false;
 		};
 
 		self.Initialize();

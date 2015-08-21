@@ -20,6 +20,7 @@ module.exports = function (config) {
 	
 	var js = {
 		apis: {
+			core: script + 'apis/apis.core.js',
 			system: script + 'apis/system.js',
 			members: script + 'apis/members.js',
 			asset: script + 'apis/asset.js'
@@ -50,7 +51,8 @@ module.exports = function (config) {
 					js.bower.jquery,
 					js.bower.bootstrap,
 					js.bower.angular,
-					js.bower.loadingbar
+					js.bower.loadingbar,
+					js.apis.core
 			]
 		},
 		"home.lobby": {
@@ -61,6 +63,16 @@ module.exports = function (config) {
 				js.app.home_lobby
 			]
 		},
+		"webportal.index": {
+			"style": [
+				css.webportal.index
+			],
+			"script": [
+				js.apis.members,
+				js.apis.asset,
+				js.webportal.index
+			]
+		},
 		"webportal.login": {
 			"style": [
 				css.webportal.login
@@ -68,15 +80,6 @@ module.exports = function (config) {
 			"script": [
 				js.apis.members,
 				js.webportal.login
-			]
-		},
-		"webportal.index": {
-			"style": [
-				css.webportal.index
-			],
-			"script": [
-				js.apis.asset,
-				js.webportal.index
 			]
 		}
 	};

@@ -61,6 +61,13 @@ class Member extends CI_Model {
 		return FALSE;
 	}
 	
+	public function Logout()
+	{
+		$this->User->Destroy();
+		
+		return TRUE;
+	}
+	
 	private function Save($member)
 	{
 		$this->User->Set(array(

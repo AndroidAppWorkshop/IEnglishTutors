@@ -1,5 +1,5 @@
 angular.module('apps', ['angular-loading-bar', 'apis'])
-	.controller('login', ['$window', 'membersApi', '$timeout', function ($window, $api, $timeout) {
+	.controller('login', ['$window', '$timeout', 'membersApi', function ($window, $timeout, $api) {
 		var _Site = $window['$base_url'];
 		var self = this;
 		var goWebPortal = function () {

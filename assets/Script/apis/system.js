@@ -1,4 +1,4 @@
-angular.module('apis', [])
+angular.module('apis')
 	.factory('systemApi', ['$http', '$window', function ($http, $window) {
 		var _Site = $window['$base_url'];
 		var _JsonOutput = _Site + 'Services/System/JsonOutput';
