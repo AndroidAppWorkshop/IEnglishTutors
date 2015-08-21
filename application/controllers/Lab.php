@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+require_once APPPATH.'models/dbo/Language.php';
+require_once APPPATH.'models/dbo/Language_Usage.php';
 
 class Lab extends CI_Controller {
 	
@@ -205,6 +207,39 @@ class Lab extends CI_Controller {
 		$this->load->helper('cookie');
 		delete_cookie('performance');
 		echo 'cookie is delete!';
+	}
+	
+	public function LanguageWithClass()
+	{
+		$query = $this->db->get('language');
+
+		foreach ($query->result('Language') as $language)
+		{
+			echo $language->Id;
+			echo '|';
+			echo $language->Name;
+			echo '<br>';
+			//取出來使用 Class 實體化, 若 Class 有寫方法可以執行. $language->xxx()
+		}
+
+		exit;
+	}
+	
+	public function LanguageWithUsage()
+	{
+		$this->db->where('L_Id', 2);
+		$this->db->where('Name', 'Home:Lobby');
+		$query = $this->db->get('language_usage');
+
+		foreach ($query->result('Language_Usage') as $usage)
+		{
+			echo $usage->IsScript;
+			echo '|';
+			echo $usage->Content;
+			echo '<br>';
+		}
+
+		exit;
 	}
 	
 	public function Upload_Form()

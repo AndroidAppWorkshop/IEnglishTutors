@@ -132,6 +132,22 @@
 				<td>刪除 Cookie</td>
 				<td>Wilson</td>
 			</tr>
+			<tr>
+				<th scope="row">
+					<a class="btn btn-primary" href="Lab/LanguageWithClass" role="button">Link</a>
+				</th>
+				<td>LanguageWithClass</td>
+				<td>取資料時可使用具名 Class 實體化</td>
+				<td>Wilson</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<a class="btn btn-primary" href="Lab/LanguageWithClass" role="button">Link</a>
+				</th>
+				<td>LanguageWithUsage</td>
+				<td>帶有條件的資料查訊</td>
+				<td>Wilson</td>
+			</tr>
 		</tbody>
 	</table>
 </div>
