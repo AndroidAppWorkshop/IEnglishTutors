@@ -5,8 +5,13 @@
 .wrapper > .navbar-inverse > .container-fluid > .navbar-header > .navbar-toggle:focus {
   background-color: #eee;
 }
-.wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-nav > .select > a > select {
+.wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-nav > .select > a > select.form-control {
   color: #25283f;
+  display: inline-block;
+  height: inherit;
+  margin-left: 5px;
+  padding: 0 9px;
+  width: inherit;
 }
 .wrapper > .container-fluid > .row > .side-bar-left > .uese-picture {
   text-align: center;

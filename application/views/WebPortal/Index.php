@@ -17,7 +17,8 @@
 					<li class="select">
 						<a href="javascript: void(0);">
 							<i class="fa fa-language"></i>
-							<select ng-model="self.CurrentLang"
+							<select class="form-control"
+								ng-model="self.CurrentLang"
 								ng-options="l as l for l in self.Preference.langs"
 								ng-change="self.ChangeLang();">
 							</select>
