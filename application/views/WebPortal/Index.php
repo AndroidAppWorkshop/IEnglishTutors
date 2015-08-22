@@ -14,21 +14,34 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-9">
 				<ul class="nav navbar-nav">
-					<li ng-class="{ 'active': self.ActiveAsset }" ng-click="self.Refresh()">
-						<a href="#" ng-show="self.ActiveAsset"><i class="fa fa-refresh fa-spin"></i></a>
-						<a href="javascript: void(0);" ng-hide="self.ActiveAsset">
-							<i class="fa fa-refresh" ng-bind="self.JsonModel.Text.Asset"></i>
+					<li class="select">
+						<a href="javascript: void(0);">
+							<i class="fa fa-language"></i>
+							<select ng-model="self.CurrentLang"
+								ng-options="l as l for l in self.Preference.langs"
+								ng-change="self.ChangeLang();">
+							</select>
 						</a>
 					</li>
-					<li ng-class="{ 'active': self.ActiveEmail && self.iframePath }" ng-click="self.SetMailServer()">
+					<li ng-class="{ 'active': self.ActiveAsset }" ng-click="self.Refresh()">
 						<a href="javascript: void(0);">
-							<i class="fa fa-envelope-o" ng-bind="self.JsonModel.Text.Email"></i>
+							<i class="fa fa-refresh" ng-hide="self.ActiveAsset"></i>
+							<i class="fa fa-refresh fa-spin" ng-show="self.ActiveAsset"></i>
+							<span ng-bind="self.JsonModel.Text.Asset"></span>
+						</a>
+					</li>
+					<li ng-class="{ 'active': self.ActiveEmail }" ng-click="self.SetMailServer()">
+						<a href="">
+							<i class="fa fa-envelope-o" ng-hide="self.ActiveEmail"></i>
+							<i class="fa fa-envelope" ng-show="self.ActiveEmail"></i>
+							<span ng-bind="self.JsonModel.Text.Email"></span>
 						</a>
 					</li>
 					<li ng-class="{ 'active': self.ActiveLogout }" ng-click="self.SignOut()">
-						<a href="#" ng-show="self.ActiveLogout"><i class="fa fa-refresh fa-spin"></i></a>
-						<a href="javascript: void(0);" ng-hide="self.ActiveLogout">
-							<i class="fa fa-sign-out" ng-bind="self.JsonModel.Text.Logout"></i>
+						<a href="javascript: void(0);">
+							<i class="fa fa-sign-out" ng-hide="self.ActiveLogout"></i>
+							<i class="fa fa-refresh fa-spin" ng-show="self.ActiveLogout"></i>
+							<span ng-bind="self.JsonModel.Text.Logout"></span>
 						</a>
 					</li>
 				</ul>

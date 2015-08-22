@@ -2,8 +2,8 @@ angular.module('modal', ['angular-loading-bar', 'apis'])
 	.controller('mailserversetting', ['$window', '$timeout', 'systemApi', function ($window, $timeout, $api) {
 		var self = this;
 
-		self.JsonModel = $window['MailServerSettingJson'];
 		self.Initialize = function () {
+			self.JsonModel = $window['MailServerSettingJson'];
 			self.AlertSuccess = false;
 			self.AlertError = false;
 		};
@@ -25,6 +25,9 @@ angular.module('modal', ['angular-loading-bar', 'apis'])
 		self.Close = function () {
 			var parentscope = parent.angular.element('[ng-controller^="index"]').scope();
 			parentscope.self.iframePath = '';
+			parentscope.self.ActiveEmail = false;
 			parentscope.$apply();
 		};
+		
+		self.Initialize();
 	}]);

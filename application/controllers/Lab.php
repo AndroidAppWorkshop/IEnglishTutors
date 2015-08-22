@@ -188,20 +188,11 @@ class Lab extends CI_Controller {
 		echo 'cookie is delete!';
 	}
 	
-	public function LanguageWithClass()
+	public function Languages()
 	{
-		$query = $this->db->get('language');
-
-		foreach ($query->result('Language') as $language)
-		{
-			echo $language->Id;
-			echo '|';
-			echo $language->Name;
-			echo '<br>';
-			//取出來使用 Class 實體化, 若 Class 有寫方法可以執行. $language->xxx()
-		}
-
-		exit;
+		$this->load->model('Shared/Languages');
+		
+		echo json_encode($this->Languages->Get());
 	}
 	
 	public function LanguageWithUsage()
@@ -217,7 +208,7 @@ class Lab extends CI_Controller {
 			echo $usage->Content;
 			echo '<br>';
 		}
-
+		//取出來使用 Class 實體化, 若 Class 有寫方法可以執行. $usage->xxx()
 		exit;
 	}
 	

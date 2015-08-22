@@ -36,6 +36,7 @@ class IET_Loader extends CI_Loader {
 		$language = $this->CI->User->GetLanguage();
 		$data['GlobalVariable'] = $this->CI->Layout->GlobalVariable();
 		$data['ViewJson'] = $this->CI->Layout->ViewJson($language, $path);
+		$data['Preference'] = $this->CI->Layout->PreferenceJson();
 		$data['MasterJs'] = $this->CI->Layout->MasterJs();
 		$data['PlugJs'] = $this->CI->Layout->PlugJs(strtolower($this->CI->Router->GetCurrentPathWithDot()));
 		

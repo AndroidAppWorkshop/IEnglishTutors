@@ -5,8 +5,10 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 		var goWebPortal = function () {
 			$window.location.href = _Site + 'WebPortal';
 		};
-
-		self.JsonModel = $window['LoginJson'];
+		
+		self.Initialize = function () {
+			self.JsonModel = $window['LoginJson'];
+		};
 
 		self.Login = function () {
 			$api.Login({
@@ -35,4 +37,6 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 				}
 			});
 		}
+		
+		self.Initialize();
 	}]);

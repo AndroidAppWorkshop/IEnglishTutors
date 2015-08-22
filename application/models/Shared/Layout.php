@@ -12,7 +12,7 @@ class Layout extends CI_Model {
 		
 		$this->load->library('caches');
 		$this->load->helper(array('file', 'url'));
-		$this->load->model('Shared/Environment');
+		$this->load->model(array('Shared/Environment', 'Shared/Languages'));
 		$this->Initialize();
 	}
 	
@@ -20,6 +20,7 @@ class Layout extends CI_Model {
 	{
 		$result = $this->GenerateScriptVariable('$base_url', base_url(), TRUE);
 		$result = $result.$this->GenerateScriptVariable('$IsDev', $this->Environment->IsDevelopment());
+		$result = $result.$this->GenerateScriptVariable('$CurrentLang', $this->User->GetLanguage(), TRUE);
 		return $result;
 	}
 	
@@ -35,10 +36,17 @@ class Layout extends CI_Model {
 		if ($query->num_rows() > 0)
 		{
 			$row = $query->row();
-			return 'var '.$row->VarName.' = '.$row->Content;
+			return 'var '.$row->VarName.' = '.$row->Content.';';
 		}
 
 		return null;
+	}
+	
+	public function PreferenceJson()
+	{
+		$languages = json_encode($this->Languages->Get());
+		
+		return 'var Preference = { langs: '.$languages.'};';
 	}
 	
 	public function MasterCss()

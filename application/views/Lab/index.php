@@ -134,10 +134,10 @@
 			</tr>
 			<tr>
 				<th scope="row">
-					<a class="btn btn-primary" href="Lab/LanguageWithClass" role="button">Link</a>
+					<a class="btn btn-primary" href="Lab/Languages" role="button">Link</a>
 				</th>
-				<td>LanguageWithClass</td>
-				<td>取資料時可使用具名 Class 實體化</td>
+				<td>Languages</td>
+				<td>印出資料庫的 Languages 表內的資料</td>
 				<td>Wilson</td>
 			</tr>
 			<tr>
@@ -145,7 +145,7 @@
 					<a class="btn btn-primary" href="Lab/LanguageWithClass" role="button">Link</a>
 				</th>
 				<td>LanguageWithUsage</td>
-				<td>帶有條件的資料查訊</td>
+				<td>帶有條件的資料查訊 (可實體化 Class)</td>
 				<td>Wilson</td>
 			</tr>
 		</tbody>

@@ -72,6 +72,7 @@ module.exports = function (config) {
 			"script": [
 				js.apis.members,
 				js.apis.asset,
+				js.apis.system,
 				js.webportal.index
 			]
 		},

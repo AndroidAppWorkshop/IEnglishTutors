@@ -4,6 +4,7 @@ angular.module('apis')
 		var _IsDev = !!$window['$IsDev'];
 		var _JsonOutput = _Site + 'Services/System/JsonOutput';
 		var _SaveMailServer = _Site + 'Services/System/SaveMailServer';
+		var _SavePreference = _Site + 'Services/System/SavePreference';
 
 		function AvoidCSRFProtection(data) {
 			if (_IsDev) {
@@ -31,6 +32,16 @@ angular.module('apis')
 					url: _SaveMailServer,
 					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 					data: AvoidCSRFProtection(options.data)
+				}).then(function (response) {
+					options.success(response.data);
+				}, function (response) {
+					options.error(response.data);
+				});
+			},SavePreference: function (options) {
+				return $http({
+					method: 'GET',
+					url: _SavePreference,
+					params: options.params
 				}).then(function (response) {
 					options.success(response.data);
 				}, function (response) {

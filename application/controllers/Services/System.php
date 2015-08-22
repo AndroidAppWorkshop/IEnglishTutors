@@ -24,6 +24,13 @@ class System extends CI_Controller {
 		$result = $this->email->SaveMailServer($account, $password);
 		$this->response->Json(array('Success' => $result));
 	}
+	
+	public function SavePreference()
+	{
+		$language = $this->input->get('language', TRUE);
+		$result = $this->User->SetPreference($language);
+		$this->response->Json(array('Success' => $result));
+	}
 }
 
 /* End of file System.php */

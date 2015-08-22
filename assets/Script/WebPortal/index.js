@@ -1,5 +1,5 @@
 angular.module('apps', ['angular-loading-bar', 'apis'])
-	.controller('index', ['$window', '$timeout', 'assetApi', 'membersApi', function ($window, $timeout, $assetApi, $membersApi) {
+	.controller('index', ['$window', '$timeout', 'assetApi', 'membersApi', 'systemApi', function ($window, $timeout, $assetApi, $membersApi, $systemApi) {
 		var _Site = $window['$base_url'];
 		var _Login = _Site + 'WebPortal/Login';
 		var _MailServerSetting = _Site + 'WebPortal/MailServerSetting';
@@ -8,10 +8,12 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 			$window.location.href = _Login;
 		};
 
-		self.JsonModel = $window['IndexJson'];
 		self.Initialize = function () {
+			self.JsonModel = $window['IndexJson'];
 			self.JsonModel.Link.Title = _Site + self.JsonModel.Link.Title;
 			self.ClearNavState();
+			self.CurrentLang = $window['$CurrentLang'];
+			self.Preference = $window['Preference'];
 		};
 
 		self.Refresh = function () {
@@ -19,7 +21,7 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 			self.ActiveAsset = true;
 
 			$assetApi.Refresh({
-				success: function (data) {
+				success: function () {
 					self.ClearNavState();
 				}
 			});
@@ -36,7 +38,7 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 			self.ActiveLogout = true;
 			
 			$membersApi.Logout({
-				success: function(data) {
+				success: function() {
 					self.ClearNavState();
 					$('#modal-success').modal('show');
 					$timeout(goLogin, 1500);
@@ -48,6 +50,15 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 			self.ActiveAsset = false;
 			self.ActiveEmail = false;
 			self.ActiveLogout = false;
+		};
+		
+		self.ChangeLang = function () {
+			$systemApi.SavePreference({
+				params: { language: self.CurrentLang },
+				success: function (data) {
+					$window.location.reload();
+				}
+			});
 		};
 
 		self.Initialize();

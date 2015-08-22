@@ -46,6 +46,8 @@ class User extends CI_Model {
 		$this->preference = array('Languages' => $language);
 		
 		set_cookie('preference', json_encode($this->preference), 60*60*24*5);
+		
+		return TRUE;
 	}
 	
 	public function CleanPreference()

@@ -5,8 +5,14 @@
 .wrapper > .navbar-inverse > .container-fluid > .navbar-header > .navbar-toggle:focus {
   background-color: #eee;
 }
+.wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-nav > .select > a > select {
+  color: #25283f;
+}
+.wrapper > .container-fluid > .row > .side-bar-left > .uese-picture {
+  text-align: center;
+}
 .wrapper > .container-fluid > .row > .side-bar-left > .uese-picture > img {
-  width: 100%;
+  width: 80%;
 }
 .wrapper > #modal-success > .modal-dialog > .modal-content {
   background-color: #252830;

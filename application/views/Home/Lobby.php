@@ -1,3 +1,3 @@
-<?php
-	phpinfo();
-?>
+<div class="wrapper">
+	<?=phpinfo()?>
+</div>
