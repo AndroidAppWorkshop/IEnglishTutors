@@ -15,6 +15,11 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-9">
 				<ul class="nav navbar-nav">
+					<li class="visible-xs-block" ng-repeat="item in self.Nav">
+						<button>
+							<span ng-bind="item.Text"></span>
+						</button>
+					</li>
 					<li class="select">
 							<i class="fa fa-language"></i>
 							<select class="form-control"
@@ -24,25 +29,25 @@
 							</select>
 					</li>
 					<li ng-class="{ 'active': self.ActiveAsset }" ng-click="self.Refresh()">
-						<a href="javascript: void(0);">
+						<button>
 							<i class="fa fa-refresh" ng-hide="self.ActiveAsset"></i>
 							<i class="fa fa-refresh fa-spin" ng-show="self.ActiveAsset"></i>
 							<span ng-bind="self.JsonModel.Text.Asset"></span>
-						</a>
+						</button>
 					</li>
 					<li ng-class="{ 'active': self.ActiveEmail }" ng-click="self.SetMailServer()">
-						<a href="">
+						<button>
 							<i class="fa fa-envelope-o" ng-hide="self.ActiveEmail"></i>
 							<i class="fa fa-envelope" ng-show="self.ActiveEmail"></i>
 							<span ng-bind="self.JsonModel.Text.Email"></span>
-						</a>
+						</button>
 					</li>
 					<li ng-class="{ 'active': self.ActiveLogout }" ng-click="self.SignOut()">
-						<a href="javascript: void(0);">
+						<button>
 							<i class="fa fa-sign-out" ng-hide="self.ActiveLogout"></i>
 							<i class="fa fa-refresh fa-spin" ng-show="self.ActiveLogout"></i>
 							<span ng-bind="self.JsonModel.Text.Logout"></span>
-						</a>
+						</button>
 					</li>
 				</ul>
 			</div><!-- /.navbar-collapse -->

@@ -10,21 +10,29 @@ body > .wrapper > .navbar-inverse > .container-fluid > .navbar-header > .navbar-
 body > .wrapper > .navbar-inverse > .container-fluid > .navbar-header > .navbar-toggle:focus {
   background-color: #eeeeee;
 }
-body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-nav > .select {
+body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-nav > li {
   color: #9d9d9d;
   line-height: 20px;
   padding: 10px 15px;
 }
-body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-nav > .select:hover {
-  color: #ffffff;
+body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-nav > li > button {
+  background-color: inherit;
+  border: inherit;
 }
-body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-nav > .select > select.form-control {
+body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-nav > li > select.form-control {
   color: #25283f;
   display: inline-block;
   height: inherit;
   margin-left: 5px;
   padding: 0 9px;
   width: inherit;
+}
+body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-nav > li.active {
+  color: #ffffff;
+  background-color: #080808;
+}
+body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-nav > li:hover {
+  color: #ffffff;
 }
 body > .wrapper > .container-fluid > .row > .side-bar-left > .menu-block > .menu-section {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -67,7 +75,7 @@ body > .wrapper > #modal-success > .modal-dialog > .modal-content > .modal-body 
   body > .wrapper > .navbar-inverse > .container-fluid > .navbar-header > .navbar-brand {
     margin-left: 50px;
   }
-  body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-nav > .select {
+  body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-nav > li {
     padding-top: 15px;
     padding-bottom: 15px;
   }

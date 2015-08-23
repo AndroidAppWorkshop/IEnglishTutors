@@ -14,22 +14,34 @@ body{
 					}
 				}
 				
-				> .navbar-collapse > .navbar-nav > .select {
-					color: #9d9d9d;
-					line-height: 20px;
-					padding: 10px 15px;
-					
-					&:hover {
-						color: #ffffff;
-					}
-					
-					> select.form-control {
-						color: #25283f;
-						display: inline-block;
-						height: inherit;
-						margin-left: 5px;
-						padding: 0 9px;
-						width: inherit;
+				> .navbar-collapse > .navbar-nav > {
+					> li {
+						color: #9d9d9d;
+						line-height: 20px;
+						padding: 10px 15px;
+						
+						> button {
+							background-color: inherit;
+							border: inherit;
+						}
+						
+						> select.form-control {
+							color: #25283f;
+							display: inline-block;
+							height: inherit;
+							margin-left: 5px;
+							padding: 0 9px;
+							width: inherit;
+						}
+						
+						&.active {
+							color: #ffffff;
+							background-color: #080808;
+						}
+						
+						&:hover {
+							color: #ffffff;
+						}
 					}
 				}
 			}
@@ -102,9 +114,11 @@ body{
 						margin-left: 50px;
 					}
 					
-					> .navbar-collapse > .navbar-nav > .select {
-						padding-top: 15px;
-						padding-bottom: 15px;
+					> .navbar-collapse > .navbar-nav {
+						> li {
+							padding-top: 15px;
+							padding-bottom: 15px;
+						}
 					}
 				}
 			}

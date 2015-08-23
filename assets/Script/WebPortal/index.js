@@ -14,6 +14,7 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 			self.ClearNavState();
 			self.CurrentLang = $window['$CurrentLang'];
 			self.Preference = $window['Preference'];
+			self.Nav = self.GetNav(self.JsonModel.SideBarMenu);
 		};
 
 		self.Refresh = function () {
@@ -36,9 +37,9 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 		self.SignOut = function () {
 			self.ClearNavState();
 			self.ActiveLogout = true;
-			
+
 			$membersApi.Logout({
-				success: function() {
+				success: function () {
 					self.ClearNavState();
 					$('#modal-success').modal('show');
 					$timeout(goLogin, 1500);
@@ -51,7 +52,7 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 			self.ActiveEmail = false;
 			self.ActiveLogout = false;
 		};
-		
+
 		self.ChangeLang = function () {
 			$systemApi.SavePreference({
 				params: { language: self.CurrentLang },
@@ -59,6 +60,18 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 					$window.location.reload();
 				}
 			});
+		};
+
+		self.GetNav = function (SideBar) {
+			var result = [];
+			
+			SideBar.forEach(function (element) {
+				element.Button.forEach(function (ele) {
+					result.push(ele);
+				});
+			});
+			
+			return result;
 		};
 
 		self.Initialize();
