@@ -22,21 +22,31 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label" ng-bind="self.JsonModel.Text.Account"></label>
 							<div class="col-sm-10">
-								<input type="text"
-									class="form-control"
-									name="account"
-									ng-model="self.Config.Account"
-									required />
+								<div class="input-group">
+									<span class="input-group-addon">
+										<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+									</span>
+									<input type="text"
+										class="form-control"
+										name="account"
+										ng-model="self.Config.Account"
+										required />
+								</div>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label" ng-bind="self.JsonModel.Text.Password"></label>
 							<div class="col-sm-10">
-								<input type="password"
-									class="form-control"
-									name="password"
-									ng-model="self.Config.Password"
-									required />
+								<div class="input-group">
+									<span class="input-group-addon">
+										<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+									</span>
+									<input type="password"
+										class="form-control"
+										name="password"
+										ng-model="self.Config.Password"
+										required />
+								</div>
 							</div>
 						</div>
 					</form>
@@ -44,14 +54,17 @@
 				<div class="modal-footer">
 					<button type="button"
 						class="btn btn-default"
-						data-dismiss="modal"
-						ng-bind="self.JsonModel.Text.Close"
-						ng-click="self.Close();"></button>
+						ng-click="self.Close();">
+						<i class="fa fa-times"></i>
+						<span ng-bind="self.JsonModel.Text.Close"></span>
+					</button>
 					<button type="button"
 						class="btn btn-primary"
 						ng-disabled="config.$invalid"
-						ng-bind="self.JsonModel.Text.Save"
-						ng-click="self.SaveMailServer()"></button>
+						ng-click="self.SaveMailServer()">
+						<i class="fa fa-floppy-o"></i>
+						<span ng-bind="self.JsonModel.Text.Save"></span>
+					</button>
 				</div>
 			</div>
 		</div>
