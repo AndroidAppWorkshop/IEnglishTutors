@@ -8,7 +8,8 @@
 				</button>
 				<a class="navbar-brand"
 					ng-href="{{self.JsonModel.Link.Title}}">
-					<i class="fa fa-user-secret" ng-bind="self.JsonModel.Text.Title"></i>
+					<i class="fa fa-user-secret"></i>
+					<span ng-bind="self.JsonModel.Text.Title"></span>
 				</a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->

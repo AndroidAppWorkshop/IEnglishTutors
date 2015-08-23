@@ -1,12 +1,15 @@
-#modal-success > .modal-dialog > .modal-content,
-#modal-error > .modal-dialog > .modal-content {
+body {
+  background-color: #1E1E1E;
+}
+body #modal-success > .modal-dialog > .modal-content,
+body #modal-error > .modal-dialog > .modal-content {
   background-color: #252830;
 }
-#modal-success > .modal-dialog > .modal-content > .modal-header > h4,
-#modal-error > .modal-dialog > .modal-content > .modal-header > h4 {
+body #modal-success > .modal-dialog > .modal-content > .modal-header > h4,
+body #modal-error > .modal-dialog > .modal-content > .modal-header > h4 {
   font-weight: bold;
 }
-#modal-success > .modal-dialog > .modal-content > .modal-body,
-#modal-error > .modal-dialog > .modal-content > .modal-body {
+body #modal-success > .modal-dialog > .modal-content > .modal-body,
+body #modal-error > .modal-dialog > .modal-content > .modal-body {
   color: #ffffff;
 }
