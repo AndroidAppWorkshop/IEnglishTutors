@@ -51,50 +51,22 @@
 	</nav>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="side-bar-left col-sm-2">
-				<div class="uese-picture hidden-xs">
-					<img ng-src="/assets/images/WebPortal/user-photo.jpg" class="img-circle">
+			<div class="side-bar-left col-sm-2 hidden-xs">
+				<div class="uese-picture">
+					<i class="fa fa-map-signs fa-5x"></i>
 				</div>
 				<!-- Fake Link Start -->
-				<hr />
-				<div class="bs-example" data-example-id="simple-justified-button-group">
-					<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-						<a href="#" class="btn btn-primary" role="button">Link</a>
+				<div class="menu-block" ng-repeat="item in self.JsonModel.SideBarMenu">
+					<div class="menu-section">
+						<label ng-bind="item.Label"></label>
 					</div>
-				</div>
-				<hr />
-				<div class="bs-example" data-example-id="simple-justified-button-group">
-					<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-						<a href="#" class="btn btn-primary" role="button">Link</a>
-					</div>
-				</div>
-				<hr />
-				<div class="bs-example" data-example-id="simple-justified-button-group">
-					<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-						<a href="#" class="btn btn-primary" role="button">Link</a>
-					</div>
-				</div>
-				<hr />
-				<div class="bs-example" data-example-id="simple-justified-button-group">
-					<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-						<a href="#" class="btn btn-primary" role="button">Link</a>
-					</div>
-				</div>
-				<hr />
-				<div class="bs-example" data-example-id="simple-justified-button-group">
-					<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-						<a href="#" class="btn btn-primary" role="button">Link</a>
-					</div>
-				</div>
-				<hr />
-				<div class="bs-example" data-example-id="simple-justified-button-group">
-					<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
-						<a href="#" class="btn btn-primary" role="button">Link</a>
+					<div class="menu-section" ng-repeat="button in item.Button">
+						<button ng-bind="button.Text"></button>
 					</div>
 				</div>
 				<!-- Fake Link End -->
 			</div>
-			<div class="col-sm-10">
+			<div class="col-sm-10 main">
 				<div class="embed-responsive embed-responsive-4by3" ng-show="self.iframePath">
 					<iframe class="embed-responsive-item" ng-src="{{self.iframePath}}"></iframe>
 				</div>
