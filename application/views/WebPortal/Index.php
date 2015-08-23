@@ -16,14 +16,12 @@
 			<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-9">
 				<ul class="nav navbar-nav">
 					<li class="select">
-						<a href="javascript: void(0);">
 							<i class="fa fa-language"></i>
 							<select class="form-control"
 								ng-model="self.CurrentLang"
 								ng-options="l as l for l in self.Preference.langs"
 								ng-change="self.ChangeLang();">
 							</select>
-						</a>
 					</li>
 					<li ng-class="{ 'active': self.ActiveAsset }" ng-click="self.Refresh()">
 						<a href="javascript: void(0);">
@@ -53,7 +51,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="side-bar-left col-sm-2 hidden-xs">
-				<div class="uese-picture">
+				<div class="uesr-picture">
 					<i class="fa fa-map-signs fa-5x"></i>
 				</div>
 				<!-- Fake Link Start -->

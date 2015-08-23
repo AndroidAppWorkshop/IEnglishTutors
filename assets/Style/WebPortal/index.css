@@ -8,9 +8,16 @@ body > .wrapper > .navbar-inverse {
 }
 body > .wrapper > .navbar-inverse > .container-fluid > .navbar-header > .navbar-toggle:hover,
 body > .wrapper > .navbar-inverse > .container-fluid > .navbar-header > .navbar-toggle:focus {
-  background-color: #eee;
+  background-color: #eeeeee;
 }
-body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-nav > .select > a > select.form-control {
+body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-nav > .select {
+  line-height: 20px;
+  padding: 10px 15px;
+}
+body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-nav > .select:hover {
+  color: #ffffff;
+}
+body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-nav > .select > select.form-control {
   color: #25283f;
   display: inline-block;
   height: inherit;
@@ -58,6 +65,10 @@ body > .wrapper > #modal-success > .modal-dialog > .modal-content > .modal-body 
   }
   body > .wrapper > .navbar-inverse > .container-fluid > .navbar-header > .navbar-brand {
     margin-left: 50px;
+  }
+  body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-nav > .select {
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
   body > .wrapper > .container-fluid > .row {
     margin-left: 50px;
