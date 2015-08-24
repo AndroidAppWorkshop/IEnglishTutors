@@ -9,18 +9,45 @@ class Languages extends CI_Model {
 		
 	}
 
-	public function Get()
+	public function GetAll($excludeId = FALSE)
 	{
-		$result = array();
-		$query = $this->db->select('Name')
-								->get('language');
+		$query = $this->db->get('language');
 		
-		foreach ($query->result_array() as $row)
+		if($excludeId)
 		{
-			array_push($result, $row['Name']);
+			$result = array();
+			
+			foreach ($query->result_array() as $row)
+			{
+				array_push($result, $row['Name']);
+			}
+			
+			return $result;
 		}
 		
-		return $result;
+		return $query->result_array();
+	}
+	
+	public function GetUsage($id)
+	{
+		$query = $this->db->get_where('language_usage', array('L_Id' => $id));
+
+		return $query->result_array();
+	}
+	
+	public function UpdateUsage($id, $content)
+	{
+		try
+		{
+			$this->db->where('Id', $id)
+						->update('language_usage', array('Content'=>$content,
+																'Date'=>date('Y-m-d H:i:s')));
+			return TRUE;
+		}
+		catch (Exception $e)
+		{
+			return FALSE;
+		}
 	}
 }
 

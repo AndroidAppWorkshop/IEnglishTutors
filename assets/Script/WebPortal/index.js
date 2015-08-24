@@ -2,7 +2,7 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 	.controller('index', ['$window', '$timeout', 'assetApi', 'membersApi', 'systemApi', function ($window, $timeout, $assetApi, $membersApi, $systemApi) {
 		var _Site = $window['$base_url'];
 		var _Login = _Site + 'WebPortal/Login';
-		var _MailServerSetting = _Site + 'WebPortal/MailServerSetting';
+		var _MailServerSetting = 'WebPortal/MailServerSetting';
 		var self = this;
 		var goLogin = function () {
 			$window.location.href = _Login;
@@ -31,7 +31,16 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 		self.SetMailServer = function () {
 			self.ClearNavState();
 			self.ActiveEmail = true;
-			self.iframePath = _MailServerSetting;
+			self.ChangeIframePath(_MailServerSetting);
+		};
+		
+		self.CloseIframe = function () {
+			self.ClearNavState();
+			self.iframePath = '';
+		};
+		
+		self.ChangeIframePath = function (path) {
+			self.iframePath = _Site + path;
 		};
 
 		self.SignOut = function () {

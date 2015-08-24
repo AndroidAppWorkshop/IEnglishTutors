@@ -56,6 +56,15 @@ body > .wrapper > .container-fluid > .row > .side-bar-left > .menu-block > .menu
   color: #4E5466;
   margin-bottom: 0;
 }
+body > .wrapper > .container-fluid > .row > .main > .embed-close {
+  color: #ffffff;
+  background-color: brown;
+  border: 0;
+  margin-bottom: 1vw;
+}
+body > .wrapper > .container-fluid > .row > .main > .embed-close:hover {
+  border: 1px solid #4E5466;
+}
 body > .wrapper > .container-fluid > .row > .main > .embed-responsive-4by3 {
   padding-bottom: 90vh;
 }

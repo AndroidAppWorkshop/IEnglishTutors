@@ -192,7 +192,7 @@ class Lab extends CI_Controller {
 	{
 		$this->load->model('Shared/Languages');
 		
-		echo json_encode($this->Languages->Get());
+		echo json_encode($this->Languages->GetAll(TRUE));
 	}
 	
 	public function LanguageWithUsage()

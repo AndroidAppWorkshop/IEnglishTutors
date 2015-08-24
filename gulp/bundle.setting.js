@@ -10,7 +10,8 @@ module.exports = function (config) {
 		webportal: {
 			index: style + 'WebPortal/index.css',
 			login: style + 'WebPortal/login.css',
-			mailserversetting: style + 'WebPortal/mailserversetting.css'
+			mailserversetting: style + 'WebPortal/mailserversetting.css',
+			viewresources: style + 'WebPortal/viewresources.css'
 		},
 		bower: {
 			bootstrap: lib + 'bootstrap/css/bootstrap.css',
@@ -32,7 +33,8 @@ module.exports = function (config) {
 		webportal: {
 			index: script + 'WebPortal/index.js',
 			login: script + 'WebPortal/login.js',
-			mailserversetting: script + 'WebPortal/mailserversetting.js'
+			mailserversetting: script + 'WebPortal/mailserversetting.js',
+			viewresources: script + 'WebPortal/viewresources.js'
 		},
 		bower: {
 			jquery: lib + 'jquery/jquery.js',
@@ -92,6 +94,15 @@ module.exports = function (config) {
 			"script": [
 				js.apis.system,
 				js.webportal.mailserversetting
+			]
+		},
+		"webportal.viewresources": {
+			"style": [
+				css.webportal.viewresources
+			],
+			"script": [
+				js.apis.system,
+				js.webportal.viewresources
 			]
 		}
 	};

@@ -25,6 +25,11 @@ class WebPortal extends CI_Controller {
 	{
 		$this->load->Render();
 	}
+	
+	public function ViewResources()
+	{
+		$this->load->Render();
+	}
 }
 
 /* End of file WebPortal.php */

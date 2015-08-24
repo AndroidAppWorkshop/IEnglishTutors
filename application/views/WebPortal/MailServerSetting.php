@@ -1,4 +1,4 @@
-<div class="container-fluid" ng-app="modal" ng-controller="mailserversetting as self">
+<div class="container-fluid" ng-app="apps" ng-controller="mailserversetting as self">
 	<div class="bs-example-modal-lg" tabindex="-1">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
@@ -52,12 +52,6 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button"
-						class="btn btn-default"
-						ng-click="self.Close();">
-						<i class="fa fa-times"></i>
-						<span ng-bind="self.JsonModel.Text.Close"></span>
-					</button>
 					<button type="button"
 						class="btn btn-primary"
 						ng-disabled="config.$invalid"

@@ -30,7 +30,7 @@ class User extends CI_Model {
 		return $this->session->tempdata($key);
 	}
 	
-	public function GetLanguage()
+	public function CurrentLanguage()
 	{
 		if(get_cookie('preference') === NULL)
 		{

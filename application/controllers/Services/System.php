@@ -9,6 +9,7 @@ class System extends CI_Controller {
 		
 		$this->load->library(array('response', 'email'));
 		$this->load->helper('file');
+		$this->load->model('Shared/Languages');
 	}
 	
 	public function JsonOutput()
@@ -29,6 +30,27 @@ class System extends CI_Controller {
 	{
 		$language = $this->input->get('language', TRUE);
 		$result = $this->User->SetPreference($language);
+		$this->response->Json(array('Success' => $result));
+	}
+	
+	public function GetLang()
+	{
+		$this->response->Json($this->Languages->GetAll());
+	}
+	
+	public function GetLangUsage()
+	{
+		$id = $this->input->get('id', TRUE);
+		$result = $this->Languages->GetUsage($id);
+		$this->response->Json($result);
+	}
+	
+	public function UpdateLangUsage()
+	{
+		$postdata = json_decode($this->input->raw_input_stream);
+		$id = $postdata->Id;
+		$content = $postdata->Content;
+		$result = $this->Languages->UpdateUsage($id, $content);
 		$this->response->Json(array('Success' => $result));
 	}
 }

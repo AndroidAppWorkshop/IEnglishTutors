@@ -1,0 +1,15 @@
+body {
+  background-color: #252830;
+}
+body > .container-fluid > .row > .col-sm-4 > .panel > .panel-heading {
+  cursor: pointer;
+}
+body > .container-fluid > .row > .col-sm-4 > .panel > .panel-body:hover {
+  background-color: mediumseagreen;
+  cursor: pointer;
+  font-size: medium;
+  font-weight: bold;
+}
+body > .container-fluid > .row > .col-sm-8 > .panel > .panel-body > form > textarea {
+  height: 50vh;
+}

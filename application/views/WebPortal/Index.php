@@ -65,12 +65,18 @@
 						<label ng-bind="item.Label"></label>
 					</div>
 					<div class="menu-section" ng-repeat="button in item.Button">
-						<button ng-bind="button.Text"></button>
+						<button ng-bind="button.Text" ng-click="self.ChangeIframePath(button.Link)"></button>
 					</div>
 				</div>
 				<!-- Fake Link End -->
 			</div>
 			<div class="col-sm-10 main">
+				<button type="button"
+					class="embed-close"
+					ng-click="self.CloseIframe()"
+					ng-show="self.iframePath">
+					<i class="fa fa-times"></i>
+				</button>
 				<div class="embed-responsive embed-responsive-4by3" ng-show="self.iframePath">
 					<iframe class="embed-responsive-item" ng-src="{{self.iframePath}}"></iframe>
 				</div>

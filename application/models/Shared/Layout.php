@@ -20,7 +20,7 @@ class Layout extends CI_Model {
 	{
 		$result = $this->GenerateScriptVariable('$base_url', base_url(), TRUE);
 		$result = $result.$this->GenerateScriptVariable('$IsDev', $this->Environment->IsDevelopment());
-		$result = $result.$this->GenerateScriptVariable('$CurrentLang', $this->User->GetLanguage(), TRUE);
+		$result = $result.$this->GenerateScriptVariable('$CurrentLang', $this->User->CurrentLanguage(), TRUE);
 		return $result;
 	}
 	
@@ -44,7 +44,7 @@ class Layout extends CI_Model {
 	
 	public function PreferenceJson()
 	{
-		$languages = json_encode($this->Languages->Get());
+		$languages = json_encode($this->Languages->GetAll(TRUE));
 		
 		return 'var Preference = { langs: '.$languages.'};';
 	}
