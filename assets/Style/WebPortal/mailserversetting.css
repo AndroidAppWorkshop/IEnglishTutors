@@ -22,10 +22,6 @@ body .modal-content > .modal-footer > button {
   color: #5FD9B0;
   font-weight: bold;
 }
-body .modal-content > .modal-footer > button.btn[disabled] {
-  border-color: #ffffff;
-  color: #252830;
-}
 body .modal-content > .modal-footer > button:hover {
   background-color: #5FD9B0;
   color: #252830;
