@@ -1,5 +1,6 @@
 body {
   background-color: #252830;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 body > .wrapper > .navbar-inverse {
   border: 0;
@@ -20,7 +21,10 @@ body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navba
   border: inherit;
 }
 body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-nav > li > select.form-control {
-  color: #25283f;
+  background-color: #37424E;
+  border: 0;
+  border-radius: 0;
+  color: #fff;
   display: inline-block;
   height: inherit;
   margin-left: 5px;
@@ -35,7 +39,6 @@ body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navba
   color: #ffffff;
 }
 body > .wrapper > .container-fluid > .row > .side-bar-left > .menu-block > .menu-section {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: medium;
   margin: 10px 0;
 }
@@ -58,12 +61,11 @@ body > .wrapper > .container-fluid > .row > .side-bar-left > .menu-block > .menu
 }
 body > .wrapper > .container-fluid > .row > .main > .embed-close {
   color: #ffffff;
-  background-color: brown;
-  border: 0;
+  background-color: #646564;
   margin-bottom: 1vw;
 }
 body > .wrapper > .container-fluid > .row > .main > .embed-close:hover {
-  border: 1px solid #4E5466;
+  background-color: #1E2127;
 }
 body > .wrapper > .container-fluid > .row > .main > .embed-responsive-4by3 {
   padding-bottom: 90vh;

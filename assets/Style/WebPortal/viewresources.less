@@ -3,15 +3,28 @@ body{
 	
 	> .container-fluid {
 		> .row {
+			font-family: monospace, Courier New, Courier;
 			> .col-sm-4 {
 				> .panel {
+					border: 1px solid #9d9d9d;
+					border-radius: 0;
+					color: #ffffff;
+					
 					> .panel-heading {
+						background-color: #252834;
+						border-radius: 0;
 						cursor: pointer;
+						
+						&:hover {
+							background-color: #1E2127;
+						}
 					}
 					
 					> .panel-body {
+						background-color: #51586A;
+						
 						&:hover {
-							background-color: mediumseagreen;
+							background-color: #1E2127;
 							cursor: pointer;
 							font-size: medium;
 							font-weight: bold;
@@ -22,9 +35,31 @@ body{
 			
 			> .col-sm-8 {
 				> .panel {
+					background-color: #252830;
+					font-family: serif;
+					
 					> .panel-body {
 						> form > textarea {
+							color: #ffffff;
+							background-color: #3A3738;
 							height: 50vh;
+						}
+					}
+					
+					> .panel-footer {
+						background-color: #252830;
+						border-top: 0;
+						
+						> .btn{
+							background-color: #252830;
+							border-color: #5FD9B0;
+							color: #5FD9B0;
+							font-weight: bold;
+							
+							&:hover {
+								background-color: #5FD9B0;
+								color: #252830;
+							}
 						}
 					}
 				}

@@ -53,7 +53,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button"
-						class="btn btn-primary"
+						class="btn btn-lg"
 						ng-disabled="config.$invalid"
 						ng-click="self.SaveMailServer()">
 						<i class="fa fa-floppy-o"></i>
