@@ -30,7 +30,7 @@ class User extends CI_Model {
 		return $this->session->tempdata($key);
 	}
 	
-	public function GetLanguage()
+	public function CurrentLanguage()
 	{
 		if(get_cookie('preference') === NULL)
 		{
@@ -43,15 +43,21 @@ class User extends CI_Model {
 	
 	public function SetPreference($language = 'zh-TW')
 	{
-		$this->preference = json_encode(array(
-			'Languages' => $language));
+		$this->preference = array('Languages' => $language);
 		
-		set_cookie('preference', $this->preference, 60*60*24*5);
+		set_cookie('preference', json_encode($this->preference), 60*60*24*5);
+		
+		return TRUE;
 	}
 	
 	public function CleanPreference()
 	{
 		delete_cookie('performance');
+	}
+	
+	public function Destroy()
+	{
+		$this->session->sess_destroy();
 	}
 }
 

@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+require_once APPPATH.'models/dbo/Language.php';
+require_once APPPATH.'models/dbo/Language_Usage.php';
 
 class Lab extends CI_Controller {
 	
@@ -25,7 +27,7 @@ class Lab extends CI_Controller {
 		$this->load->helper(array('file', 'url'));
 		$this->load->library('email');
 
-		$config = LoadJsonFileWithEncrypt('./assets/app_data/mail.server.json', TRUE);
+		$config = LoadJsonFileWithEncrypt(APPPATH.'app_data/mail.server.json', TRUE);
 		$this->email->initialize($config);
 		
 		$data_post_name = $this->input->post('YourName', TRUE);
@@ -62,37 +64,16 @@ class Lab extends CI_Controller {
 	public function SetMailServer()
 	{
 		$this->load->helper(array('file', 'url'));
-
+		$this->load->library('email');
 		$account = $this->input->post('account');
 		$password = $this->input->post('password');
 		
-		if($this->Environment->IsDevelopment())
+		$result = $this->email->SaveMailServer($account, $password);
+		
+		if($result)
 		{
-			$config = array(
-				'protocol' => 'smtp' ,
-				'smtp_host'=> 'ssl://smtp.googlemail.com',
-				'smtp_port'=> '465',
-				'smtp_user'=> $account,
-				'smtp_pass'=> $password,
-				'charset'  => 'utf-8',
-				'wordwrap' => TRUE
-			);
+			redirect('Lab/Success');
 		}
-		else
-		{
-			$config = array(
-				'protocol' => 'smtp' ,
-				'smtp_host'=> 'mail.ienglishtutors.com',
-				'smtp_port'=> '26',
-				'smtp_user'=> $account,
-				'smtp_pass'=> $password,
-				'charset'  => 'utf-8',
-				'wordwrap' => TRUE
-			);
-		}
-
-		WriteJsonFileWithEncrypt('./assets/app_data/mail.server.json', $config);
-		redirect('Lab/Success');
 	}
 
 	public function LoadView()
@@ -154,14 +135,28 @@ class Lab extends CI_Controller {
 		print_r($this->session->tempdata());
 	}
 	
-	public function SetLanguages()
+	public function SetLanguages($language = 'zh-TW')
 	{
-		$this->User->SetPreference();
+		$this->User->SetPreference($language);
 	}
 	
 	public function CheckLogin()
 	{
 		echo $this->User->IsLogin() ? '已登入' : '尚未登入';
+	}
+	
+	public function EncryptSize()
+	{
+		$this->load->library('encrypt');
+		$string1 = '111111';
+		$string2 = 'sad451qw23e4';
+		$string3 = 'qwoiekldfjowhef';
+		echo $string1.' 加密後 : '.$this->encrypt->encode($string1).'<br/>';
+		echo '長度為 : '.strlen($this->encrypt->encode($string1)).'<br/>';
+		echo $string2.' 加密後 : '.$this->encrypt->encode($string2).'<br/>';
+		echo '長度為 : '.strlen($this->encrypt->encode($string2)).'<br/>';
+		echo $string3.' 加密後 : '.$this->encrypt->encode($string3).'<br/>';
+		echo '長度為 : '.strlen($this->encrypt->encode($string3)).'<br/>';
 	}
 
 	public function SetCookie()
@@ -191,6 +186,30 @@ class Lab extends CI_Controller {
 		$this->load->helper('cookie');
 		delete_cookie('performance');
 		echo 'cookie is delete!';
+	}
+	
+	public function Languages()
+	{
+		$this->load->model('Shared/Languages');
+		
+		echo json_encode($this->Languages->GetAll(TRUE));
+	}
+	
+	public function LanguageWithUsage()
+	{
+		$this->db->where('L_Id', 2);
+		$this->db->where('Name', 'Home:Lobby');
+		$query = $this->db->get('language_usage');
+
+		foreach ($query->result('Language_Usage') as $usage)
+		{
+			echo $usage->IsScript;
+			echo '|';
+			echo $usage->Content;
+			echo '<br>';
+		}
+		//取出來使用 Class 實體化, 若 Class 有寫方法可以執行. $usage->xxx()
+		exit;
 	}
 	
 	public function Upload_Form()

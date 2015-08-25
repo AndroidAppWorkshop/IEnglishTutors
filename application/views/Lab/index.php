@@ -102,6 +102,14 @@
 			</tr>
 			<tr>
 				<th scope="row">
+					<a class="btn btn-primary" href="Lab/EncryptSize" role="button">Link</a>
+				</th>
+				<td>EncryptSize</td>
+				<td>確認加密後的長度</td>
+				<td>Wilson</td>
+			</tr>
+			<tr>
+				<th scope="row">
 					<a class="btn btn-primary" href="Lab/SetCookie" role="button">Link</a>
 				</th>
 				<td>SetCookie</td>
@@ -122,6 +130,22 @@
 				</th>
 				<td>DeleteCookie</td>
 				<td>刪除 Cookie</td>
+				<td>Wilson</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<a class="btn btn-primary" href="Lab/Languages" role="button">Link</a>
+				</th>
+				<td>Languages</td>
+				<td>印出資料庫的 Languages 表內的資料</td>
+				<td>Wilson</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<a class="btn btn-primary" href="Lab/LanguageWithClass" role="button">Link</a>
+				</th>
+				<td>LanguageWithUsage</td>
+				<td>帶有條件的資料查訊 (可實體化 Class)</td>
 				<td>Wilson</td>
 			</tr>
 		</tbody>

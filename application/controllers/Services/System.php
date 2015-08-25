@@ -1,7 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-require_once APPPATH.'models/dbo/Language.php';
-require_once APPPATH.'models/dbo/Language_Usage.php';
 
 class System extends CI_Controller {
 	
@@ -9,60 +7,51 @@ class System extends CI_Controller {
 	{
 		parent::__construct();
 		
-		$this->load->library('response');
+		$this->load->library(array('response', 'email'));
+		$this->load->helper('file');
+		$this->load->model('Shared/Languages');
 	}
 	
 	public function JsonOutput()
 	{
 		$this->response->Json(array('Success' => TRUE));
 	}
-
-	public function LanguageWithResult()
+	
+	public function SaveMailServer()
 	{
-		$query = $this->db->get('language');
-
-		foreach ($query->result() as $row)
-		{
-			echo $row->Id;
-			echo '|';
-			echo $row->Name;
-			echo '<br>';
-		}
-
-		exit;
+		$postdata = json_decode($this->input->raw_input_stream);
+		$account = $postdata->Account;
+		$password = $postdata->Password;
+		$result = $this->email->SaveMailServer($account, $password);
+		$this->response->Json(array('Success' => $result));
 	}
-
-	public function LanguageWithMaterialization()
+	
+	public function SavePreference()
 	{
-		$query = $this->db->get('language');
-
-		foreach ($query->result('Language') as $language)
-		{
-			echo $language->Id;
-			echo '|';
-			echo $language->Name;
-			echo '<br>';
-			//echo $language->reverse_name(); // or methods defined on the 'User' class
-		}
-
-		exit;
+		$language = $this->input->get('language', TRUE);
+		$result = $this->User->SetPreference($language);
+		$this->response->Json(array('Success' => $result));
 	}
-
-	public function LanguageWithUsage()
+	
+	public function GetLang()
 	{
-		$this->db->where('L_Id', 2);
-		$this->db->where('Name', 'Home:Lobby');
-		$query = $this->db->get('language_usage');
-
-		foreach ($query->result('Language_Usage') as $usage)
-		{
-			echo $usage->IsScript;
-			echo '|';
-			echo $usage->Content;
-			echo '<br>';
-		}
-
-		exit;
+		$this->response->Json($this->Languages->GetAll());
+	}
+	
+	public function GetLangUsage()
+	{
+		$id = $this->input->get('id', TRUE);
+		$result = $this->Languages->GetUsage($id);
+		$this->response->Json($result);
+	}
+	
+	public function UpdateLangUsage()
+	{
+		$postdata = json_decode($this->input->raw_input_stream);
+		$id = $postdata->Id;
+		$content = $postdata->Content;
+		$result = $this->Languages->UpdateUsage($id, $content);
+		$this->response->Json(array('Success' => $result));
 	}
 }
 

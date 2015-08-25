@@ -1,0 +1,39 @@
+body {
+	background-color: #252830;
+	font-family: serif;
+	
+	.modal-content {
+		background-color: #3A3738;
+		
+		> .modal-header {
+			border-bottom: 0;
+			color: #ffffff;
+		}
+		
+		> .modal-body {
+			color: #ffffff;
+		}
+		
+		> .modal-footer {
+			border-top: 0;
+			font-size: medium;
+			
+			> button {
+				background-color: #3A3738;
+				border-color: #5FD9B0;
+				color: #5FD9B0;
+				font-weight: bold;
+				
+				&.btn[disabled] {
+					border-color: #ffffff;
+					color: #252830;
+				}
+				
+				&:hover {
+					background-color: #5FD9B0;
+					color: #252830;
+				}
+			}
+		}
+	}
+}

@@ -1,5 +1,5 @@
 module.exports = function (gulp, config, $, es) {
-	gulp.task('copy', ['clean'], function () {
+	gulp.task('copy', ['clean', 'less'], function () {
 		var bower = config.bower;
 		var lib = config.lib;
 		var fonts = config.fonts;

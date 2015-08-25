@@ -12,13 +12,15 @@ class Layout extends CI_Model {
 		
 		$this->load->library('caches');
 		$this->load->helper(array('file', 'url'));
-		$this->load->model('Shared/Environment');
+		$this->load->model(array('Shared/Environment', 'Shared/Languages'));
 		$this->Initialize();
 	}
 	
 	public function GlobalVariable()
 	{
-		$result = $this->GenerateScriptVariable('$base_url', base_url());
+		$result = $this->GenerateScriptVariable('$base_url', base_url(), TRUE);
+		$result = $result.$this->GenerateScriptVariable('$IsDev', $this->Environment->IsDevelopment());
+		$result = $result.$this->GenerateScriptVariable('$CurrentLang', $this->User->CurrentLanguage(), TRUE);
 		return $result;
 	}
 	
@@ -34,10 +36,17 @@ class Layout extends CI_Model {
 		if ($query->num_rows() > 0)
 		{
 			$row = $query->row();
-			return 'var '.$row->VarName.' = '.$row->Content;
+			return 'var '.$row->VarName.' = '.$row->Content.';';
 		}
 
 		return null;
+	}
+	
+	public function PreferenceJson()
+	{
+		$languages = json_encode($this->Languages->GetAll(TRUE));
+		
+		return 'var Preference = { langs: '.$languages.'};';
 	}
 	
 	public function MasterCss()
@@ -108,9 +117,25 @@ class Layout extends CI_Model {
 		return implode('', $result);
 	}
 	
-	private function GenerateScriptVariable($key, $value)
+	private function GenerateScriptVariable($key, $value, $quote = FALSE)
 	{
-		return 'var '.$key.' = "'.$value.'";';
+		if($quote)
+		{
+			return 'var '.$key.' = "'.$value.'";';
+		}
+		else
+		{
+			if($value === TRUE)
+			{
+				$value = 1;
+			}
+			else if($value === FALSE)
+			{
+				$value = 0;	
+			}
+			
+			return 'var '.$key.' = '.$value.';';
+		}
 	}
 }
 

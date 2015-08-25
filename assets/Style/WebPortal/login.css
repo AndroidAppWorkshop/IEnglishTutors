@@ -1,0 +1,15 @@
+body {
+  background-color: #1E1E1E;
+}
+body #modal-success > .modal-dialog > .modal-content,
+body #modal-error > .modal-dialog > .modal-content {
+  background-color: #252830;
+}
+body #modal-success > .modal-dialog > .modal-content > .modal-header > h4,
+body #modal-error > .modal-dialog > .modal-content > .modal-header > h4 {
+  font-weight: bold;
+}
+body #modal-success > .modal-dialog > .modal-content > .modal-body,
+body #modal-error > .modal-dialog > .modal-content > .modal-body {
+  color: #ffffff;
+}

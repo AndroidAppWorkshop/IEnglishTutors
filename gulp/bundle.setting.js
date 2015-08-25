@@ -7,14 +7,22 @@ module.exports = function (config) {
 		app: {
 			home_lobby: style + 'app/Home/lobby.css'
 		},
+		webportal: {
+			index: style + 'WebPortal/index.css',
+			login: style + 'WebPortal/login.css',
+			mailserversetting: style + 'WebPortal/mailserversetting.css',
+			viewresources: style + 'WebPortal/viewresources.css'
+		},
 		bower: {
 			bootstrap: lib + 'bootstrap/css/bootstrap.css',
-			loadingbar: lib + 'loadingbar/loading-bar.css'
+			loadingbar: lib + 'angular-loading-bar/loading-bar.css',
+			fontawesome: lib + 'font-awesome/css/font-awesome.css'
 		}
 	};
 	
 	var js = {
 		apis: {
+			core: script + 'apis/apis.core.js',
 			system: script + 'apis/system.js',
 			members: script + 'apis/members.js',
 			asset: script + 'apis/asset.js'
@@ -24,13 +32,15 @@ module.exports = function (config) {
 		},
 		webportal: {
 			index: script + 'WebPortal/index.js',
-			login: script + 'WebPortal/login.js'
+			login: script + 'WebPortal/login.js',
+			mailserversetting: script + 'WebPortal/mailserversetting.js',
+			viewresources: script + 'WebPortal/viewresources.js'
 		},
 		bower: {
 			jquery: lib + 'jquery/jquery.js',
 			bootstrap: lib + 'bootstrap/js/bootstrap.js',
 			angular: lib + 'angular/angular.js',
-			loadingbar: lib + 'loadingbar/loading-bar.js'
+			loadingbar: lib + 'angular-loading-bar/loading-bar.js'
 		}
 	};
 	
@@ -38,13 +48,15 @@ module.exports = function (config) {
 		"global": {
 			"style": [
 					css.bower.bootstrap,
-					css.bower.loadingbar
+					css.bower.loadingbar,
+					css.bower.fontawesome
 			],
 			"script": [
 					js.bower.jquery,
 					js.bower.bootstrap,
 					js.bower.angular,
-					js.bower.loadingbar
+					js.bower.loadingbar,
+					js.apis.core
 			]
 		},
 		"home.lobby": {
@@ -55,20 +67,42 @@ module.exports = function (config) {
 				js.app.home_lobby
 			]
 		},
+		"webportal.index": {
+			"style": [
+				css.webportal.index
+			],
+			"script": [
+				js.apis.members,
+				js.apis.asset,
+				js.apis.system,
+				js.webportal.index
+			]
+		},
 		"webportal.login": {
 			"style": [
+				css.webportal.login
 			],
 			"script": [
 				js.apis.members,
 				js.webportal.login
 			]
 		},
-		"webportal.index": {
+		"webportal.mailserversetting": {
 			"style": [
+				css.webportal.mailserversetting
 			],
 			"script": [
-				js.apis.asset,
-				js.webportal.index
+				js.apis.system,
+				js.webportal.mailserversetting
+			]
+		},
+		"webportal.viewresources": {
+			"style": [
+				css.webportal.viewresources
+			],
+			"script": [
+				js.apis.system,
+				js.webportal.viewresources
 			]
 		}
 	};

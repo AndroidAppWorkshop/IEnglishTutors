@@ -1,7 +1,6 @@
-angular.module('apis', [])
+angular.module('apis')
 	.factory('assetApi', ['$http', '$window', function ($http, $window) {
 		var _Site = $window['$base_url'];
-		var _IsDev = _Site.indexOf('localhost') > -1;
 		var _Refresh = _Site + 'Services/Asset/Refresh';
 
 		return {

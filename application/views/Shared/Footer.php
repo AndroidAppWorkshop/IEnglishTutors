@@ -1,6 +1,7 @@
 	<script>
 		<?=$GlobalVariable?>
 		<?=$ViewJson?>
+		<?=$Preference?>
 	</script>
 	<?=$MasterJs?>
 	<?=$PlugJs?>
