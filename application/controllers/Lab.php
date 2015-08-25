@@ -213,6 +213,7 @@ class Lab extends CI_Controller {
 		$input_title = ($_POST["TM_title"]);
 		$input_time = ($_POST["TM_time"]);
 		
+		$already=FALSE;
 		foreach($_FILES as $key => $value)
 		{
 			if ( ! $this->upload->do_upload($key))
@@ -222,16 +223,20 @@ class Lab extends CI_Controller {
 			}
 			else
 			{
-				$file = $this->upload->data();//將檔案上傳
+				$file = $this->upload->data();//回傳上傳檔案的詳細訊息
 				echo $file['orig_name'].'上傳成功'."<br>";
-				$now = ((int)substr($key, 4, 1)) - 1;
-				$course = array(
-									'Title' => $input_title[$now],
-									'Time' => $input_time[$now]
-				);
-				$this->db->insert('course', $course);
+				
+				if ($already == FALSE)
+				{
+					$already = TRUE;
+					$course = array(
+										'Title' => $input_title,
+										'Time' => $input_time
+					);
+					$this->db->insert('course', $course);
+					$C_Id = $this->db->insert_id();
+				}
 
-				$C_Id = $this->db->insert_id();
 				$course_files =array(
 											'C_Id' => $C_Id,
 											'Path' =>$file['full_path'],
@@ -244,21 +249,37 @@ class Lab extends CI_Controller {
 	}
 
 	public function Download_Form()
-	{
-		$query = $this->db->query('SELECT * FROM `course`
-											LEFT JOIN `course_files` ON course.Id =course_files.C_Id 
-											ORDER BY `Time`,`Title`');//照時間排再照課程名稱排
-		$course_result = $query->result_array();
-		$data = array ( // 存入列陣
-							'data' => $course_result
-		);
+	{	
+		$this->db->select('*');
+		$this->db->from('course');
+		$query = $this->db->get()->result_array();
+		
+		foreach ($query as $key => $value)
+		{
+			$course_files[$value['Id']] = array();
+			$course_files[$value['Id']]['Title'] = $value['Title'];
+			$course_files[$value['Id']]['Time'] = $value['Time'];
+			$course_files[$value['Id']]['Files'] = array();
+		}
+
+		//print_r($course_files);	
+		
+		$this->db->select('C_Id,Name');
+		$this->db->from('course_files');
+		$query = $this->db->get()->result_array();
+			
+		foreach ($query as $key => $value) {
+			array_push($course_files[$value['C_Id']]['Files'], $value);
+		}
+		
+		$data['course_files'] = $course_files;
 		
 		$this->load->Render('',$data);
 	}
-	
+
 	public function DoDownload()
 	{
-		
+
 	}
 
 	public function Download_urlPhoto()//下載網路圖片
@@ -298,3 +319,20 @@ class Lab extends CI_Controller {
 
 /* End of file Lab.php */
 /* Location: ./application/controllers/Lab.php */
+
+
+			// if ($value['Title'] != $previous ) 
+			// {
+			// 	if ($key==0) {$count = 0 ;}
+			// 	else {$count++;}
+				
+			// 	$temp = array('Title' =>$value['Title'], 'Time' => $value['Time']);
+			// 	array_push($teamArray[$count], $temp);
+				
+			// }
+			// else
+			// {
+			// 	$temp = array('Title' =>$value['Title'], 'Time' => $value['Time']);
+			// 	array_push($teamArray[$count], $temp);
+			// }
+			// $previous = $value['Title'];
