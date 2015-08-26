@@ -232,6 +232,7 @@ class Lab extends CI_Controller {
 		$input_title = ($_POST["TM_title"]);
 		$input_time = ($_POST["TM_time"]);
 		
+		$already=FALSE;
 		foreach($_FILES as $key => $value)
 		{
 			if ( ! $this->upload->do_upload($key))
@@ -241,16 +242,20 @@ class Lab extends CI_Controller {
 			}
 			else
 			{
-				$file = $this->upload->data();//將檔案上傳
+				$file = $this->upload->data();//回傳上傳檔案的詳細訊息
 				echo $file['orig_name'].'上傳成功'."<br>";
-				$now = ((int)substr($key, 4, 1)) - 1;
-				$course = array(
-									'Title' => $input_title[$now],
-									'Time' => $input_time[$now]
-				);
-				$this->db->insert('course', $course);
+				
+				if ($already == FALSE)
+				{
+					$already = TRUE;
+					$course = array(
+										'Title' => $input_title,
+										'Time' => $input_time
+					);
+					$this->db->insert('course', $course);
+					$C_Id = $this->db->insert_id();
+				}
 
-				$C_Id = $this->db->insert_id();
 				$course_files =array(
 											'C_Id' => $C_Id,
 											'Path' =>$file['full_path'],
@@ -262,7 +267,41 @@ class Lab extends CI_Controller {
 		}
 	}
 
+	public function Download_Form()
+	{	
+		$this->db->select('*');
+		$this->db->from('course');
+		$query = $this->db->get()->result_array();
+		
+		foreach ($query as $key => $value)
+		{
+			$course_files[$value['Id']] = array();
+			$course_files[$value['Id']]['Title'] = $value['Title'];
+			$course_files[$value['Id']]['Time'] = $value['Time'];
+			$course_files[$value['Id']]['Files'] = array();
+		}
+
+		//print_r($course_files);	
+		
+		$this->db->select('C_Id,Name,Type');
+		$this->db->from('course_files');
+		$query = $this->db->get()->result_array();
+			
+		foreach ($query as $key => $value) {
+			array_push($course_files[$value['C_Id']]['Files'], $value);
+		}
+		
+		$data['course_files'] = $course_files;
+		
+		$this->load->Render('',$data);
+	}
+
 	public function DoDownload()
+	{
+
+	}
+
+	public function Download_urlPhoto()//下載網路圖片
 	{	
 		$data_post_URL = $this->input->post('TargetURL', TRUE);
 		$headers = get_headers($data_post_URL);//剖析網址

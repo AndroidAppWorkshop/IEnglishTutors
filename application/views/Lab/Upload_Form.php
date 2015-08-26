@@ -7,74 +7,51 @@
 			</div>
 			<div class="modal-body">
 				<form action="DoUpload" method="post" enctype="multipart/form-data">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-lg-6">課堂名稱</div>
+								<div class="col-lg-6">上課日期</div>
+							</div>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-lg-6">
+									<input type="text" 
+											class="form-control" 
+											name="TM_title" 
+											placeholder="請輸入教材名稱"
+											required="required">
+								</div>
+								<div class="col-lg-6">	
+										<input type="date" 
+												class="form-control" 
+												name="TM_time" 
+												placeholder="日期" 
+												required="required">
+								</div>
+							</div>
+						</div>
+					</div>
 					<table class="table table-striped">
 						<thead>
 							<tr>
 								<th>#</th>
-								<th>教材名稱</th>
-								<th>日期</th>
 								<th>上傳路徑</th>
 							</tr>
 						</thead>
 						<tbody >
 							<tr>
 								<th>1</th>
-								<td>
-									<input 
-										type="text" 
-										class="form-control" 
-										name="TM_title[]" 
-										placeholder="請輸入教材名稱"
-										required="required">
-								</td>
-								<td>
-									<input 
-										type="date" 
-										class="form-control" 
-										name="TM_time[]" 
-										placeholder="日期" 
-										required="required">
-								</td>
 								<td><input type="file" name="File1" required="required"></td>
 							</tr>
 							<tr>
 								<th>2</th>
-								<td>
-									<input type="text" 
-										class="form-control" 
-										name="TM_title[]" 
-										placeholder="請輸入教材名稱" 
-										required="required">
-								</td>
-								<td>
-									<input 
-										type="date" 
-										class="form-control" 
-										name="TM_time[]" 
-										placeholder="日期" 
-										required="required">
-								</td>
-								<td><input type="file" name="File2" required="required"></td>
+								<td><input type="file" name="File2"></td>
 							</tr>
 							<tr>
 								<th>3</th>
-								<td>
-									<input 
-										type="text" 
-										class="form-control" 
-										name="TM_title[]" 
-										placeholder="請輸入教材名稱" 
-										required="required">
-								</td>
-								<td>
-									<input 
-										type="date" 
-										class="form-control" 
-										name="TM_time[]" 
-										placeholder="日期" 
-										required="required">
-								</td>
-								<td><input type="file" name="File3" required="required"></td>
+								<td><input type="file" name="File3"></td>
 							</tr>
 						</tbody>
 					</table>
