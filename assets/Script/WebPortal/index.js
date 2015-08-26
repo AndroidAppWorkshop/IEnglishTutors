@@ -13,6 +13,7 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 			self.CurrentLang = $window['$CurrentLang'];
 			self.Preference = $window['Preference'];
 			self.Nav = self.GetNav(self.JsonModel.SideBarMenu);
+			self.ImgPath = '/assets/images/WebPortal/';
 		};
 
 		self.Refresh = function () {
@@ -32,7 +33,7 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 			} else if (item.Func) {
 				self[item.Func]();
 			}
-			
+
 			return false;
 		};
 
