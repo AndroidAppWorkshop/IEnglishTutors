@@ -20,6 +20,9 @@ body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navba
   background-color: inherit;
   border: inherit;
 }
+body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-nav > li > .fa.fa-language {
+  margin-left: 6px;
+}
 body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navbar-nav > li > select.form-control {
   background-color: #37424E;
   border: 0;
@@ -68,7 +71,7 @@ body > .wrapper > .container-fluid > .row > .main > .embed-close:hover {
   background-color: #1E2127;
 }
 body > .wrapper > .container-fluid > .row > .main > .embed-responsive-4by3 {
-  padding-bottom: 90vh;
+  padding-bottom: 100vh;
 }
 body > .wrapper > #modal-success > .modal-dialog > .modal-content {
   background-color: #252830;
