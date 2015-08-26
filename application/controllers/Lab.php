@@ -283,7 +283,7 @@ class Lab extends CI_Controller {
 
 		//print_r($course_files);	
 		
-		$this->db->select('C_Id,Name');
+		$this->db->select('C_Id,Name,Type');
 		$this->db->from('course_files');
 		$query = $this->db->get()->result_array();
 			
@@ -338,20 +338,3 @@ class Lab extends CI_Controller {
 
 /* End of file Lab.php */
 /* Location: ./application/controllers/Lab.php */
-
-
-			// if ($value['Title'] != $previous ) 
-			// {
-			// 	if ($key==0) {$count = 0 ;}
-			// 	else {$count++;}
-				
-			// 	$temp = array('Title' =>$value['Title'], 'Time' => $value['Time']);
-			// 	array_push($teamArray[$count], $temp);
-				
-			// }
-			// else
-			// {
-			// 	$temp = array('Title' =>$value['Title'], 'Time' => $value['Time']);
-			// 	array_push($teamArray[$count], $temp);
-			// }
-			// $previous = $value['Title'];
