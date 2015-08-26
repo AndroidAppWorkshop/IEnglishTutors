@@ -18,15 +18,11 @@ body{
 				> .navbar-collapse > .navbar-nav > {
 					> li {
 						color: #9d9d9d;
+						cursor: pointer;
 						line-height: 20px;
 						padding: 10px 15px;
 						
-						> button {
-							background-color: inherit;
-							border: inherit;
-						}
-						
-						> select.form-control {
+						> select {
 							background-color: #37424E;
 							border: 0;
 							border-radius: 0;
@@ -35,12 +31,6 @@ body{
 							height: inherit;
 							margin-left: 5px;
 							padding: 0 9px;
-							width: inherit;
-						}
-						
-						&.active {
-							color: #ffffff;
-							background-color: #080808;
 						}
 						
 						&:hover {
@@ -52,6 +42,8 @@ body{
 		}
 		
 		> .container-fluid {
+			margin-top: 10vh;
+			
 			> .row {
 				> .side-bar-left {
 					> .menu-block {
@@ -68,9 +60,24 @@ body{
 								text-align: inherit;
 								width: 100%;
 								
-								&:hover{
+								&:hover {
 									background-color: #1E2127;
 									color: #1997C6;
+								}
+								
+								&:focus {
+									background-color: #1E2127;
+								}
+								
+								> select {
+									background-color: #37424E;
+									border: 0;
+									border-radius: 0;
+									color: #fff;
+									display: inline-block;
+									height: inherit;
+									margin-left: 5px;
+									padding: 0 9px;
 								}
 							}
 							
@@ -94,7 +101,7 @@ body{
 					}
 					
 					> .embed-responsive-4by3 {
-						padding-bottom: 90vh;
+						padding-bottom: 100vh;
 					}
 				}
 			}
@@ -119,23 +126,6 @@ body{
 @media (min-width: 768px){
 	body {
 		> .wrapper {
-			> .navbar-inverse {
-				border-radius: 0;
-				
-				> .container-fluid {
-					> .navbar-header > .navbar-brand {
-						margin-left: 50px;
-					}
-					
-					> .navbar-collapse > .navbar-nav {
-						> li {
-							padding-top: 15px;
-							padding-bottom: 15px;
-						}
-					}
-				}
-			}
-			
 			> .container-fluid {
 				> .row {
 					margin-left: 50px;

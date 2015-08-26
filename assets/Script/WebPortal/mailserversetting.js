@@ -15,7 +15,8 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 					if (response.Success) {
 						self.AlertSuccess = true;
 						var parentscope = parent.angular.element('[ng-controller^="index"]').scope();
-						$timeout(parentscope.self.CloseIframe, 2500);
+						$timeout(parentscope.self.CloseIframe, 2000);
+						$timeout(parentscope.$apply, 2500);
 					} else {
 						self.AlertError = true;
 					}

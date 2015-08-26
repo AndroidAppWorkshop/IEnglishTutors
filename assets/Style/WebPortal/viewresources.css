@@ -4,27 +4,35 @@ body {
 body > .container-fluid > .row {
   font-family: monospace, Courier New, Courier;
 }
+body > .container-fluid > .row > .col-sm-4 > h3 {
+  color: #eeeeee;
+}
 body > .container-fluid > .row > .col-sm-4 > .panel {
-  border: 1px solid #9d9d9d;
+  border: 0;
   border-radius: 0;
   color: #ffffff;
 }
 body > .container-fluid > .row > .col-sm-4 > .panel > .panel-heading {
-  background-color: #252834;
+  background-color: #37424E;
   border-radius: 0;
   cursor: pointer;
 }
 body > .container-fluid > .row > .col-sm-4 > .panel > .panel-heading:hover {
-  background-color: #1E2127;
+  background-color: #1e2127;
+  color: #1997c6;
 }
 body > .container-fluid > .row > .col-sm-4 > .panel > .panel-body {
   background-color: #51586A;
 }
 body > .container-fluid > .row > .col-sm-4 > .panel > .panel-body:hover {
   background-color: #1E2127;
+  color: #987B43;
   cursor: pointer;
   font-size: medium;
   font-weight: bold;
+}
+body > .container-fluid > .row > .col-sm-8 > h3 {
+  color: #eeeeee;
 }
 body > .container-fluid > .row > .col-sm-8 > .panel {
   background-color: #252830;

@@ -1,5 +1,5 @@
 <div class="wrapper" ng-app="apps" ng-controller="index as self">
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse visible-xs-block">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -8,68 +8,51 @@
 				</button>
 				<a class="navbar-brand"
 					ng-href="{{self.JsonModel.Link.Title}}">
-					<i class="fa fa-user-secret"></i>
+					<i class="fa fa-home"></i>
 					<span ng-bind="self.JsonModel.Text.Title"></span>
 				</a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-9">
 				<ul class="nav navbar-nav">
-					<li class="visible-xs-block" ng-repeat="item in self.Nav">
-						<button>
-							<span ng-bind="item.Text"></span>
-						</button>
-					</li>
-					<li class="select">
-							<i class="fa fa-language"></i>
-							<select class="form-control"
-								ng-model="self.CurrentLang"
-								ng-options="l as l for l in self.Preference.langs"
-								ng-change="self.ChangeLang();">
-							</select>
-					</li>
-					<li ng-class="{ 'active': self.ActiveAsset }" ng-click="self.Refresh()">
-						<button>
-							<i class="fa fa-refresh" ng-hide="self.ActiveAsset"></i>
-							<i class="fa fa-refresh fa-spin" ng-show="self.ActiveAsset"></i>
-							<span ng-bind="self.JsonModel.Text.Asset"></span>
-						</button>
-					</li>
-					<li ng-class="{ 'active': self.ActiveEmail }" ng-click="self.SetMailServer()">
-						<button>
-							<i class="fa fa-envelope-o" ng-hide="self.ActiveEmail"></i>
-							<i class="fa fa-envelope" ng-show="self.ActiveEmail"></i>
-							<span ng-bind="self.JsonModel.Text.Email"></span>
-						</button>
-					</li>
-					<li ng-class="{ 'active': self.ActiveLogout }" ng-click="self.SignOut()">
-						<button>
-							<i class="fa fa-sign-out" ng-hide="self.ActiveLogout"></i>
-							<i class="fa fa-refresh fa-spin" ng-show="self.ActiveLogout"></i>
-							<span ng-bind="self.JsonModel.Text.Logout"></span>
-						</button>
+					<li ng-repeat="li in self.Nav" ng-click="self.ChangeIframePath(li)">
+						<i ng-class="li.Icon"></i>
+						<span ng-bind="li.Text"></span>
+						<select ng-hide="li.Text"
+							ng-model="self.CurrentLang"
+							ng-options="l as l for l in self.Preference.langs"
+							ng-change="self.ChangeLang();">
+						</select>
 					</li>
 				</ul>
-			</div><!-- /.navbar-collapse -->
+			</div>
 		</div>
 	</nav>
 	<div class="container-fluid">
 		<div class="row">
+			<!-- Left Side Bar Start -->
 			<div class="side-bar-left col-sm-2 hidden-xs">
 				<div class="uesr-picture">
-					<i class="fa fa-map-signs fa-5x"></i>
+					<i class="fa fa-cogs fa-5x"></i>
 				</div>
-				<!-- Fake Link Start -->
 				<div class="menu-block" ng-repeat="item in self.JsonModel.SideBarMenu">
 					<div class="menu-section">
 						<label ng-bind="item.Label"></label>
 					</div>
 					<div class="menu-section" ng-repeat="button in item.Button">
-						<button ng-bind="button.Text" ng-click="self.ChangeIframePath(button.Link)"></button>
+						<button ng-click="self.ChangeIframePath(button)">
+							<i ng-class="button.Icon"></i>
+							<span ng-bind="button.Text"></span>
+							<select ng-hide="button.Text"
+								ng-model="self.CurrentLang"
+								ng-options="l as l for l in self.Preference.langs"
+								ng-change="self.ChangeLang();">
+							</select>
+						</button>
 					</div>
 				</div>
-				<!-- Fake Link End -->
 			</div>
+			<!-- Left Side Bar End -->
 			<div class="col-sm-10 main">
 				<button type="button"
 					class="embed-close"
@@ -83,6 +66,7 @@
 			</div>
 		</div>
 	</div>
+	<!-- Modal Start -->
 	<div class="modal fade bs-example-modal-sm" id="modal-success" tabindex="-1">
 		<div class="modal-dialog modal-sm">
 			<div class="modal-content">
@@ -100,4 +84,5 @@
 			</div>
 		</div>
 	</div>
+	<!-- Modal End -->
 </div>
