@@ -1,5 +1,5 @@
 <div class="wrapper" ng-app="apps" ng-controller="index as self">
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse visible-xs-block">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -15,40 +15,14 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-9">
 				<ul class="nav navbar-nav">
-					<li class="visible-xs-block" ng-repeat="item in self.Nav">
-						<button ng-click="self.ChangeIframePath(item.Link)">
-							<i ng-class="item.Icon"></i>
-							<span ng-bind="item.Text"></span>
-						</button>
-					</li>
-					<li class="select">
-							<i class="fa fa-language"></i>
-							<select class="form-control"
-								ng-model="self.CurrentLang"
-								ng-options="l as l for l in self.Preference.langs"
-								ng-change="self.ChangeLang();">
-							</select>
-					</li>
-					<li ng-class="{ 'active': self.ActiveAsset }" ng-click="self.Refresh()">
-						<button>
-							<i class="fa fa-refresh" ng-hide="self.ActiveAsset"></i>
-							<i class="fa fa-refresh fa-spin" ng-show="self.ActiveAsset"></i>
-							<span ng-bind="self.JsonModel.Text.Asset"></span>
-						</button>
-					</li>
-					<li ng-class="{ 'active': self.ActiveEmail }" ng-click="self.SetMailServer()">
-						<button>
-							<i class="fa fa-envelope-o" ng-hide="self.ActiveEmail"></i>
-							<i class="fa fa-envelope" ng-show="self.ActiveEmail"></i>
-							<span ng-bind="self.JsonModel.Text.Email"></span>
-						</button>
-					</li>
-					<li ng-class="{ 'active': self.ActiveLogout }" ng-click="self.SignOut()">
-						<button>
-							<i class="fa fa-sign-out" ng-hide="self.ActiveLogout"></i>
-							<i class="fa fa-refresh fa-spin" ng-show="self.ActiveLogout"></i>
-							<span ng-bind="self.JsonModel.Text.Logout"></span>
-						</button>
+					<li ng-repeat="li in self.Nav" ng-click="self.ChangeIframePath(li)">
+						<i ng-class="li.Icon"></i>
+						<span ng-bind="li.Text"></span>
+						<select ng-hide="li.Text"
+							ng-model="self.CurrentLang"
+							ng-options="l as l for l in self.Preference.langs"
+							ng-change="self.ChangeLang();">
+						</select>
 					</li>
 				</ul>
 			</div>
@@ -66,9 +40,14 @@
 						<label ng-bind="item.Label"></label>
 					</div>
 					<div class="menu-section" ng-repeat="button in item.Button">
-						<button ng-click="self.ChangeIframePath(button.Link)">
+						<button ng-click="self.ChangeIframePath(button)">
 							<i ng-class="button.Icon"></i>
 							<span ng-bind="button.Text"></span>
+							<select ng-hide="button.Text"
+								ng-model="self.CurrentLang"
+								ng-options="l as l for l in self.Preference.langs"
+								ng-change="self.ChangeLang();">
+							</select>
 						</button>
 					</div>
 				</div>
