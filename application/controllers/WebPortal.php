@@ -30,6 +30,11 @@ class WebPortal extends CI_Controller {
 	{
 		$this->load->Render();
 	}
+	
+	public function Members()
+	{
+		$this->load->Render();
+	}
 }
 
 /* End of file WebPortal.php */

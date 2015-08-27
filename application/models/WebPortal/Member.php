@@ -81,6 +81,12 @@ class Member extends CI_Model {
 		return !$existed;
 	}
 	
+	public function All()
+	{
+		$query = $this->db->get('member');
+		return $query->result_array();
+	}
+	
 	private function Save($member)
 	{
 		$this->User->Set(array(

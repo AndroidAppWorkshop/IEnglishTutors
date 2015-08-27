@@ -1,0 +1,63 @@
+body {
+	background-color: #252830;
+	
+	> .container {
+		> .row {
+			> [class^="col-"] {
+				> .thumbnail {
+					background-color: #212222;
+					border: 1px solid #987B43;
+					border-radius: 0;
+					
+					> .img-circle {
+						width: 85%;
+					}
+					
+					> .caption {
+						> h3 {
+							color: #987B43;
+						}
+						
+						> p.desc {
+							color: #eeeeee;
+							max-height: 120px;
+							overflow : auto;
+						}
+						
+						> p.plus {
+							color: #eeeeee;
+							
+							> .btn-github {
+								color: #1EA076;
+								padding: 6px 6px;
+								
+								&:hover {
+									color: #44D6A7;
+								}
+							}
+							
+							> .btn-facebook {
+								color: #337AB7;
+								padding: 6px 6px;
+								
+								&:hover {
+									color: #A6C4F6;
+								}
+							}
+						}
+						
+						> .btn-email {
+							background-color: #212222;
+							color: #eeeeee;
+							
+							&:hover {
+								background-color: #eeeeee;
+								color: #212222;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

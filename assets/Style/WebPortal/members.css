@@ -1,0 +1,44 @@
+body {
+  background-color: #252830;
+}
+body > .container > .row > [class^="col-"] > .thumbnail {
+  background-color: #212222;
+  border: 1px solid #987B43;
+  border-radius: 0;
+}
+body > .container > .row > [class^="col-"] > .thumbnail > .img-circle {
+  width: 85%;
+}
+body > .container > .row > [class^="col-"] > .thumbnail > .caption > h3 {
+  color: #987B43;
+}
+body > .container > .row > [class^="col-"] > .thumbnail > .caption > p.desc {
+  color: #eeeeee;
+  max-height: 120px;
+  overflow: auto;
+}
+body > .container > .row > [class^="col-"] > .thumbnail > .caption > p.plus {
+  color: #eeeeee;
+}
+body > .container > .row > [class^="col-"] > .thumbnail > .caption > p.plus > .btn-github {
+  color: #1EA076;
+  padding: 6px 6px;
+}
+body > .container > .row > [class^="col-"] > .thumbnail > .caption > p.plus > .btn-github:hover {
+  color: #44D6A7;
+}
+body > .container > .row > [class^="col-"] > .thumbnail > .caption > p.plus > .btn-facebook {
+  color: #337AB7;
+  padding: 6px 6px;
+}
+body > .container > .row > [class^="col-"] > .thumbnail > .caption > p.plus > .btn-facebook:hover {
+  color: #A6C4F6;
+}
+body > .container > .row > [class^="col-"] > .thumbnail > .caption > .btn-email {
+  background-color: #212222;
+  color: #eeeeee;
+}
+body > .container > .row > [class^="col-"] > .thumbnail > .caption > .btn-email:hover {
+  background-color: #eeeeee;
+  color: #212222;
+}
