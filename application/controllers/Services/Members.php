@@ -36,6 +36,13 @@ class Members extends CI_Controller {
 		$result = $this->Member->Logout();
 		$this->response->Json(array('Success' => $result));
 	}
+	
+	public function UsernameAvailable()
+	{
+		$username = $this->input->get('username', TRUE);
+		$result = $this->Member->UsernameAvailable($username);
+		$this->response->Json(array('Success' => $result));
+	}
 }
 
 /* End of file Member.php */
