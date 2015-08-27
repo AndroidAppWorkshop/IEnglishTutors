@@ -33,6 +33,9 @@ body > .wrapper > .navbar-inverse > .container-fluid > .navbar-collapse > .navba
 body > .wrapper > .container-fluid {
   margin-top: 10vh;
 }
+body > .wrapper > .container-fluid > .row > .side-bar-left > .uesr-picture {
+  margin-bottom: 30px;
+}
 body > .wrapper > .container-fluid > .row > .side-bar-left > .menu-block {
   color: #eeeeee;
   font-size: medium;
@@ -45,15 +48,9 @@ body > .wrapper > .container-fluid > .row > .side-bar-left > .menu-block > .menu
   margin-bottom: 0;
 }
 body > .wrapper > .container-fluid > .row > .side-bar-left > .menu-block > .menu-section {
+  cursor: pointer;
   margin: 10px 0;
   padding: 10px 15px;
-}
-body > .wrapper > .container-fluid > .row > .side-bar-left > .menu-block > .menu-section > button {
-  background-color: inherit;
-  border: inherit;
-  border-radius: 4px;
-  text-align: inherit;
-  width: 100%;
 }
 body > .wrapper > .container-fluid > .row > .side-bar-left > .menu-block > .menu-section > i {
   margin-left: 6px;

@@ -42,11 +42,13 @@
 					<div class="menu-topic">
 						<label ng-bind="item.Label"></label>
 					</div>
-					<div class="menu-section" ng-repeat="button in item.Button">
-						<button ng-click="self.ChangeIframePath(button)">
+					<div class="menu-section"
+						ng-repeat="button in item.Button"
+						ng-click="self.ChangeIframePath(button)">
+						
 							<i ng-class="button.Icon"></i>
 							<span ng-bind="button.Text"></span>
-						</button>
+						
 					</div>
 				</div>
 				<div class="menu-block">
