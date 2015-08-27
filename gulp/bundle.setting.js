@@ -30,6 +30,9 @@ module.exports = function (config) {
 		app: {
 			home_lobby: script + 'app/Home/lobby.js'
 		},
+		lab: {
+			lab_download_form: script + 'app/Lab/download_form.js'
+		},
 		webportal: {
 			index: script + 'WebPortal/index.js',
 			login: script + 'WebPortal/login.js',
@@ -104,7 +107,15 @@ module.exports = function (config) {
 				js.apis.system,
 				js.webportal.viewresources
 			]
-		}
+		},
+		"Lab.download_form": {
+			"style": [
+
+			],
+			"script": [
+				js.app.lab_download_form
+			]
+		},
 	};
 	
 	return setting;

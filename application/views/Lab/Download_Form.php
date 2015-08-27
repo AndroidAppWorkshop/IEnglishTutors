@@ -7,55 +7,44 @@
 			</div>
 			<div class="modal-body">
 				<form action="DoUpload" method="post" enctype="multipart/form-data">
-<div class="row">
-	<div class="col-lg-6">
-<table class="table">
-	<thead>
-		<tr>
-			<th>#</th>
-			<th>課程名稱</th>
-			<th>上課日期</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr class="bg-primary" data-toggle="collapse" data-target="#test" aria-expanded="true" aira-controls="test">
-			<th>1</th>
-			<th>超精彩TOEIC</th>
-			<th>2015-08-02 <span class="badge" style="float:right">3</span></th>
-		</tr>
-		<tr class="bg-primary" data-toggle="collapse" data-target="#test2" aria-expanded="true" aira-controls="test2">
-			<th>2</th>
-			<th>超可怕會話</th>
-			<th>2015-07-10 <span class="badge" style="float:right">2</span></th>
-		</tr>		
-	</tbody>
-</table>		
-	</div>
-	<div class="col-lg-6">
-
-<div id="test" class="panel panel-default collapse">
-	<div class="panel-heading">
-		<h3 class="panel-title">超精彩TOEIC</h3>
-	</div>
-	<div class="panel-body list-group">
-		<li class="list-group-item">上課講義</li>
-		<li class="list-group-item">隨堂考試</li>
-		<li class="list-group-item">課外補充</li>
-	</div>
-</div>
-
-<div id="test2" class="panel panel-default collapse">
-	<div class="panel-heading">
-		<h3 class="panel-title">超可怕會話</h3>
-	</div>
-	<div class="panel-body list-group">
-		<li class="list-group-item">上課講義</li>
-		<li class="list-group-item">隨堂考試</li>
-	</div>
-</div>
-
-	</div>
-</div>	
+					<div class="row">
+						<div class="col-lg-6">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>課程名稱</th>
+										<th>上課日期</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php foreach ($course_files as $index => $course) : ?>
+										<tr id="checkit<?=$index?>" data-toggle="collapse" data-target="#heading<?=$index?>" aria-expanded="true" aira-controls="heading<?=$index?>">
+											<th><?=$index+1?></th>
+											<th><?=$course['Title']?></th>
+											<th><?=$course['Time']?><span class="badge" style="float:right"><?=count($course['Files'])?></span></th>
+										</tr>
+									<?php endforeach ; ?>
+								</tbody>
+							</table>
+						</div>
+						<div class="col-lg-6">
+							<?php foreach($course_files as $index => $course) : ?>
+								<div id="heading<?=$index?>" class="panel panel-default collapse">
+									<div class="panel-heading">
+										<h3 class="panel-title"><?=$course['Title']?></h3>
+									</div>
+									<div class="panel-body list-group">
+										<?php foreach ($course['Files'] as $key => $file) : ?>
+											<li class="list-group-item">
+												<a href="http://localhost:9101/download.php?f=<?=$file['Name']?>"><?=$file['Name']?></a>
+											</li>
+										<?php endforeach ;?>
+									</div>
+								</div>
+							<?php endforeach ;?>
+						</div>
+					</div>
 					<div class="modal-footer">
 						<button type="reset" class="btn btn-default" data-dismiss="modal">Clear</button>
 						<button type="submit" class="btn btn-primary">Download</button>
@@ -65,5 +54,3 @@
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
 </div>
-
-
