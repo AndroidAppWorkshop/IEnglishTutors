@@ -18,7 +18,10 @@
 					<li ng-repeat="li in self.Nav" ng-click="self.ChangeIframePath(li)">
 						<i ng-class="li.Icon"></i>
 						<span ng-bind="li.Text"></span>
-						<select ng-hide="li.Text"
+					</li>
+					<li>
+						<i class="fa fa-language"></i>
+						<select ng-hide="button.Text"
 							ng-model="self.CurrentLang"
 							ng-options="l as l for l in self.Preference.langs"
 							ng-change="self.ChangeLang();">
@@ -36,19 +39,26 @@
 					<i class="fa fa-cogs fa-5x"></i>
 				</div>
 				<div class="menu-block" ng-repeat="item in self.JsonModel.SideBarMenu">
-					<div class="menu-section">
+					<div class="menu-topic">
 						<label ng-bind="item.Label"></label>
 					</div>
-					<div class="menu-section" ng-repeat="button in item.Button">
-						<button ng-click="self.ChangeIframePath(button)">
+					<div class="menu-section"
+						ng-repeat="button in item.Button"
+						ng-click="self.ChangeIframePath(button)">
+						
 							<i ng-class="button.Icon"></i>
 							<span ng-bind="button.Text"></span>
-							<select ng-hide="button.Text"
-								ng-model="self.CurrentLang"
-								ng-options="l as l for l in self.Preference.langs"
-								ng-change="self.ChangeLang();">
-							</select>
-						</button>
+						
+					</div>
+				</div>
+				<div class="menu-block">
+					<div class="menu-section">
+						<i class="fa fa-language"></i>
+						<select ng-hide="button.Text"
+							ng-model="self.CurrentLang"
+							ng-options="l as l for l in self.Preference.langs"
+							ng-change="self.ChangeLang();">
+						</select>
 					</div>
 				</div>
 			</div>
@@ -62,6 +72,20 @@
 				</button>
 				<div class="embed-responsive embed-responsive-4by3" ng-show="self.iframePath">
 					<iframe class="embed-responsive-item" ng-src="{{self.iframePath}}"></iframe>
+				</div>
+				<div class="overview" ng-hide="self.iframePath">
+					<div class="row" ng-repeat="item in self.JsonModel.Overview">
+						<div class="col-sm-4">
+							<img ng-if="item.Col4.Img" ng-src="{{self.ImgPath + item.Col4.Img}}">
+							<h1 ng-if="item.Col4.Title" ng-bind="item.Col4.Title"></h1>
+							<p ng-if="item.Col4.Desc" ng-bind="item.Col4.Desc"></p>
+						</div>
+						<div class="col-sm-8">
+							<img ng-if="item.Col8.Img" ng-src="{{self.ImgPath + item.Col8.Img}}">
+							<h1 ng-if="item.Col8.Title" ng-bind="item.Col8.Title"></h1>
+							<p ng-if="item.Col8.Desc" ng-bind="item.Col8.Desc"></p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

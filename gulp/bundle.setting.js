@@ -12,7 +12,8 @@ module.exports = function (config) {
 			index: style + 'WebPortal/index.css',
 			login: style + 'WebPortal/login.css',
 			mailserversetting: style + 'WebPortal/mailserversetting.css',
-			viewresources: style + 'WebPortal/viewresources.css'
+			viewresources: style + 'WebPortal/viewresources.css',
+			members: style + 'WebPortal/members.css'
 		},
 		bower: {
 			bootstrap: lib + 'bootstrap/css/bootstrap.css',
@@ -36,7 +37,8 @@ module.exports = function (config) {
 			index: script + 'WebPortal/index.js',
 			login: script + 'WebPortal/login.js',
 			mailserversetting: script + 'WebPortal/mailserversetting.js',
-			viewresources: script + 'WebPortal/viewresources.js'
+			viewresources: script + 'WebPortal/viewresources.js',
+			members: script + 'WebPortal/members.js'
 		},
 		bower: {
 			jquery: lib + 'jquery/jquery.js',
@@ -115,6 +117,15 @@ module.exports = function (config) {
 				js.app.lab_downloadform
 			]
 		},
+		},
+		"webportal.members": {
+			"style": [
+				css.webportal.members
+			],
+			"script": [
+				js.webportal.members
+			]
+		}
 	};
 	
 	return setting;

@@ -14,6 +14,11 @@ class Member extends CI_Model {
 	
 	public function Create($username, $password, $role)
 	{
+		if(!$this->UsernameAvailable($username))
+		{
+			return FALSE;
+		}
+		
 		$query = $this->db->get_where('role', array('Role' => $role));
 		$Id = $query->first_row()->Id;
 		
@@ -66,6 +71,20 @@ class Member extends CI_Model {
 		$this->User->Destroy();
 		
 		return TRUE;
+	}
+	
+	public function UsernameAvailable($username)
+	{
+		$query = $this->db->get_where('member', array('Username' => $username));
+		$existed = $query->num_rows() > 0;
+		
+		return !$existed;
+	}
+	
+	public function All()
+	{
+		$query = $this->db->get('member');
+		return $query->result_array();
 	}
 	
 	private function Save($member)
