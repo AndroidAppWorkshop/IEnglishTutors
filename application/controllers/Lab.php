@@ -267,7 +267,7 @@ class Lab extends CI_Controller {
 		}
 	}
 
-	public function Download_Form()
+	public function DownloadForm()
 	{	
 		$this->db->select('*');
 		$this->db->from('course');

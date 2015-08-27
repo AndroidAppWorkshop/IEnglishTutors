@@ -5,7 +5,8 @@ module.exports = function (config) {
 	
 	var css = {
 		app: {
-			home_lobby: style + 'app/Home/lobby.css'
+			home_lobby: style + 'app/Home/lobby.css',
+			lab_downloadform : style + 'app/Lab/downloadform.css'
 		},
 		webportal: {
 			index: style + 'WebPortal/index.css',
@@ -28,10 +29,8 @@ module.exports = function (config) {
 			asset: script + 'apis/asset.js'
 		},
 		app: {
-			home_lobby: script + 'app/Home/lobby.js'
-		},
-		lab: {
-			lab_download_form: script + 'app/Lab/download_form.js'
+			home_lobby: script + 'app/Home/lobby.js',
+			lab_downloadform: script + 'app/Lab/downloadform.js'
 		},
 		webportal: {
 			index: script + 'WebPortal/index.js',
@@ -108,12 +107,12 @@ module.exports = function (config) {
 				js.webportal.viewresources
 			]
 		},
-		"Lab.download_form": {
+		"lab.downloadform": {
 			"style": [
-
+				css.app.lab_downloadform
 			],
 			"script": [
-				js.app.lab_download_form
+				js.app.lab_downloadform
 			]
 		},
 	};

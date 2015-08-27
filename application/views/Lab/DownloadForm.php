@@ -19,7 +19,7 @@
 								</thead>
 								<tbody>
 									<?php foreach ($course_files as $index => $course) : ?>
-										<tr id="checkit<?=$index?>" data-toggle="collapse" data-target="#heading<?=$index?>" aria-expanded="true" aira-controls="heading<?=$index?>">
+										<tr id="motherBtn<?=$index?>">
 											<th><?=$index+1?></th>
 											<th><?=$course['Title']?></th>
 											<th><?=$course['Time']?><span class="badge" style="float:right"><?=count($course['Files'])?></span></th>
@@ -30,7 +30,7 @@
 						</div>
 						<div class="col-lg-6">
 							<?php foreach($course_files as $index => $course) : ?>
-								<div id="heading<?=$index?>" class="panel panel-default collapse">
+								<div id="childPanel<?=$index?>" class="panel panel-default" style="display:none">
 									<div class="panel-heading">
 										<h3 class="panel-title"><?=$course['Title']?></h3>
 									</div>
