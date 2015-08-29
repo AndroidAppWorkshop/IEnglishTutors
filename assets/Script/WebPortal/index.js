@@ -29,6 +29,7 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 
 		self.ChangeIframePath = function (item) {
 			if (item.Link) {
+				angular.element('html,body').animate({scrollTop: '0px'}, 800);
 				self.iframePath = _Site + item.Link;
 			} else if (item.Func) {
 				self[item.Func]();

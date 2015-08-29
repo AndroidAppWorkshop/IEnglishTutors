@@ -29,6 +29,7 @@ body > .container > .row > [class^="col-"] > .thumbnail > .caption > p.desc {
   color: #eeeeee;
   max-height: 120px;
   overflow: auto;
+  white-space: pre-line;
 }
 body > .container > .row > [class^="col-"] > .thumbnail > .caption > p.plus {
   color: #eeeeee;
@@ -67,4 +68,12 @@ body > .container > .row > [class^="col-"] > .thumbnail > form > button {
 body > .container > .row > [class^="col-"] > .thumbnail > form > button:hover {
   background-color: #212A3F;
   color: #ffffff;
+}
+body > .container > .row > [class^="col-"] > .thumbnail > form > .form-group > .drop-box {
+  cursor: crosshair;
+  border: 5px dashed #DDD;
+  padding: 3vw 3vw;
+}
+body > .container > .row > [class^="col-"] > .thumbnail > form > img {
+  width: 100%;
 }

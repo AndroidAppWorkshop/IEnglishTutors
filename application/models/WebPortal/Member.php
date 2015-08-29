@@ -105,6 +105,20 @@ class Member extends CI_Model {
 		}
 	}
 	
+	public function UpdatePicture($id, $picture)
+	{
+		try
+		{
+			$this->db->where('Id', $id)
+						->update('member', array('Picture' => $picture));
+			return TRUE;
+		}
+		catch (Exception $e)
+		{
+			return FALSE;
+		}
+	}
+	
 	private function Save($member)
 	{
 		$this->User->Set(array(

@@ -41,8 +41,24 @@
 				<form>
 					<div class="form-group">
 						<label ng-bind="self.JsonModel.Text.Picture"></label>
-						<input type="file" ng-model="mem.File" />
+						<div ngf-select ngf-drop class="drop-box"
+							ng-model="self.File"
+							ngf-drag-over-class="dragover"
+							ngf-pattern="'image/*'">
+							<span ng-bind="self.JsonModel.Text.UploadTip"></span>
+						</div>
 					</div>
+					<div class="progress"
+						ng-show="self.FileProgress">
+						<div class="progress-bar progress-bar-striped progress-bar-striped active"
+							role="progressbar"
+							aria-valuemin="0"
+							aria-valuemax="100"
+							ng-style="{width: self.FileProgress}"
+							<span ng-bind="self.FileProgress"></span>
+						</div>
+					</div>
+					<img ng-show="self.File" ngf-src="self.File" />
 				</form>
 				<form ng-submit="self.Update(mem)">
 					<div class="form-group">

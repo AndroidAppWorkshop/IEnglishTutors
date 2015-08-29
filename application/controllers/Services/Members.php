@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+define('PHOTOPREFIX', 'member_');
+define('PHOTOPATH', './assets/images/Members/');
 
 class Members extends CI_Controller {
 	
@@ -7,7 +9,7 @@ class Members extends CI_Controller {
 	{
 		parent::__construct();
 		
-		$this->load->library('response');
+		$this->load->library(array('response', 'upload'));
 		$this->load->model('WebPortal/Member');
 	}
 	
@@ -63,6 +65,48 @@ class Members extends CI_Controller {
 		$postdata = json_decode($this->input->raw_input_stream);
 		$result = $this->Member->Update($postdata);
 		$this->response->Json(array('Success' => $result));
+	}
+	
+	public function UpdatePhoto()
+	{
+		$id = $this->User->Get('Id');
+		$fileName = PHOTOPREFIX.$this->User->Get('Id');
+		$this->DeleteExistsedFiles($fileName);
+		$config = array(
+			'upload_path'		=> PHOTOPATH,
+			'allowed_types'	=> 'gif|jpg|png',
+			'file_name'			=> $fileName,
+			'file_ext_tolower'=> TRUE,
+			'overwrite'			=> TRUE,
+			'max_size'			=> '1024'
+		);
+		
+		$this->upload->initialize($config);
+		
+		foreach ($_FILES as $key => $value) {
+			if($result = $this->upload->do_upload($key))
+			{
+				$result = $this->Member->UpdatePicture($id, $this->upload->data('file_name'));
+			}
+		}
+		
+		$this->response->Json(array(
+										'Success'	=>	$result,
+										'Error'		=>	$this->upload->display_errors(),
+										'FileData'	=>	$this->upload->data()));
+	}
+	
+	private function DeleteExistsedFiles($name)
+	{
+		$types = array('.gif', '.jpg', '.png');
+		
+		foreach ($types as $key => $value) {
+			$path = PHOTOPATH.$name.$value;
+			if(file_exists($path))
+			{
+				unlink($path);
+			}
+		}
 	}
 }
 
