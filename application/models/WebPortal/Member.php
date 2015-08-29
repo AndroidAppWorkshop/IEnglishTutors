@@ -43,7 +43,7 @@ class Member extends CI_Model {
 	
 	public function Login($username, $password, $remember = FALSE)
 	{
-		$this->db->select('member.Id, Username, Password, Picture, Role');
+		$this->db->select('member.Id, Username, Password, Role');
 		$this->db->from('member');
 		$this->db->join('role', 'member.R_Id = role.Id');
 		$this->db->where('member.UserName', $username);
@@ -83,18 +83,19 @@ class Member extends CI_Model {
 	
 	public function All()
 	{
-		$query = $this->db->get('member');
+		$query = $this->db->select('Id, Username, R_Id, Picture, DisplayName, Description, GitHub, Facebook')
+								->get('member');
 		return $query->result_array();
 	}
 	
 	private function Save($member)
 	{
 		$this->User->Set(array(
-			'Username'  => $member->Username,
-			'Email'     => $member->Username,
-			'Logged'    => TRUE,
-			'Role'      => $member->Role,
-			'Picture'   => $member->Picture ? $member->Picture : ''
+			'Id'			  => $member->Id,
+			'Username' 	  => $member->Username,
+			'Email'    	  => $member->Username,
+			'Logged'  	  => TRUE,
+			'Role'    	  => $member->Role
 		), $this->expiration);
 	}
 }

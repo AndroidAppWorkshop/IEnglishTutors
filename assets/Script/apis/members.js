@@ -5,6 +5,7 @@ angular.module('apis')
 		var _Create = _Site + 'Services/Members/Create';
 		var _Login = _Site + 'Services/Members/Login';
 		var _Logout = _Site + 'Services/Members/Logout';
+		var _All = _Site + 'Services/Members/All';
 
 		function AvoidCSRFProtection(data) {
 			if (_IsDev) {
@@ -43,6 +44,17 @@ angular.module('apis')
 				return $http({
 					method: 'GET',
 					url: _Logout,
+					params: options.params
+				}).then(function (response) {
+					options.success(response.data);
+				},function(response){
+					options.error(response.data);
+				});
+			},
+			All: function (options) {
+				return $http({
+					method: 'GET',
+					url: _All,
 					params: options.params
 				}).then(function (response) {
 					options.success(response.data);

@@ -25,7 +25,7 @@ class User extends CI_Model {
 		$this->session->set_tempdata($array, NULL, $second);
 	}
 	
-	public function Get($key)
+	public function Get($key = NULL)
 	{
 		return $this->session->tempdata($key);
 	}

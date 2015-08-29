@@ -43,6 +43,20 @@ class Members extends CI_Controller {
 		$result = $this->Member->UsernameAvailable($username);
 		$this->response->Json(array('Success' => $result));
 	}
+	
+	public function All()
+	{
+		$userId = $this->User->Get('Id');
+		$data = $this->Member->All();
+		foreach ($data as &$member) {
+			if($member['Id'] === $userId)
+			{
+				$member['CanEdit'] = TRUE;
+			}
+		}
+		
+		$this->response->Json($data);
+	}
 }
 
 /* End of file Member.php */

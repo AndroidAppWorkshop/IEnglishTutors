@@ -4,6 +4,22 @@ body {
 	> .container {
 		> .row {
 			> [class^="col-"] {
+				> .can-edit {
+					font-family: Georgia, 'Times New Roman', Times, serif;
+					min-height: 30px;
+					padding: 5px 0;
+					
+					> button {
+						background-color: #24505C;
+						border: 0;
+						color: #F4F3DE;
+						
+						&:hover {
+							background-color: #52B5F3;
+						}
+					}
+				}
+				
 				> .thumbnail {
 					background-color: #212222;
 					border: 1px solid #987B43;
@@ -53,6 +69,22 @@ body {
 							&:hover {
 								background-color: #eeeeee;
 								color: #212222;
+							}
+						}
+					}
+					
+					> form {
+						color: #F4F3DE;
+						font-family: Courier New, Courier, monospace;
+						
+						> button {
+							background-color: #2E2E2E;
+							color: #EFC028;
+							font-weight: bold;
+							
+							&:hover {
+								background-color: #212A3F;
+								color: #ffffff;
 							}
 						}
 					}

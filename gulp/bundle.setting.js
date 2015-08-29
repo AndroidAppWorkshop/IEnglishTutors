@@ -112,6 +112,7 @@ module.exports = function (config) {
 				css.webportal.members
 			],
 			"script": [
+				js.apis.members,
 				js.webportal.members
 			]
 		}
