@@ -83,7 +83,7 @@ class Member extends CI_Model {
 	
 	public function All()
 	{
-		$query = $this->db->select('Id, Username, R_Id, Picture, DisplayName, Description, GitHub, Facebook')
+		$query = $this->db->select('Id, Username, R_Id, Picture, DisplayName, Description, GitHub, Facebook, LastLogin')
 								->get('member');
 		return $query->result_array();
 	}
@@ -94,9 +94,10 @@ class Member extends CI_Model {
 		{
 			$this->db->where('Id', $mem->Id)
 						->update('member', array('DisplayName' => $mem->DisplayName,
-														 'Description' => $mem->Description,
-														 'GitHub' 		=> $mem->GitHub,
-														 'Facebook' 	=> $mem->Facebook));
+												 'Description' => $mem->Description,
+												 'GitHub' 	   => $mem->GitHub,
+												 'Facebook'    => $mem->Facebook,
+												 'LastLogin'   => date('Y-m-d H:i:s')));
 			return TRUE;
 		}
 		catch (Exception $e)
@@ -110,7 +111,8 @@ class Member extends CI_Model {
 		try
 		{
 			$this->db->where('Id', $id)
-						->update('member', array('Picture' => $picture));
+					 ->update('member', array('Picture' 	=> $picture,
+					 						  'LastLogin'   => date('Y-m-d H:i:s')));
 			return TRUE;
 		}
 		catch (Exception $e)

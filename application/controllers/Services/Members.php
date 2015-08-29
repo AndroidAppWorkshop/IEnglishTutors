@@ -51,6 +51,8 @@ class Members extends CI_Controller {
 		$userId = $this->User->Get('Id');
 		$data = $this->Member->All();
 		foreach ($data as &$member) {
+			$member['Key'] = '?k='.strtotime($member['LastLogin']);
+
 			if($member['Id'] === $userId)
 			{
 				$member['CanEdit'] = TRUE;

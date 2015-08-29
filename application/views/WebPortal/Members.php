@@ -10,7 +10,7 @@
 			</section>
 			<div class="thumbnail"
 				ng-hide="mem.FormVisible">
-				<img ng-if="mem.Picture" ng-src="{{self.ImgPath + mem.Picture}}" class="img-circle">
+				<img ng-if="mem.Picture" ng-src="{{self.ImgPath + mem.Picture + mem.Key}}" class="img-circle">
 				<img ng-if="!mem.Picture" ng-src="{{self.DefaultImg}}" class="img-circle">
 				<div class="caption text-center">
 					<h3 ng-bind="mem.DisplayName"></h3>
