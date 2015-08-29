@@ -42,12 +42,23 @@ module.exports = function (config) {
 			jquery: lib + 'jquery/jquery.js',
 			bootstrap: lib + 'bootstrap/js/bootstrap.js',
 			angular: lib + 'angular/angular.js',
-			loadingbar: lib + 'angular-loading-bar/loading-bar.js'
+			loadingbar: lib + 'angular-loading-bar/loading-bar.js',
+			ngfileupload: lib + 'ng-file-upload/ng-file-upload-all.js'
 		}
 	};
 	
 	var setting = {
 		"global": {
+			"style": [
+					css.bower.bootstrap,
+					css.bower.fontawesome
+			],
+			"script": [
+					js.bower.jquery,
+					js.bower.bootstrap
+			]
+		},
+		"webportal.global": {
 			"style": [
 					css.bower.bootstrap,
 					css.bower.loadingbar,
@@ -58,7 +69,8 @@ module.exports = function (config) {
 					js.bower.bootstrap,
 					js.bower.angular,
 					js.bower.loadingbar,
-					js.apis.core
+					js.apis.core,
+					js.bower.ngfileupload
 			]
 		},
 		"home.lobby": {

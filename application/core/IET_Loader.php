@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class IET_Loader extends CI_Loader {
 
 	protected $CI;
+	protected $GlobalKey;
 
 	public function __construct()
 	{
@@ -14,6 +15,7 @@ class IET_Loader extends CI_Loader {
 
 	public function Render($view = '', $vars = array(), $return = FALSE)
 	{
+		$this->GlobalKey = $this->SetGlobalKey();
 		$this->model('Shared/Layout');
 		$path = $this->CI->Router->GetCurrentPath($view);
 		
@@ -24,7 +26,7 @@ class IET_Loader extends CI_Loader {
 
 	protected function GetHeaderData()
 	{
-		$data['MasterCss'] = $this->CI->Layout->MasterCss();
+		$data['MasterCss'] = $this->CI->Layout->MasterCss($this->GlobalKey);
 		$data['PlugCss'] = $this->CI->Layout->PlugCss(strtolower($this->CI->Router->GetCurrentPathWithDot()));
 		
 		return $data;
@@ -37,10 +39,23 @@ class IET_Loader extends CI_Loader {
 		$data['GlobalVariable'] = $this->CI->Layout->GlobalVariable();
 		$data['ViewJson'] = $this->CI->Layout->ViewJson($language, $path);
 		$data['Preference'] = $this->CI->Layout->PreferenceJson();
-		$data['MasterJs'] = $this->CI->Layout->MasterJs();
+		$data['MasterJs'] = $this->CI->Layout->MasterJs($this->GlobalKey);
 		$data['PlugJs'] = $this->CI->Layout->PlugJs(strtolower($this->CI->Router->GetCurrentPathWithDot()));
 		
 		return $data;
+	}
+	
+	protected function SetGlobalKey()
+	{
+		$key = 'global';
+		$controller = strtolower($this->CI->Router->GetCurrentController());
+		
+		if($controller === 'webportal')
+		{
+			$key = $controller.'.'.$key;
+		}
+		
+		return $key;
 	}
 }
 

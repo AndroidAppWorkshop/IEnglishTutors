@@ -49,14 +49,14 @@ class Layout extends CI_Model {
 		return 'var Preference = { langs: '.$languages.'};';
 	}
 	
-	public function MasterCss()
+	public function MasterCss($key)
 	{
-		return $this->HtmlString('global', 'style', '<link href="%s" rel="stylesheet">');
+		return $this->HtmlString($key, 'style', '<link href="%s" rel="stylesheet">');
 	}
 	
-	public function MasterJs()
+	public function MasterJs($key)
 	{
-		return $this->HtmlString('global', 'script', '<script src="%s"></script>');
+		return $this->HtmlString($key, 'script', '<script src="%s"></script>');
 	}
 	
 	public function PlugCss($key)

@@ -12,7 +12,8 @@ module.exports = function (fs) {
 			"jquery": paths.bower + 'jquery/dist/jquery*.{js,map}',
 			"angular": paths.bower + 'angular/angular*.{js,map}',
 			"angular-loading-bar": paths.bower + 'angular-loading-bar/build/*.{js,css}',
-			"font-awesome": paths.bower + 'font-awesome-bower/**/*.{css,otf,eot,svg,ttf,woff,woff2}'
+			"font-awesome": paths.bower + 'font-awesome-bower/**/*.{css,otf,eot,svg,ttf,woff,woff2}',
+			"ng-file-upload": paths.bower + 'ng-file-upload/*.js'
 		},
 		lib: paths.assets + 'lib/',
 		js: paths.assets + 'js/',
