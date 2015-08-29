@@ -6,7 +6,6 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 			self.JsonModel = $window['MembersJson'];
 			self.ImgPath = '/assets/images/Members/';
 			self.DefaultImg = self.ImgPath + 'null.png';
-			angular.element('[data-toggle="popover"]').popover();
 			self.All();
 		};
 		
@@ -23,7 +22,12 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 		};
 		
 		self.Update = function(mem) {
-			console.log(mem);
+			$api.Update({
+				data: mem,
+				success: function(response) {
+					self.All();
+				}
+			});
 		};
 		
 		self.Initialize();

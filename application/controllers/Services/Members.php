@@ -57,6 +57,13 @@ class Members extends CI_Controller {
 		
 		$this->response->Json($data);
 	}
+	
+	public function Update()
+	{
+		$postdata = json_decode($this->input->raw_input_stream);
+		$result = $this->Member->Update($postdata);
+		$this->response->Json(array('Success' => $result));
+	}
 }
 
 /* End of file Member.php */

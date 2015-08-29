@@ -38,11 +38,13 @@
 			<!-- Edit Start -->
 			<div class="thumbnail"
 				ng-show="mem.FormVisible">
-				<form ng-submit="self.Update(mem)">
+				<form>
 					<div class="form-group">
 						<label ng-bind="self.JsonModel.Text.Picture"></label>
-						<input type="file" />
+						<input type="file" ng-model="mem.File" />
 					</div>
+				</form>
+				<form ng-submit="self.Update(mem)">
 					<div class="form-group">
 						<label ng-bind="self.JsonModel.Text.DisplayName"></label>
 						<input type="text" class="form-control" ng-model="mem.DisplayName" />

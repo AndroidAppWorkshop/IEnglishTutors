@@ -40,8 +40,8 @@ class Languages extends CI_Model {
 		try
 		{
 			$this->db->where('Id', $id)
-						->update('language_usage', array('Content'=>$content,
-																'Date'=>date('Y-m-d H:i:s')));
+						->update('language_usage', array('Content' => $content,
+																	'Date' => date('Y-m-d H:i:s')));
 			return TRUE;
 		}
 		catch (Exception $e)

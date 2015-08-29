@@ -6,6 +6,7 @@ angular.module('apis')
 		var _Login = _Site + 'Services/Members/Login';
 		var _Logout = _Site + 'Services/Members/Logout';
 		var _All = _Site + 'Services/Members/All';
+		var _Update = _Site + 'Services/Members/Update';
 
 		function AvoidCSRFProtection(data) {
 			if (_IsDev) {
@@ -56,6 +57,18 @@ angular.module('apis')
 					method: 'GET',
 					url: _All,
 					params: options.params
+				}).then(function (response) {
+					options.success(response.data);
+				},function(response){
+					options.error(response.data);
+				});
+			},
+			Update: function (options) {
+				return $http({
+					method: 'POST',
+					url: _Update,
+					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+					data: AvoidCSRFProtection(options.data)
 				}).then(function (response) {
 					options.success(response.data);
 				},function(response){

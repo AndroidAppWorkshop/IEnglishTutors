@@ -88,6 +88,23 @@ class Member extends CI_Model {
 		return $query->result_array();
 	}
 	
+	public function Update($mem)
+	{
+		try
+		{
+			$this->db->where('Id', $mem->Id)
+						->update('member', array('DisplayName' => $mem->DisplayName,
+														 'Description' => $mem->Description,
+														 'GitHub' 		=> $mem->GitHub,
+														 'Facebook' 	=> $mem->Facebook));
+			return TRUE;
+		}
+		catch (Exception $e)
+		{
+			return FALSE;
+		}
+	}
+	
 	private function Save($member)
 	{
 		$this->User->Set(array(
