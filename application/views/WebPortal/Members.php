@@ -17,12 +17,14 @@
 					<p class="desc" ng-bind="mem.Description"></p>
 					<p class="plus">
 						<a ng-href="{{mem.GitHub}}"
+							ng-show="mem.GitHub"
 							class="btn btn-github"
 							target="_blank">
 							<i class="fa fa-github"></i>
 							<span ng-bind="self.JsonModel.Text.GitHub"></span>
 						</a>
 						<a ng-href="{{mem.Facebook}}"
+							ng-show="mem.Facebook"
 							class="btn btn-facebook"
 							target="_blank">
 							<i class="fa fa-facebook-official"></i>
