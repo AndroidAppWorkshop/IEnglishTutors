@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>IEnglishTutors</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-	<meta name="description" content="網頁簡短描述">
-	<meta name="keywords" content="網頁關鍵字">
+	<title><?=$Meta->Title?></title>
+	<meta http-equiv="Content-Type" content="<?=$Meta->ContentType?>">
+	<meta name="viewport" content="<?=$Meta->Viewport?>">
+	<meta name="description" content="<?=$Meta->Description?>">
+	<meta name="keywords" content="<?=$Meta->Keywords?>">
 	<link rel="icon" type="image/x-icon" href="/assets/images/Favicon/favicon.ico">
 	<link rel="apple-touch-icon-precomposed" href="/assets/images/Favicon/power-icon-152.png">
 	<meta name="msapplication-TileColor" content="#ffffff" />

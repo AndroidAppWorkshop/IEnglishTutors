@@ -1,12 +1,26 @@
 body {
   background-color: #252830;
 }
+body > .container > .row > [class^="col-"] > .can-edit {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  min-height: 30px;
+  padding: 5px 0;
+}
+body > .container > .row > [class^="col-"] > .can-edit > button {
+  background-color: #24505C;
+  border: 0;
+  color: #F4F3DE;
+}
+body > .container > .row > [class^="col-"] > .can-edit > button:hover {
+  background-color: #52B5F3;
+}
 body > .container > .row > [class^="col-"] > .thumbnail {
   background-color: #212222;
   border: 1px solid #987B43;
   border-radius: 0;
 }
 body > .container > .row > [class^="col-"] > .thumbnail > .img-circle {
+  margin-top: 20px;
   width: 85%;
 }
 body > .container > .row > [class^="col-"] > .thumbnail > .caption > h3 {
@@ -16,6 +30,7 @@ body > .container > .row > [class^="col-"] > .thumbnail > .caption > p.desc {
   color: #eeeeee;
   max-height: 120px;
   overflow: auto;
+  white-space: pre-line;
 }
 body > .container > .row > [class^="col-"] > .thumbnail > .caption > p.plus {
   color: #eeeeee;
@@ -41,4 +56,25 @@ body > .container > .row > [class^="col-"] > .thumbnail > .caption > .btn-email 
 body > .container > .row > [class^="col-"] > .thumbnail > .caption > .btn-email:hover {
   background-color: #eeeeee;
   color: #212222;
+}
+body > .container > .row > [class^="col-"] > .thumbnail > form {
+  color: #F4F3DE;
+  font-family: Courier New, Courier, monospace;
+}
+body > .container > .row > [class^="col-"] > .thumbnail > form > button {
+  background-color: #2E2E2E;
+  color: #EFC028;
+  font-weight: bold;
+}
+body > .container > .row > [class^="col-"] > .thumbnail > form > button:hover {
+  background-color: #212A3F;
+  color: #ffffff;
+}
+body > .container > .row > [class^="col-"] > .thumbnail > form > .form-group > .drop-box {
+  cursor: crosshair;
+  border: 5px dashed #DDD;
+  padding: 3vw 3vw;
+}
+body > .container > .row > [class^="col-"] > .thumbnail > form > img {
+  width: 100%;
 }

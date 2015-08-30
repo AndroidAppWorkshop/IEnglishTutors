@@ -132,7 +132,7 @@ class Lab extends CI_Controller {
 	public function GetTempData()
 	{
 		$this->load->library('session');
-		print_r($this->session->tempdata());
+		print_r($this->User->Get());
 	}
 	
 	public function SetLanguages($language = 'zh-TW')

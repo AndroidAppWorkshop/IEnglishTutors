@@ -1,4 +1,5 @@
 /web.config
+/assets/images/Members/member_*.*
 /assets/css/*
 /assets/fonts/*
 /assets/js/*

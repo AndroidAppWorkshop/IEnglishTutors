@@ -5,6 +5,8 @@ class Layout extends CI_Model {
 	
 	protected $Config;
 	protected $Setting;
+	protected $Key;
+	protected $Meta;
 	
 	public function __construct()
 	{
@@ -12,7 +14,7 @@ class Layout extends CI_Model {
 		
 		$this->load->library('caches');
 		$this->load->helper(array('file', 'url'));
-		$this->load->model(array('Shared/Environment', 'Shared/Languages'));
+		$this->load->model(array('Shared/Environment', 'Shared/Languages', 'Shared/Metadata'));
 		$this->Initialize();
 	}
 	
@@ -22,6 +24,21 @@ class Layout extends CI_Model {
 		$result = $result.$this->GenerateScriptVariable('$IsDev', $this->Environment->IsDevelopment());
 		$result = $result.$this->GenerateScriptVariable('$CurrentLang', $this->User->CurrentLanguage(), TRUE);
 		return $result;
+	}
+	
+	public function Meta()
+	{
+		if($this->caches->Get('metadata'))
+		{
+			$this->Meta = $this->caches->Get('metadata');
+		}
+		else
+		{
+			$this->Meta = $this->Metadata->Build();
+			$this->caches->Set('metadata', $this->Meta, 60*60*24*7);
+		}
+		
+		return $this->Meta;
 	}
 	
 	public function ViewJson($language, $currentPath = '')
@@ -49,14 +66,14 @@ class Layout extends CI_Model {
 		return 'var Preference = { langs: '.$languages.'};';
 	}
 	
-	public function MasterCss()
+	public function MasterCss($key)
 	{
-		return $this->HtmlString('global', 'style', '<link href="%s" rel="stylesheet">');
+		return $this->HtmlString($key, 'style', '<link href="%s" rel="stylesheet">');
 	}
 	
-	public function MasterJs()
+	public function MasterJs($key)
 	{
-		return $this->HtmlString('global', 'script', '<script src="%s"></script>');
+		return $this->HtmlString($key, 'script', '<script src="%s"></script>');
 	}
 	
 	public function PlugCss($key)
@@ -76,20 +93,25 @@ class Layout extends CI_Model {
 		{
 			$this->Config = $this->caches->Get('gulp_config');
 			$this->Setting = $this->caches->Get('bundle_setting');
+			$this->Key = $this->caches->Get('key');
 		}
 		else
 		{
 			$config = LoadJsonFile(APPPATH.'app_data/gulp.config.json')->config;
 			$setting = LoadJsonFile(APPPATH.'app_data/bundle.setting.json')->setting;
+			$key = LoadJsonFile(APPPATH.'app_data/bundle.setting.json')->key;
 			$this->caches->Set('gulp_config', $config, 60*60*24*7);
 			$this->caches->Set('bundle_setting', $setting, 60*60*24*7);
+			$this->caches->Set('key', $key, 60*60*24*7);
 			$this->Config = $config;
 			$this->Setting = $setting;
+			$this->Key = $key;
 		}
 	}
 	
 	private function HtmlString($path, $type, $format)
 	{
+		$key = $this->Key;
 		$result = array();
 		
 		if($this->Environment->IsDevelopment())
@@ -99,7 +121,7 @@ class Layout extends CI_Model {
 			{
 				foreach($this->Setting->$path->$type as $value)
 				{
-					array_push($result, sprintf($format, $value));
+					array_push($result, sprintf($format, $value.$key));
 				}
 			}
 		}
@@ -110,7 +132,7 @@ class Layout extends CI_Model {
 			if(array_key_exists($path, $this->Setting))
 			{
 				$value = $this->Config->$type.$path.'.'.$type;
-				array_push($result, sprintf($format, $value));
+				array_push($result, sprintf($format, $value.$key));
 			}
 		}
 		
