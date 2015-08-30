@@ -6,6 +6,7 @@ class Layout extends CI_Model {
 	protected $Config;
 	protected $Setting;
 	protected $Key;
+	protected $Meta;
 	
 	public function __construct()
 	{
@@ -13,7 +14,7 @@ class Layout extends CI_Model {
 		
 		$this->load->library('caches');
 		$this->load->helper(array('file', 'url'));
-		$this->load->model(array('Shared/Environment', 'Shared/Languages'));
+		$this->load->model(array('Shared/Environment', 'Shared/Languages', 'Shared/Metadata'));
 		$this->Initialize();
 	}
 	
@@ -23,6 +24,21 @@ class Layout extends CI_Model {
 		$result = $result.$this->GenerateScriptVariable('$IsDev', $this->Environment->IsDevelopment());
 		$result = $result.$this->GenerateScriptVariable('$CurrentLang', $this->User->CurrentLanguage(), TRUE);
 		return $result;
+	}
+	
+	public function Meta()
+	{
+		if($this->caches->Get('metadata'))
+		{
+			$this->Meta = $this->caches->Get('metadata');
+		}
+		else
+		{
+			$this->Meta = $this->Metadata->Build();
+			$this->caches->Set('metadata', $this->Meta, 60*60*24*7);
+		}
+		
+		return $this->Meta;
 	}
 	
 	public function ViewJson($language, $currentPath = '')
