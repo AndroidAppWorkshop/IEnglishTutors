@@ -33,7 +33,6 @@ class WebPortal extends CI_Controller {
 	
 	public function Members()
 	{
-		$this->User->Get();
 		$this->load->Render();
 	}
 }

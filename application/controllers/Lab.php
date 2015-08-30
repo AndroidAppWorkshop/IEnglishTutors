@@ -295,11 +295,6 @@ class Lab extends CI_Controller {
 		$this->load->Render('',$data);
 	}
 
-	public function DoDownload()
-	{
-
-	}
-
 	public function Download_urlPhoto()//下載網路圖片
 	{	
 		$data_post_URL = $this->input->post('TargetURL', TRUE);
