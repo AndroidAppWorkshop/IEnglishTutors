@@ -2,6 +2,7 @@
 /assets/images/Members/member_*.*
 /assets/css/*
 /assets/fonts/*
+/assets/files/*
 /assets/js/*
 /assets/lib/*
 /application/app_data/mail.server.json
