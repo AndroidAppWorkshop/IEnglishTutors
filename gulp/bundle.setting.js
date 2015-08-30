@@ -83,6 +83,14 @@ module.exports = function (config) {
 				js.app.home_lobby
 			]
 		},
+		"lab.downloadform": {
+			"style": [
+				css.app.lab_downloadform
+			],
+			"script": [
+				js.app.lab_downloadform
+			]
+		},
 		"webportal.index": {
 			"style": [
 				css.webportal.index
@@ -120,15 +128,6 @@ module.exports = function (config) {
 				js.apis.system,
 				js.webportal.viewresources
 			]
-		},
-		"lab.downloadform": {
-			"style": [
-				css.app.lab_downloadform
-			],
-			"script": [
-				js.app.lab_downloadform
-			]
-		},
 		},
 		"webportal.members": {
 			"style": [
