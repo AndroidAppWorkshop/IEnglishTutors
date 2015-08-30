@@ -20,6 +20,7 @@ body > .container > .row > [class^="col-"] > .thumbnail {
   border-radius: 0;
 }
 body > .container > .row > [class^="col-"] > .thumbnail > .img-circle {
+  margin-top: 20px;
   width: 85%;
 }
 body > .container > .row > [class^="col-"] > .thumbnail > .caption > h3 {
