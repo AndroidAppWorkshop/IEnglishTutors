@@ -46,6 +46,8 @@ class Asset extends CI_Controller {
 			}
 		}
 		
+		$setting['key'] = '?k='.strtotime(date('Y-m-d H:i:s'));
+		
 		fclose($file);
 		return $setting;
 	}

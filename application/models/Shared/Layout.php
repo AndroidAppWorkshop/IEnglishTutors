@@ -5,6 +5,7 @@ class Layout extends CI_Model {
 	
 	protected $Config;
 	protected $Setting;
+	protected $Key;
 	
 	public function __construct()
 	{
@@ -76,20 +77,25 @@ class Layout extends CI_Model {
 		{
 			$this->Config = $this->caches->Get('gulp_config');
 			$this->Setting = $this->caches->Get('bundle_setting');
+			$this->Key = $this->caches->Get('key');
 		}
 		else
 		{
 			$config = LoadJsonFile(APPPATH.'app_data/gulp.config.json')->config;
 			$setting = LoadJsonFile(APPPATH.'app_data/bundle.setting.json')->setting;
+			$key = LoadJsonFile(APPPATH.'app_data/bundle.setting.json')->key;
 			$this->caches->Set('gulp_config', $config, 60*60*24*7);
 			$this->caches->Set('bundle_setting', $setting, 60*60*24*7);
+			$this->caches->Set('key', $key, 60*60*24*7);
 			$this->Config = $config;
 			$this->Setting = $setting;
+			$this->Key = $key;
 		}
 	}
 	
 	private function HtmlString($path, $type, $format)
 	{
+		$key = $this->Key;
 		$result = array();
 		
 		if($this->Environment->IsDevelopment())
@@ -99,7 +105,7 @@ class Layout extends CI_Model {
 			{
 				foreach($this->Setting->$path->$type as $value)
 				{
-					array_push($result, sprintf($format, $value));
+					array_push($result, sprintf($format, $value.$key));
 				}
 			}
 		}
@@ -110,7 +116,7 @@ class Layout extends CI_Model {
 			if(array_key_exists($path, $this->Setting))
 			{
 				$value = $this->Config->$type.$path.'.'.$type;
-				array_push($result, sprintf($format, $value));
+				array_push($result, sprintf($format, $value.$key));
 			}
 		}
 		
