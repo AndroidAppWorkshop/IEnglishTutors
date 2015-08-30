@@ -129,7 +129,6 @@ module.exports = function (config) {
 				js.app.lab_downloadform
 			]
 		},
-		},
 		"webportal.members": {
 			"style": [
 				css.webportal.members

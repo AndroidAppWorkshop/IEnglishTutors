@@ -271,14 +271,14 @@ class Lab extends CI_Controller {
 	{	
 		$this->db->select('*');
 		$this->db->from('course');
-		$this->db->order_by('Time','asc');
+		$this->db->order_by('Date','asc');
 		$query = $this->db->get()->result_array();
 		
 		foreach ($query as $key => $value)
 		{
 			$course_files[$value['Id']] = array();
 			$course_files[$value['Id']]['Title'] = $value['Title'];
-			$course_files[$value['Id']]['Time'] = $value['Time'];
+			$course_files[$value['Id']]['Time'] = $value['Date'];
 			$course_files[$value['Id']]['Files'] = array();
 		}
 		
