@@ -222,7 +222,7 @@ class Lab extends CI_Controller {
 	{
 		$this->load->helper(array('form','url'));
 
-		$config['upload_path'] = './uploads/';
+		$config['upload_path'] = './assets/files/';
 		$config['allowed_types'] = 'gif|jpg|png|ppt|pptx|doc|docx|txt|pdf|zip|7zip|rar';
 		$config['max_size']	= '10000';//php最大到10MB
 		$config['max_width']  = '0';// 0 = 不限制寬度
@@ -267,10 +267,11 @@ class Lab extends CI_Controller {
 		}
 	}
 
-	public function Download_Form()
+	public function DownloadForm()
 	{	
 		$this->db->select('*');
 		$this->db->from('course');
+		$this->db->order_by('Time','asc');
 		$query = $this->db->get()->result_array();
 		
 		foreach ($query as $key => $value)
@@ -280,8 +281,6 @@ class Lab extends CI_Controller {
 			$course_files[$value['Id']]['Time'] = $value['Time'];
 			$course_files[$value['Id']]['Files'] = array();
 		}
-
-		//print_r($course_files);	
 		
 		$this->db->select('C_Id,Name,Type');
 		$this->db->from('course_files');
