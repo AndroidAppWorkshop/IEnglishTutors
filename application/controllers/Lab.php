@@ -212,7 +212,7 @@ class Lab extends CI_Controller {
 		exit;
 	}
 	
-	public function Upload_Form()
+	public function UploadForm()
 	{	
 		$this->load->helper(array('form','url'));
 		$this->load->Render('', array('error' => ' ' ));
