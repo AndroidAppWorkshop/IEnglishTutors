@@ -13,12 +13,14 @@ module.exports = function (config) {
 			login: style + 'WebPortal/login.css',
 			mailserversetting: style + 'WebPortal/mailserversetting.css',
 			viewresources: style + 'WebPortal/viewresources.css',
-			members: style + 'WebPortal/members.css'
+			members: style + 'WebPortal/members.css',
+			filemanage: style + 'WebPortal/filemanage.css'
 		},
 		bower: {
 			bootstrap: lib + 'bootstrap/css/bootstrap.css',
 			loadingbar: lib + 'angular-loading-bar/loading-bar.css',
-			fontawesome: lib + 'font-awesome/css/font-awesome.css'
+			fontawesome: lib + 'font-awesome/css/font-awesome.css',
+			angularbootstrapcalendar: lib + 'angular-bootstrap-calendar/css/angular-bootstrap-calendar.css'
 		}
 	};
 	
@@ -38,14 +40,18 @@ module.exports = function (config) {
 			login: script + 'WebPortal/login.js',
 			mailserversetting: script + 'WebPortal/mailserversetting.js',
 			viewresources: script + 'WebPortal/viewresources.js',
-			members: script + 'WebPortal/members.js'
+			members: script + 'WebPortal/members.js',
+			filemanage: script + 'WebPortal/filemanage.js'
 		},
 		bower: {
 			jquery: lib + 'jquery/jquery.js',
 			bootstrap: lib + 'bootstrap/js/bootstrap.js',
 			angular: lib + 'angular/angular.js',
 			loadingbar: lib + 'angular-loading-bar/loading-bar.js',
-			ngfileupload: lib + 'ng-file-upload/ng-file-upload-all.js'
+			ngfileupload: lib + 'ng-file-upload/ng-file-upload-all.js',
+			angularbootstrap: lib + 'angular-bootstrap/ui-bootstrap-tpls.js',
+			moment: lib + 'moment/moment.js',
+			angularbootstrapcalendar: lib + 'angular-bootstrap-calendar/js/angular-bootstrap-calendar-tpls.js'
 		}
 	};
 	
@@ -136,6 +142,18 @@ module.exports = function (config) {
 			"script": [
 				js.apis.members,
 				js.webportal.members
+			]
+		},
+		"webportal.filemanage": {
+			"style": [
+				css.bower.angularbootstrapcalendar,
+				css.webportal.filemanage
+			],
+			"script": [
+				js.bower.angularbootstrap,
+				js.bower.moment,
+				js.bower.angularbootstrapcalendar,
+				js.webportal.filemanage
 			]
 		}
 	};
