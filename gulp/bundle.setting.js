@@ -47,6 +47,7 @@ module.exports = function (config) {
 			jquery: lib + 'jquery/jquery.js',
 			bootstrap: lib + 'bootstrap/js/bootstrap.js',
 			angular: lib + 'angular/angular.js',
+			angularanimate: lib + 'angular-animate/angular-animate.js',
 			loadingbar: lib + 'angular-loading-bar/loading-bar.js',
 			ngfileupload: lib + 'ng-file-upload/ng-file-upload-all.js',
 			angularbootstrap: lib + 'angular-bootstrap/ui-bootstrap-tpls.js',
@@ -150,6 +151,7 @@ module.exports = function (config) {
 				css.webportal.filemanage
 			],
 			"script": [
+				js.bower.angularanimate,
 				js.bower.angularbootstrap,
 				js.bower.moment,
 				js.bower.angularbootstrapcalendar,

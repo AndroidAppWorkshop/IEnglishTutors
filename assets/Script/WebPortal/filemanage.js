@@ -1,4 +1,4 @@
-angular.module('apps', ['angular-loading-bar', 'apis', 'mwl.calendar', 'ui.bootstrap'])
+angular.module('apps', ['angular-loading-bar', 'apis', 'mwl.calendar', 'ui.bootstrap', 'ngAnimate'])
 	.controller('filemanage', ['$window', function ($window) {
 		var self = this;
 
