@@ -1,0 +1,6 @@
+body {
+  background-color: #252830;
+}
+body > .container-fluid > .row > [class^="col-"] > mwl-calendar > .cal-context > mwl-calendar-month > .cal-row-head {
+  background-color: #ffffff;
+}

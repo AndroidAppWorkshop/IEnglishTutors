@@ -1,5 +1,5 @@
 angular.module('apps', ['angular-loading-bar', 'apis', 'mwl.calendar', 'ui.bootstrap', 'ngAnimate'])
-	.controller('filemanage', ['$window', function ($window) {
+	.controller('filemanage', ['$window', '$modal', 'moment', function ($window, $modal, moment) {
 		var self = this;
 
 		self.Initialize = function () {
@@ -32,23 +32,27 @@ angular.module('apps', ['angular-loading-bar', 'apis', 'mwl.calendar', 'ui.boots
 					resizable: true
 				}
 			];
-			
-			self.eventClicked = function(event) {
-				showModal('Clicked', event);
-			};
-		
-			self.eventEdited = function(event) {
-				showModal('Edited', event);
-			};
-		
-			self.eventDeleted = function(event) {
-				showModal('Deleted', event);
-			};
-		
-			self.eventTimesChanged = function(event) {
-				showModal('Dropped or resized', event);
-			};
 		};
-
+		
+		self.eventClicked = function(event) {
+			console.log(event);
+			// showModal('Clicked', event);
+		};
+	
+		self.eventEdited = function(event) {
+			console.log(event);
+			// showModal('Edited', event);
+		};
+	
+		self.eventDeleted = function(event) {
+			console.log(event);
+			// showModal('Deleted', event);
+		};
+	
+		self.eventTimesChanged = function(event) {
+			console.log(event);
+			// showModal('Dropped or resized', event);
+		};
+	
 		self.Initialize();
 	}]);
