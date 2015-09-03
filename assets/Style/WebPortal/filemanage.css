@@ -8,11 +8,14 @@ body > .container-fluid > .row > .navbar {
 }
 body > .container-fluid > .row > .calendar {
   margin: 0 auto;
-  width: 90%;
+  width: 85%;
 }
 body > .container-fluid > .row > .calendar > mwl-calendar > .cal-context > mwl-calendar-month > .cal-row-head {
   background-color: #ffffff;
   color: #333333;
+}
+body > .container-fluid > .row > .calendar > mwl-calendar > .cal-context > mwl-calendar-month > .cal-month-box #cal-week-box {
+  color: #000000;
 }
 body > .container-fluid > .row > .calendar > mwl-calendar > .cal-context > mwl-calendar-month > .cal-month-box .cal-day-tick {
   color: #333333;
@@ -28,6 +31,9 @@ body > .container-fluid > .row > .calendar > mwl-calendar > .cal-context > mwl-c
   font-size: x-large;
 }
 body > .container-fluid > .row > .calendar > mwl-calendar > .cal-context > mwl-calendar-year > .cal-year-box > div:hover span[data-cal-date] {
+  color: #333333;
+}
+body > .container-fluid > .row > .calendar > mwl-calendar > .cal-context > mwl-calendar-year > .cal-year-box .cal-day-tick {
   color: #333333;
 }
 body > .container-fluid > .row > .calendar > mwl-calendar > .cal-context > mwl-calendar-week > .cal-week-box > .cal-row-head:hover > div > span {
