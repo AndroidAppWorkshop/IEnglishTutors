@@ -1,6 +1,34 @@
 <div class="container-fluid" ng-app="apps" ng-controller="filemanage as self">
 	<div class="row">
-		<div class="col-sm-10 col-sm-offset-1">
+		<div class="navbar">
+			<div class="btn-group">
+				<button class="btn btn-primary"
+					mwl-date-modifier
+					date="self.calendarDay"
+					decrement="self.calendarView">Previous
+				</button>
+				<button class="btn btn-default"
+					mwl-date-modifier
+					date="self.calendarDay"
+					set-to-today>Today
+				</button>
+				<button class="btn btn-primary"
+					mwl-date-modifier
+					date="self.calendarDay"
+					increment="self.calendarView">Next
+				</button>
+			</div>
+			
+			<div class="btn-group">
+				<label class="btn btn-primary ng-pristine ng-untouched ng-valid" ng-model="self.calendarView" btn-radio="'year'">Year</label>
+				<label class="btn btn-primary ng-pristine ng-untouched ng-valid active" ng-model="self.calendarView" btn-radio="'month'">Month</label>
+				<label class="btn btn-primary ng-pristine ng-untouched ng-valid" ng-model="self.calendarView" btn-radio="'week'">Week</label>
+				<label class="btn btn-primary ng-pristine ng-untouched ng-valid" ng-model="self.calendarView" btn-radio="'day'">Day</label>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="calendar">
 			<mwl-calendar
 				view="self.calendarView"
 				current-day="self.calendarDay"
