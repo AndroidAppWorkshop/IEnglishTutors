@@ -6,6 +6,9 @@ body > .container-fluid > .row > .navbar {
   margin: 3% auto;
   width: 85%;
 }
+body > .container-fluid > .row > .navbar > [class^="col-"] {
+  padding: 1% 0;
+}
 body > .container-fluid > .row > .calendar {
   margin: 0 auto;
   width: 85%;
@@ -47,4 +50,7 @@ body > .container-fluid > .row > .calendar > mwl-calendar > .cal-context > mwl-c
 }
 body > .container-fluid > .row > .calendar > mwl-calendar > .cal-context > mwl-calendar-day > .cal-day-box > .cal-row-head [class*="cal-cell"]:hover {
   background-color: #111111;
+}
+body > .container-fluid > .new-course {
+  color: #252830;
 }
