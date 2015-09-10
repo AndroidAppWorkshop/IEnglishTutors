@@ -13,36 +13,34 @@
 								<thead>
 									<tr>
 										<th>#</th>
-										<th>課程名稱</th>
-										<th>上課日期</th>
+										<th>課堂名稱</th>
+										<th>上課時間</th>
 									</tr>
 								</thead>
-								<tbody>
-									<?php foreach ($course_files as $index => $course) : ?>
-										<tr id="motherBtn<?=$index?>">
-											<th><?=$index+1?></th>
-											<th><?=$course['Title']?></th>
-											<th><?=$course['Time']?><span class="badge" style="float:right"><?=count($course['Files'])?></span></th>
-										</tr>
-									<?php endforeach ; ?>
+								<tbody data-bind="foreach : course">
+									<tr data-bind="attr : { 'data-target':'#heading'+($index()),
+															'data-toggle':'collapse',
+															'aria-expanded':'true'}">
+										
+										<th data-bind="text : ($index()+1)"></th>
+										<th data-bind="text : Title"></th>
+										<th data-bind="text : Date"></th>
+									</tr>
 								</tbody>
 							</table>
 						</div>
-						<div class="col-lg-6">
-							<?php foreach($course_files as $index => $course) : ?>
-								<div id="childPanel<?=$index?>" class="panel panel-default" style="display:none">
-									<div class="panel-heading">
-										<h3 class="panel-title"><?=$course['Title']?></h3>
-									</div>
-									<div class="panel-body list-group">
-										<?php foreach ($course['Files'] as $key => $file) : ?>
-											<li class="list-group-item">
-												<a href="http://localhost:9101/download.php?f=<?=$file['Name']?>"><?=$file['Name']?></a>
-											</li>
-										<?php endforeach ;?>
-									</div>
+						<div data-bind="foreach : course"  class="col-lg-6">
+							
+							<div class="panel panel-default collapse"  
+								data-bind="attr : { id:'heading'+($index())}">
+								<div class="panel-heading">
+									<h3 data-bind="text : Title" class="panel-title"></h3>
 								</div>
-							<?php endforeach ;?>
+								<div data-bind="foreach : Files" class="panel-body list-group">
+									<li data-bind="text : Name" class="list-group-item"></li>
+								</div>
+							</div>
+						
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -54,3 +52,7 @@
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+<script><?=$ViewModel?></script>
+

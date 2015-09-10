@@ -10,6 +10,7 @@ class Lab extends CI_Controller {
 		parent::__construct();
 		
 		$this->load->model('Shared/Environment');
+		$this->load->model('Lab/Lab_model');
 	}
 	
 	public function Index()
@@ -257,10 +258,10 @@ class Lab extends CI_Controller {
 				}
 
 				$course_files =array(
-											'C_Id' => $C_Id,
-											'Path' =>$file['full_path'],
-											'Name' =>$file['orig_name'],
-											'Type' =>$file['file_type']
+										'C_Id' => $C_Id,
+										'Path' =>$file['full_path'],
+										'Name' =>$file['orig_name'],
+										'Type' =>$file['file_type']
 				);
 				$this->db->insert('course_files', $course_files);
 			}
@@ -269,32 +270,29 @@ class Lab extends CI_Controller {
 
 	public function DownloadForm()
 	{	
-		$this->db->select('*');
-		$this->db->from('course');
-		$this->db->order_by('Date','asc');
-		$query = $this->db->get()->result_array();
+		$course = $this->Lab_model->get_course()->result_array();
+		$course_files = $this->Lab_model->get_courseFiles()->result_array();
+		$result = array();
 		
-		foreach ($query as $key => $value)
-		{
-			$course_files[$value['Id']] = array();
-			$course_files[$value['Id']]['Title'] = $value['Title'];
-			$course_files[$value['Id']]['Time'] = $value['Date'];
-			$course_files[$value['Id']]['Files'] = array();
-		}
-		
-		$this->db->select('C_Id,Name,Type');
-		$this->db->from('course_files');
-		$query = $this->db->get()->result_array();
+		foreach ($course as $row1 ) {		
+			$Id = $row1['Id'];
+			$demo = (object) array();
+			$demo->Title = $row1['Title'];
+			$demo->Date = $row1['Date'];
+			$demo->Files = array();
 			
-		foreach ($query as $key => $value) {
-			array_push($course_files[$value['C_Id']]['Files'], $value);
+			foreach ($course_files as $row2) {
+				if ($row2['C_Id'] == $Id ) {
+					array_push($demo->Files,["Name" => $row2['Name'], "Path" => $row2['Path'], "Type" => $row2['Type']]);
+				}
+			}
+			array_push($result, $demo);
 		}
 		
-		$data['course_files'] = $course_files;
-		
+		$data['ViewModel'] = 'var ViewModel = '.json_encode($result);
 		$this->load->Render('',$data);
 	}
-
+	
 	public function Download_urlPhoto()//下載網路圖片
 	{	
 		$data_post_URL = $this->input->post('TargetURL', TRUE);
