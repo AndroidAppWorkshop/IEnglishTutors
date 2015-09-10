@@ -20,8 +20,6 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 		self.All = function () {
 			$api.All({
 				success: function (response) {
-					// self.File = null;
-					// self.FileProgress = null;
 					self.AllMem = response;
 				}
 			});

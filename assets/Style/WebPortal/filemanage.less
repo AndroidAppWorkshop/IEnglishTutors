@@ -1,0 +1,106 @@
+body {
+	background-color: #252830;
+	color: #eeeeee;
+	
+	> .container-fluid {
+		> .row {
+			> .navbar {
+				margin: 3% auto;
+				width: 85%;
+				
+				> [class^="col-"] {
+					padding: 1% 0;
+				}
+			}
+			
+			> .calendar {
+				margin: 0 auto;
+				width: 85%;
+				
+				> mwl-calendar {
+					> .cal-context {
+						> mwl-calendar-month {
+							> .cal-row-head {
+								background-color: #ffffff;
+								color: #333333;
+							}
+							
+							> .cal-month-box {
+								#cal-week-box {
+									color: #000000;
+								}
+								
+								.cal-day-tick {
+									color: #333333;
+								}
+								
+								.cal-day-today {
+									span[data-cal-date] {
+										color: #333333;
+									}
+								}
+								
+								.cal-day-weekend span[data-cal-date] {
+									color: #987B43;
+								}
+								
+								[class*="cal-row-fluid"]:hover {
+									span[data-cal-date] {
+										color: #333333;
+										font-size: x-large;
+									}
+								}
+							}
+						}
+						
+						> mwl-calendar-year {
+							> .cal-year-box {
+								> div {
+									&:hover {
+										span[data-cal-date] {
+											color: #333333;
+										}
+									}
+								}
+								
+								.cal-day-tick {
+									color: #333333;
+								}
+							}
+						}
+						
+						> mwl-calendar-week {
+							> .cal-week-box {
+								> .cal-row-head:hover {
+									> div > span {
+										color: #333333;
+									}
+									
+									span[data-cal-date] {
+										color: #987B43;
+									}
+								}
+							}
+						}
+						
+						> mwl-calendar-day {
+							color: #1EA076;
+							
+							> .cal-day-box {
+								> .cal-row-head {
+									[class*="cal-cell"]:hover{
+										background-color: #111111;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		> .new-course {
+			color: #252830;
+		}
+	}
+}

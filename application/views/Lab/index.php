@@ -148,6 +148,14 @@
 				<td>帶有條件的資料查訊 (可實體化 Class)</td>
 				<td>Wilson</td>
 			</tr>
+			<tr>
+				<th scope="row">
+					<a class="btn btn-primary" href="Lab/ArrayObjectTest" role="button">Link</a>
+				</th>
+				<td>ArrayObjectTest</td>
+				<td>測試 PHP Array/Object</td>
+				<td>Wilson</td>
+			</tr>
 		</tbody>
 	</table>
 </div>

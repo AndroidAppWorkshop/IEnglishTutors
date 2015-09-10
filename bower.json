@@ -5,8 +5,11 @@
 		"bootstrap": "3.3.5",
 		"jquery": "1.11.3",
 		"angular": "1.4.4",
+		"angular-animate": "1.4.4",
 		"angular-loading-bar": "0.8.0",
 		"font-awesome-bower": "4.4.0",
-		"ng-file-upload": "7.0.15"
+		"ng-file-upload": "7.0.15",
+		"angular-bootstrap": "0.13.3",
+		"angular-bootstrap-calendar": "0.15.0" 
 	}
 }

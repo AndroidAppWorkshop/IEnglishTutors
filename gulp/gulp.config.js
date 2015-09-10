@@ -11,9 +11,13 @@ module.exports = function (fs) {
 			"bootstrap": paths.bower + 'bootstrap/dist/**/*.{js,map,css,ttf,svg,woff,woff2,eot}',
 			"jquery": paths.bower + 'jquery/dist/jquery*.{js,map}',
 			"angular": paths.bower + 'angular/angular*.{js,map}',
+			"angular-animate": paths.bower + 'angular-animate/*.{js,map}',
 			"angular-loading-bar": paths.bower + 'angular-loading-bar/build/*.{js,css}',
 			"font-awesome": paths.bower + 'font-awesome-bower/**/*.{css,otf,eot,svg,ttf,woff,woff2}',
-			"ng-file-upload": paths.bower + 'ng-file-upload/*.js'
+			"ng-file-upload": paths.bower + 'ng-file-upload/*.js',
+			"angular-bootstrap": paths.bower + 'angular-bootstrap/*.{js,css}',
+			"angular-bootstrap-calendar": paths.bower + 'angular-bootstrap-calendar/dist/**/*.{js,css,map}',
+			"moment": paths.bower + 'moment/moment.js'
 		},
 		lib: paths.assets + 'lib/',
 		js: paths.assets + 'js/',
