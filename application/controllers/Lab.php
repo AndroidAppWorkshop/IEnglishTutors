@@ -332,7 +332,6 @@ class Lab extends CI_Controller {
 	public function ArrayObjectTest()
 	{	
 		$result = array();
-		
 		$query1 = $this->db->get('course')->result_array();
 		$query2 = $this->db->get('course_files')->result_array();
 		
@@ -349,13 +348,10 @@ class Lab extends CI_Controller {
 															 'Path' => $row2['Path'].$row2['Name'].$row2['Type']));
 				}
 			}
-			
 			array_push($result, $demo);
 		}
 		
 		$data['ViewModel'] = 'var ViewModel = '.json_encode($result);
-		
-		
 		$this->load->Render('', $data);
 	}
 }

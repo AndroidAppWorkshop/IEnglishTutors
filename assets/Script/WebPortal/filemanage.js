@@ -34,16 +34,7 @@ angular.module('apps', ['angular-loading-bar', 'apis', 'mwl.calendar', 'ui.boots
 			];
 
 			self.dt = new Date();
-			self.minDate = new Date();
-			self.maxDate = new Date(2020, 5, 22);
 			self.status = false;
-			self.dateOptions = {
-				formatYear: 'yy',
-				startingDay: 1
-			};
-			self.disabled = function (date, mode) {
-				return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6));
-			};
 			self.open = function () {
 				self.status = true;
 			};
@@ -51,22 +42,18 @@ angular.module('apps', ['angular-loading-bar', 'apis', 'mwl.calendar', 'ui.boots
 
 		self.eventClicked = function (event) {
 			console.log(event);
-			// showModal('Clicked', event);
 		};
 
 		self.eventEdited = function (event) {
 			console.log(event);
-			// showModal('Edited', event);
 		};
 
 		self.eventDeleted = function (event) {
 			console.log(event);
-			// showModal('Deleted', event);
 		};
 
 		self.eventTimesChanged = function (event) {
 			console.log(event);
-			// showModal('Dropped or resized', event);
 		};
 
 		self.Initialize();

@@ -46,11 +46,10 @@
 			</mwl-calendar>
 		</div>
 	</div>
-	<div class="modal fade bs-example-modal-lg new-course" tabindex="-1">
+	<div class="modal fade bs-example-modal-lg new-course">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title" id="gridSystemModalLabel">Modal title</h4>
 				</div>
 				<div class="modal-body">
@@ -60,10 +59,6 @@
 							datepicker-popup
 							ng-model="self.dt"
 							is-open="self.status"
-							min-date="self.minDate"
-							max-date="self.maxDate"
-							datepicker-options="self.dateOptions"
-							date-disabled="self.disabled(date, mode)"
 							close-text="Close" />
 						<span class="input-group-btn">
 							<button type="button" class="btn btn-default" ng-click="self.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
