@@ -56,6 +56,9 @@ module.exports = function (config) {
 			angularbootstrap: lib + 'angular-bootstrap/ui-bootstrap-tpls.js',
 			moment: lib + 'moment/moment.js',
 			angularbootstrapcalendar: lib + 'angular-bootstrap-calendar/js/angular-bootstrap-calendar-tpls.js'
+		},
+		interceptors: {
+			csrf: script + 'interceptors/apis.csrf.js'
 		}
 	};
 	
@@ -81,9 +84,10 @@ module.exports = function (config) {
 					js.bower.bootstrap,
 					js.bower.angular,
 					js.bower.loadingbar,
-					js.apis.core,
 					js.bower.ngfileupload,
-					js.webportal.apps
+					js.apis.core,
+					js.webportal.apps,
+					js.interceptors.csrf
 			]
 		},
 		"home.lobby": {
