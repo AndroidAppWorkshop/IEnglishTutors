@@ -1,5 +1,9 @@
-angular.module('apis')
-	.factory('assetApi', ['$http', '$window', function ($http, $window) {
+(function () {
+	angular.module('apis')
+		.factory('assetApi', assetApi);
+
+	assetApi.$inject = ['$http', '$window'];
+	function assetApi($http, $window) {
 		var _Site = $window['$base_url'];
 		var _Refresh = _Site + 'Services/Asset/Refresh';
 
@@ -16,4 +20,5 @@ angular.module('apis')
 				});
 			}
 		}
-	}]);
+	}
+})();

@@ -1,1 +1,3 @@
-angular.module('apis', ['ngFileUpload']);
+(function () {
+	angular.module('apis', ['ngFileUpload']);
+})();

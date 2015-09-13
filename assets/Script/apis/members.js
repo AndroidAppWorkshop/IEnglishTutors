@@ -1,5 +1,9 @@
-angular.module('apis')
-	.factory('membersApi', ['$http', '$window', 'Upload', function ($http, $window, $upload) {
+(function () {
+	angular.module('apis')
+		.factory('membersApi', membersApi);
+
+	membersApi.$inject = ['$http', '$window', 'Upload'];
+	function membersApi($http, $window, $upload) {
 		var _Site = $window['$base_url'];
 		var _IsDev = !!$window['$IsDev'];
 		var _Create = _Site + 'Services/Members/Create';
@@ -49,7 +53,7 @@ angular.module('apis')
 					params: options.params
 				}).then(function (response) {
 					options.success(response.data);
-				},function(response){
+				}, function (response) {
 					options.error(response.data);
 				});
 			},
@@ -60,7 +64,7 @@ angular.module('apis')
 					params: options.params
 				}).then(function (response) {
 					options.success(response.data);
-				},function(response){
+				}, function (response) {
 					options.error(response.data);
 				});
 			},
@@ -72,7 +76,7 @@ angular.module('apis')
 					data: AvoidCSRFProtection(options.data)
 				}).then(function (response) {
 					options.success(response.data);
-				},function(response){
+				}, function (response) {
 					options.error(response.data);
 				});
 			},
@@ -89,4 +93,5 @@ angular.module('apis')
 				});
 			}
 		}
-	}]);
+	}
+})();

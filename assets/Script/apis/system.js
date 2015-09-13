@@ -1,5 +1,9 @@
-angular.module('apis')
-	.factory('systemApi', ['$http', '$window', function ($http, $window) {
+(function () {
+	angular.module('apis')
+		.factory('systemApi', systemApi);
+
+	systemApi.$inject = ['$http', '$window'];
+	function systemApi($http, $window) {
 		var _Site = $window['$base_url'];
 		var _IsDev = !!$window['$IsDev'];
 		var _JsonOutput = _Site + 'Services/System/JsonOutput';
@@ -87,4 +91,5 @@ angular.module('apis')
 				});
 			}
 		}
-	}]);
+	}
+})();
