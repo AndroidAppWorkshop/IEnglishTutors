@@ -1,5 +1,9 @@
-angular.module('apps', ['angular-loading-bar', 'apis'])
-	.controller('index', ['$window', '$timeout', 'assetApi', 'membersApi', 'systemApi', function ($window, $timeout, $assetApi, $membersApi, $systemApi) {
+(function () {
+	angular.module('apps')
+		.controller('index', index);
+
+	index.$inject = ['$window', '$timeout', 'assetApi', 'membersApi', 'systemApi'];
+	function index($window, $timeout, $assetApi, $membersApi, $systemApi) {
 		var _Site = $window['$base_url'];
 		var _Login = _Site + 'WebPortal/Login';
 		var self = this;
@@ -29,7 +33,7 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 
 		self.ChangeIframePath = function (item) {
 			if (item.Link) {
-				angular.element('html,body').animate({scrollTop: '0px'}, 800);
+				angular.element('html,body').animate({ scrollTop: '0px' }, 800);
 				self.iframePath = _Site + item.Link;
 			} else if (item.Func) {
 				self[item.Func]();
@@ -69,4 +73,5 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 		};
 
 		self.Initialize();
-	}]);
+	}
+})();

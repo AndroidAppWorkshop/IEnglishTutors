@@ -1,4 +1,4 @@
-<div class="container-fluid" ng-app="apps" ng-controller="filemanage as self">
+<div class="container-fluid" ng-app="apps.file" ng-controller="filemanage as self">
 	<h2 class="text-center">{{self.calendarTitle}}</h2>
 	<div class="row">
 		<div class="navbar">

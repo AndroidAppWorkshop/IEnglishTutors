@@ -38,6 +38,7 @@ module.exports = function (config) {
 			lab_uploadform : script + 'app/Lab/uploadform.js'
 		},
 		webportal: {
+			apps: script + 'WebPortal/apps.module.js',
 			index: script + 'WebPortal/index.js',
 			login: script + 'WebPortal/login.js',
 			mailserversetting: script + 'WebPortal/mailserversetting.js',
@@ -81,7 +82,8 @@ module.exports = function (config) {
 					js.bower.angular,
 					js.bower.loadingbar,
 					js.apis.core,
-					js.bower.ngfileupload
+					js.bower.ngfileupload,
+					js.webportal.apps
 			]
 		},
 		"home.lobby": {

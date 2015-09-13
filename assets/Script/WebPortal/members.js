@@ -1,5 +1,9 @@
-angular.module('apps', ['angular-loading-bar', 'apis'])
-	.controller('members', ['$window', '$scope', 'membersApi', function ($window, $scope, $api) {
+(function () {
+	angular.module('apps')
+		.controller('members', members);
+
+	members.$inject = ['$window', '$scope', 'membersApi'];
+	function members($window, $scope, $api) {
 		var _Site = $window['$base_url'];
 		var _Members = _Site + 'WebPortal/Members';
 		var self = this;
@@ -55,4 +59,5 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 		};
 
 		self.Initialize();
-	}]);
+	}
+})();

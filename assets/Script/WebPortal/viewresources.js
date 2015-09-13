@@ -1,5 +1,9 @@
-angular.module('apps', ['angular-loading-bar', 'apis'])
-	.controller('viewresources', ['$window', '$timeout', 'systemApi', function ($window, $timeout, $api) {
+(function () {
+	angular.module('apps')
+		.controller('viewresources', viewresources);
+
+	viewresources.$inject = ['$window', '$timeout', 'systemApi'];
+	function viewresources($window, $timeout, $api) {
 		var self = this;
 
 		self.Initialize = function () {
@@ -27,14 +31,14 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 				});
 			}
 		};
-		
+
 		self.ChangeFormModel = function (usage) {
 			self.FormModel = usage;
 		};
-		
+
 		self.UpdateLangUsage = function () {
 			$api.UpdateLangUsage({
-				data:self.FormModel,
+				data: self.FormModel,
 				success: function (response) {
 					if (response.Success) {
 						self.GetLang();
@@ -44,4 +48,5 @@ angular.module('apps', ['angular-loading-bar', 'apis'])
 		};
 
 		self.Initialize();
-	}]);
+	}
+})();

@@ -1,5 +1,9 @@
-angular.module('apps', ['angular-loading-bar', 'apis', 'mwl.calendar', 'ui.bootstrap', 'ngAnimate'])
-	.controller('filemanage', ['$window', '$modal', 'moment', function ($window, $modal, moment) {
+(function () {
+	angular.module('apps.file', ['angular-loading-bar', 'apis', 'mwl.calendar', 'ui.bootstrap', 'ngAnimate'])
+		.controller('filemanage', filemanage);
+
+	filemanage.$inject = ['$window', '$modal', 'moment'];
+	function filemanage($window, $modal, moment) {
 		var self = this;
 
 		self.Initialize = function () {
@@ -57,4 +61,5 @@ angular.module('apps', ['angular-loading-bar', 'apis', 'mwl.calendar', 'ui.boots
 		};
 
 		self.Initialize();
-	}]);
+	}
+})();
