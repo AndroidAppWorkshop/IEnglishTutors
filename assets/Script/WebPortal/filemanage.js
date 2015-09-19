@@ -62,9 +62,13 @@
 	}
 
 	function NewCourse() {
-		this.StartDate = new Date();
-		this.SDStatus = false;
-		this.EndDate = new Date();
-		this.EDStatus = false;
+		this.StartDateTime = new Date();
+		this.SDTStatus = false;
+		this.EndDateTime = new Date();
+		this.EDTStatus = false;
+		this.HStep = 1;
+		this.MStep = 15;
+		this.IsMeridian = false;
+		this.Name = "";
 	}
 })();
