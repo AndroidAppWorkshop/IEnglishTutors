@@ -2,11 +2,15 @@
 	angular.module('apps.file', ['angular-loading-bar', 'apis', 'mwl.calendar', 'ui.bootstrap', 'ngAnimate'])
 		.controller('filemanage', filemanage);
 
-	filemanage.$inject = ['$window', '$modal', 'moment'];
-	function filemanage($window, $modal, moment) {
+	filemanage.$inject = ['$window', 'moment'];
+	function filemanage($window, moment) {
 		var self = this;
 
 		self.Initialize = function () {
+			self.JsonModel = $window['FileManageJson'];
+			self.NewCourse = new NewCourse();
+			
+			//angular-bootstrap-calendar
 			self.calendarDay = new Date();
 			self.calendarView = 'month';
 			self.events = [
@@ -36,12 +40,6 @@
 					resizable: true
 				}
 			];
-
-			self.dt = new Date();
-			self.status = false;
-			self.open = function () {
-				self.status = true;
-			};
 		};
 
 		self.eventClicked = function (event) {
@@ -61,5 +59,12 @@
 		};
 
 		self.Initialize();
+	}
+
+	function NewCourse() {
+		this.StartDate = new Date();
+		this.SDStatus = false;
+		this.EndDate = new Date();
+		this.EDStatus = false;
 	}
 })();

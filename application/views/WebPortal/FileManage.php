@@ -1,32 +1,35 @@
 <div class="container-fluid" ng-app="apps.file" ng-controller="filemanage as self">
-	<h2 class="text-center">{{self.calendarTitle}}</h2>
+	<h2 class="text-center" ng-bind="self.calendarTitle"></h2>
 	<div class="row">
 		<div class="navbar">
 			<div class="col-sm-2">
-				<button class="btn btn-danger" data-toggle="modal" data-target=".new-course">Add</button>
+				<button class="btn btn-danger" data-toggle="modal" data-target=".new-course" ng-bind="self.JsonModel.Text.Add"></button>
 			</div>
 			<div class="col-sm-5 btn-group">
 				<button class="btn btn-primary"
 					mwl-date-modifier
 					date="self.calendarDay"
-					decrement="self.calendarView">Previous
+					decrement="self.calendarView"
+					ng-bind="self.JsonModel.Text.Previous">
 				</button>
 				<button class="btn btn-default"
 					mwl-date-modifier
 					date="self.calendarDay"
-					set-to-today>Today
+					set-to-today
+					ng-bind="self.JsonModel.Text.Today">
 				</button>
 				<button class="btn btn-primary"
 					mwl-date-modifier
 					date="self.calendarDay"
-					increment="self.calendarView">Next
+					increment="self.calendarView"
+					ng-bind="self.JsonModel.Text.Next">
 				</button>
 			</div>
 			<div class="col-sm-5 btn-group">
-				<label class="btn btn-primary ng-pristine ng-untouched ng-valid" ng-model="self.calendarView" btn-radio="'year'">Year</label>
-				<label class="btn btn-primary ng-pristine ng-untouched ng-valid active" ng-model="self.calendarView" btn-radio="'month'">Month</label>
-				<label class="btn btn-primary ng-pristine ng-untouched ng-valid" ng-model="self.calendarView" btn-radio="'week'">Week</label>
-				<label class="btn btn-primary ng-pristine ng-untouched ng-valid" ng-model="self.calendarView" btn-radio="'day'">Day</label>
+				<label class="btn btn-primary" ng-model="self.calendarView" btn-radio="'year'" ng-bind="self.JsonModel.Text.Year"></label>
+				<label class="btn btn-primary active" ng-model="self.calendarView" btn-radio="'month'" ng-bind="self.JsonModel.Text.Month"></label>
+				<label class="btn btn-primary" ng-model="self.calendarView" btn-radio="'week'" ng-bind="self.JsonModel.Text.Week"></label>
+				<label class="btn btn-primary" ng-model="self.calendarView" btn-radio="'day'" ng-bind="self.JsonModel.Text.Day"></label>
 			</div>
 		</div>
 	</div>
@@ -50,20 +53,29 @@
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title" id="gridSystemModalLabel">Modal title</h4>
+					<h4 class="modal-title" id="gridSystemModalLabel" ng-bind="self.JsonModel.NewCourse.Title"></h4>
 				</div>
 				<div class="modal-body">
-					<p class="input-group">
-						<input type="date"
-							class="form-control"
-							datepicker-popup
-							ng-model="self.dt"
-							is-open="self.status"
-							close-text="Close" />
-						<span class="input-group-btn">
-							<button type="button" class="btn btn-default" ng-click="self.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-						</span>
-					</p>
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-sm-2">
+								<label ng-bind="self.JsonModel.NewCourse.StartsAt"></label>
+							</div>
+							<div class="col-sm-10">
+								<p class="input-group">
+									<input type="date"
+										class="form-control"
+										datepicker-popup
+										ng-model="self.NewCourse.StartDate"
+										is-open="self.NewCourse.SDStatus"
+										close-text="Close" />
+									<span class="input-group-btn">
+										<button type="button" class="btn btn-default" ng-click="self.NewCourse.SDStatus = true;"><i class="glyphicon glyphicon-calendar"></i></button>
+									</span>
+								</p>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
