@@ -37,17 +37,9 @@ class Languages extends CI_Model {
 	
 	public function UpdateUsage($id, $content)
 	{
-		try
-		{
-			$this->db->where('Id', $id)
-						->update('language_usage', array('Content' => $content,
-																	'Date' => date('Y-m-d H:i:s')));
-			return TRUE;
-		}
-		catch (Exception $e)
-		{
-			return FALSE;
-		}
+		return $this->db->where('Id', $id)
+					->update('language_usage', array('Content' => $content,
+								'Date' => date('Y-m-d H:i:s')));
 	}
 }
 

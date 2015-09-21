@@ -9,14 +9,19 @@ class Agenda extends CI_Controller {
 		
 		$this->load->library(array('response', 'upload'));
 		$this->load->helper('file');
+		$this->load->model('Shared/Course');
 	}
 	
 	public function Add()
 	{
 		$postdata = json_decode($this->input->raw_input_stream);
 		$name = $postdata->Name;
-		$startAt = $postdata->StartDateTime;
-		$endAt = $postdata->EndDateTime;
+		$startAt = date("Y-m-d H:i:s",strtotime($postdata->StartDateTime));
+		$endAt = date("Y-m-d H:i:s",strtotime($postdata->EndDateTime));
+		
+		$result = $this->Course->Create($name, $startAt, $endAt);
+		$this->response->Json(array('Success' => $result,
+											 'id' => $this->db->insert_id()));
 	}
 }
 

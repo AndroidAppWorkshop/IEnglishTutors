@@ -112,7 +112,7 @@
 					</div>
 					<!-- Footer -->
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-default">Create</button>
+						<button type="submit" class="btn btn-default" ng-bind="self.JsonModel.NewCourse.Create"></button>
 					</div>
 				</form>
 			</div>

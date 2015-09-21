@@ -28,17 +28,14 @@ class Member extends CI_Model {
 				'R_Id' => $Id
 		);
 		
-		try
+		$result = $this->db->insert('member', $member);
+		
+		if($result)
 		{
-			$this->db->insert('member', $member);
-		}
-		catch (Exception $e)
-		{
-			return FALSE;
+			$this->Login($username, $password);
 		}
 		
-		$this->Login($username, $password);
-		return TRUE;
+		return $result;
 	}
 	
 	public function Login($username, $password, $remember = FALSE)
@@ -90,35 +87,19 @@ class Member extends CI_Model {
 	
 	public function Update($mem)
 	{
-		try
-		{
-			$this->db->where('Id', $mem->Id)
-						->update('member', array('DisplayName' => $mem->DisplayName,
-												 'Description' => $mem->Description,
-												 'GitHub' 	   => $mem->GitHub,
-												 'Facebook'    => $mem->Facebook,
-												 'LastLogin'   => date('Y-m-d H:i:s')));
-			return TRUE;
-		}
-		catch (Exception $e)
-		{
-			return FALSE;
-		}
+		return $this->db->where('Id', $mem->Id)
+					->update('member', array('DisplayName' => $mem->DisplayName,
+								'Description' => $mem->Description,
+								'GitHub' 	   => $mem->GitHub,
+								'Facebook'    => $mem->Facebook,
+								'LastLogin'   => date('Y-m-d H:i:s')));
 	}
 	
 	public function UpdatePicture($id, $picture)
 	{
-		try
-		{
-			$this->db->where('Id', $id)
-					 ->update('member', array('Picture' 	=> $picture,
-					 						  'LastLogin'   => date('Y-m-d H:i:s')));
-			return TRUE;
-		}
-		catch (Exception $e)
-		{
-			return FALSE;
-		}
+		return $this->db->where('Id', $id)
+					->update('member', array('Picture' 	=> $picture,
+								'LastLogin'   => date('Y-m-d H:i:s')));
 	}
 	
 	private function Save($member)
