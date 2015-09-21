@@ -2,8 +2,8 @@
 	angular.module('apps.file', ['angular-loading-bar', 'apis', 'mwl.calendar', 'ui.bootstrap', 'ngAnimate'])
 		.controller('filemanage', filemanage);
 
-	filemanage.$inject = ['$window', 'moment'];
-	function filemanage($window, moment) {
+	filemanage.$inject = ['$window', 'agendaApi', 'moment'];
+	function filemanage($window, $api, moment) {
 		var self = this;
 
 		self.Initialize = function () {
@@ -59,6 +59,15 @@
 		};
 
 		self.Initialize();
+
+		self.AddCourse = function () {
+			$api.Add({
+				data: self.NewCourse,
+				success: function(data) {
+					console.log(data);
+				}
+			});
+		};
 	}
 
 	function NewCourse() {

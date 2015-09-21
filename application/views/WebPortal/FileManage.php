@@ -53,60 +53,68 @@
 	<div class="modal fade bs-example-modal-lg new-course">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title" id="gridSystemModalLabel" ng-bind="self.JsonModel.NewCourse.Title"></h4>
-				</div>
-				<div class="modal-body">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-sm-2">
-								<label ng-bind="self.JsonModel.NewCourse.Name"></label>
+				<form name="newcourse" ng-submit="self.AddCourse()">
+					<!-- Header -->
+					<div class="modal-header">
+						<h4 class="modal-title" id="gridSystemModalLabel" ng-bind="self.JsonModel.NewCourse.Title"></h4>
+					</div>
+					<!-- Body -->
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-sm-2">
+									<label ng-bind="self.JsonModel.NewCourse.Name"></label>
+								</div>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" ng-model="self.NewCourse.Name" placeholder="{{self.JsonModel.NewCourse.Name}}" required>
+								</div>
 							</div>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" ng-model="self.NewCourse.Name" placeholder="{{self.JsonModel.NewCourse.Name}}">
+							<hr>
+							<div class="row">
+								<div class="col-sm-2">
+									<label ng-bind="self.JsonModel.NewCourse.StartsAt"></label>
+								</div>
+								<div class="col-sm-10">
+									<p class="input-group">
+										<input type="date"
+											class="form-control"
+											datepicker-popup
+											ng-model="self.NewCourse.StartDateTime"
+											is-open="self.NewCourse.SDTStatus"
+											close-text="Close" />
+										<span class="input-group-btn">
+											<button type="button" class="btn btn-default" ng-click="self.NewCourse.SDTStatus = true;"><i class="glyphicon glyphicon-calendar"></i></button>
+										</span>
+									</p>
+									<timepicker ng-model="self.NewCourse.StartDateTime" ng-change="" hour-step="self.NewCourse.HStep" minute-step="self.NewCourse.MStep" show-meridian="self.NewCourse.IsMeridian"></timepicker>
+								</div>
 							</div>
-						</div>
-						<hr>
-						<div class="row">
-							<div class="col-sm-2">
-								<label ng-bind="self.JsonModel.NewCourse.StartsAt"></label>
-							</div>
-							<div class="col-sm-10">
-								<p class="input-group">
-									<input type="date"
-										class="form-control"
-										datepicker-popup
-										ng-model="self.NewCourse.StartDateTime"
-										is-open="self.NewCourse.SDTStatus"
-										close-text="Close" />
-									<span class="input-group-btn">
-										<button type="button" class="btn btn-default" ng-click="self.NewCourse.SDTStatus = true;"><i class="glyphicon glyphicon-calendar"></i></button>
-									</span>
-								</p>
-								<timepicker ng-model="self.NewCourse.StartDateTime" ng-change="" hour-step="self.NewCourse.HStep" minute-step="self.NewCourse.MStep" show-meridian="self.NewCourse.IsMeridian"></timepicker>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-2">
-								<label ng-bind="self.JsonModel.NewCourse.EndsAt"></label>
-							</div>
-							<div class="col-sm-10">
-								<p class="input-group">
-									<input type="date"
-										class="form-control"
-										datepicker-popup
-										ng-model="self.NewCourse.EndDateTime"
-										is-open="self.NewCourse.EDTStatus"
-										close-text="Close" />
-									<span class="input-group-btn">
-										<button type="button" class="btn btn-default" ng-click="self.NewCourse.EDTStatus = true;"><i class="glyphicon glyphicon-calendar"></i></button>
-									</span>
-								</p>
-								<timepicker ng-model="self.NewCourse.EndDateTime" hour-step="self.NewCourse.HStep" minute-step="self.NewCourse.MStep" show-meridian="self.NewCourse.IsMeridian"></timepicker>
+							<div class="row">
+								<div class="col-sm-2">
+									<label ng-bind="self.JsonModel.NewCourse.EndsAt"></label>
+								</div>
+								<div class="col-sm-10">
+									<p class="input-group">
+										<input type="date"
+											class="form-control"
+											datepicker-popup
+											ng-model="self.NewCourse.EndDateTime"
+											is-open="self.NewCourse.EDTStatus"
+											close-text="Close" />
+										<span class="input-group-btn">
+											<button type="button" class="btn btn-default" ng-click="self.NewCourse.EDTStatus = true;"><i class="glyphicon glyphicon-calendar"></i></button>
+										</span>
+									</p>
+									<timepicker ng-model="self.NewCourse.EndDateTime" hour-step="self.NewCourse.HStep" minute-step="self.NewCourse.MStep" show-meridian="self.NewCourse.IsMeridian"></timepicker>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+					<!-- Footer -->
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-default">Create</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>

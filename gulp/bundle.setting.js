@@ -30,7 +30,8 @@ module.exports = function (config) {
 			core: script + 'apis/apis.core.js',
 			system: script + 'apis/system.js',
 			members: script + 'apis/members.js',
-			asset: script + 'apis/asset.js'
+			asset: script + 'apis/asset.js',
+			agenda: script + 'apis/agenda.js'
 		},
 		app: {
 			home_lobby: script + 'app/Home/lobby.js',
@@ -171,6 +172,7 @@ module.exports = function (config) {
 				js.bower.angularbootstrap,
 				js.bower.moment,
 				js.bower.angularbootstrapcalendar,
+				js.apis.agenda,
 				js.webportal.filemanage
 			]
 		}
