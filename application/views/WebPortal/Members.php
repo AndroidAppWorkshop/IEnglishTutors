@@ -56,7 +56,7 @@
 							role="progressbar"
 							aria-valuemin="0"
 							aria-valuemax="100"
-							ng-style="{width: self.FileProgress}"
+							ng-style="{width: self.FileProgress}">
 							<span ng-bind="self.FileProgress"></span>
 						</div>
 					</div>

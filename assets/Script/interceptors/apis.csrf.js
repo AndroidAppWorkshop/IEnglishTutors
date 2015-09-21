@@ -6,7 +6,7 @@
 	function csrf($q, $window) {
 		return {
 			request: function (config) {
-				if (config.method === 'POST') {
+				if (config.method === 'POST' && !config.file) {
 					config.data['csrf_test_name'] = $window['$IsDev'] ?
 						'<?pho echo $this->security->get_csrf_hash(); ?>' :
 						undefined;
