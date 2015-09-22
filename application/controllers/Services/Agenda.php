@@ -23,6 +23,11 @@ class Agenda extends CI_Controller {
 		$this->response->Json(array('Success' => $result,
 											 'id' => $this->db->insert_id()));
 	}
+	
+	public function Upload()
+	{
+		
+	}
 }
 
 /* End of file Agenda.php */

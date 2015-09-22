@@ -101,6 +101,26 @@ body {
 		
 		> .new-course {
 			color: #252830;
+			
+			form {
+				> .modal-body {
+					> .container-fluid {
+						> .row {
+							> .upload {
+								> .drop-box {
+									cursor: crosshair;
+									border: 5px dashed #DDD;
+									padding: 3vw 3vw;
+									
+									&.dragover {
+										border: 5px dashed #00A9E7;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 }

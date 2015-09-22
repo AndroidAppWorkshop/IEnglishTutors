@@ -108,6 +108,26 @@
 									<timepicker ng-model="self.NewCourse.EndDateTime" hour-step="self.NewCourse.HStep" minute-step="self.NewCourse.MStep" show-meridian="self.NewCourse.IsMeridian"></timepicker>
 								</div>
 							</div>
+							<div class="row">
+								<div class="col-sm-8 upload">
+									<div class="drop-box"
+										ngf-select ngf-drop 
+										ng-model="self.Files"
+										ngf-drag-over-class="dragover"
+										ngf-multiple="true"
+										accept="image/*,application/pdf" 
+										ngf-pattern="'image/*,application/pdf'">
+										<span ng-bind="self.JsonModel.Text.UploadTip"></span>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<ul>
+										<li ng-repeat="file in self.Files"">
+											{{file.name}} {{file.$error}} {{file.$errorParam}}
+										</li>
+									</ul>
+								</div>
+							</div>
 						</div>
 					</div>
 					<!-- Footer -->

@@ -54,3 +54,11 @@ body > .container-fluid > .row > .calendar > mwl-calendar > .cal-context > mwl-c
 body > .container-fluid > .new-course {
   color: #252830;
 }
+body > .container-fluid > .new-course form > .modal-body > .container-fluid > .row > .upload > .drop-box {
+  cursor: crosshair;
+  border: 5px dashed #DDD;
+  padding: 3vw 3vw;
+}
+body > .container-fluid > .new-course form > .modal-body > .container-fluid > .row > .upload > .drop-box.dragover {
+  border: 5px dashed #00A9E7;
+}
