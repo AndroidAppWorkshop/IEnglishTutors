@@ -5,6 +5,7 @@
 	filemanage.$inject = ['$window', 'agendaApi', 'moment'];
 	function filemanage($window, $api, moment) {
 		var self = this;
+		self.$api = $api;
 
 		self.Initialize = function () {
 			self.JsonModel = $window['FileManageJson'];
@@ -61,12 +62,36 @@
 		self.Initialize();
 
 		self.AddCourse = function () {
+			self.NewCourse.Clickable = false;
 			$api.Add({
 				data: self.NewCourse,
-				success: function(data) {
-					console.log(data);
+				success: function (data) {
+					var id = data.id;
+					if (data.Success) {
+						angular.forEach(self.Files, function (value) {
+							$api.Upload({
+								file: value,
+								fields: { Id: id },
+								progress: function (evt) {
+									var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+									value.progress = progressPercentage + '%';
+								},
+								success: function (data, status, headers, config) {
+									console.log(data);
+								},
+								error: function (data, status, headers, config) {
+									console.log('error status: ' + status);
+								}
+							});
+						});
+					}
 				}
 			});
+		};
+
+		self.ClearNewCourse = function () {
+			self.NewCourse = new NewCourse();
+			self.Files = null;
 		};
 	}
 
@@ -79,5 +104,6 @@
 		this.MStep = 15;
 		this.IsMeridian = false;
 		this.Name = "";
+		this.Clickable = true;
 	}
 })();

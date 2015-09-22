@@ -8,13 +8,8 @@ class System extends CI_Controller {
 		parent::__construct();
 		
 		$this->load->library(array('response', 'email'));
-		$this->load->helper('file');
+		$this->load->helper(array('file', 'download'));
 		$this->load->model('Shared/Languages');
-	}
-	
-	public function JsonOutput()
-	{
-		$this->response->Json(array('Success' => TRUE));
 	}
 	
 	public function SaveMailServer()
@@ -28,7 +23,7 @@ class System extends CI_Controller {
 	
 	public function SavePreference()
 	{
-		$language = $this->input->get('language', TRUE);
+		$language = $this->input->get('language');
 		$result = $this->User->SetPreference($language);
 		$this->response->Json(array('Success' => $result));
 	}
@@ -52,6 +47,12 @@ class System extends CI_Controller {
 		$content = $postdata->Content;
 		$result = $this->Languages->UpdateUsage($id, $content);
 		$this->response->Json(array('Success' => $result));
+	}
+	
+	public function Download()
+	{
+		$path = $this->input->get('path');
+		force_download($path, NULL);
 	}
 }
 

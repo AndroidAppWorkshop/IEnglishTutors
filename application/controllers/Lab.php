@@ -31,10 +31,10 @@ class Lab extends CI_Controller {
 		$config = LoadJsonFileWithEncrypt(APPPATH.'app_data/mail.server.json', TRUE);
 		$this->email->initialize($config);
 		
-		$data_post_name = $this->input->post('YourName', TRUE);
-		$data_post_mail = $this->input->post('YourEmail', TRUE);
-		$data_post_subject = $this->input->post('YourSubject', TRUE);
-		$data_post_message = $this->input->post('YourMessage', TRUE);
+		$data_post_name = $this->input->post('YourName');
+		$data_post_mail = $this->input->post('YourEmail');
+		$data_post_subject = $this->input->post('YourSubject');
+		$data_post_message = $this->input->post('YourMessage');
 
 		$this->email->from($data_post_mail, $data_post_name);
 		$this->email->to('lovero32000@gmail.com');
@@ -295,7 +295,7 @@ class Lab extends CI_Controller {
 	
 	public function Download_urlPhoto()//下載網路圖片
 	{	
-		$data_post_URL = $this->input->post('TargetURL', TRUE);
+		$data_post_URL = $this->input->post('TargetURL');
 		$headers = get_headers($data_post_URL);//剖析網址
 		$pattern = $headers[0]; 
 		

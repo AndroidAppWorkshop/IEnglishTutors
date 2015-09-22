@@ -41,7 +41,7 @@ class Members extends CI_Controller {
 	
 	public function UsernameAvailable()
 	{
-		$username = $this->input->get('username', TRUE);
+		$username = $this->input->get('username');
 		$result = $this->Member->UsernameAvailable($username);
 		$this->response->Json(array('Success' => $result));
 	}

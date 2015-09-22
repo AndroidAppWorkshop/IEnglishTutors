@@ -56,6 +56,7 @@
 				<form name="newcourse" ng-submit="self.AddCourse()">
 					<!-- Header -->
 					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 						<h4 class="modal-title" id="gridSystemModalLabel" ng-bind="self.JsonModel.NewCourse.Title"></h4>
 					</div>
 					<!-- Body -->
@@ -115,15 +116,24 @@
 										ng-model="self.Files"
 										ngf-drag-over-class="dragover"
 										ngf-multiple="true"
-										accept="image/*,application/pdf" 
-										ngf-pattern="'image/*,application/pdf'">
+										ngf-pattern="self.$api.Accept">
 										<span ng-bind="self.JsonModel.Text.UploadTip"></span>
 									</div>
 								</div>
 								<div class="col-sm-4">
 									<ul>
 										<li ng-repeat="file in self.Files"">
-											{{file.name}} {{file.$error}} {{file.$errorParam}}
+											<p>{{file.name}} {{file.$error}} {{file.$errorParam}}</p>
+											<div class="progress"
+												ng-show="file.progress">
+												<div class="progress-bar progress-bar-striped progress-bar-striped active"
+													role="progressbar"
+													aria-valuemin="0"
+													aria-valuemax="100"
+													ng-style="{width: file.progress}">
+													<span ng-bind="file.progress"></span>
+												</div>
+											</div>
 										</li>
 									</ul>
 								</div>
@@ -132,7 +142,16 @@
 					</div>
 					<!-- Footer -->
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-default" ng-bind="self.JsonModel.NewCourse.Create"></button>
+						<button type="submit"
+							class="btn btn-primary"
+							ng-show="self.NewCourse.Clickable"
+							ng-bind="self.JsonModel.NewCourse.Create"></button>
+						<button type="button"
+							class="btn btn-success"
+							data-dismiss="modal"
+							ng-hide="self.NewCourse.Clickable"
+							ng-click="self.ClearNewCourse()"
+							ng-bind="self.JsonModel.NewCourse.Done"></button>
 					</div>
 				</form>
 			</div>

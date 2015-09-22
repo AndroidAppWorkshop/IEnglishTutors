@@ -5,7 +5,6 @@
 	systemApi.$inject = ['$http', '$window'];
 	function systemApi($http, $window) {
 		var _Site = $window['$base_url'];
-		var _JsonOutput = _Site + 'Services/System/JsonOutput';
 		var _SaveMailServer = _Site + 'Services/System/SaveMailServer';
 		var _SavePreference = _Site + 'Services/System/SavePreference';
 		var _GetLang = _Site + 'Services/System/GetLang';
@@ -13,17 +12,6 @@
 		var _UpdateLangUsage = _Site + 'Services/System/UpdateLangUsage';
 
 		return {
-			JsonOutput: function (options) {
-				return $http({
-					method: 'GET',
-					url: _JsonOutput,
-					params: options.params
-				}).then(function (response) {
-					options.success(response.data);
-				}, function (response) {
-					options.error(response.data);
-				});
-			},
 			SaveMailServer: function (options) {
 				return $http({
 					method: 'POST',

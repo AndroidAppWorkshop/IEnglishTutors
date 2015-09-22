@@ -9,6 +9,7 @@
 		var _Upload = _Site + 'Services/Agenda/Upload';
 		
 		return {
+			Accept: 'image/*,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.presentationml.presentation',
 			Add: function(options) {
 				return $http({
 					method: 'POST',
@@ -23,7 +24,7 @@
 			Upload: function (options) {
 				return $upload.upload({
 					url: _Upload,
-					fields: options.options,
+					fields: options.fields,
 					file: options.file
 				}).progress(function (evt) {
 					options.progress(evt);
