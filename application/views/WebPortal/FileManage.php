@@ -118,7 +118,8 @@
 										ngf-drag-over-class="dragover"
 										ngf-multiple="true"
 										ngf-pattern="self.$api.Accept"
-										ngf-keep="true">
+										ngf-keep="true"
+										ngf-keep-distinct="true">
 										<span ng-bind="self.JsonModel.Text.UploadTip"></span>
 									</div>
 								</div>
