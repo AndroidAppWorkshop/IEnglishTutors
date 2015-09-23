@@ -117,7 +117,8 @@
 										ng-model="self.Files"
 										ngf-drag-over-class="dragover"
 										ngf-multiple="true"
-										ngf-pattern="self.$api.Accept">
+										ngf-pattern="self.$api.Accept"
+										ngf-keep="true">
 										<span ng-bind="self.JsonModel.Text.UploadTip"></span>
 									</div>
 								</div>
