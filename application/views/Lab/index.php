@@ -150,10 +150,10 @@
 			</tr>
 			<tr>
 				<th scope="row">
-					<a class="btn btn-primary" href="Lab/ArrayObjectTest" role="button">Link</a>
+					<a class="btn btn-primary" href="Lab/Date" role="button">Link</a>
 				</th>
-				<td>ArrayObjectTest</td>
-				<td>測試 PHP Array/Object</td>
+				<td>Date</td>
+				<td>取得特定日期</td>
 				<td>Wilson</td>
 			</tr>
 		</tbody>

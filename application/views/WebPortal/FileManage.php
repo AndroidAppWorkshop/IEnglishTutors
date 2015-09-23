@@ -99,6 +99,7 @@
 										<input type="date"
 											class="form-control"
 											datepicker-popup
+											min-date="self.NewCourse.StartDateTime"
 											ng-model="self.NewCourse.EndDateTime"
 											is-open="self.NewCourse.EDTStatus"
 											close-text="Close" />
@@ -145,7 +146,8 @@
 						<button type="submit"
 							class="btn btn-primary"
 							ng-show="self.NewCourse.Clickable"
-							ng-bind="self.JsonModel.NewCourse.Create"></button>
+							ng-bind="self.JsonModel.NewCourse.Create"
+							ng-disabled="self.NewCourse.StartDateTime > self.NewCourse.EndDateTime"></button>
 						<button type="button"
 							class="btn btn-success"
 							data-dismiss="modal"

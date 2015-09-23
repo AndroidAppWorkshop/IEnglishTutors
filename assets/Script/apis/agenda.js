@@ -7,6 +7,7 @@
 		var _Site = $window['$base_url'];
 		var _Add = _Site + 'Services/Agenda/Add';
 		var _Upload = _Site + 'Services/Agenda/Upload';
+		var _Get = _Site + 'Services/Agenda/Get';
 		
 		return {
 			Accept: 'image/*,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.presentationml.presentation',
@@ -32,6 +33,17 @@
 					options.success(data, status, headers, config);
 				}).error(function (data, status, headers, config) {
 					options.error(data, status, headers, config)
+				});
+			},
+			Get: function(options){
+				return $http({
+					method: 'GET',
+					url: _Get,
+					params: options.params
+				}).then(function (response) {
+					options.success(response.data);
+				}, function (response) {
+					options.error(response.data);
 				});
 			}
 		};

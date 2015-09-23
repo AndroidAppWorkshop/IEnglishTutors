@@ -2,9 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 define('FILESPATH', './assets/files/');
 define('ALLOWEDTYPES', 'gif|jpg|png|pdf|docx|pptx');
-define('MAXSIZE', '2048');
+define('MAXSIZE', '10240');
 
 class Agenda extends CI_Controller {
+	
+	protected $currentDate;
+	protected $lastMonth;
+	protected $nextMonth;
 	
 	public function __construct()
 	{
@@ -13,6 +17,10 @@ class Agenda extends CI_Controller {
 		$this->load->library(array('response', 'upload'));
 		$this->load->helper('file');
 		$this->load->model('Shared/Course');
+		
+		$this->currentDate = strtotime(date('Y-m-d H:i:s'));
+		$this->lastMonth = date('Y-m-t H:i:s',strtotime('last month', $this->currentDate));
+		$this->nextMonth = date('Y-m-t H:i:s',strtotime('next month', $this->currentDate));
 	}
 	
 	public function Add()
@@ -55,6 +63,12 @@ class Agenda extends CI_Controller {
 		$this->response->Json(array('Success' => $result,
 											 'Error'	  =>	$this->upload->display_errors(),
 											 'FileData'=>	$this->upload->data()));
+	}
+	
+	public function Get()
+	{
+		$result = $this->Course->Get($this->lastMonth, $this->nextMonth);
+		$this->response->Json($result);
 	}
 	
 	private function CreateNewDirectory($path)

@@ -10,56 +10,28 @@
 		self.Initialize = function () {
 			self.JsonModel = $window['FileManageJson'];
 			self.NewCourse = new NewCourse();
-			
+
 			//angular-bootstrap-calendar
+			self.GetAll();
 			self.calendarDay = new Date();
 			self.calendarView = 'month';
-			self.events = [
-				{
-					title: 'An event',
-					type: 'warning',
-					startsAt: moment().startOf('week').subtract(2, 'days').add(8, 'hours').toDate(),
-					endsAt: moment().startOf('week').add(1, 'week').add(9, 'hours').toDate(),
-					draggable: true,
-					resizable: true
-				},
-				{
-					title: '<i class="glyphicon glyphicon-asterisk"></i> <span class="text-primary">Another event</span>, with a <i>html</i> title',
-					type: 'info',
-					startsAt: moment().subtract(1, 'day').toDate(),
-					endsAt: moment().add(5, 'days').toDate(),
-					draggable: true,
-					resizable: true
-				},
-				{
-					title: 'This is a really long event title that occurs on every year',
-					type: 'important',
-					startsAt: moment().startOf('day').add(7, 'hours').toDate(),
-					endsAt: moment().startOf('day').add(19, 'hours').toDate(),
-					recursOn: 'year',
-					draggable: true,
-					resizable: true
-				}
-			];
+			
+			self.eventClicked = function (event) {
+				console.log(event);
+			};
+	
+			self.eventEdited = function (event) {
+				console.log(event);
+			};
+	
+			self.eventDeleted = function (event) {
+				console.log(event);
+			};
+	
+			self.eventTimesChanged = function (event) {
+				console.log(event);
+			};
 		};
-
-		self.eventClicked = function (event) {
-			console.log(event);
-		};
-
-		self.eventEdited = function (event) {
-			console.log(event);
-		};
-
-		self.eventDeleted = function (event) {
-			console.log(event);
-		};
-
-		self.eventTimesChanged = function (event) {
-			console.log(event);
-		};
-
-		self.Initialize();
 
 		self.AddCourse = function () {
 			self.NewCourse.Clickable = false;
@@ -84,6 +56,8 @@
 								}
 							});
 						});
+						
+						self.GetAll();
 					}
 				}
 			});
@@ -93,6 +67,21 @@
 			self.NewCourse = new NewCourse();
 			self.Files = null;
 		};
+		
+		self.GetAll = function () {
+			$api.Get({
+				success: function (response) {
+					response.forEach(function (element) {
+						element.startsAt = new Date(element.StartAt);
+						element.endsAt = new Date(element.EndAt);
+					})
+					
+					self.events = response;
+				}
+			});
+		};
+		
+		self.Initialize();
 	}
 
 	function NewCourse() {
