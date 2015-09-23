@@ -53,7 +53,7 @@
 					$window.location.href = _Members;
 				},
 				error: function (data, status, headers, config) {
-					console.log('error status: ' + status);
+					// console.log('error status: ' + status);
 				}
 			});
 		};

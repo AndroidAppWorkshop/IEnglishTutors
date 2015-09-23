@@ -49,10 +49,10 @@
 									value.progress = progressPercentage + '%';
 								},
 								success: function (data, status, headers, config) {
-									console.log(data);
+									// console.log(data);
 								},
 								error: function (data, status, headers, config) {
-									console.log('error status: ' + status);
+									// console.log('error status: ' + status);
 								}
 							});
 						});
