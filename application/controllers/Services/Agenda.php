@@ -37,6 +37,18 @@ class Agenda extends CI_Controller {
 											 'id' => $id));
 	}
 	
+	public function Update()
+	{
+		$postdata = json_decode($this->input->raw_input_stream);
+		$id = $postdata->Id;
+		$name = $postdata->Name;
+		$startAt = date('Y-m-d H:i:s',strtotime($postdata->StartDateTime));
+		$endAt = date('Y-m-d H:i:s',strtotime($postdata->EndDateTime));
+		
+		$result = $this->Course->Update($id, $name, $startAt, $endAt);
+		$this->response->Json(array('Success' => $result));
+	}
+	
 	public function Upload()
 	{
 		$id = $this->input->post('Id');

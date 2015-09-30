@@ -6,6 +6,7 @@
 	function agendaApi($http, $window, $upload) {
 		var _Site = $window['$base_url'];
 		var _Add = _Site + 'Services/Agenda/Add';
+		var _Update = _Site + 'Services/Agenda/Update';
 		var _Upload = _Site + 'Services/Agenda/Upload';
 		var _Get = _Site + 'Services/Agenda/Get';
 		
@@ -15,6 +16,17 @@
 				return $http({
 					method: 'POST',
 					url: _Add,
+					data: options.data
+				}).then(function (response) {
+					options.success(response.data);
+				}, function (response) {
+					options.error(response.data);
+				});
+			},
+			Update: function(options) {
+				return $http({
+					method: 'POST',
+					url: _Update,
 					data: options.data
 				}).then(function (response) {
 					options.success(response.data);

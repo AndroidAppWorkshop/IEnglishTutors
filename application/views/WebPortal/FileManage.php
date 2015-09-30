@@ -154,7 +154,6 @@
 							class="btn btn-success"
 							data-dismiss="modal"
 							ng-hide="self.NewCourse.Clickable"
-							ng-click="self.ClearNewCourse()"
 							ng-bind="self.JsonModel.NewCourse.Done"></button>
 					</div>
 				</form>
@@ -165,7 +164,7 @@
 	<div class="modal fade bs-example-modal-lg edit-course">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
-				<form name="editcourse" ng-submit="self.EditCourse()">
+				<form name="editcourse" ng-submit="self.UpdateCourse()">
 					<!-- Header -->
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
@@ -262,6 +261,11 @@
 							ng-show="self.EditCourse.Clickable"
 							ng-bind="self.JsonModel.EditCourse.Edit"
 							ng-disabled="self.EditCourse.StartDateTime > self.EditCourse.EndDateTime"></button>
+						<button type="button"
+							class="btn btn-success"
+							data-dismiss="modal"
+							ng-hide="self.EditCourse.Clickable"
+							ng-bind="self.JsonModel.EditCourse.Done"></button>
 					</div>
 				</form>
 			</div>

@@ -19,6 +19,18 @@ class Course extends CI_Model {
 		return $this->db->insert('course', $course);
 	}
 	
+	public function Update($id, $title, $start, $end)
+	{
+		$course = array(
+			'Title' => $title,
+			'StartAt' => $start,
+			'EndAt' => $end
+		);
+		
+		return $this->db->where('Id', $id)
+							 ->update('course', $course);
+	}
+	
 	public function InsertFile($c_id, $path, $name, $type)
 	{
 		$course_file = array(
