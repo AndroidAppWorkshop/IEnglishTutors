@@ -92,6 +92,17 @@ class Agenda extends CI_Controller {
 		$this->response->Json(array('Success' => $result));
 	}
 	
+	public function DeleteFile()
+	{
+		$postdata = json_decode($this->input->raw_input_stream);
+		$id = $postdata->Id;
+		$path = $postdata->Path;
+		$name = $postdata->Name;
+		$this->Course->DeleteFile($id);
+		$result = $this->TrashFile($path.$name);
+		$this->response->Json(array('Success' => $result));
+	}
+	
 	private function CreateNewDirectory($path)
 	{
 		mkdir($path, 0777, TRUE);
@@ -101,6 +112,11 @@ class Agenda extends CI_Controller {
 	{
 		delete_files($path, TRUE);
 		return rmdir($path);
+	}
+	
+	private function TrashFile($path)
+	{
+		return unlink($path);
 	}
 }
 

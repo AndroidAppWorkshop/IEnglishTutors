@@ -10,6 +10,7 @@
 		var _Upload = _Site + 'Services/Agenda/Upload';
 		var _Get = _Site + 'Services/Agenda/Get';
 		var _Delete = _Site + 'Services/Agenda/Delete';
+		var _DeleteFile = _Site + 'Services/Agenda/DeleteFile';
 
 		return {
 			Accept: 'image/*,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.presentationml.presentation',
@@ -63,6 +64,17 @@
 				return $http({
 					method: 'POST',
 					url: _Delete,
+					data: options.data
+				}).then(function (response) {
+					options.success(response.data);
+				}, function (response) {
+					options.error(response.data);
+				});
+			},
+			DeleteFile: function (options) {
+				return $http({
+					method: 'POST',
+					url: _DeleteFile,
 					data: options.data
 				}).then(function (response) {
 					options.success(response.data);

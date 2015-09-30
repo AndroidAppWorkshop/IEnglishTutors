@@ -224,10 +224,11 @@
 								<div class="col-sm-8"></div>
 								<div class="col-sm-4">
 									<h5 ng-repeat="file in self.EditCourse.Files">
-										<button type="button" class="btn btn-primary btn-xs" ng-click="self.Download(file)">
+										<button type="button" class="btn btn-success btn-xs" ng-click="self.Download(file)">
 											<span ng-bind="file.Name"></span>
 											<i class="fa fa-cloud-download"></i>
 										</button>
+										<button type="button" class="btn btn-danger btn-xs" ng-click="self.RemoveCourseFile(file)"><i class="fa fa-trash"></i></button>
 									</h5>
 								</div>
 							</div>

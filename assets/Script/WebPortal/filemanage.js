@@ -2,8 +2,8 @@
 	angular.module('apps.file', ['angular-loading-bar', 'apis', 'mwl.calendar', 'ui.bootstrap', 'ngAnimate'])
 		.controller('filemanage', filemanage);
 
-	filemanage.$inject = ['$window', '$scope', 'agendaApi'];
-	function filemanage($window, $scope, $api) {
+	filemanage.$inject = ['$window', '$scope', '$timeout', 'agendaApi'];
+	function filemanage($window, $scope, $timeout, $api) {
 		var self = this;
 		self.$api = $api;
 
@@ -121,10 +121,21 @@
 			$api.Delete({
 				data: self.DeleteCourse,
 				success: function (data) {
-					console.log(data);
+					$timeout(function () {
+						$('.delete-course').modal('toggle');
+					});
 				}
 			});
 		}
+
+		self.RemoveCourseFile = function (file) {
+			$api.DeleteFile({
+				data: file,
+				success: function (data) {
+					self.EditCourse.Files = self.EditCourse.Files.filter(function(value){ return value.Id !== file.Id });
+				}
+			});
+		};
 
 		self.Initialize();
 	}

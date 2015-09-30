@@ -76,6 +76,12 @@ class Course extends CI_Model {
 					->delete('course_files');
 	}
 	
+	public function DeleteFile($id)
+	{
+		return $this->db->where('Id', $id)
+							 ->delete('course_files');
+	}
+	
 	private function GetFiles($id)
 	{
 		return $this->db->where('C_Id', $id)
