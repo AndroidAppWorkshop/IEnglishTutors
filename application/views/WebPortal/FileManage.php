@@ -161,4 +161,110 @@
 			</div>
 		</div>
 	</div>
+	<!-- Modal: Edit Course -->
+	<div class="modal fade bs-example-modal-lg edit-course">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<form name="editcourse" ng-submit="self.EditCourse()">
+					<!-- Header -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+						<h4 class="modal-title" id="gridSystemModalLabel" ng-bind="self.JsonModel.EditCourse.Title"></h4>
+					</div>
+					<!-- Body -->
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-sm-2">
+									<label ng-bind="self.JsonModel.EditCourse.Name"></label>
+								</div>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" ng-model="self.EditCourse.Name" placeholder="{{self.JsonModel.EditCourse.Name}}" required>
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-2">
+									<label ng-bind="self.JsonModel.EditCourse.StartsAt"></label>
+								</div>
+								<div class="col-sm-10">
+									<p class="input-group">
+										<input type="date"
+											class="form-control"
+											datepicker-popup
+											ng-model="self.EditCourse.StartDateTime"
+											is-open="self.EditCourse.SDTStatus"
+											close-text="Close" />
+										<span class="input-group-btn">
+											<button type="button" class="btn btn-default" ng-click="self.EditCourse.SDTStatus = true;"><i class="glyphicon glyphicon-calendar"></i></button>
+										</span>
+									</p>
+									<timepicker ng-model="self.EditCourse.StartDateTime" ng-change="" hour-step="self.EditCourse.HStep" minute-step="self.EditCourse.MStep" show-meridian="self.EditCourse.IsMeridian"></timepicker>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-2">
+									<label ng-bind="self.JsonModel.EditCourse.EndsAt"></label>
+								</div>
+								<div class="col-sm-10">
+									<p class="input-group">
+										<input type="date"
+											class="form-control"
+											datepicker-popup
+											min-date="self.EditCourse.StartDateTime"
+											ng-model="self.EditCourse.EndDateTime"
+											is-open="self.EditCourse.EDTStatus"
+											close-text="Close" />
+										<span class="input-group-btn">
+											<button type="button" class="btn btn-default" ng-click="self.EditCourse.EDTStatus = true;"><i class="glyphicon glyphicon-calendar"></i></button>
+										</span>
+									</p>
+									<timepicker ng-model="self.EditCourse.EndDateTime" hour-step="self.EditCourse.HStep" minute-step="self.EditCourse.MStep" show-meridian="self.EditCourse.IsMeridian"></timepicker>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-8 upload">
+									<div class="drop-box"
+										ngf-select ngf-drop 
+										ng-model="self.Files"
+										ngf-drag-over-class="dragover"
+										ngf-multiple="true"
+										ngf-pattern="self.$api.Accept"
+										ngf-keep="true"
+										ngf-keep-distinct="true">
+										<span ng-bind="self.JsonModel.Text.UploadTip"></span>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<ul>
+										<li ng-repeat="file in self.Files"">
+											<p>{{file.name}} {{file.$error}} {{file.$errorParam}}</p>
+											<div class="progress"
+												ng-show="file.progress">
+												<div class="progress-bar progress-bar-striped progress-bar-striped active"
+													role="progressbar"
+													aria-valuemin="0"
+													aria-valuemax="100"
+													ng-style="{width: file.progress}">
+													<span ng-bind="file.progress"></span>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Footer -->
+					<div class="modal-footer">
+						<button type="submit"
+							class="btn btn-primary"
+							ng-show="self.EditCourse.Clickable"
+							ng-bind="self.JsonModel.EditCourse.Edit"
+							ng-disabled="self.EditCourse.StartDateTime > self.EditCourse.EndDateTime"></button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>

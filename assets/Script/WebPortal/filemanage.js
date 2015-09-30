@@ -9,25 +9,27 @@
 
 		self.Initialize = function () {
 			self.JsonModel = $window['FileManageJson'];
-			self.NewCourse = new NewCourse();
+			self.NewCourse = new Course();
 
 			//angular-bootstrap-calendar
 			self.GetAll();
 			self.calendarDay = new Date();
 			self.calendarView = 'month';
-			
+
 			self.eventClicked = function (event) {
 				console.log(event);
 			};
-	
+
 			self.eventEdited = function (event) {
 				console.log(event);
+				$('.edit-course').modal('show');
+				self.EditCourse = new Course(event);
 			};
-	
+
 			self.eventDeleted = function (event) {
 				console.log(event);
 			};
-	
+
 			self.eventTimesChanged = function (event) {
 				console.log(event);
 			};
@@ -56,7 +58,7 @@
 								}
 							});
 						});
-						
+
 						self.GetAll();
 					}
 				}
@@ -64,10 +66,10 @@
 		};
 
 		self.ClearNewCourse = function () {
-			self.NewCourse = new NewCourse();
+			self.NewCourse = new Course();
 			self.Files = null;
 		};
-		
+
 		self.GetAll = function () {
 			$api.Get({
 				success: function (response) {
@@ -75,16 +77,16 @@
 						element.startsAt = new Date(element.StartAt);
 						element.endsAt = new Date(element.EndAt);
 					})
-					
+
 					self.events = response;
 				}
 			});
 		};
-		
+
 		self.Initialize();
 	}
 
-	function NewCourse() {
+	function Course(data) {
 		this.StartDateTime = new Date();
 		this.SDTStatus = false;
 		this.EndDateTime = new Date();
@@ -94,5 +96,11 @@
 		this.IsMeridian = false;
 		this.Name = "";
 		this.Clickable = true;
+
+		if (data) {
+			this.StartDateTime = data.startsAt;
+			this.EndDateTime = data.endsAt;
+			this.Name = data.title;
+		}
 	}
 })();

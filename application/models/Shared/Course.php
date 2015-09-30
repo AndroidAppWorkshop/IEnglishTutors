@@ -31,14 +31,10 @@ class Course extends CI_Model {
 		return $this->db->insert('course_files', $course_file);
 	}
 	
-	public function Get($start, $end)
+	public function Get($limit = 100)
 	{
 		$result = array();
-		$condition = array('StartAt >=' => $start,
-							'StartAt <=' => $end);
-
-		$query = $this->db->where($condition)
-								->get('course');
+		$query = $this->db->get('course', $limit);
 		
 		if($query->num_rows() > 0)
 		{

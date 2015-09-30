@@ -67,7 +67,7 @@ class Agenda extends CI_Controller {
 	
 	public function Get()
 	{
-		$result = $this->Course->Get($this->lastMonth, $this->nextMonth);
+		$result = $this->Course->Get();
 		$this->response->Json($result);
 	}
 	
