@@ -280,4 +280,36 @@
 			</div>
 		</div>
 	</div>
+	<!-- Modal: Delete Course -->
+	<div class="modal fade bs-example-modal-sm delete-course">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<form name="deletecourse" ng-submit="self.RemoveCourse()">
+					<!-- Header -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+						<h4 class="modal-title" id="gridSystemModalLabel" ng-bind="self.JsonModel.DeleteCourse.Title"></h4>
+					</div>
+					<!-- Body -->
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="alert alert-danger" role="alert" ng-bind="self.JsonModel.DeleteCourse.Tip"></div>
+						</div>
+					</div>
+					<!-- Footer -->
+					<div class="modal-footer">
+						<button type="submit"
+							class="btn btn-danger"
+							ng-show="self.DeleteCourse.Clickable"
+							ng-bind="self.JsonModel.DeleteCourse.Delete"></button>
+						<button type="button"
+							class="btn btn-success"
+							data-dismiss="modal"
+							ng-hide="self.DeleteCourse.Clickable"
+							ng-bind="self.JsonModel.DeleteCourse.Done"></button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>

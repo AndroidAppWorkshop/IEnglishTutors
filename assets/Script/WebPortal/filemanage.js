@@ -11,7 +11,7 @@
 			self.JsonModel = $window['FileManageJson'];
 			self.NewCourse = new Course();
 
-			$('.new-course, .edit-course').on('hidden.bs.modal', function (e) {
+			$('.new-course, .edit-course, .delete-course').on('hidden.bs.modal', function (e) {
 				$scope.$apply(function () { self.ClearCourse(); });
 			})
 			
@@ -31,11 +31,8 @@
 			};
 
 			self.eventDeleted = function (event) {
-				console.log(event);
-			};
-
-			self.eventTimesChanged = function (event) {
-				console.log(event);
+				$('.delete-course').modal('show');
+				self.DeleteCourse = new Course(event);
 			};
 		};
 
@@ -97,6 +94,7 @@
 		self.ClearCourse = function () {
 			self.NewCourse = new Course();
 			self.EditCourse = null;
+			self.DeleteCourse = null;
 			self.Files = null;
 			self.GetAll();
 		};
@@ -117,6 +115,16 @@
 		self.Download = function (file) {
 			$window.location.href = $base_url + 'Services/System/Download?path=' + file.Path + file.Name;
 		};
+
+		self.RemoveCourse = function () {
+			self.DeleteCourse.Clickable = false;
+			$api.Delete({
+				data: self.DeleteCourse,
+				success: function (data) {
+					console.log(data);
+				}
+			});
+		}
 
 		self.Initialize();
 	}

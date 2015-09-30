@@ -52,16 +52,19 @@ body > .container-fluid > .row > .calendar > mwl-calendar > .cal-context > mwl-c
   background-color: #111111;
 }
 body > .container-fluid > .new-course,
-body > .container-fluid .edit-course {
+body > .container-fluid .edit-course,
+body > .container-fluid .delete-course {
   color: #252830;
 }
 body > .container-fluid > .new-course form > .modal-body > .container-fluid > .row > .upload > .drop-box,
-body > .container-fluid .edit-course form > .modal-body > .container-fluid > .row > .upload > .drop-box {
+body > .container-fluid .edit-course form > .modal-body > .container-fluid > .row > .upload > .drop-box,
+body > .container-fluid .delete-course form > .modal-body > .container-fluid > .row > .upload > .drop-box {
   cursor: crosshair;
   border: 5px dashed #DDD;
   padding: 3vw 3vw;
 }
 body > .container-fluid > .new-course form > .modal-body > .container-fluid > .row > .upload > .drop-box.dragover,
-body > .container-fluid .edit-course form > .modal-body > .container-fluid > .row > .upload > .drop-box.dragover {
+body > .container-fluid .edit-course form > .modal-body > .container-fluid > .row > .upload > .drop-box.dragover,
+body > .container-fluid .delete-course form > .modal-body > .container-fluid > .row > .upload > .drop-box.dragover {
   border: 5px dashed #00A9E7;
 }
