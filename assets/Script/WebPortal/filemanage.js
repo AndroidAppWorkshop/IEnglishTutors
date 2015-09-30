@@ -2,8 +2,8 @@
 	angular.module('apps.file', ['angular-loading-bar', 'apis', 'mwl.calendar', 'ui.bootstrap', 'ngAnimate'])
 		.controller('filemanage', filemanage);
 
-	filemanage.$inject = ['$window', '$scope', 'agendaApi', 'moment'];
-	function filemanage($window, $scope, $api, moment) {
+	filemanage.$inject = ['$window', '$scope', 'agendaApi'];
+	function filemanage($window, $scope, $api) {
 		var self = this;
 		self.$api = $api;
 
@@ -62,8 +62,6 @@
 								}
 							});
 						});
-
-						self.GetAll();
 					}
 				}
 			});
@@ -91,8 +89,6 @@
 								}
 							});
 						});
-
-						self.GetAll();
 					}
 				}
 			});
@@ -102,6 +98,7 @@
 			self.NewCourse = new Course();
 			self.EditCourse = null;
 			self.Files = null;
+			self.GetAll();
 		};
 
 		self.GetAll = function () {
@@ -115,6 +112,10 @@
 					self.events = response;
 				}
 			});
+		};
+
+		self.Download = function (file) {
+			$window.location.href = $base_url + 'Services/System/Download?path=' + file.Path + file.Name;
 		};
 
 		self.Initialize();

@@ -118,7 +118,6 @@
 										ngf-drag-over-class="dragover"
 										ngf-multiple="true"
 										ngf-pattern="self.$api.Accept"
-										ngf-keep="true"
 										ngf-keep-distinct="true">
 										<span ng-bind="self.JsonModel.Text.UploadTip"></span>
 									</div>
@@ -222,6 +221,17 @@
 								</div>
 							</div>
 							<div class="row">
+								<div class="col-sm-8"></div>
+								<div class="col-sm-4">
+									<h5 ng-repeat="file in self.EditCourse.Files">
+										<button type="button" class="btn btn-primary btn-xs" ng-click="self.Download(file)">
+											<span ng-bind="file.Name"></span>
+											<i class="fa fa-cloud-download"></i>
+										</button>
+									</h5>
+								</div>
+							</div>
+							<div class="row">
 								<div class="col-sm-8 upload">
 									<div class="drop-box"
 										ngf-select ngf-drop 
@@ -229,7 +239,6 @@
 										ngf-drag-over-class="dragover"
 										ngf-multiple="true"
 										ngf-pattern="self.$api.Accept"
-										ngf-keep="true"
 										ngf-keep-distinct="true">
 										<span ng-bind="self.JsonModel.Text.UploadTip"></span>
 									</div>
