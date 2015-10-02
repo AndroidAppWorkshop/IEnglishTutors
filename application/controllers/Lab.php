@@ -8,7 +8,6 @@ class Lab extends CI_Controller {
 		parent::__construct();
 		
 		$this->load->model('Shared/Environment');
-		$this->load->model('Lab/Lab_model');
 	}
 	
 	public function Index()
