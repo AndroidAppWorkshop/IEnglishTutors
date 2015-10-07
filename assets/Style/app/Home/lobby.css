@@ -1,3 +1,9 @@
 body {
   color: #eee;
 }
+body > .wrapper {
+  background-color: #000000;
+}
+body > .wrapper > .row > [class^='col-'] {
+  color: red;
+}

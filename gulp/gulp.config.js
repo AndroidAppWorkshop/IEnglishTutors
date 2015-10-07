@@ -17,7 +17,8 @@ module.exports = function (fs) {
 			"ng-file-upload": paths.bower + 'ng-file-upload/*.js',
 			"angular-bootstrap": paths.bower + 'angular-bootstrap/*.{js,css}',
 			"angular-bootstrap-calendar": paths.bower + 'angular-bootstrap-calendar/dist/**/*.{js,css,map}',
-			"moment": paths.bower + 'moment/moment.js'
+			"moment": paths.bower + 'moment/moment.js',
+			"knockout": paths.bower + 'knockout/dist/knockout.js'
 		},
 		lib: paths.assets + 'lib/',
 		js: paths.assets + 'js/',

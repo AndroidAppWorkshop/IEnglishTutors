@@ -52,7 +52,8 @@ module.exports = function (config) {
 			ngfileupload: lib + 'ng-file-upload/ng-file-upload-all.js',
 			angularbootstrap: lib + 'angular-bootstrap/ui-bootstrap-tpls.js',
 			moment: lib + 'moment/moment.js',
-			angularbootstrapcalendar: lib + 'angular-bootstrap-calendar/js/angular-bootstrap-calendar-tpls.js'
+			angularbootstrapcalendar: lib + 'angular-bootstrap-calendar/js/angular-bootstrap-calendar-tpls.js',
+			knockout: lib + 'knockout/knockout.js'
 		},
 		interceptors: {
 			csrf: script + 'interceptors/apis.csrf.js'
@@ -67,7 +68,8 @@ module.exports = function (config) {
 			],
 			"script": [
 					js.bower.jquery,
-					js.bower.bootstrap
+					js.bower.bootstrap,
+					js.bower.knockout
 			]
 		},
 		"webportal.global": {
