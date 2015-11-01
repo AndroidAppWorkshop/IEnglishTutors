@@ -18,7 +18,8 @@ module.exports = function (fs) {
 			"angular-bootstrap": paths.bower + 'angular-bootstrap/*.{js,css}',
 			"angular-bootstrap-calendar": paths.bower + 'angular-bootstrap-calendar/dist/**/*.{js,css,map}',
 			"moment": paths.bower + 'moment/moment.js',
-			"knockout": paths.bower + 'knockout/dist/knockout.js'
+			"knockout": paths.bower + 'knockout/dist/knockout.js',
+			"vegas": paths.bower + 'vegas/dist/*.{js,css,map}'
 		},
 		lib: paths.assets + 'lib/',
 		js: paths.assets + 'js/',

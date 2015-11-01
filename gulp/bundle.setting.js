@@ -19,7 +19,8 @@ module.exports = function (config) {
 			bootstrap: lib + 'bootstrap/css/bootstrap.css',
 			loadingbar: lib + 'angular-loading-bar/loading-bar.css',
 			fontawesome: lib + 'font-awesome/css/font-awesome.css',
-			angularbootstrapcalendar: lib + 'angular-bootstrap-calendar/css/angular-bootstrap-calendar.css'
+			angularbootstrapcalendar: lib + 'angular-bootstrap-calendar/css/angular-bootstrap-calendar.css',
+			vegas: lib + 'vegas/vegas.css'
 		}
 	};
 	
@@ -53,7 +54,8 @@ module.exports = function (config) {
 			angularbootstrap: lib + 'angular-bootstrap/ui-bootstrap-tpls.js',
 			moment: lib + 'moment/moment.js',
 			angularbootstrapcalendar: lib + 'angular-bootstrap-calendar/js/angular-bootstrap-calendar-tpls.js',
-			knockout: lib + 'knockout/knockout.js'
+			knockout: lib + 'knockout/knockout.js',
+			vegas: lib + 'vegas/vegas.js'
 		},
 		interceptors: {
 			csrf: script + 'interceptors/apis.csrf.js'
@@ -91,9 +93,11 @@ module.exports = function (config) {
 		},
 		"home.lobby": {
 			"style": [
+				css.bower.vegas,
 				css.app.home_lobby
 			],
 			"script": [
+				js.bower.vegas,
 				js.app.home_lobby
 			]
 		},
