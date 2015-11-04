@@ -8,3 +8,4 @@
 /// <reference path="angularjs/angular.d.ts" />
 /// <reference path="angularjs/legacy/angular-scenario-1.2.d.ts" />
 /// <reference path="jquery/jquery.d.ts" />
+/// <reference path="knockout/knockout.d.ts" />
