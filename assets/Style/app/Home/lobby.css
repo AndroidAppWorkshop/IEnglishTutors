@@ -11,8 +11,10 @@ body > section#aboutus > .container-fluid > .jumbotron {
   background-color: transparent;
 }
 body > section#aboutus > .container-fluid > .jumbotron > h1 {
+  color: #ffffff;
   font-weight: bold;
 }
 body > section#aboutus > .container-fluid > .jumbotron > p {
+  color: #ffffff;
   font-weight: bold;
 }
