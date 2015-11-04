@@ -8,6 +8,14 @@
 				<a class="navbar-brand" href="/" data-bind="text: Header.Brand"></a>
 			</div>
 			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Language <span class="caret"></span></a>
+						<ul class="dropdown-menu" data-bind="foreach: Preference.langs">
+							<li><a href="#" data-bind="text: $data, click: $parent.ChangeLang.bind($data)"></a></li>
+						</ul>
+					</li>
+				</ul>
 				<ul class="nav navbar-nav navbar-right" data-bind="foreach: Header.Nav">
 					<li><a data-bind="text: Text, attr: { href: Target }"></a></li>
 				</ul>
