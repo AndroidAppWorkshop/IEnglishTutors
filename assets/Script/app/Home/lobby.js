@@ -5,14 +5,22 @@ $(function () {
 		preloadImage: true,
 		slides: JsonModel.Slides
 	});
-	
+
 	JsonModel.Preference = window.Preference;
-	JsonModel.ChangeLang = function(currentLang) {
+	JsonModel.ChangeLang = function (currentLang) {
 		var url = window.$base_url + 'Services/System/SavePreference';
-		$.get(url, { language: currentLang }, function(data) {
+		$.get(url, { language: currentLang }, function (data) {
 			window.location.reload();
 		});
 	};
-	
+
+	JsonModel.NavTarget = function (Link) {
+		if (Link.substring(0, 1) != '#') {
+			return window.$base_url + Link;
+		}
+		
+		return Link;
+	};
+
 	ko.applyBindings(JsonModel);
 });

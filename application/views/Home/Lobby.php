@@ -17,7 +17,7 @@
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right" data-bind="foreach: Header.Nav">
-					<li><a data-bind="text: Text, attr: { href: Target }"></a></li>
+					<li><a data-bind="text: Text, attr: { href: $parent.NavTarget(Target) }"></a></li>
 				</ul>
 			</div>
 		</div>
