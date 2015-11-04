@@ -15,7 +15,15 @@
 		</div>
 	</nav>
 </header>
-<section id="aboutus">aboutus</section>
+<section id="aboutus">
+	<div class="container-fluid">
+		<div class="jumbotron text-center">
+			<h1 data-bind="text: AboutUs.Title"></h1>
+			<p data-bind="text: AboutUs.Content"></p>
+			<p><a class="btn btn-primary btn-lg" href="#courses" data-bind="text: AboutUs.Button"></a></p>
+		</div>
+	</div>
+</section>
 <section id="courses">courses</section>
 <section id="teacher">teacher</section>
 <section id="contactus">contactus</section>
