@@ -29,6 +29,7 @@ class IET_Loader extends CI_Loader {
 		$data['MasterCss'] = $this->CI->Layout->MasterCss($this->GlobalKey);
 		$data['PlugCss'] = $this->CI->Layout->PlugCss(strtolower($this->CI->Router->GetCurrentPathWithDot()));
 		$data['Meta'] = $this->CI->Layout->Meta();
+		$data['BodyStart'] = $this->CI->Layout->BodyStart(strtolower($this->CI->Router->GetCurrentController()));
 		
 		return $data;
 	}

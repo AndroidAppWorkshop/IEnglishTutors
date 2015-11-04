@@ -109,6 +109,18 @@ class Layout extends CI_Model {
 		}
 	}
 	
+	public function BodyStart($controller)
+	{
+		if($controller === 'webportal')
+		{
+			return '<body>';
+		}
+		else
+		{
+			return '<body data-spy="scroll" data-target="#navigation">';
+		}
+	}
+	
 	private function HtmlString($path, $type, $format)
 	{
 		$key = $this->Key;

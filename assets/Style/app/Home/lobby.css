@@ -1,9 +1,6 @@
 body {
   padding-top: 70px;
 }
-body > .container-fluid > .row {
-  height: 1024px;
-}
-body > .container-fluid > .row > [class^='col-'] {
-  color: red;
+body > section {
+  height: 500px;
 }

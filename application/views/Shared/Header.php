@@ -20,4 +20,4 @@
 	<?=$MasterCss?>
 	<?=$PlugCss?>
 </head>
-<body>
+<?=$BodyStart?>
