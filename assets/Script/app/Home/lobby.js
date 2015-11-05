@@ -22,9 +22,9 @@ $(function () {
 		return Link;
 	};
 	
-	JsonModel.Teacher = ko.observableArray();
+	JsonModel.Teacher.Members = ko.observableArray();
 	$.get(window.$base_url + '/Services/Members/All', { rid: 1 }, function (data) {
-		JsonModel.Teacher(data);
+		JsonModel.Teacher.Members(data);
 	});
 
 	ko.applyBindings(JsonModel);

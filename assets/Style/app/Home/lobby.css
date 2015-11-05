@@ -70,7 +70,17 @@ body > section#courses > .container > .row > [class^="col-"]:nth-child(2) > .pan
 body > section#teacher {
   background-color: rgba(255, 255, 255, 0.800784);
   padding-top: 10vh;
+  padding-bottom: 10vh;
 }
-body > section#teacher > .container > .media > .media-left > .media-object {
+body > section#teacher > .container > .jumbotron {
+  background-color: transparent;
+}
+body > section#teacher > .container > .jumbotron > h1 {
+  font-weight: bold;
+}
+body > section#teacher > .container > .jumbotron > p {
+  font-weight: bold;
+}
+body > section#teacher > .container > div > .media > .media-left > .media-object {
   max-width: 20vw;
 }

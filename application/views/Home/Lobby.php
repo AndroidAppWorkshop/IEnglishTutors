@@ -56,14 +56,20 @@
 	</div>
 </section>
 <section id="teacher">
-	<div class="container" data-bind="foreach: Teacher">
-		<div class="media">
-			<div class="media-left">
-				<img class="media-object img-circle" data-bind="attr: { src: '/assets/images/Members/' + Picture + Key  }">
-			</div>
-			<div class="media-body">
-				<h1 class="media-heading"><strong data-bind="text: DisplayName"></strong></h2>
-				<h3 data-bind="text: Description"></h4>
+	<div class="container">
+		<div class="jumbotron text-center">
+			<h1 data-bind="text: Teacher.Title"></h1>
+			<p data-bind="text: Teacher.Content"></p>
+		</div>
+		<div data-bind="foreach: Teacher.Members">
+			<div class="media">
+				<div class="media-left">
+					<img class="media-object img-circle" data-bind="attr: { src: '/assets/images/Members/' + Picture + Key  }">
+				</div>
+				<div class="media-body">
+					<h1 class="media-heading"><strong data-bind="text: DisplayName"></strong></h2>
+					<h3 data-bind="text: Description"></h4>
+				</div>
 			</div>
 		</div>
 	</div>
