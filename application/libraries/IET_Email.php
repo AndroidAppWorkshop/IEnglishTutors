@@ -34,7 +34,7 @@ class IET_Email extends CI_Email{
 			$config = array(
 				'protocol' => 'smtp' ,
 				'smtp_host'=> 'mail.ienglishtutors.com',
-				'smtp_port'=> '26',
+				'smtp_port'=> '25',
 				'smtp_user'=> $account,
 				'smtp_pass'=> $password,
 				'charset'  => 'utf-8',

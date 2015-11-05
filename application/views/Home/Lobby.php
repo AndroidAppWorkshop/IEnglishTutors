@@ -74,6 +74,54 @@
 		</div>
 	</div>
 </section>
-<section id="contactus">contactus</section>
+<section id="contactus">
+	<div class="container">
+		<div class="jumbotron text-center">
+			<h1 data-bind="text: ContactUs.Title"></h1>
+			<p data-bind="text: ContactUs.Content"></p>
+		</div>
+		<form class="row" data-bind="submit: SendEmail">
+			<div class="col-sm-3">
+				<input type="text" class="form-control" name="name" data-bind="attr: { placeholder: ContactUs.YourName }" required>
+				<input type="email" class="form-control" name="email" data-bind="attr: { placeholder: ContactUs.YourEmail }" required>
+				<input type="text" class="form-control" name="subject" data-bind="attr: { placeholder: ContactUs.Subject }" required>
+			</div>
+			<div class="col-sm-9">
+				<textarea class="form-control" name="message" rows="10" data-bind="attr: { placeholder: ContactUs.YourMessage }" required></textarea>
+			</div>
+			<div class="col-sm-2 col-sm-push-10">
+				<button type="submit" class="btn" data-bind="text: ContactUs.Send"></button>
+			</div>
+		</div>
+	</div>
+</section>
 <section id="location">location</section>
 <section id="developers">developers</section>
+<section>
+	<div id="send-email-success" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+					<h2 class="modal-title" data-bind="text: Modal.SendEmailSuccessTitle"></h2>
+				</div>
+				<div class="modal-body">
+					<h3 data-bind="text: Modal.SendEmailSuccess"></h3>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="send-email-failure" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+					<h2 class="modal-title" data-bind="text: Modal.SendEmailFailureTitle"></h2>
+				</div>
+				<div class="modal-body">
+					<h3 data-bind="text: Modal.SendEmailFailure"></h3>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -84,3 +84,41 @@ body > section#teacher > .container > .jumbotron > p {
 body > section#teacher > .container > div > .media > .media-left > .media-object {
   max-width: 20vw;
 }
+body > section#contactus {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+body > section#contactus > .container > .jumbotron {
+  background-color: transparent;
+}
+body > section#contactus > .container > .jumbotron > h1 {
+  color: #ffffff;
+  font-weight: bold;
+}
+body > section#contactus > .container > .jumbotron > p {
+  color: #ffffff;
+  font-weight: bold;
+}
+body > section#contactus > .container > form.row > div > input {
+  margin-bottom: 3vh;
+}
+body > section#contactus > .container > form.row > div > button {
+  background-color: #BB0000;
+  color: #ffffff;
+  margin-top: 3vh;
+  width: 100%;
+}
+body > section > .modal#send-email-success .modal-header {
+  background-color: #007ACC;
+}
+body > section > .modal#send-email-success .modal-header > .modal-title {
+  color: #fff;
+  font-weight: bold;
+}
+body > section > .modal#send-email-failure .modal-header {
+  background-color: #DE5145;
+}
+body > section > .modal#send-email-failure .modal-header > .modal-title {
+  color: #fff;
+  font-weight: bold;
+}
