@@ -60,7 +60,8 @@ class Members extends CI_Controller {
 	public function All()
 	{
 		$userId = $this->User->Get('Id');
-		$data = $this->Member->All();
+		$role = $this->input->get('rid');
+		$data = $this->Member->All($role);
 		foreach ($data as &$member) {
 			$member['Key'] = '?k='.strtotime($member['LastLogin']);
 

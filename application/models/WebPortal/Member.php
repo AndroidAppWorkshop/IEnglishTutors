@@ -78,11 +78,17 @@ class Member extends CI_Model {
 		return !$existed;
 	}
 	
-	public function All()
+	public function All($role = NULL)
 	{
-		$query = $this->db->select('Id, Username, R_Id, Picture, DisplayName, Description, GitHub, Facebook, LastLogin')
-								->get('member');
-		return $query->result_array();
+		$this->db->select('Id, Username, R_Id, Picture, DisplayName, Description, GitHub, Facebook, LastLogin');
+		$this->db->from('member');
+		
+		if ($role !== NULL)
+		{
+			$this->db->where('R_Id', $role);
+		}
+		
+		return $this->db->get()->result_array();
 	}
 	
 	public function Update($mem)
