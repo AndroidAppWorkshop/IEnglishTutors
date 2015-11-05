@@ -5,6 +5,7 @@ body > header > nav > .container > .navbar-header > .navbar-brand {
   font-weight: bold;
 }
 body > header > nav > .container > .navbar-collapse > ul > li.active > a {
+  color: #DD5145;
   border-bottom: 2px solid #DD5145;
 }
 body > header > nav > .container > .navbar-collapse > ul > li > a {
@@ -65,4 +66,11 @@ body > section#courses > .container > .row > [class^="col-"]:nth-child(1) > .pan
 body > section#courses > .container > .row > [class^="col-"]:nth-child(2) > .panel > .panel-heading {
   background-color: #7493EA;
   color: #fff;
+}
+body > section#teacher {
+  background-color: rgba(255, 255, 255, 0.800784);
+  padding-top: 10vh;
+}
+body > section#teacher > .container > .media > .media-left > .media-object {
+  max-width: 20vw;
 }

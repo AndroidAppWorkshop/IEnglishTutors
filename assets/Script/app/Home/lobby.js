@@ -18,9 +18,14 @@ $(function () {
 		if (Link.substring(0, 1) != '#') {
 			return window.$base_url + Link;
 		}
-		
+
 		return Link;
 	};
+	
+	JsonModel.Teacher = ko.observableArray();
+	$.get(window.$base_url + '/Services/Members/All', { rid: 1 }, function (data) {
+		JsonModel.Teacher(data);
+	});
 
 	ko.applyBindings(JsonModel);
 });
