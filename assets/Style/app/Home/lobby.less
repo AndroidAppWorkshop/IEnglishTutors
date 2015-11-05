@@ -1,6 +1,34 @@
 body {
 	padding-top: 70px;
 	
+	> header {
+		> nav {
+			> .container {
+				> .navbar-header {
+					> .navbar-brand {
+						font-weight: bold;
+					}
+				}
+				
+				> .navbar-collapse {
+					> ul {
+						> li {
+							&.active {
+								> a {
+									border-bottom: 2px solid #DD5145;
+								}
+							}
+							
+							> a {
+								font-weight: bold;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
 	> section {
 		min-height: 600px;
 		
@@ -25,6 +53,63 @@ body {
 		}
 		
 		&#courses {
+			background-color: rgba(255, 211, 69, 0.750784);
+			padding-top: 10vh;
+			
+			> .container {
+				> .jumbotron {
+					background-color: transparent;
+					
+					> h1 {
+						color: #ffffff;
+						font-weight: bold;
+					}
+					
+					> p {
+						color: #ffffff;
+						font-weight: bold;
+					}
+				}
+				
+				> .row {
+					> [class^="col-"] {
+						> .panel {
+							border: 0;
+							
+							> .panel-heading {
+								border: 0;
+								
+								* {
+									font-weight: bold;
+								}
+							}
+							
+							> .panel-body {
+								background-color: #252526;
+								color: #ffffff;
+								
+								* {
+									font-weight: bold;
+								}
+							}
+						}
+						
+						&:nth-child(1) {
+							> .panel > .panel-heading {
+								background-color: #DB5425;
+								color: #fff;
+							}
+						}
+						
+						&:nth-child(2) {
+							> .panel > .panel-heading {
+								background-color: #7493EA;
+								color: #fff;
+							}
+						}
+					}
+				}
+			}
 		}
 		
 		&#teacher {

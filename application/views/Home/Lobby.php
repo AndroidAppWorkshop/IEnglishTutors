@@ -32,7 +32,29 @@
 		</div>
 	</div>
 </section>
-<section id="courses">courses</section>
+<section id="courses">
+	<div class="container">
+		<div class="jumbotron text-center">
+			<h1 data-bind="text: Courses.Title"></h1>
+			<p data-bind="text: Courses.Content"></p>
+		</div>
+		<div class="row" data-bind="foreach: Courses.Classes">
+			<div class="col-sm-3">
+				<div class="panel panel-default">
+				<div class="panel-heading text-center">
+					<h2 data-bind="text: Title"></h3>
+				</div>
+				<div class="panel-body text-center">
+					<h3 data-bind="text: Price"></h2>
+				</div>
+				<ul class="list-group" data-bind="foreach: Detail">
+					<li class="list-group-item text-center" data-bind="text: $data"></li>
+				</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 <section id="teacher">teacher</section>
 <section id="contactus">contactus</section>
 <section id="location">location</section>

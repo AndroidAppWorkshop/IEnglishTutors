@@ -1,6 +1,15 @@
 body {
   padding-top: 70px;
 }
+body > header > nav > .container > .navbar-header > .navbar-brand {
+  font-weight: bold;
+}
+body > header > nav > .container > .navbar-collapse > ul > li.active > a {
+  border-bottom: 2px solid #DD5145;
+}
+body > header > nav > .container > .navbar-collapse > ul > li > a {
+  font-weight: bold;
+}
 body > section {
   min-height: 600px;
 }
@@ -17,4 +26,43 @@ body > section#aboutus > .container-fluid > .jumbotron > h1 {
 body > section#aboutus > .container-fluid > .jumbotron > p {
   color: #ffffff;
   font-weight: bold;
+}
+body > section#courses {
+  background-color: rgba(255, 211, 69, 0.750784);
+  padding-top: 10vh;
+}
+body > section#courses > .container > .jumbotron {
+  background-color: transparent;
+}
+body > section#courses > .container > .jumbotron > h1 {
+  color: #ffffff;
+  font-weight: bold;
+}
+body > section#courses > .container > .jumbotron > p {
+  color: #ffffff;
+  font-weight: bold;
+}
+body > section#courses > .container > .row > [class^="col-"] > .panel {
+  border: 0;
+}
+body > section#courses > .container > .row > [class^="col-"] > .panel > .panel-heading {
+  border: 0;
+}
+body > section#courses > .container > .row > [class^="col-"] > .panel > .panel-heading * {
+  font-weight: bold;
+}
+body > section#courses > .container > .row > [class^="col-"] > .panel > .panel-body {
+  background-color: #252526;
+  color: #ffffff;
+}
+body > section#courses > .container > .row > [class^="col-"] > .panel > .panel-body * {
+  font-weight: bold;
+}
+body > section#courses > .container > .row > [class^="col-"]:nth-child(1) > .panel > .panel-heading {
+  background-color: #DB5425;
+  color: #fff;
+}
+body > section#courses > .container > .row > [class^="col-"]:nth-child(2) > .panel > .panel-heading {
+  background-color: #7493EA;
+  color: #fff;
 }
