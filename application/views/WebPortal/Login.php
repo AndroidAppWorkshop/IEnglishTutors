@@ -132,6 +132,22 @@
 							</div>
 							<div class="form-group">
 								<div class="col-xs-12">
+									<div class="input-group"
+										ng-class="{ 'has-error': register.key.$invalid && register.key.$dirty }">
+										<span class="input-group-addon">
+											<i class="fa fa-key"></i>
+										</span>
+										<input type="text"
+											name="key"
+											ng-model="self.NewMember.RegisterKey"
+											class="form-control"
+											placeholder="{{self.JsonModel.Text.RegisterKey}}"
+											required />
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-xs-12">
 									<button type="submit" class="btn btn-success" ng-bind="self.JsonModel.Text.Register"></button>
 								</div>
 							</div>

@@ -11,6 +11,7 @@ class Members extends CI_Controller {
 		
 		$this->load->library(array('response', 'upload'));
 		$this->load->model('WebPortal/Member');
+		$this->load->helper(array('file'));
 	}
 	
 	public function Create()
@@ -19,8 +20,18 @@ class Members extends CI_Controller {
 		$email = $postdata->Email;
 		$password = $postdata->Password;
 		$role = $postdata->Role;
-		$result = $this->Member->Create($email, $password, $role);
-		$this->response->Json(array('Success' => $result));
+		$key = $postdata->RegisterKey;
+		
+		if($key === LoadJsonFile(APPPATH.'app_data/key.gen.json')->registerkey)
+		{
+			$result = $this->Member->Create($email, $password, $role);
+			$this->response->Json(array('Success' => $result));
+		}
+		else
+		{
+			$this->response->Json(array('Success' => false,
+												 'Error'	  => 'the register is error!'));
+		}
 	}
 	
 	public function Login()
