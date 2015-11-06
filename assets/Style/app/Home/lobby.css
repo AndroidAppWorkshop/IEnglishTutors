@@ -100,6 +100,7 @@ body > section#contactus > .container > .jumbotron > p {
   font-weight: bold;
 }
 body > section#contactus > .container > form.row > div > input {
+  height: 7vh;
   margin-bottom: 3vh;
 }
 body > section#contactus > .container > form.row > div > button {
@@ -107,6 +108,9 @@ body > section#contactus > .container > form.row > div > button {
   color: #ffffff;
   margin-top: 3vh;
   width: 100%;
+}
+body > section#contactus > .container > form.row > div > textarea {
+  height: 27vh;
 }
 body > section > .modal#send-email-success .modal-header {
   background-color: #007ACC;
@@ -121,4 +125,9 @@ body > section > .modal#send-email-failure .modal-header {
 body > section > .modal#send-email-failure .modal-header > .modal-title {
   color: #fff;
   font-weight: bold;
+}
+@media (min-width: 768px) {
+  body > section#contactus > .container > form.row > div > input:nth-last-child(1) {
+    margin-bottom: 0;
+  }
 }

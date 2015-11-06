@@ -81,15 +81,15 @@
 			<p data-bind="text: ContactUs.Content"></p>
 		</div>
 		<form class="row" data-bind="submit: SendEmail">
-			<div class="col-sm-3">
+			<div class="col-sm-5">
 				<input type="text" class="form-control" name="name" data-bind="attr: { placeholder: ContactUs.YourName }" required>
 				<input type="email" class="form-control" name="email" data-bind="attr: { placeholder: ContactUs.YourEmail }" required>
 				<input type="text" class="form-control" name="subject" data-bind="attr: { placeholder: ContactUs.Subject }" required>
 			</div>
-			<div class="col-sm-9">
+			<div class="col-sm-7">
 				<textarea class="form-control" name="message" rows="10" data-bind="attr: { placeholder: ContactUs.YourMessage }" required></textarea>
 			</div>
-			<div class="col-sm-2 col-sm-push-10">
+			<div class="col-sm-2 col-sm-push-5">
 				<button type="submit" class="btn" data-bind="text: ContactUs.Send"></button>
 			</div>
 		</div>

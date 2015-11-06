@@ -165,6 +165,7 @@ body {
 				> form.row {
 					> div {
 						> input {
+							height: 7vh;
 							margin-bottom: 3vh;
 						}
 						
@@ -173,6 +174,10 @@ body {
 							color: #ffffff;
 							margin-top: 3vh;
 							width: 100%;
+						}
+						
+						> textarea {
+							height: 27vh;
 						}
 					}
 				}
@@ -198,6 +203,24 @@ body {
 					> .modal-title {
 						color: #fff;
 						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 768px){
+	body {
+		> section {
+			&#contactus {
+				> .container {
+					> form.row {
+						> div {
+							> input:nth-last-child(1) {
+								margin-bottom: 0;
+							}
+						}
 					}
 				}
 			}
