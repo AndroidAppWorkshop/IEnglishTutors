@@ -119,6 +119,7 @@ body > section#contactus > .container > form.row > div > textarea {
 body > section#location {
   background-color: rgba(37, 37, 38, 0.95);
   min-height: 400px;
+  padding-top: 5vh;
 }
 body > section#location > .container-fluid * {
   color: #fff;
