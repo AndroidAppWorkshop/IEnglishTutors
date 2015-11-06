@@ -26,15 +26,23 @@ $(function () {
 	JsonModel.Developers.Members = ko.observableArray();
 	JsonModel.Location.Email = ko.observable();
 	$.get(window.$base_url + 'Services/Members/All', { rid: 1 }, function (data) {
+		$.each(data, function (index, value) {
+			value.Picture = value.Picture ? value.Picture : 'null.png';
+		});
+		
 		JsonModel.Teacher.Members(data);
 		JsonModel.Location.Email(data[0].Username);
 	});
-	
+
 	$.get(window.$base_url + 'Services/Members/All', { rid: 2 }, function (data) {
+		$.each(data, function (index, value) {
+			value.Picture = value.Picture ? value.Picture : 'null.png';
+		});
+		
 		JsonModel.Developers.Members(data);
 		$('.plus .email').popover();
 	});
-	
+
 	JsonModel.SendEmail = function () {
 		var url = window.$base_url + 'Services/System/SendEmail';
 		$.post(url, $('form.row').serialize(), function (data) {
