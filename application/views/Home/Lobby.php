@@ -67,7 +67,7 @@
 				</div>
 				<div class="media-body">
 					<h1 class="media-heading"><strong data-bind="text: DisplayName"></strong></h2>
-					<h3 data-bind="text: Description"></h4>
+					<span data-bind="text: Description"></span>
 				</div>
 			</div>
 		</div>

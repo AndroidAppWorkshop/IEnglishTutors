@@ -84,8 +84,9 @@ body > section#teacher > .container > .jumbotron > p {
 body > section#teacher > .container > div > .media > .media-left > .media-object {
   max-width: 20vw;
 }
-body > section#teacher > .container > div > .media > .media-body > h3 {
+body > section#teacher > .container > div > .media > .media-body > span {
   font-family: serif;
+  font-size: large;
 }
 body > section#contactus {
   padding-top: 10vh;
