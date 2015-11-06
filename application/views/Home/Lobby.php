@@ -96,6 +96,7 @@
 </section>
 <section id="location">
 	<div class="container-fluid">
+		<div class="row" id="map"></div>
 		<div class="row header">
 			<div class="col-sm-5 text-center">
 				<i class="fa fa-map-marker"></i>
@@ -110,7 +111,6 @@
 				<span data-bind="text: Location.Phone"></span>
 			</div>
 		</div>
-		<div class="row" id="map"></div>
 	</div>
 </section>
 <section id="developers">
