@@ -185,7 +185,8 @@ body {
 		}
 		
 		&#location {
-			background-color: rgba(37, 37, 38, 1);
+			background-color: rgba(37, 37, 38, 0.95);
+			min-height: 400px;
 			
 			> .container-fluid {
 				* {
@@ -209,25 +210,114 @@ body {
 			}
 		}
 		
-		> .modal {
-			&#send-email-success {
-				.modal-header {
-					background-color: #007ACC;
+		&#developers {
+			background-color: rgba(50, 174, 130, 0.800784);
+			padding-top: 10vh;
+			padding-bottom: 10vh;
+			
+			> .container {
+				> .jumbotron {
+					background-color: transparent;
 					
-					> .modal-title {
-						color: #fff;
+					> h1 {
+						color: #ffffff;
+						font-weight: bold;
+					}
+					
+					> p {
+						color: #ffffff;
+						font-weight: bold;
+					}
+				}
+				
+				> .row {
+					> [class^="col-"] {
+						> .thumbnail {
+							background-color: transparent;
+							border: 0;
+							position: relative;
+							
+							> .caption {
+								> .name {
+									font-weight: bold;
+								}
+								
+								> hr {
+									border-top: 2px solid #DD483B;
+									margin: 10px auto;
+									width: 60%;
+								}
+								
+								> .plus {
+									> a {
+										color: #333333;
+										margin: 0 1vw;
+									}
+								}
+							}
+							
+							> .description {
+								background-color: rgba(30, 30, 30, 0);
+								color: transparent;
+								min-height: 43vh;
+								padding: 5px 5px;
+								position: absolute;
+								top: 0;
+								transition: background 1s ease;
+								width: 100%;
+							}
+							
+							&:hover {
+								> .description {
+									background-color: rgba(30, 30, 30, 0.800784);
+									color: #fff;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		&#copyright {
+			background-color: rgba(37, 37, 38, 0.95);
+			min-height: 0;
+			
+			> .container {
+				> .jumbotron {
+					background-color: transparent;
+					
+					> h3 {
+						color: #ffffff;
 						font-weight: bold;
 					}
 				}
 			}
+		}
+		
+		&#extra-modal-dialog {
+			min-height: 0;
 			
-			&#send-email-failure {
-				.modal-header {
-					background-color: #DE5145;
-					
-					> .modal-title {
-						color: #fff;
-						font-weight: bold;
+			> .modal {
+				&#send-email-success {
+					.modal-header {
+						background-color: #007ACC;
+						
+						> .modal-title {
+							color: #fff;
+							font-weight: bold;
+						}
+					}
+				}
+				
+				&#send-email-failure {
+					.modal-header {
+						background-color: #DE5145;
+						
+						> .modal-title {
+							color: #fff;
+							font-weight: bold;
+						}
 					}
 				}
 			}

@@ -1,7 +1,7 @@
 function initMap() {
 	var mapOptions = {
 		zoom: 15,
-		center: new google.maps.LatLng(22.586893, 120.357603),
+		center: new google.maps.LatLng(22.5967484,120.3355417),
 		scrollwheel: false,
 		styles: [{
 			"featureType": "water",
@@ -113,7 +113,7 @@ function initMap() {
 			}]
 	};
 
-	var myLatLng = new google.maps.LatLng(22.586893, 120.357603);
+	var myLatLng = new google.maps.LatLng(22.5967484,120.3355417);
 		
 	// Create a map object and specify the DOM element for display.
 	var map = new google.maps.Map(document.getElementById('map'), mapOptions);

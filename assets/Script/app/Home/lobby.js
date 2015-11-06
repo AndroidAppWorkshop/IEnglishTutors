@@ -23,12 +23,18 @@ $(function () {
 	};
 
 	JsonModel.Teacher.Members = ko.observableArray();
+	JsonModel.Developers.Members = ko.observableArray();
 	JsonModel.Location.Email = ko.observable();
 	$.get(window.$base_url + 'Services/Members/All', { rid: 1 }, function (data) {
 		JsonModel.Teacher.Members(data);
 		JsonModel.Location.Email(data[0].Username);
 	});
-
+	
+	$.get(window.$base_url + 'Services/Members/All', { rid: 2 }, function (data) {
+		JsonModel.Developers.Members(data);
+		$('.plus .email').popover();
+	});
+	
 	JsonModel.SendEmail = function () {
 		var url = window.$base_url + 'Services/System/SendEmail';
 		$.post(url, $('form.row').serialize(), function (data) {

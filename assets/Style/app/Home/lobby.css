@@ -113,7 +113,8 @@ body > section#contactus > .container > form.row > div > textarea {
   height: 27vh;
 }
 body > section#location {
-  background-color: #252526;
+  background-color: rgba(37, 37, 38, 0.95);
+  min-height: 400px;
 }
 body > section#location > .container-fluid * {
   color: #fff;
@@ -128,17 +129,78 @@ body > section#location > .container-fluid > .header > [class^="col-"] > i {
 body > section#location > .container-fluid > #map {
   height: 65vh;
 }
-body > section > .modal#send-email-success .modal-header {
+body > section#developers {
+  background-color: rgba(50, 174, 130, 0.800784);
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+body > section#developers > .container > .jumbotron {
+  background-color: transparent;
+}
+body > section#developers > .container > .jumbotron > h1 {
+  color: #ffffff;
+  font-weight: bold;
+}
+body > section#developers > .container > .jumbotron > p {
+  color: #ffffff;
+  font-weight: bold;
+}
+body > section#developers > .container > .row > [class^="col-"] > .thumbnail {
+  background-color: transparent;
+  border: 0;
+  position: relative;
+}
+body > section#developers > .container > .row > [class^="col-"] > .thumbnail > .caption > .name {
+  font-weight: bold;
+}
+body > section#developers > .container > .row > [class^="col-"] > .thumbnail > .caption > hr {
+  border-top: 2px solid #DD483B;
+  margin: 10px auto;
+  width: 60%;
+}
+body > section#developers > .container > .row > [class^="col-"] > .thumbnail > .caption > .plus > a {
+  color: #333333;
+  margin: 0 1vw;
+}
+body > section#developers > .container > .row > [class^="col-"] > .thumbnail > .description {
+  background-color: rgba(30, 30, 30, 0);
+  color: transparent;
+  min-height: 43vh;
+  padding: 5px 5px;
+  position: absolute;
+  top: 0;
+  transition: background 1s ease;
+  width: 100%;
+}
+body > section#developers > .container > .row > [class^="col-"] > .thumbnail:hover > .description {
+  background-color: rgba(30, 30, 30, 0.800784);
+  color: #fff;
+}
+body > section#copyright {
+  background-color: rgba(37, 37, 38, 0.95);
+  min-height: 0;
+}
+body > section#copyright > .container > .jumbotron {
+  background-color: transparent;
+}
+body > section#copyright > .container > .jumbotron > h3 {
+  color: #ffffff;
+  font-weight: bold;
+}
+body > section#extra-modal-dialog {
+  min-height: 0;
+}
+body > section#extra-modal-dialog > .modal#send-email-success .modal-header {
   background-color: #007ACC;
 }
-body > section > .modal#send-email-success .modal-header > .modal-title {
+body > section#extra-modal-dialog > .modal#send-email-success .modal-header > .modal-title {
   color: #fff;
   font-weight: bold;
 }
-body > section > .modal#send-email-failure .modal-header {
+body > section#extra-modal-dialog > .modal#send-email-failure .modal-header {
   background-color: #DE5145;
 }
-body > section > .modal#send-email-failure .modal-header > .modal-title {
+body > section#extra-modal-dialog > .modal#send-email-failure .modal-header > .modal-title {
   color: #fff;
   font-weight: bold;
 }

@@ -114,8 +114,39 @@
 		<div class="row" id="map"></div>
 	</div>
 </section>
-<section id="developers">developers</section>
-<section>
+<section id="developers">
+	<div class="container">
+		<div class="jumbotron text-center">
+			<h1 data-bind="text: Developers.Title"></h1>
+			<p data-bind="text: Developers.Content"></p>
+		</div>
+		<div class="row" data-bind="foreach: Developers.Members">
+			<div class="col-sm-3">
+				<div class="thumbnail">
+					<img class="img-circle img-responsive" data-bind="attr: { src: '/assets/images/Members/' + Picture + Key  }">
+					<div class="caption text-center">
+						<h3 class="name" data-bind="text: DisplayName"></h3>
+						<hr />
+						<div class="plus">
+							<a data-bind="attr: { href: GitHub }" ><i class="fa fa-github fa-3x"></i></a>
+							<a data-bind="attr: { href: Facebook }"><i class="fa fa-facebook-official fa-3x"></i></a>
+							<a class="email" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-bind="attr: { 'data-content': Username }"><i class="fa fa-envelope fa-3x"></i></a>
+						</div>
+					</div>
+					<p class="description" data-bind="text: Description"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="copyright">
+	<div class="container">
+		<div class="jumbotron text-center">
+			<h3 data-bind="text: Copyright"></h3>
+		</div>
+	</div>
+</section>
+<section id="extra-modal-dialog">
 	<div id="send-email-success" class="modal fade" tabindex="-1" role="dialog">
 		<div class="modal-dialog modal-sm">
 			<div class="modal-content">
