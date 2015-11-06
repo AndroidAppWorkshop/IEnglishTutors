@@ -5,5 +5,6 @@
 	</script>
 	<?=$MasterJs?>
 	<?=$PlugJs?>
+	<?=$GoogleMap?>
 </body>
 </html>

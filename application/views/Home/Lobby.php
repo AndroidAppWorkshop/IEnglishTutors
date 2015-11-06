@@ -95,7 +95,25 @@
 		</div>
 	</div>
 </section>
-<section id="location">location</section>
+<section id="location">
+	<div class="container-fluid">
+		<div class="row header">
+			<div class="col-sm-5 text-center">
+				<i class="fa fa-map-marker"></i>
+				<span data-bind="text: Location.Address"></span>
+			</div>
+			<div class="col-sm-3 text-center">
+				<i class="fa fa-envelope-o"></i>
+				<span data-bind="text: Location.Email"></span>
+			</div>
+			<div class="col-sm-4 text-center">
+				<i class="fa fa-phone"></i>
+				<span data-bind="text: Location.Phone"></span>
+			</div>
+		</div>
+		<div class="row" id="map"></div>
+	</div>
+</section>
 <section id="developers">developers</section>
 <section>
 	<div id="send-email-success" class="modal fade" tabindex="-1" role="dialog">

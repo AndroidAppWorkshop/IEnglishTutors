@@ -33,7 +33,8 @@ module.exports = function (config) {
 			agenda: script + 'apis/agenda.js'
 		},
 		app: {
-			home_lobby: script + 'app/Home/lobby.js'
+			home_lobby: script + 'app/Home/lobby.js',
+			googlemap: script + 'app/googlemap.js'
 		},
 		webportal: {
 			apps: script + 'WebPortal/apps.module.js',
@@ -98,7 +99,8 @@ module.exports = function (config) {
 			],
 			"script": [
 				js.bower.vegas,
-				js.app.home_lobby
+				js.app.home_lobby,
+				js.app.googlemap
 			]
 		},
 		"webportal.index": {

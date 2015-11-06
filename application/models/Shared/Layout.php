@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+define('GoogleMapApiKey', 'AIzaSyAjuWsRrCrWkHBKUVBmXu4OqDO0cu2RV34');
 
 class Layout extends CI_Model {
 	
@@ -118,6 +119,18 @@ class Layout extends CI_Model {
 		else
 		{
 			return '<body data-spy="scroll" data-target="#navigation">';
+		}
+	}
+	
+	public function GoogleMap($controller)
+	{
+		if($controller === 'webportal')
+		{
+			return NULL;
+		}
+		else
+		{
+			return '<script async defer src="https://maps.googleapis.com/maps/api/js?key='.GoogleMapApiKey.'&callback=initMap"></script>';
 		}
 	}
 	

@@ -112,6 +112,22 @@ body > section#contactus > .container > form.row > div > button {
 body > section#contactus > .container > form.row > div > textarea {
   height: 27vh;
 }
+body > section#location {
+  background-color: #252526;
+}
+body > section#location > .container-fluid * {
+  color: #fff;
+}
+body > section#location > .container-fluid > .header > [class^="col-"] {
+  font-size: large;
+  padding: 5vh 0;
+}
+body > section#location > .container-fluid > .header > [class^="col-"] > i {
+  margin-right: 1vw;
+}
+body > section#location > .container-fluid > #map {
+  height: 65vh;
+}
 body > section > .modal#send-email-success .modal-header {
   background-color: #007ACC;
 }

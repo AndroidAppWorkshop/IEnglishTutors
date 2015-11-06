@@ -23,8 +23,10 @@ $(function () {
 	};
 
 	JsonModel.Teacher.Members = ko.observableArray();
+	JsonModel.Location.Email = ko.observable();
 	$.get(window.$base_url + 'Services/Members/All', { rid: 1 }, function (data) {
 		JsonModel.Teacher.Members(data);
+		JsonModel.Location.Email(data[0].Username);
 	});
 
 	JsonModel.SendEmail = function () {

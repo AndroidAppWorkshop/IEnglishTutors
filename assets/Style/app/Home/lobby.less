@@ -184,6 +184,31 @@ body {
 			}
 		}
 		
+		&#location {
+			background-color: rgba(37, 37, 38, 1);
+			
+			> .container-fluid {
+				* {
+					color: #fff;
+				}
+				
+				> .header {
+					> [class^="col-"] {
+						font-size: large;
+						padding: 5vh 0;
+						
+						> i {
+							margin-right: 1vw;
+						}
+					}
+				}
+				
+				> #map {
+					height: 65vh;
+				}
+			}
+		}
+		
 		> .modal {
 			&#send-email-success {
 				.modal-header {

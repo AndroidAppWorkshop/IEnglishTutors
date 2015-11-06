@@ -43,6 +43,7 @@ class IET_Loader extends CI_Loader {
 		$data['Preference'] = $this->CI->Layout->PreferenceJson();
 		$data['MasterJs'] = $this->CI->Layout->MasterJs($this->GlobalKey);
 		$data['PlugJs'] = $this->CI->Layout->PlugJs(strtolower($this->CI->Router->GetCurrentPathWithDot()));
+		$data['GoogleMap'] = $this->CI->Layout->GoogleMap(strtolower($this->CI->Router->GetCurrentController()));
 		
 		return $data;
 	}
