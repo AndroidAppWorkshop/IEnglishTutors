@@ -17,7 +17,7 @@
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right" data-bind="foreach: Header.Nav">
-					<li><a data-bind="text: Text, attr: { href: $parent.NavTarget(Target) }"></a></li>
+					<li><a data-bind="text: Text, attr: { href: Target }"></a></li>
 				</ul>
 			</div>
 		</div>
@@ -28,7 +28,6 @@
 		<div class="jumbotron text-center">
 			<h1 data-bind="text: AboutUs.Title"></h1>
 			<p data-bind="text: AboutUs.Content"></p>
-			<p><a class="btn btn-primary btn-lg" href="#courses" data-bind="text: AboutUs.Button"></a></p>
 		</div>
 	</div>
 </section>

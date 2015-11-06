@@ -14,14 +14,6 @@ $(function () {
 		});
 	};
 
-	JsonModel.NavTarget = function (Link) {
-		if (Link.substring(0, 1) != '#') {
-			return window.$base_url + Link;
-		}
-
-		return Link;
-	};
-
 	JsonModel.Teacher.Members = ko.observableArray();
 	JsonModel.Developers.Members = ko.observableArray();
 	JsonModel.Location.Email = ko.observable();
