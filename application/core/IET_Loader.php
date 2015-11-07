@@ -20,6 +20,7 @@ class IET_Loader extends CI_Loader {
 		$path = $this->CI->Router->GetCurrentPath($view);
 		
 		$this->view('Shared/Header', $this->GetHeaderData());
+		$this->view('Shared/AnalyticsTracking');
 		$this->view($path, $vars, $return);
 		$this->view('Shared/Footer', $this->GetFooterData());
 	}
