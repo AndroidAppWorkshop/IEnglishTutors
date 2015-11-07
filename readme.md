@@ -2,12 +2,6 @@
 
 Back-End 使用 PHP 搭 CodeIgniter 框架架設在 HostGator 上, Front-To-End 分別使用 KnockoutJs / AngularJs  框架去建構前後台, 套件與打包流程使用 Gulp / Bower 去管理.
 
-# Example
-
-[前台](http://lab.ienglishtutors.com/)
-
-[後台](http://lab.ienglishtutors.com/WebPortal)
-
 # Documents
 
 ### 如何控制頁面該載入哪些 JS/CSS ?
@@ -35,3 +29,9 @@ Back-End 使用 PHP 搭 CodeIgniter 框架架設在 HostGator 上, Front-To-End 
 ### 檔案上傳 / 下載 ?
 
 使用別人寫好的 ng-file-upload 的套件去把檔案上傳功能給完成, 下載則是直接使用 CodeIgniter 提供的 Download API.
+
+# Example
+
+[前台](http://lab.ienglishtutors.com/)
+
+[後台](http://lab.ienglishtutors.com/WebPortal)
