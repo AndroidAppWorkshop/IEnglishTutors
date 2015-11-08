@@ -11,6 +11,17 @@ body > header > nav > .container > .navbar-collapse > ul > li.active > a {
 body > header > nav > .container > .navbar-collapse > ul > li > a {
   font-weight: bold;
 }
+body > header > nav > .container > .navbar-collapse > ul > li > ul.dropdown-menu > li > a {
+  background-repeat: no-repeat;
+  background-position: 15px 0;
+  padding: 3px 45px;
+}
+body > header > nav > .container > .navbar-collapse > ul > li > ul.dropdown-menu > li:nth-child(1) > a {
+  background-image: url('/assets/images/Home/United States of America(USA).png');
+}
+body > header > nav > .container > .navbar-collapse > ul > li > ul.dropdown-menu > li:nth-child(2) > a {
+  background-image: url('/assets/images/Home/Taiwan.png');
+}
 body > section {
   min-height: 600px;
 }
