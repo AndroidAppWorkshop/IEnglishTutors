@@ -21,7 +21,7 @@ class Layout extends CI_Model {
 	
 	public function GlobalVariable()
 	{
-		$result = $this->GenerateScriptVariable('$base_url', base_url(), TRUE);
+		$result = $this->GenerateScriptVariable('$base_url',$this->Environment->IsDevelopment() ? base_url() : '/', TRUE);
 		$result = $result.$this->GenerateScriptVariable('$IsDev', $this->Environment->IsDevelopment());
 		$result = $result.$this->GenerateScriptVariable('$CurrentLang', $this->User->CurrentLanguage(), TRUE);
 		return $result;
