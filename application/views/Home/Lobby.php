@@ -120,7 +120,7 @@
 			<p data-bind="text: Developers.Content"></p>
 		</div>
 		<div class="row" data-bind="foreach: Developers.Members">
-			<div class="col-sm-3">
+			<div class="col-sm-4">
 				<div class="thumbnail">
 					<img class="img-circle img-responsive" data-bind="attr: { src: '/assets/images/Members/' + Picture + Key  }">
 					<div class="caption text-center">
